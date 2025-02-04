@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>contacts</class>
+ <widget class="QWidget" name="contacts">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(64, 65, 66);</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>720</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="currentIndex">
+    <number>4</number>
+   </property>
+   <widget class="QWidget" name="contacts_1">
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>50</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Arcas Page 1</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="contacts_2">
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>50</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Awal Page 2</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="contacts_3">
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>60</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Awal Page 3</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="contacts_4">
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>60</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Abuan Page 4</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="contacts_5">
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>60</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Abuan Page 5</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
