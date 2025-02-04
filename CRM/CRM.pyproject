@@ -1,0 +1,14 @@
+{
+    "files": [
+        "authenticationsystem.ui",
+        "contacts.ui",
+        "icons.qrc",
+        "main.py",
+        "mainwindow.ui",
+        "requirements.txt",
+        "sidebar.ui",
+        "ui_authenticationsystem.py",
+        "ui_mainwindow.py",
+        "ui_sidebar.py"
+    ]
+}
