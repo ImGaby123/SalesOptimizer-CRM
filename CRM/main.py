@@ -1,9 +1,8 @@
 import sys
 import sqlite3
-from PySide6.QtWidgets import QApplication, QDialog, QMessageBox, QMainWindow
-from PySide6.QtUiTools import QUiLoader
+from PySide6.QtWidgets import QApplication, QDialog, QMessageBox, QMainWindow, QMdiArea, QMdiSubWindow, QTextEdit, QMenuBar, QStatusBar
+from PySide6.QtCore import Qt
 from ui_authenticationsystem import Ui_authenticationsystem
-from ui_mainwindow import Ui_MainWindow  # Import your main window UI
 
 class AuthenticationSystem(QDialog):
     def __init__(self):
@@ -54,7 +53,7 @@ class AuthenticationSystem(QDialog):
             self.passvalidation_label.setText("Password field is required")
             return
 
-        conn = sqlite3.connect(r"C:\Users\Administrator\Documents\QTCreatorProjects\CRM\mydb.db")
+        conn = sqlite3.connect(r"C:\Users\Administrator\Documents\QTCreatorProjects\SalesOptimizer-CRM\CRM\mydb.db")
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM accounts_tbl WHERE username = ? AND password = ?", (username, password))
         user = cursor.fetchone()
@@ -106,11 +105,74 @@ class AuthenticationSystem(QDialog):
 
     def open_mainwindow(self):
         """ Open MainWindow after successful login """
-        self.main_window = QMainWindow()
-        self.ui_main = Ui_MainWindow()
-        self.ui_main.setupUi(self.main_window)
+        self.main_window = MainWindow()  # Create MainWindow instance
         self.main_window.show()
         self.accept()  # Close login dialog
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        # Setup menu bar and status bar
+        self.setMenuBar(QMenuBar(self))
+        self.setStatusBar(QStatusBar(self))
+
+        # Set the MDI Area manually
+        self.mdi_area = QMdiArea()
+        self.setCentralWidget(self.mdi_area)  # Replace existing central widget
+
+        # Create and add subwindows
+        self.create_subwindows()
+
+        # Show maximized (avoiding taskbar overlap)
+        self.showMaximized()
+
+    def create_subwindows(self):
+        """Create two subwindows with a 10:90 split inside the loaded MDI area."""
+        screen_width = self.screen().availableGeometry().width()
+        screen_height = self.screen().availableGeometry().height() - self.menuBar().height() - self.statusBar().height()
+
+        left_width = int(screen_width * 0.1)  # 10% width
+        right_width = int(screen_width * 0.9)  # 90% width
+
+        # Left Subwindow (10%)
+        left_widget = QTextEdit("Left Subwindow - 10%")
+        self.left_subwin = QMdiSubWindow()
+        self.left_subwin.setWidget(left_widget)
+        self.left_subwin.setWindowTitle("Left Subwindow")
+        self.left_subwin.resize(left_width, screen_height)
+        self.mdi_area.addSubWindow(self.left_subwin)
+
+        # Right Subwindow (90%)
+        right_widget = QTextEdit("Right Subwindow - 90%")
+        self.right_subwin = QMdiSubWindow()
+        self.right_subwin.setWidget(right_widget)
+        self.right_subwin.setWindowTitle("Right Subwindow")
+        self.right_subwin.resize(right_width, screen_height)
+        self.mdi_area.addSubWindow(self.right_subwin)
+
+        # Move windows to maintain 10:90 split
+        self.left_subwin.move(0, 0)
+        self.right_subwin.move(left_width, 0)
+
+        self.left_subwin.show()
+        self.right_subwin.show()
+
+    def resizeEvent(self, event):
+        """Ensure the 10:90 split is maintained when resizing."""
+        screen_width = self.width()
+        screen_height = self.height() - self.menuBar().height() - self.statusBar().height()
+
+        left_width = int(screen_width * 0.1)
+        right_width = int(screen_width * 0.9)
+
+        self.left_subwin.resize(left_width, screen_height)
+        self.right_subwin.resize(right_width, screen_height)
+        self.right_subwin.move(left_width, 0)
+
+        super().resizeEvent(event)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

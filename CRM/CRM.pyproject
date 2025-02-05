@@ -4,12 +4,11 @@
         "contacts.ui",
         "icons.qrc",
         "main.py",
-        "mainwindow.ui",
         "requirements.txt",
         "sidebar.ui",
         "testrun.py",
         "ui_authenticationsystem.py",
-        "ui_mainwindow.py",
+        "ui_contacts.py",
         "ui_sidebar.py"
     ]
 }
