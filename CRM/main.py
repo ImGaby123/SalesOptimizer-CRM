@@ -65,6 +65,15 @@ class AuthenticationSystem(QDialog):
         else:
             self.passvalidation_label.setText("Username or password is incorrect")
 
+    def keyPressEvent(self, event):
+        if event.key() in (Qt.Key_Return, Qt.Key_Enter):
+            if self.stackedWidget.currentIndex() == 0:  # Login page
+                self.login_button.click()
+            elif self.stackedWidget.currentIndex() == 1:  # Signup page
+                self.signup_button.click()
+        else:
+            super().keyPressEvent(event)
+
     def signup(self):
         username = self.username_input_2.text().strip()
         password = self.password_input_2.text().strip()
