@@ -61,7 +61,6 @@ class AuthenticationSystem(QDialog):
         conn.close()
 
         if user:
-            QMessageBox.information(self, "Success", "Login successful!")
             self.open_mainwindow()
         else:
             self.passvalidation_label.setText("Username or password is incorrect")
@@ -130,6 +129,9 @@ class MainWindow(QMainWindow):
         self.setMenuBar(QMenuBar(self))
         self.setStatusBar(QStatusBar(self))
 
+        # Add menu and actions
+        self.create_menu()
+
         # Set the MDI Area manually
         self.mdi_area = QMdiArea()
         self.setCentralWidget(self.mdi_area)
@@ -139,6 +141,31 @@ class MainWindow(QMainWindow):
 
         # Show maximized by default
         self.showMaximized()
+
+    def create_menu(self):
+        """ Create menu bar with Open > Subwindow > Left, Right options. """
+        open_menu = self.menuBar().addMenu("Open")
+        subwindow_menu = open_menu.addMenu("Subwindow")
+
+        left_action = subwindow_menu.addAction("Left")
+        right_action = subwindow_menu.addAction("Right")
+
+        left_action.triggered.connect(self.open_left_subwindow)
+        right_action.triggered.connect(self.open_right_subwindow)
+
+    def open_left_subwindow(self):
+        """ Open the left subwindow with its contents. """
+        if not self.left_subwin.isVisible():
+            self.sidebar = SidebarForm()  # Ensure sidebar is initialized
+            self.left_subwin.setWidget(self.sidebar)  # Set sidebar as widget
+        self.left_subwin.show()
+
+    def open_right_subwindow(self):
+        """ Open the right subwindow with its contents. """
+        if not self.right_subwin.isVisible():
+            right_widget = QTextEdit("Right Subwindow - 90%")
+            self.right_subwin.setWidget(right_widget)  # Ensure right widget is set
+        self.right_subwin.show()
 
     def create_subwindows(self):
         """ Create two subwindows with a 10:90 split inside the loaded MDI area. """
