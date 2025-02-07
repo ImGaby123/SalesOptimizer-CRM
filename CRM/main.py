@@ -1,8 +1,9 @@
 import sys
 import sqlite3
-from PySide6.QtWidgets import QApplication, QDialog, QMessageBox, QMainWindow, QMdiArea, QMdiSubWindow, QTextEdit, QMenuBar, QStatusBar
+from PySide6.QtWidgets import QApplication, QDialog, QMessageBox, QMainWindow, QMdiArea, QMdiSubWindow, QTextEdit, QMenuBar, QStatusBar, QWidget, QSizePolicy
 from PySide6.QtCore import Qt
 from ui_authenticationsystem import Ui_authenticationsystem
+from ui_sidebar import Ui_sidebar
 
 class AuthenticationSystem(QDialog):
     def __init__(self):
@@ -109,6 +110,17 @@ class AuthenticationSystem(QDialog):
         self.main_window.show()
         self.accept()  # Close login dialog
 
+class SidebarForm(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_sidebar()
+        self.ui.setupUi(self)
+
+        # Ensure the sidebar widget resizes with its parent subwindow
+        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+        # Set layout for sidebar to fill parent space
+        self.setLayout(self.ui.verticalLayout)
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -120,27 +132,27 @@ class MainWindow(QMainWindow):
 
         # Set the MDI Area manually
         self.mdi_area = QMdiArea()
-        self.setCentralWidget(self.mdi_area)  # Replace existing central widget
+        self.setCentralWidget(self.mdi_area)
 
         # Create and add subwindows
         self.create_subwindows()
 
-        # Show maximized (avoiding taskbar overlap)
+        # Show maximized by default
         self.showMaximized()
 
     def create_subwindows(self):
-        """Create two subwindows with a 10:90 split inside the loaded MDI area."""
+        """ Create two subwindows with a 10:90 split inside the loaded MDI area. """
         screen_width = self.screen().availableGeometry().width()
         screen_height = self.screen().availableGeometry().height() - self.menuBar().height() - self.statusBar().height()
 
         left_width = int(screen_width * 0.1)  # 10% width
         right_width = int(screen_width * 0.9)  # 90% width
 
-        # Left Subwindow (10%)
-        left_widget = QTextEdit("Left Subwindow - 10%")
+        # Left Subwindow (10%) with Sidebar UI
+        self.sidebar = SidebarForm()  # Load sidebar UI
         self.left_subwin = QMdiSubWindow()
-        self.left_subwin.setWidget(left_widget)
-        self.left_subwin.setWindowTitle("Left Subwindow")
+        self.left_subwin.setWidget(self.sidebar)
+        self.left_subwin.setWindowTitle("Sidebar")
         self.left_subwin.resize(left_width, screen_height)
         self.mdi_area.addSubWindow(self.left_subwin)
 
@@ -160,18 +172,27 @@ class MainWindow(QMainWindow):
         self.right_subwin.show()
 
     def resizeEvent(self, event):
-        """Ensure the 10:90 split is maintained when resizing."""
+        """ Ensure the 10:90 split is maintained when resizing. """
         screen_width = self.width()
         screen_height = self.height() - self.menuBar().height() - self.statusBar().height()
 
+        # Update the width of the left and right subwindows based on the main window's size
         left_width = int(screen_width * 0.1)
         right_width = int(screen_width * 0.9)
 
+        # Resize the subwindows and move the right subwindow to maintain the 10:90 split
         self.left_subwin.resize(left_width, screen_height)
         self.right_subwin.resize(right_width, screen_height)
         self.right_subwin.move(left_width, 0)
 
+        # Resize the sidebar widget inside the left subwindow
+        self.sidebar.resize(left_width, screen_height)
+
+        # Force the layout to update (important when resizing from a maximized window)
+        self.sidebar.ui.verticalLayout.update()
+
         super().resizeEvent(event)
+
 
 
 if __name__ == "__main__":
