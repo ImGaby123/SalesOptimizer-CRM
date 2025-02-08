@@ -49,12 +49,13 @@ class Ui_contacts(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, -88, 1218, 1218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, -2072, 1218, 4018))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.frame = QFrame(self.scrollAreaWidgetContents)
         self.frame.setObjectName(u"frame")
-        self.frame.setMinimumSize(QSize(1200, 1200))
+        self.frame.setMinimumSize(QSize(1200, 4000))
+        self.frame.setMaximumSize(QSize(16777215, 16777215))
         self.frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QFrame.Shadow.Raised)
         self.BackToContactsBtn = QPushButton(self.frame)
@@ -168,13 +169,13 @@ class Ui_contacts(object):
         self.Picture.setObjectName(u"Picture")
         self.Picture.setGeometry(QRect(640, 210, 49, 16))
         self.Picture.setStyleSheet(u"color: rgb(0, 0, 0);")
-        self.widget1 = QWidget(self.frame)
-        self.widget1.setObjectName(u"widget1")
-        self.widget1.setGeometry(QRect(40, 380, 471, 561))
-        self.verticalLayout_3 = QVBoxLayout(self.widget1)
+        self.layoutWidget = QWidget(self.frame)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(40, 380, 471, 561))
+        self.verticalLayout_3 = QVBoxLayout(self.layoutWidget)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.NameLabel = QLabel(self.widget1)
+        self.NameLabel = QLabel(self.layoutWidget)
         self.NameLabel.setObjectName(u"NameLabel")
         self.NameLabel.setFont(font)
         self.NameLabel.setStyleSheet(u"color: rgb(0, 0, 0);")
@@ -185,33 +186,33 @@ class Ui_contacts(object):
 
         self.verticalLayout_3.addItem(self.verticalSpacer_2)
 
-        self.SalutationLabel = QLabel(self.widget1)
+        self.SalutationLabel = QLabel(self.layoutWidget)
         self.SalutationLabel.setObjectName(u"SalutationLabel")
         self.SalutationLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.verticalLayout_3.addWidget(self.SalutationLabel)
 
-        self.comboBox = QComboBox(self.widget1)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setMaximumSize(QSize(16777215, 150))
+        self.Salutation = QComboBox(self.layoutWidget)
+        self.Salutation.addItem("")
+        self.Salutation.addItem("")
+        self.Salutation.addItem("")
+        self.Salutation.addItem("")
+        self.Salutation.setObjectName(u"Salutation")
+        self.Salutation.setMaximumSize(QSize(16777215, 150))
 
-        self.verticalLayout_3.addWidget(self.comboBox)
+        self.verticalLayout_3.addWidget(self.Salutation)
 
         self.verticalSpacer = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
 
         self.verticalLayout_3.addItem(self.verticalSpacer)
 
-        self.FirstNameLabel = QLabel(self.widget1)
+        self.FirstNameLabel = QLabel(self.layoutWidget)
         self.FirstNameLabel.setObjectName(u"FirstNameLabel")
         self.FirstNameLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.verticalLayout_3.addWidget(self.FirstNameLabel)
 
-        self.FirstName = QLineEdit(self.widget1)
+        self.FirstName = QLineEdit(self.layoutWidget)
         self.FirstName.setObjectName(u"FirstName")
         self.FirstName.setMaximumSize(QSize(16777215, 300))
 
@@ -221,13 +222,13 @@ class Ui_contacts(object):
 
         self.verticalLayout_3.addItem(self.verticalSpacer_3)
 
-        self.LastNameLabel = QLabel(self.widget1)
+        self.LastNameLabel = QLabel(self.layoutWidget)
         self.LastNameLabel.setObjectName(u"LastNameLabel")
         self.LastNameLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.verticalLayout_3.addWidget(self.LastNameLabel)
 
-        self.LastName = QLineEdit(self.widget1)
+        self.LastName = QLineEdit(self.layoutWidget)
         self.LastName.setObjectName(u"LastName")
         self.LastName.setMaximumSize(QSize(16777215, 300))
 
@@ -237,13 +238,13 @@ class Ui_contacts(object):
 
         self.verticalLayout_3.addItem(self.verticalSpacer_4)
 
-        self.MiddleNameLabel = QLabel(self.widget1)
+        self.MiddleNameLabel = QLabel(self.layoutWidget)
         self.MiddleNameLabel.setObjectName(u"MiddleNameLabel")
         self.MiddleNameLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.verticalLayout_3.addWidget(self.MiddleNameLabel)
 
-        self.MiddleName = QLineEdit(self.widget1)
+        self.MiddleName = QLineEdit(self.layoutWidget)
         self.MiddleName.setObjectName(u"MiddleName")
         self.MiddleName.setMaximumSize(QSize(16777215, 300))
 
@@ -253,18 +254,378 @@ class Ui_contacts(object):
 
         self.verticalLayout_3.addItem(self.verticalSpacer_5)
 
-        self.SuffixLabel = QLabel(self.widget1)
+        self.SuffixLabel = QLabel(self.layoutWidget)
         self.SuffixLabel.setObjectName(u"SuffixLabel")
         self.SuffixLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.verticalLayout_3.addWidget(self.SuffixLabel)
 
-        self.Suffix = QLineEdit(self.widget1)
+        self.Suffix = QLineEdit(self.layoutWidget)
         self.Suffix.setObjectName(u"Suffix")
         self.Suffix.setMaximumSize(QSize(16777215, 300))
 
         self.verticalLayout_3.addWidget(self.Suffix)
 
+        self.layoutWidget_2 = QWidget(self.frame)
+        self.layoutWidget_2.setObjectName(u"layoutWidget_2")
+        self.layoutWidget_2.setGeometry(QRect(670, 370, 481, 571))
+        self.verticalLayout_5 = QVBoxLayout(self.layoutWidget_2)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.DateOfBirthLabel = QLabel(self.layoutWidget_2)
+        self.DateOfBirthLabel.setObjectName(u"DateOfBirthLabel")
+        self.DateOfBirthLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_5.addWidget(self.DateOfBirthLabel)
+
+        self.DateOfBIrth = QLineEdit(self.layoutWidget_2)
+        self.DateOfBIrth.setObjectName(u"DateOfBIrth")
+        self.DateOfBIrth.setMinimumSize(QSize(0, 0))
+        self.DateOfBIrth.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_5.addWidget(self.DateOfBIrth)
+
+        self.verticalSpacer_7 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_5.addItem(self.verticalSpacer_7)
+
+        self.LeadStatusLabel = QLabel(self.layoutWidget_2)
+        self.LeadStatusLabel.setObjectName(u"LeadStatusLabel")
+        self.LeadStatusLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_5.addWidget(self.LeadStatusLabel)
+
+        self.LeadStatus = QComboBox(self.layoutWidget_2)
+        self.LeadStatus.addItem("")
+        self.LeadStatus.addItem("")
+        self.LeadStatus.addItem("")
+        self.LeadStatus.addItem("")
+        self.LeadStatus.setObjectName(u"LeadStatus")
+        self.LeadStatus.setMaximumSize(QSize(16777215, 150))
+
+        self.verticalLayout_5.addWidget(self.LeadStatus)
+
+        self.verticalSpacer_8 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_5.addItem(self.verticalSpacer_8)
+
+        self.TitleLabel = QLabel(self.layoutWidget_2)
+        self.TitleLabel.setObjectName(u"TitleLabel")
+        self.TitleLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_5.addWidget(self.TitleLabel)
+
+        self.Title = QLineEdit(self.layoutWidget_2)
+        self.Title.setObjectName(u"Title")
+        self.Title.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_5.addWidget(self.Title)
+
+        self.verticalSpacer_9 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_5.addItem(self.verticalSpacer_9)
+
+        self.MiddleNameLabel_2 = QLabel(self.layoutWidget_2)
+        self.MiddleNameLabel_2.setObjectName(u"MiddleNameLabel_2")
+        self.MiddleNameLabel_2.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_5.addWidget(self.MiddleNameLabel_2)
+
+        self.Email = QLineEdit(self.layoutWidget_2)
+        self.Email.setObjectName(u"Email")
+        self.Email.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_5.addWidget(self.Email)
+
+        self.verticalSpacer_10 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_5.addItem(self.verticalSpacer_10)
+
+        self.SuffixLabel_2 = QLabel(self.layoutWidget_2)
+        self.SuffixLabel_2.setObjectName(u"SuffixLabel_2")
+        self.SuffixLabel_2.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_5.addWidget(self.SuffixLabel_2)
+
+        self.Suffix_2 = QLineEdit(self.layoutWidget_2)
+        self.Suffix_2.setObjectName(u"Suffix_2")
+        self.Suffix_2.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_5.addWidget(self.Suffix_2)
+
+        self.widget_2 = QWidget(self.frame)
+        self.widget_2.setObjectName(u"widget_2")
+        self.widget_2.setGeometry(QRect(10, 1040, 1181, 41))
+        self.widget_2.setStyleSheet(u"background-color: rgb(149, 149, 149);")
+        self.AdditionalInformation = QLabel(self.widget_2)
+        self.AdditionalInformation.setObjectName(u"AdditionalInformation")
+        self.AdditionalInformation.setGeometry(QRect(20, 10, 181, 21))
+        self.AdditionalInformation.setFont(font)
+        self.AdditionalInformation.setStyleSheet(u"color: rgb(0, 0, 0);")
+        self.layoutWidget_3 = QWidget(self.frame)
+        self.layoutWidget_3.setObjectName(u"layoutWidget_3")
+        self.layoutWidget_3.setGeometry(QRect(40, 1120, 421, 411))
+        self.verticalLayout_6 = QVBoxLayout(self.layoutWidget_3)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.SecondaryEmailLabel = QLabel(self.layoutWidget_3)
+        self.SecondaryEmailLabel.setObjectName(u"SecondaryEmailLabel")
+        self.SecondaryEmailLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_6.addWidget(self.SecondaryEmailLabel)
+
+        self.SecondaryEmail = QLineEdit(self.layoutWidget_3)
+        self.SecondaryEmail.setObjectName(u"SecondaryEmail")
+        self.SecondaryEmail.setMinimumSize(QSize(0, 0))
+        self.SecondaryEmail.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_6.addWidget(self.SecondaryEmail)
+
+        self.verticalSpacer_11 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer_11)
+
+        self.OtherPhoneNumLabel = QLabel(self.layoutWidget_3)
+        self.OtherPhoneNumLabel.setObjectName(u"OtherPhoneNumLabel")
+        self.OtherPhoneNumLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_6.addWidget(self.OtherPhoneNumLabel)
+
+        self.OtherPhoneNum = QLineEdit(self.layoutWidget_3)
+        self.OtherPhoneNum.setObjectName(u"OtherPhoneNum")
+        self.OtherPhoneNum.setMinimumSize(QSize(0, 0))
+        self.OtherPhoneNum.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_6.addWidget(self.OtherPhoneNum)
+
+        self.verticalSpacer_12 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer_12)
+
+        self.GenderLabel = QLabel(self.layoutWidget_3)
+        self.GenderLabel.setObjectName(u"GenderLabel")
+        self.GenderLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_6.addWidget(self.GenderLabel)
+
+        self.Gender = QLineEdit(self.layoutWidget_3)
+        self.Gender.setObjectName(u"Gender")
+        self.Gender.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_6.addWidget(self.Gender)
+
+        self.verticalSpacer_13 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer_13)
+
+        self.MaritalStatusLabel = QLabel(self.layoutWidget_3)
+        self.MaritalStatusLabel.setObjectName(u"MaritalStatusLabel")
+        self.MaritalStatusLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_6.addWidget(self.MaritalStatusLabel)
+
+        self.MaritalStatus = QLineEdit(self.layoutWidget_3)
+        self.MaritalStatus.setObjectName(u"MaritalStatus")
+        self.MaritalStatus.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_6.addWidget(self.MaritalStatus)
+
+        self.layoutWidget_4 = QWidget(self.frame)
+        self.layoutWidget_4.setObjectName(u"layoutWidget_4")
+        self.layoutWidget_4.setGeometry(QRect(730, 1120, 401, 281))
+        self.verticalLayout_7 = QVBoxLayout(self.layoutWidget_4)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.CompanyLabel = QLabel(self.layoutWidget_4)
+        self.CompanyLabel.setObjectName(u"CompanyLabel")
+        self.CompanyLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_7.addWidget(self.CompanyLabel)
+
+        self.Company = QLineEdit(self.layoutWidget_4)
+        self.Company.setObjectName(u"Company")
+        self.Company.setMinimumSize(QSize(0, 0))
+        self.Company.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_7.addWidget(self.Company)
+
+        self.verticalSpacer_14 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_7.addItem(self.verticalSpacer_14)
+
+        self.ReportsToLabel = QLabel(self.layoutWidget_4)
+        self.ReportsToLabel.setObjectName(u"ReportsToLabel")
+        self.ReportsToLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_7.addWidget(self.ReportsToLabel)
+
+        self.ReportsTo = QLineEdit(self.layoutWidget_4)
+        self.ReportsTo.setObjectName(u"ReportsTo")
+        self.ReportsTo.setMinimumSize(QSize(0, 0))
+        self.ReportsTo.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_7.addWidget(self.ReportsTo)
+
+        self.verticalSpacer_15 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_7.addItem(self.verticalSpacer_15)
+
+        self.FaxLabel = QLabel(self.layoutWidget_4)
+        self.FaxLabel.setObjectName(u"FaxLabel")
+        self.FaxLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_7.addWidget(self.FaxLabel)
+
+        self.Fax = QLineEdit(self.layoutWidget_4)
+        self.Fax.setObjectName(u"Fax")
+        self.Fax.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_7.addWidget(self.Fax)
+
+        self.widget_3 = QWidget(self.frame)
+        self.widget_3.setObjectName(u"widget_3")
+        self.widget_3.setGeometry(QRect(10, 1610, 1181, 41))
+        self.widget_3.setStyleSheet(u"background-color: rgb(149, 149, 149);")
+        self.AdditionalInformation_2 = QLabel(self.widget_3)
+        self.AdditionalInformation_2.setObjectName(u"AdditionalInformation_2")
+        self.AdditionalInformation_2.setGeometry(QRect(20, 10, 181, 21))
+        self.AdditionalInformation_2.setFont(font)
+        self.AdditionalInformation_2.setStyleSheet(u"color: rgb(0, 0, 0);")
+        self.layoutWidget_5 = QWidget(self.frame)
+        self.layoutWidget_5.setObjectName(u"layoutWidget_5")
+        self.layoutWidget_5.setGeometry(QRect(40, 1690, 421, 411))
+        self.verticalLayout_8 = QVBoxLayout(self.layoutWidget_5)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.AddressLabel = QLabel(self.layoutWidget_5)
+        self.AddressLabel.setObjectName(u"AddressLabel")
+        self.AddressLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_8.addWidget(self.AddressLabel)
+
+        self.Address = QLineEdit(self.layoutWidget_5)
+        self.Address.setObjectName(u"Address")
+        self.Address.setMinimumSize(QSize(0, 0))
+        self.Address.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_8.addWidget(self.Address)
+
+        self.verticalSpacer_16 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_8.addItem(self.verticalSpacer_16)
+
+        self.CountryLabel = QLabel(self.layoutWidget_5)
+        self.CountryLabel.setObjectName(u"CountryLabel")
+        self.CountryLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_8.addWidget(self.CountryLabel)
+
+        self.Country = QLineEdit(self.layoutWidget_5)
+        self.Country.setObjectName(u"Country")
+        self.Country.setMinimumSize(QSize(0, 0))
+        self.Country.setMaximumSize(QSize(300, 300))
+
+        self.verticalLayout_8.addWidget(self.Country)
+
+        self.verticalSpacer_17 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_8.addItem(self.verticalSpacer_17)
+
+        self.State_ProvinceLabel = QLabel(self.layoutWidget_5)
+        self.State_ProvinceLabel.setObjectName(u"State_ProvinceLabel")
+        self.State_ProvinceLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_8.addWidget(self.State_ProvinceLabel)
+
+        self.StateProvince = QLineEdit(self.layoutWidget_5)
+        self.StateProvince.setObjectName(u"StateProvince")
+        self.StateProvince.setMaximumSize(QSize(300, 300))
+
+        self.verticalLayout_8.addWidget(self.StateProvince)
+
+        self.verticalSpacer_18 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_8.addItem(self.verticalSpacer_18)
+
+        self.ZipPostalCodeLabel = QLabel(self.layoutWidget_5)
+        self.ZipPostalCodeLabel.setObjectName(u"ZipPostalCodeLabel")
+        self.ZipPostalCodeLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_8.addWidget(self.ZipPostalCodeLabel)
+
+        self.ZipPostalCode = QLineEdit(self.layoutWidget_5)
+        self.ZipPostalCode.setObjectName(u"ZipPostalCode")
+        self.ZipPostalCode.setMaximumSize(QSize(300, 300))
+
+        self.verticalLayout_8.addWidget(self.ZipPostalCode)
+
+        self.layoutWidget_6 = QWidget(self.frame)
+        self.layoutWidget_6.setObjectName(u"layoutWidget_6")
+        self.layoutWidget_6.setGeometry(QRect(720, 1770, 421, 411))
+        self.verticalLayout_9 = QVBoxLayout(self.layoutWidget_6)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.CityLabel = QLabel(self.layoutWidget_6)
+        self.CityLabel.setObjectName(u"CityLabel")
+        self.CityLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_9.addWidget(self.CityLabel)
+
+        self.City = QLineEdit(self.layoutWidget_6)
+        self.City.setObjectName(u"City")
+        self.City.setMinimumSize(QSize(0, 0))
+        self.City.setMaximumSize(QSize(16777215, 300))
+
+        self.verticalLayout_9.addWidget(self.City)
+
+        self.verticalSpacer_19 = QSpacerItem(10, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.verticalLayout_9.addItem(self.verticalSpacer_19)
+
+        self.StreetLabel = QLabel(self.layoutWidget_6)
+        self.StreetLabel.setObjectName(u"StreetLabel")
+        self.StreetLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.verticalLayout_9.addWidget(self.StreetLabel)
+
+        self.Street = QLabel(self.layoutWidget_6)
+        self.Street.setObjectName(u"Street")
+        self.Street.setMinimumSize(QSize(0, 300))
+        self.Street.setStyleSheet(u" QLabel {\n"
+"        border-radius: 50px; /* Half of the width/height */\n"
+"       background-color: rgb(108, 108, 108);\n"
+"    }\n"
+"\n"
+"")
+
+        self.verticalLayout_9.addWidget(self.Street)
+
+        self.widget_4 = QWidget(self.frame)
+        self.widget_4.setObjectName(u"widget_4")
+        self.widget_4.setGeometry(QRect(10, 2230, 1181, 41))
+        self.widget_4.setStyleSheet(u"background-color: rgb(149, 149, 149);")
+        self.AdditionalInformation_4 = QLabel(self.widget_4)
+        self.AdditionalInformation_4.setObjectName(u"AdditionalInformation_4")
+        self.AdditionalInformation_4.setGeometry(QRect(20, 10, 181, 21))
+        self.AdditionalInformation_4.setFont(font)
+        self.AdditionalInformation_4.setStyleSheet(u"color: rgb(0, 0, 0);")
+        self.widget_5 = QWidget(self.frame)
+        self.widget_5.setObjectName(u"widget_5")
+        self.widget_5.setGeometry(QRect(10, 2310, 1181, 41))
+        self.widget_5.setStyleSheet(u"background-color: rgb(149, 149, 149);")
+        self.AdditionalInformation_5 = QLabel(self.widget_5)
+        self.AdditionalInformation_5.setObjectName(u"AdditionalInformation_5")
+        self.AdditionalInformation_5.setGeometry(QRect(20, 10, 181, 21))
+        self.AdditionalInformation_5.setFont(font)
+        self.AdditionalInformation_5.setStyleSheet(u"color: rgb(0, 0, 0);")
+        self.label = QLabel(self.frame)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(40, 2370, 71, 21))
+        self.label.setStyleSheet(u"color: rgb(0, 0, 0);")
+        self.label_2 = QLabel(self.frame)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(860, 2370, 81, 21))
+        self.label_2.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.verticalLayout_4.addWidget(self.frame)
 
@@ -314,14 +675,44 @@ class Ui_contacts(object):
         self.Picture.setText(QCoreApplication.translate("contacts", u"Picture :", None))
         self.NameLabel.setText(QCoreApplication.translate("contacts", u"Name ", None))
         self.SalutationLabel.setText(QCoreApplication.translate("contacts", u"Salutation :", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("contacts", u"New Item", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("contacts", u"New Item", None))
-        self.comboBox.setItemText(2, QCoreApplication.translate("contacts", u"New Item", None))
-        self.comboBox.setItemText(3, QCoreApplication.translate("contacts", u"New Item", None))
+        self.Salutation.setItemText(0, QCoreApplication.translate("contacts", u"New Item", None))
+        self.Salutation.setItemText(1, QCoreApplication.translate("contacts", u"New Item", None))
+        self.Salutation.setItemText(2, QCoreApplication.translate("contacts", u"New Item", None))
+        self.Salutation.setItemText(3, QCoreApplication.translate("contacts", u"New Item", None))
 
         self.FirstNameLabel.setText(QCoreApplication.translate("contacts", u"First Name :", None))
         self.LastNameLabel.setText(QCoreApplication.translate("contacts", u"Last Name :", None))
         self.MiddleNameLabel.setText(QCoreApplication.translate("contacts", u"Middle Name :", None))
         self.SuffixLabel.setText(QCoreApplication.translate("contacts", u"Suffix :", None))
+        self.DateOfBirthLabel.setText(QCoreApplication.translate("contacts", u"Date of Birth :", None))
+        self.LeadStatusLabel.setText(QCoreApplication.translate("contacts", u"Lead Status :", None))
+        self.LeadStatus.setItemText(0, QCoreApplication.translate("contacts", u"New Item", None))
+        self.LeadStatus.setItemText(1, QCoreApplication.translate("contacts", u"New Item", None))
+        self.LeadStatus.setItemText(2, QCoreApplication.translate("contacts", u"New Item", None))
+        self.LeadStatus.setItemText(3, QCoreApplication.translate("contacts", u"New Item", None))
+
+        self.TitleLabel.setText(QCoreApplication.translate("contacts", u"Title :", None))
+        self.MiddleNameLabel_2.setText(QCoreApplication.translate("contacts", u"Email :", None))
+        self.SuffixLabel_2.setText(QCoreApplication.translate("contacts", u"Phone Number :", None))
+        self.AdditionalInformation.setText(QCoreApplication.translate("contacts", u"ADDITIONAL INFORMATION", None))
+        self.SecondaryEmailLabel.setText(QCoreApplication.translate("contacts", u"Secondary Email :", None))
+        self.OtherPhoneNumLabel.setText(QCoreApplication.translate("contacts", u"Other Phone Number  :", None))
+        self.GenderLabel.setText(QCoreApplication.translate("contacts", u"Gender :", None))
+        self.MaritalStatusLabel.setText(QCoreApplication.translate("contacts", u"Marital Status :", None))
+        self.CompanyLabel.setText(QCoreApplication.translate("contacts", u"Company :", None))
+        self.ReportsToLabel.setText(QCoreApplication.translate("contacts", u" Reports To :", None))
+        self.FaxLabel.setText(QCoreApplication.translate("contacts", u"Fax :", None))
+        self.AdditionalInformation_2.setText(QCoreApplication.translate("contacts", u"ADDRESS INFORMATION", None))
+        self.AddressLabel.setText(QCoreApplication.translate("contacts", u"Address :", None))
+        self.CountryLabel.setText(QCoreApplication.translate("contacts", u"Country  :", None))
+        self.State_ProvinceLabel.setText(QCoreApplication.translate("contacts", u"State/Province :", None))
+        self.ZipPostalCodeLabel.setText(QCoreApplication.translate("contacts", u"Zip/Postal Code :", None))
+        self.CityLabel.setText(QCoreApplication.translate("contacts", u"City :", None))
+        self.StreetLabel.setText(QCoreApplication.translate("contacts", u"Street :", None))
+        self.Street.setText("")
+        self.AdditionalInformation_4.setText(QCoreApplication.translate("contacts", u"DESCRIPTION INFORMATION", None))
+        self.AdditionalInformation_5.setText(QCoreApplication.translate("contacts", u"ADDRESS INFORMATION", None))
+        self.label.setText(QCoreApplication.translate("contacts", u"Created By :", None))
+        self.label_2.setText(QCoreApplication.translate("contacts", u"Last Modified :", None))
     # retranslateUi
 
