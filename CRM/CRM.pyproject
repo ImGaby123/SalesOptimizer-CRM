@@ -1,0 +1,23 @@
+{
+    "files": [
+        "CRM.pyproject",
+        "CRM.pyproject.user",
+        "CRM.pyproject.user.54691ee",
+        "ReadMe.txt",
+        "authenticationsystem.ui",
+        "contacts.ui",
+        "Arcas.ui",
+        "icons.qrc",
+        "icons_rc.py",
+        "main.py",
+        "mydb.db",
+        "requirements.txt",
+        "testrun.py",
+        "ui_authenticationsystem.py",
+        "ui_contacts.py",
+        "awal.ui",
+        "Abuan.ui",
+        "sidebar.ui",
+        "ui_sidebar.py"
+    ]
+}
