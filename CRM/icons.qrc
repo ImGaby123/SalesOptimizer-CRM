@@ -19,5 +19,9 @@
         <file>Resources/trash-circle-svgrepo-com.png</file>
         <file>Resources/underline.png</file>
         <file>Resources/user.png</file>
+<<<<<<< HEAD
+=======
+        <file>Resources/upload.png</file>
+>>>>>>> f3607c82b554142f74c1aa5daa949368535c9388
     </qresource>
 </RCC>
