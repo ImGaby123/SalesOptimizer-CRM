@@ -1,9 +1,5 @@
 import sys
 <<<<<<< HEAD
-from PySide6.QtWidgets import QApplication, QMainWindow, QStackedWidget, QPushButton, QLabel
-from ui_contacts import Ui_contacts  # Your UI file
-=======
-<<<<<<< HEAD
 from PySide6.QtWidgets import QApplication, QMainWindow, QStackedWidget, QPushButton, QLabel, QHeaderView, QLineEdit
 from ui_contacts import Ui_contacts  # Your UI file
 =======
@@ -11,7 +7,6 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QLineEdit
 from PySide6.QtGui import QIcon
 from ui_contacts import Ui_contacts  # from (python you want to test) import (class of your pythonfile)
 >>>>>>> f3607c82b554142f74c1aa5daa949368535c9388
->>>>>>> 76051319ab29f1126b86f021bda9b45d31b55c2a
 
 class MainWindow(QMainWindow, Ui_contacts):
     def __init__(self):
@@ -20,12 +15,7 @@ class MainWindow(QMainWindow, Ui_contacts):
 
 <<<<<<< HEAD
         # Initialize current index for stacked widget
-        self.current_page_index = 0
-=======
-<<<<<<< HEAD
-        # Initialize current index for stacked widget
         self.current_page_index = 1
->>>>>>> 76051319ab29f1126b86f021bda9b45d31b55c2a
 
         # Connect navigation buttons
         self.btn_next = QPushButton("Next", self)
@@ -42,13 +32,10 @@ class MainWindow(QMainWindow, Ui_contacts):
         # Set initial page in stacked widget
         self.stackedWidget.setCurrentIndex(self.current_page_index)
 
-<<<<<<< HEAD
-=======
         # Ensure QTableWidget columns stretch to fill the entire table
         self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.tableWidget_2.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
->>>>>>> 76051319ab29f1126b86f021bda9b45d31b55c2a
     def go_to_next_page(self):
         # Get the total number of pages in the stacked widget
         total_pages = self.stackedWidget.count()
@@ -64,8 +51,6 @@ class MainWindow(QMainWindow, Ui_contacts):
         # Move to previous page and wrap around
         self.current_page_index = (self.current_page_index - 1) % total_pages
         self.stackedWidget.setCurrentIndex(self.current_page_index)
-<<<<<<< HEAD
-=======
 =======
         # Set the initial page of stackedWidget to 0
         self.stackedWidget.setCurrentIndex(0)
@@ -87,7 +72,6 @@ class MainWindow(QMainWindow, Ui_contacts):
         # You can implement any function you want when the action is clicked
         print("Upload picture action clicked!")
 >>>>>>> f3607c82b554142f74c1aa5daa949368535c9388
->>>>>>> 76051319ab29f1126b86f021bda9b45d31b55c2a
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

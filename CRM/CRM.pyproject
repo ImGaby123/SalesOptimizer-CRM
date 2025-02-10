@@ -9,10 +9,7 @@
         "icons.qrc",
         "icons_rc.py",
         "main.py",
-<<<<<<< HEAD
-=======
         "mydb.db",
->>>>>>> 76051319ab29f1126b86f021bda9b45d31b55c2a
         "requirements.txt",
         "sidebar.ui",
         "testrun.py",
