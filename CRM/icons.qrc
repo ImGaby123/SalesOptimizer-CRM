@@ -1,5 +1,27 @@
 <RCC>
     <qresource prefix="/new/newPrefix">
         <file>Resources/search_png.png</file>
+        <file>Resources/attach-document.png</file>
+        <file>Resources/bars.png</file>
+        <file>Resources/bold.png</file>
+        <file>Resources/close.png</file>
+        <file>Resources/down.png</file>
+        <file>Resources/edit.png</file>
+        <file>Resources/image.png</file>
+        <file>Resources/italic-font.png</file>
+        <file>Resources/left-arrow.png</file>
+        <file>Resources/magnifying-glass.png</file>
+        <file>Resources/mail.png</file>
+        <file>Resources/menu.png</file>
+        <file>Resources/pin.png</file>
+        <file>Resources/plus (1).png</file>
+        <file>Resources/refresh.png</file>
+        <file>Resources/trash-circle-svgrepo-com.png</file>
+        <file>Resources/underline.png</file>
+        <file>Resources/user.png</file>
+<<<<<<< HEAD
+=======
+        <file>Resources/upload.png</file>
+>>>>>>> f3607c82b554142f74c1aa5daa949368535c9388
     </qresource>
 </RCC>
