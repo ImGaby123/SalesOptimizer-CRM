@@ -4,6 +4,7 @@ from PySide6.QtWidgets import QApplication, QDialog, QMessageBox, QMainWindow, Q
 from PySide6.QtCore import Qt
 from ui_authenticationsystem import Ui_authenticationsystem
 from ui_sidebar import Ui_sidebar
+from ui_contacts import Ui_contacts
 
 class AuthenticationSystem(QDialog):
     def __init__(self):
@@ -130,6 +131,13 @@ class SidebarForm(QWidget):
         # Set layout for sidebar to fill parent space
         self.setLayout(self.ui.verticalLayout)
 
+class ContactsForm(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_contacts()
+        self.ui.setupUi(self)
+        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -170,10 +178,10 @@ class MainWindow(QMainWindow):
         self.left_subwin.show()
 
     def open_right_subwindow(self):
-        """ Open the right subwindow with its contents. """
+        """ Open the right subwindow with the Contacts UI. """
         if not self.right_subwin.isVisible():
-            right_widget = QTextEdit("Right Subwindow - 90%")
-            self.right_subwin.setWidget(right_widget)  # Ensure right widget is set
+            self.contacts_widget = ContactsForm()  # Load contacts UI
+            self.right_subwin.setWidget(self.contacts_widget)  # Set contacts as widget
         self.right_subwin.show()
 
     def create_subwindows(self):
@@ -181,26 +189,25 @@ class MainWindow(QMainWindow):
         screen_width = self.screen().availableGeometry().width()
         screen_height = self.screen().availableGeometry().height() - self.menuBar().height() - self.statusBar().height()
 
-        left_width = int(screen_width * 0.1)  # 10% width
-        right_width = int(screen_width * 0.9)  # 90% width
+        left_width = int(screen_width * 0.1)
+        right_width = int(screen_width * 0.9)
 
-        # Left Subwindow (10%) with Sidebar UI
-        self.sidebar = SidebarForm()  # Load sidebar UI
+        # Left Sidebar
+        self.sidebar = SidebarForm()
         self.left_subwin = QMdiSubWindow()
         self.left_subwin.setWidget(self.sidebar)
         self.left_subwin.setWindowTitle("Sidebar")
         self.left_subwin.resize(left_width, screen_height)
         self.mdi_area.addSubWindow(self.left_subwin)
 
-        # Right Subwindow (90%)
-        right_widget = QTextEdit("Right Subwindow - 90%")
+        # Right Contacts Window
+        self.contacts_widget = ContactsForm()
         self.right_subwin = QMdiSubWindow()
-        self.right_subwin.setWidget(right_widget)
-        self.right_subwin.setWindowTitle("Right Subwindow")
+        self.right_subwin.setWidget(self.contacts_widget)
+        self.right_subwin.setWindowTitle("Contacts")
         self.right_subwin.resize(right_width, screen_height)
         self.mdi_area.addSubWindow(self.right_subwin)
 
-        # Move windows to maintain 10:90 split
         self.left_subwin.move(0, 0)
         self.right_subwin.move(left_width, 0)
 
@@ -212,21 +219,17 @@ class MainWindow(QMainWindow):
         screen_width = self.width()
         screen_height = self.height() - self.menuBar().height() - self.statusBar().height()
 
-        # Update the width of the left and right subwindows based on the main window's size
         left_width = int(screen_width * 0.1)
         right_width = int(screen_width * 0.9)
 
-        # Resize the subwindows and move the right subwindow to maintain the 10:90 split
         self.left_subwin.resize(left_width, screen_height)
         self.right_subwin.resize(right_width, screen_height)
         self.right_subwin.move(left_width, 0)
 
-        # Resize the sidebar widget inside the left subwindow
         self.sidebar.resize(left_width, screen_height)
+        self.contacts_widget.resize(right_width, screen_height)  # Ensure contacts widget resizes
 
-        # Force the layout to update (important when resizing from a maximized window)
         self.sidebar.ui.verticalLayout.update()
-
         super().resizeEvent(event)
 
 
