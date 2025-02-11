@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'authenticationsystem.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+## Created by: Qt User Interface Compiler version 6.8.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -28,6 +28,7 @@ class Ui_authenticationsystem(object):
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.stackedWidget = QStackedWidget(authenticationsystem)
         self.stackedWidget.setObjectName(u"stackedWidget")
+        self.stackedWidget.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.login = QWidget()
         self.login.setObjectName(u"login")
         self.verticalLayoutWidget_2 = QWidget(self.login)
@@ -130,7 +131,7 @@ class Ui_authenticationsystem(object):
         self.signup.setObjectName(u"signup")
         self.verticalLayoutWidget = QWidget(self.signup)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(0, 0, 291, 311))
+        self.verticalLayoutWidget.setGeometry(QRect(0, 0, 291, 315))
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -182,6 +183,30 @@ class Ui_authenticationsystem(object):
 
         self.verticalLayout.addWidget(self.validation_label)
 
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.already_have_acc = QLabel(self.verticalLayoutWidget)
+        self.already_have_acc.setObjectName(u"already_have_acc")
+
+        self.horizontalLayout.addWidget(self.already_have_acc)
+
+        self.back2login_button = QPushButton(self.verticalLayoutWidget)
+        self.back2login_button.setObjectName(u"back2login_button")
+        font2 = QFont()
+        font2.setUnderline(True)
+        self.back2login_button.setFont(font2)
+        self.back2login_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.back2login_button.setStyleSheet(u"color: rgb(0, 0, 255);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"    background: transparent;\n"
+"")
+
+        self.horizontalLayout.addWidget(self.back2login_button)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout)
+
         self.signup_button = QPushButton(self.verticalLayoutWidget)
         self.signup_button.setObjectName(u"signup_button")
         self.signup_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
@@ -214,7 +239,7 @@ class Ui_authenticationsystem(object):
     # setupUi
 
     def retranslateUi(self, authenticationsystem):
-        authenticationsystem.setWindowTitle(QCoreApplication.translate("authenticationsystem", u"Dialog", None))
+        authenticationsystem.setWindowTitle(QCoreApplication.translate("authenticationsystem", u"Login Form", None))
         self.login_label.setText(QCoreApplication.translate("authenticationsystem", u"Login", None))
         self.username_label.setText(QCoreApplication.translate("authenticationsystem", u"Username: ", None))
         self.uservalidation_label.setText("")
@@ -231,6 +256,8 @@ class Ui_authenticationsystem(object):
         self.password_label_2.setText(QCoreApplication.translate("authenticationsystem", u"Password:", None))
         self.confirmpass_label.setText(QCoreApplication.translate("authenticationsystem", u"Confirm Password:", None))
         self.validation_label.setText("")
+        self.already_have_acc.setText(QCoreApplication.translate("authenticationsystem", u"Already have account?", None))
+        self.back2login_button.setText(QCoreApplication.translate("authenticationsystem", u"Login", None))
         self.signup_button.setText(QCoreApplication.translate("authenticationsystem", u"Signup", None))
     # retranslateUi
 
