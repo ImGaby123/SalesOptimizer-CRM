@@ -36,6 +36,9 @@ class AuthenticationSystem(QDialog):
         self.createacc_button.clicked.connect(self.show_signup)
         self.signup_button.clicked.connect(self.signup)
 
+        # Add back2login button connection
+        self.ui.back2login_button.clicked.connect(self.show_login)
+
         self.show()
 
     def show_signup(self):
@@ -80,6 +83,7 @@ class AuthenticationSystem(QDialog):
         password = self.password_input_2.text().strip()
         confirm_password = self.confirmpass_input.text().strip()
 
+        # Check one validation at a time
         if not username:
             self.validation_label.setText("Username field is required")
             return
@@ -89,11 +93,21 @@ class AuthenticationSystem(QDialog):
         if not confirm_password:
             self.validation_label.setText("Confirm password field is required")
             return
-
-        if len(password) < 8 or not any(c.islower() for c in password) or not any(c.isupper() for c in password) or not any(c.isdigit() for c in password) or not any(c in '!@#$%^&*()' for c in password):
-            self.validation_label.setText("Password must contain at least 1 lowercase, 1 uppercase, 1 number, and 1 symbol")
+        if len(password) < 8:
+            self.validation_label.setText("Password must be at least 8 characters")
             return
-
+        if not any(c.islower() for c in password):
+            self.validation_label.setText("Password must contain a lowercase letter")
+            return
+        if not any(c.isupper() for c in password):
+            self.validation_label.setText("Password must contain an uppercase letter")
+            return
+        if not any(c.isdigit() for c in password):
+            self.validation_label.setText("Password must contain a number")
+            return
+        if not any(c in '!@#$%^&*()' for c in password):
+            self.validation_label.setText("Password must contain a symbol (!@#$%^&*())")
+            return
         if password != confirm_password:
             self.validation_label.setText("Passwords do not match")
             return

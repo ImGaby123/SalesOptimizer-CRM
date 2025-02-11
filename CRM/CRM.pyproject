@@ -18,6 +18,7 @@
         "awal.ui",
         "Abuan.ui",
         "sidebar.ui",
-        "ui_sidebar.py"
+        "ui_sidebar.py",
+        "ui_authenticationsystem.py"
     ]
 }
