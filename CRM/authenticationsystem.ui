@@ -11,11 +11,14 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Login Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_5">
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
      <property name="currentIndex">
       <number>1</number>
      </property>
@@ -191,7 +194,7 @@ border: none;
          <x>0</x>
          <y>0</y>
          <width>291</width>
-         <height>311</height>
+         <height>315</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -266,6 +269,39 @@ border: none;
            <string/>
           </property>
          </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="already_have_acc">
+            <property name="text">
+             <string>Already have account?</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="back2login_button">
+            <property name="font">
+             <font>
+              <underline>true</underline>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 255);
+background-color: rgb(255, 255, 255);
+border: none;
+    background: transparent;
+</string>
+            </property>
+            <property name="text">
+             <string>Login</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QPushButton" name="signup_button">
