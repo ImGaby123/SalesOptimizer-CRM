@@ -26,7 +26,7 @@
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="contacts_1">
     <widget class="QLabel" name="label">
@@ -123,7 +123,7 @@ background: transparent;</string>
       <string>Contacts</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="search">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -233,9 +233,9 @@ background: transparent;</string>
     <widget class="QWidget" name="horizontalLayoutWidget_3">
      <property name="geometry">
       <rect>
-       <x>1040</x>
+       <x>1073</x>
        <y>240</y>
-       <width>124</width>
+       <width>91</width>
        <height>31</height>
       </rect>
      </property>
@@ -252,8 +252,8 @@ background: transparent;</string>
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>../../../../../../Downloads/Resources/clock.png</normaloff>../../../../../../Downloads/Resources/clock.png</iconset>
+         <iconset resource="icons.qrc">
+          <normaloff>:/new/newPrefix/Resources/clock.png</normaloff>:/new/newPrefix/Resources/clock.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -275,8 +275,8 @@ background: transparent;</string>
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>../../../../../../Downloads/Resources/email.png</normaloff>../../../../../../Downloads/Resources/email.png</iconset>
+         <iconset resource="icons.qrc">
+          <normaloff>:/new/newPrefix/Resources/email.png</normaloff>:/new/newPrefix/Resources/email.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -600,7 +600,7 @@ background: transparent;</string>
        <string>Timeline</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_3">
+     <widget class="QLineEdit" name="search_2">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -615,6 +615,9 @@ background: transparent;</string>
     border-radius: 10px;
 }
 </string>
+      </property>
+      <property name="placeholderText">
+       <string>Search</string>
       </property>
      </widget>
      <widget class="QWidget" name="horizontalLayoutWidget_2">
@@ -769,8 +772,8 @@ background: transparent;</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>../../../../../../Downloads/Resources/link.png</normaloff>../../../../../../Downloads/Resources/link.png</iconset>
+          <iconset resource="icons.qrc">
+           <normaloff>:/new/newPrefix/Resources/link.png</normaloff>:/new/newPrefix/Resources/link.png</iconset>
          </property>
         </widget>
        </item>

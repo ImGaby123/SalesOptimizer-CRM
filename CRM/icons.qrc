@@ -20,5 +20,8 @@
         <file>Resources/underline.png</file>
         <file>Resources/user.png</file>
         <file>Resources/upload.png</file>
+        <file>Resources/link.png</file>
+        <file>Resources/clock.png</file>
+        <file>Resources/email.png</file>
     </qresource>
 </RCC>
