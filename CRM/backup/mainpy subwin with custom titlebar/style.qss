@@ -1,0 +1,33 @@
+/* Style for QMdiSubWindow */
+QMdiSubWindow {
+    background-color: #2b2b2b;  /* Dark background */
+    border: 2px solid #444;
+    border-radius: 5px;
+}
+
+/* Title bar style */
+QMdiSubWindow::title {
+    background: #555;
+    color: white;
+    font: bold 12px Arial;
+}
+
+/* Buttons in title bar */
+QMdiSubWindow::close-button,
+QMdiSubWindow::minimize-button,
+QMdiSubWindow::maximize-button {
+    background: #777;
+    border: none;
+    border-radius: 2px;
+    width: 16px;
+    height: 16px;
+}
+
+QMdiSubWindow::close-button:hover {
+    background: red;
+}
+
+QMdiSubWindow::minimize-button:hover,
+QMdiSubWindow::maximize-button:hover {
+    background: #999;
+}
