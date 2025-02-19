@@ -1975,7 +1975,7 @@ class Ui_contacts(object):
 
         self.retranslateUi(contacts)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(4)
         self.stackedWidget_2.setCurrentIndex(1)
         self.stackedWidget_3.setCurrentIndex(2)
         self.stackedWidget_4.setCurrentIndex(4)

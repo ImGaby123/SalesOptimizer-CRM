@@ -1,7 +1,13 @@
 {
     "files": [
+        "UIConverter.py",
         "main.py",
+        "models/__init__.py",
+        "models/models_authentication.py",
+        "models/models_contacts.py",
+        "models/models_sidebar.py",
         "ts_individualpage.py",
+        "views/py/__init__.py",
         "views/py/icons_rc.py",
         "views/py/ui_authenticationsystem.py",
         "views/py/ui_contacts.py",
