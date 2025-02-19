@@ -35,7 +35,7 @@
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="contacts_1">
        <widget class="QWidget" name="verticalLayoutWidget_2">

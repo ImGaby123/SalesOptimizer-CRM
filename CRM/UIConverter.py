@@ -35,6 +35,7 @@ def main():
     convert_ui_to_py(ui_folder, py_folder)
     convert_qrc_to_py(qrc_folder, py_folder)
     print("Conversion completed!")
+    print("import views.py.icons_rc")
 
 if __name__ == "__main__":
     main()

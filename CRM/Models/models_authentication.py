@@ -1,7 +1,7 @@
 import os
 import sqlite3
 from PySide6.QtWidgets import (QDialog, QMessageBox, QMainWindow, QMdiArea, QMdiSubWindow, QWidget, QMenuBar, QStatusBar, QSizePolicy)
-from PySide6.QtGui import QAction
+from PySide6.QtGui import QAction, QBrush, QColor
 from PySide6.QtCore import Qt
 from views.py.ui_authenticationsystem import Ui_authenticationsystem
 from views.py.ui_sidebar import Ui_sidebar
@@ -141,6 +141,7 @@ class MainWindow(QMainWindow):
 
         self.mdi_area = QMdiArea()
         self.setCentralWidget(self.mdi_area)
+        self.mdi_area.setBackground(QBrush(QColor(255, 255, 255)))  # White background
 
         self.setMenuBar(QMenuBar(self))
         self.setStatusBar(QStatusBar(self))
