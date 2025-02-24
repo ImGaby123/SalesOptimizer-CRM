@@ -202,19 +202,24 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "Invalid Action", f"No form assigned for {form_name}.")
             return
 
-        # ✅ Ensure right_subwin always holds the main form, even if transposed
+        # ✅ Ensure right_subwin exists before setting new form
+        if not self.right_subwin or self.right_subwin.isHidden():
+            self.right_subwin = self.create_mdi_subwindow(QWidget(), int(self.width() * 0.9),
+                                                          self.height(), int(self.width() * 0.1), 0)
+            self.right_subwin.closeEvent = self.handle_right_close  # Reconnect close event
+            self.mainform_action.setChecked(True)
+
         target_subwin = self.right_subwin if not self.transposed else self.left_subwin
 
         if target_subwin.widget():
             target_subwin.widget().deleteLater()
 
+         # ✅ Wrap the form inside MainForm to restore proper scaling
         form_class = form_map[form_name]
-        new_widget = QWidget()
-        form_instance = form_class()
-        form_instance.setupUi(new_widget)
+        new_widget = MainForm(form_class)  # ✅ Use MainForm instead of raw Ui_contacts
 
         target_subwin.setWidget(new_widget)
-
+        target_subwin.show()  # ✅ Ensure it appears if hidden
 
     def create_mdi_subwindow(self, widget, width, height, x, y):
         subwin = QMdiSubWindow()
@@ -251,15 +256,17 @@ class MainWindow(QMainWindow):
         self.realign_subwindows()
 
     def toggle_sidebar(self):
+        sidebar_subwin = self.left_subwin if not self.transposed else self.right_subwin
+
         if self.sidebar_visible:
-            self.left_subwin.hide()
+            sidebar_subwin.hide()
             self.sidebar_visible = False
         else:
-            if self.left_subwin is None:  # If closed, recreate it
-                self.left_subwin = self.create_mdi_subwindow(self.sidebar, int(self.width() * 0.1),
-                                                             self.height(), 0, 0)
-                self.left_subwin.closeEvent = self.handle_left_close  # Reconnect close event
-            self.left_subwin.show()
+            if sidebar_subwin is None or sidebar_subwin.isHidden():  # ✅ Ensure sidebar exists & isn't hidden
+                sidebar_subwin.show()
+                sidebar_subwin.setGeometry(0, 0, int(self.width() * 0.1), self.height())  # ✅ Restore sidebar size
+                sidebar_subwin.closeEvent = self.handle_left_close  # Reconnect close event if needed
+
             self.sidebar_visible = True
 
         self.sidebar_action.setChecked(self.sidebar_visible)
@@ -272,17 +279,19 @@ class MainWindow(QMainWindow):
 
     def handle_left_close(self, event):
         self.sidebar_visible = False
-        self.left_subwin.hide()
         self.sidebar_action.setChecked(False)
 
-        # ✅ Detect transposition and expand the correct subwindow
         screen_width = self.width()
         screen_height = self.height() - self.menuBar().height() - self.statusBar().height()
 
-        if self.transposed:
-            self.left_subwin.setGeometry(0, 0, screen_width, screen_height)  # Expand left
-        else:
-            self.right_subwin.setGeometry(0, 0, screen_width, screen_height)  # Expand right
+        # ✅ Identify which subwindow is actually the sidebar
+        sidebar_subwin = self.left_subwin if not self.transposed else self.right_subwin
+        mainform_subwin = self.right_subwin if not self.transposed else self.left_subwin
+
+        sidebar_subwin.hide()  # ✅ Only hide the sidebar, don't touch mainform
+
+        # ✅ Expand the mainform when sidebar is closed
+        mainform_subwin.setGeometry(0, 0, screen_width, screen_height)
 
         self.realign_subwindows()
         event.ignore()  # Prevent actual closing
@@ -294,3 +303,12 @@ class MainWindow(QMainWindow):
     def resizeEvent(self, event):
         self.realign_subwindows()
         super().resizeEvent(event)
+class MainForm(QWidget):
+    def __init__(self, ui_class):
+        super().__init__()
+        self.ui = ui_class()
+        self.ui.setupUi(self)
+        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)  # ✅ Allow expansion
+        layout = self.ui.verticalLayout if hasattr(self.ui, 'verticalLayout') else None
+        if layout:
+            self.setLayout(layout)

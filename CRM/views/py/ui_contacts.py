@@ -37,11 +37,11 @@ class Ui_contacts(object):
         self.stackedWidget.setGeometry(QRect(0, 0, 1201, 681))
         sizePolicy.setHeightForWidth(self.stackedWidget.sizePolicy().hasHeightForWidth())
         self.stackedWidget.setSizePolicy(sizePolicy)
-        self.aarcas_page = QWidget()
-        self.aarcas_page.setObjectName(u"aarcas_page")
-        sizePolicy.setHeightForWidth(self.aarcas_page.sizePolicy().hasHeightForWidth())
-        self.aarcas_page.setSizePolicy(sizePolicy)
-        self.verticalLayoutWidget_2 = QWidget(self.aarcas_page)
+        self.arcas_page = QWidget()
+        self.arcas_page.setObjectName(u"arcas_page")
+        sizePolicy.setHeightForWidth(self.arcas_page.sizePolicy().hasHeightForWidth())
+        self.arcas_page.setSizePolicy(sizePolicy)
+        self.verticalLayoutWidget_2 = QWidget(self.arcas_page)
         self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
         self.verticalLayoutWidget_2.setGeometry(QRect(-10, -10, 1211, 691))
         self.verticalLayout_10 = QVBoxLayout(self.verticalLayoutWidget_2)
@@ -734,7 +734,7 @@ class Ui_contacts(object):
 
         self.verticalLayout_10.addWidget(self.scrollArea_2)
 
-        self.stackedWidget.addWidget(self.aarcas_page)
+        self.stackedWidget.addWidget(self.arcas_page)
         self.awal_page1 = QWidget()
         self.awal_page1.setObjectName(u"awal_page1")
         sizePolicy.setHeightForWidth(self.awal_page1.sizePolicy().hasHeightForWidth())
@@ -1742,7 +1742,7 @@ class Ui_contacts(object):
 
         self.retranslateUi(contacts)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(contacts)

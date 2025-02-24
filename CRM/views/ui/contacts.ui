@@ -35,9 +35,9 @@
     </sizepolicy>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>3</number>
    </property>
-   <widget class="QWidget" name="aarcas_page">
+   <widget class="QWidget" name="arcas_page">
     <property name="sizePolicy">
      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
       <horstretch>0</horstretch>
