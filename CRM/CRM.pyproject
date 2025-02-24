@@ -15,6 +15,7 @@
         "views/py/ui_contacts2.py",
         "views/py/ui_contacts3.py",
         "views/py/ui_contacts4.py",
+        "views/py/ui_contacts5.py",
         "views/py/ui_sidebar.py",
         "views/qrc/icons.qrc",
         "views/qss/style.qss",
@@ -24,6 +25,7 @@
         "views/ui/contacts2.ui",
         "views/ui/contacts3.ui",
         "views/ui/contacts4.ui",
+        "views/ui/contacts5.ui",
         "views/ui/sidebar.ui"
     ]
 }

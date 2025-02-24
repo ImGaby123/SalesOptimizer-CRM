@@ -10,6 +10,7 @@ from views.py.ui_contacts1 import Ui_contacts1
 from views.py.ui_contacts2 import Ui_contacts2
 from views.py.ui_contacts3 import Ui_contacts3
 from views.py.ui_contacts4 import Ui_contacts4
+from views.py.ui_contacts5 import Ui_contacts5
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -198,7 +199,7 @@ class MainWindow(QMainWindow):
             "Pipeline": Ui_contacts2,
             "Funnel": Ui_contacts3,
             "Leads": Ui_contacts4,
-            "Contacts": Ui_contacts,
+            "Contacts": Ui_contacts5,
             "Logout": None
         }
 
