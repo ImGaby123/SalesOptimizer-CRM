@@ -6,6 +6,10 @@ from PySide6.QtCore import Qt, Signal
 from views.py.ui_authenticationsystem import Ui_authenticationsystem
 from .models_sidebar import SidebarForm
 from views.py.ui_contacts import Ui_contacts
+from views.py.ui_contacts1 import Ui_contacts1
+from views.py.ui_contacts2 import Ui_contacts2
+from views.py.ui_contacts3 import Ui_contacts3
+from views.py.ui_contacts4 import Ui_contacts4
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -190,10 +194,10 @@ class MainWindow(QMainWindow):
 
     def load_form(self, form_name):
         form_map = {
-            "Home": Ui_contacts,
-            "Pipeline": Ui_contacts,
-            "Funnel": Ui_contacts,
-            "Leads": Ui_contacts,
+            "Home": Ui_contacts1,
+            "Pipeline": Ui_contacts2,
+            "Funnel": Ui_contacts3,
+            "Leads": Ui_contacts4,
             "Contacts": Ui_contacts,
             "Logout": None
         }
