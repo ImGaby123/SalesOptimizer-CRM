@@ -1,0 +1,16 @@
+{
+    "files": [
+        "UIConverter.py",
+        "main.py",
+        "models/__init__.py",
+        "models/models_authentication.py",
+        "models/models_sidebar.py",
+        "views/py/__init__.py",
+        "views/py/ui_authenticationsystem.py",
+        "views/py/ui_sidebar.py",
+        "views/qrc/icons.qrc",
+        "views/qss/style.qss",
+        "views/ui/authenticationsystem.ui",
+        "views/ui/sidebar.ui"
+    ]
+}

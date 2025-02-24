@@ -5,7 +5,7 @@ from PySide6.QtGui import QAction, QBrush, QColor
 from PySide6.QtCore import Qt, Signal
 from views.py.ui_authenticationsystem import Ui_authenticationsystem
 from .models_sidebar import SidebarForm
-from views.py.ui_contacts import Ui_contacts
+from .models_sidebar import Ui_sidebar
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -190,11 +190,11 @@ class MainWindow(QMainWindow):
 
     def load_form(self, form_name):
         form_map = {
-            "Home": Ui_contacts,
-            "Pipeline": Ui_contacts,
-            "Funnel": Ui_contacts,
-            "Leads": Ui_contacts,
-            "Contacts": Ui_contacts,
+            "Home": Ui_sidebar,
+            "Pipeline": None,
+            "Funnel": None,
+            "Leads": None,
+            "Contacts": None,
             "Logout": None
         }
 
@@ -217,12 +217,13 @@ class MainWindow(QMainWindow):
             existing_widget.deleteLater()
             target_subwin.setWidget(None)
 
-        # ✅ Wrap the UI in `MainForm` for scaling & layout handling
+        # ✅ Wrap the UI in `ResizableForm` to handle layout & scaling dynamically
         form_class = form_map[form_name]
-        new_widget = MainForm(form_class)
+        new_widget = ResizableForm(form_class)
 
         target_subwin.setWidget(new_widget)
         target_subwin.show()
+
 
     def create_mdi_subwindow(self, widget, width, height, x, y):
         subwin = QMdiSubWindow()
@@ -307,19 +308,16 @@ class MainWindow(QMainWindow):
         self.realign_subwindows()
         super().resizeEvent(event)
 
-class MainForm(QWidget):
+class ResizableForm(QWidget):
     def __init__(self, ui_class):
         super().__init__()
         self.ui = ui_class()
         self.ui.setupUi(self)
 
-        # ✅ Set the stacked widget to the first page (or desired index)
-        if hasattr(self.ui, 'stackedWidget'):
-            self.ui.stackedWidget.setCurrentIndex(0)  # Change index if needed
-
+        # ✅ Allow full expansion
         self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
-        # ✅ Set the layout dynamically based on available layouts
+        # ✅ Apply correct layout dynamically
         layout = self.find_main_layout()
         if layout:
             self.setLayout(layout)
@@ -330,5 +328,4 @@ class MainForm(QWidget):
             layout = getattr(self.ui, attr_name, None)
             if layout:
                 return layout
-        return None  # No layout found
-
+        return None  # No layout found, default behavior
