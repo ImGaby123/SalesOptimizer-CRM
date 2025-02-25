@@ -19,7 +19,7 @@
      <item row="0" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout_24">
        <item>
-        <widget class="QPushButton" name="back_to_contacts_2">
+        <widget class="QPushButton" name="back_to_contacts_btn">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -40,7 +40,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -93,7 +93,7 @@ color: rgb(0, 0, 0);
         <widget class="QLabel" name="company_ni_gab_2">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -161,7 +161,7 @@ background-color: rgb(255, 255, 255);
          </property>
          <property name="font">
           <font>
-           <pointsize>12</pointsize>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -181,7 +181,7 @@ border: none;
         </widget>
        </item>
        <item>
-        <widget class="QProgressBar" name="progressBar_4">
+        <widget class="QProgressBar" name="sales_progress">
          <property name="styleSheet">
           <string notr="true"/>
          </property>
@@ -401,6 +401,9 @@ border: none;</string>
            <height>16777215</height>
           </size>
          </property>
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
          <property name="styleSheet">
           <string notr="true">border: 2px solid black;
 border-radius: 10px;</string>
@@ -411,6 +414,7 @@ border-radius: 10px;</string>
           </property>
           <property name="font">
            <font>
+            <pointsize>11</pointsize>
             <bold>false</bold>
             <kerning>true</kerning>
            </font>
@@ -463,7 +467,7 @@ border-radius: 10px;</string>
             </property>
             <property name="font">
              <font>
-              <pointsize>16</pointsize>
+              <pointsize>11</pointsize>
              </font>
             </property>
             <property name="styleSheet">
@@ -531,7 +535,7 @@ border-radius: 10px;</string>
             </property>
             <property name="font">
              <font>
-              <pointsize>16</pointsize>
+              <pointsize>11</pointsize>
              </font>
             </property>
             <property name="styleSheet">
