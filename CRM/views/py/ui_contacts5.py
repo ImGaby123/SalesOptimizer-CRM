@@ -18,7 +18,6 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
     QLabel, QLineEdit, QPushButton, QScrollArea,
     QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
-import views.py.icons_rc
 
 class Ui_contacts5(object):
     def setupUi(self, contacts5):
@@ -40,7 +39,7 @@ class Ui_contacts5(object):
         self.scrollArea_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(-54, -78, 1218, 2518))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(-54, 0, 1218, 2518))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContents_4.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents_4.setSizePolicy(sizePolicy)
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents_4)
@@ -812,39 +811,6 @@ class Ui_contacts5(object):
 
         self.gridLayout.addLayout(self.gridLayout_21, 1, 0, 1, 2)
 
-        self.gridLayout_20 = QGridLayout()
-        self.gridLayout_20.setObjectName(u"gridLayout_20")
-        self.horizontalSpacer_149 = QSpacerItem(10, 20, QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_20.addItem(self.horizontalSpacer_149, 0, 0, 1, 1)
-
-        self.ContactOwner_4 = QLabel(self.frame_4)
-        self.ContactOwner_4.setObjectName(u"ContactOwner_4")
-        sizePolicy1.setHeightForWidth(self.ContactOwner_4.sizePolicy().hasHeightForWidth())
-        self.ContactOwner_4.setSizePolicy(sizePolicy1)
-        self.ContactOwner_4.setStyleSheet(u"color: rgb(0, 0, 0);")
-
-        self.gridLayout_20.addWidget(self.ContactOwner_4, 0, 1, 1, 1)
-
-        self.horizontalSpacer_150 = QSpacerItem(450, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_20.addItem(self.horizontalSpacer_150, 0, 2, 1, 1)
-
-        self.Picture_4 = QLabel(self.frame_4)
-        self.Picture_4.setObjectName(u"Picture_4")
-        sizePolicy1.setHeightForWidth(self.Picture_4.sizePolicy().hasHeightForWidth())
-        self.Picture_4.setSizePolicy(sizePolicy1)
-        self.Picture_4.setStyleSheet(u"color: rgb(0, 0, 0);")
-
-        self.gridLayout_20.addWidget(self.Picture_4, 0, 3, 1, 1)
-
-        self.horizontalSpacer_151 = QSpacerItem(10, 20, QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_20.addItem(self.horizontalSpacer_151, 0, 4, 1, 1)
-
-
-        self.gridLayout.addLayout(self.gridLayout_20, 3, 0, 1, 2)
-
         self.gridLayout_13 = QGridLayout()
         self.gridLayout_13.setSpacing(0)
         self.gridLayout_13.setObjectName(u"gridLayout_13")
@@ -1007,6 +973,39 @@ class Ui_contacts5(object):
 
         self.gridLayout.addLayout(self.gridLayout_25, 4, 0, 1, 1)
 
+        self.gridLayout_20 = QGridLayout()
+        self.gridLayout_20.setObjectName(u"gridLayout_20")
+        self.horizontalSpacer_149 = QSpacerItem(10, 20, QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_20.addItem(self.horizontalSpacer_149, 0, 0, 1, 1)
+
+        self.ContactOwner_4 = QLabel(self.frame_4)
+        self.ContactOwner_4.setObjectName(u"ContactOwner_4")
+        sizePolicy1.setHeightForWidth(self.ContactOwner_4.sizePolicy().hasHeightForWidth())
+        self.ContactOwner_4.setSizePolicy(sizePolicy1)
+        self.ContactOwner_4.setStyleSheet(u"color: rgb(0, 0, 0);")
+
+        self.gridLayout_20.addWidget(self.ContactOwner_4, 0, 1, 1, 1)
+
+        self.horizontalSpacer_150 = QSpacerItem(375, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_20.addItem(self.horizontalSpacer_150, 0, 2, 1, 1)
+
+        self.Picture_4 = QLabel(self.frame_4)
+        self.Picture_4.setObjectName(u"Picture_4")
+        sizePolicy1.setHeightForWidth(self.Picture_4.sizePolicy().hasHeightForWidth())
+        self.Picture_4.setSizePolicy(sizePolicy1)
+        self.Picture_4.setStyleSheet(u"color: rgb(0, 0, 0);")
+
+        self.gridLayout_20.addWidget(self.Picture_4, 0, 3, 1, 1)
+
+        self.horizontalSpacer_151 = QSpacerItem(10, 20, QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_20.addItem(self.horizontalSpacer_151, 0, 4, 1, 1)
+
+
+        self.gridLayout.addLayout(self.gridLayout_20, 3, 0, 1, 1)
+
 
         self.gridLayout_2.addWidget(self.frame_4, 0, 1, 1, 1)
 
@@ -1066,8 +1065,6 @@ class Ui_contacts5(object):
         self.SuffixLabel_8.setText(QCoreApplication.translate("contacts5", u"Phone Number :", None))
         self.LeadStatusLabel_4.setText(QCoreApplication.translate("contacts5", u"Lead Status :", None))
         self.NewContacts_4.setText(QCoreApplication.translate("contacts5", u"New Contact", None))
-        self.ContactOwner_4.setText(QCoreApplication.translate("contacts5", u"Contact Owner :", None))
-        self.Picture_4.setText(QCoreApplication.translate("contacts5", u"Picture :", None))
         self.SearcAccount_4.setInputMask("")
         self.SearcAccount_4.setText("")
         self.SearcAccount_4.setPlaceholderText(QCoreApplication.translate("contacts5", u"Search Account's Name", None))
@@ -1078,5 +1075,7 @@ class Ui_contacts5(object):
         self.pushButton_4.setText(QCoreApplication.translate("contacts5", u"See File", None))
         self.UploadPic_4.setInputMask("")
         self.UploadPic_4.setText("")
+        self.ContactOwner_4.setText(QCoreApplication.translate("contacts5", u"Contact Owner :", None))
+        self.Picture_4.setText(QCoreApplication.translate("contacts5", u"Picture :", None))
     # retranslateUi
 
