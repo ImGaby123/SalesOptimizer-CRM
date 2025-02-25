@@ -1,27 +1,49 @@
 <RCC>
-    <qresource prefix="/new/newPrefix">
-        <file>Resources/search_png.png</file>
-        <file>Resources/attach-document.png</file>
-        <file>Resources/bars.png</file>
-        <file>Resources/bold.png</file>
-        <file>Resources/close.png</file>
-        <file>Resources/down.png</file>
-        <file>Resources/edit.png</file>
-        <file>Resources/image.png</file>
-        <file>Resources/italic-font.png</file>
-        <file>Resources/left-arrow.png</file>
-        <file>Resources/magnifying-glass.png</file>
-        <file>Resources/mail.png</file>
-        <file>Resources/menu.png</file>
-        <file>Resources/pin.png</file>
-        <file>Resources/plus (1).png</file>
-        <file>Resources/refresh.png</file>
-        <file>Resources/trash-circle-svgrepo-com.png</file>
-        <file>Resources/underline.png</file>
-        <file>Resources/user.png</file>
-        <file>Resources/upload.png</file>
-        <file>Resources/link.png</file>
-        <file>Resources/clock.png</file>
-        <file>Resources/email.png</file>
+    <qresource prefix="/new/newPrefix"/>
+    <qresource prefix="/">
+        <file>Resources/black_attach.png</file>
+        <file>Resources/black_bars.png</file>
+        <file>Resources/black_bold.png</file>
+        <file>Resources/black_clock.png</file>
+        <file>Resources/black_close.png</file>
+        <file>Resources/black_delete.png</file>
+        <file>Resources/black_down.png</file>
+        <file>Resources/black_edit.png</file>
+        <file>Resources/black_email.png</file>
+        <file>Resources/black_image.png</file>
+        <file>Resources/black_italic.png</file>
+        <file>Resources/black_left-arrow.png</file>
+        <file>Resources/black_link.png</file>
+        <file>Resources/black_mail.png</file>
+        <file>Resources/black_menu.png</file>
+        <file>Resources/black_pin.png</file>
+        <file>Resources/black_plus .png</file>
+        <file>Resources/black_refresh.png</file>
+        <file>Resources/black_search.png</file>
+        <file>Resources/black_underline.png</file>
+        <file>Resources/black_upload.png</file>
+        <file>Resources/black_user.png</file>
+        <file>Resources/white_attach.png</file>
+        <file>Resources/white_bars.png</file>
+        <file>Resources/white_bold.png</file>
+        <file>Resources/white_clock.png</file>
+        <file>Resources/white_close.png</file>
+        <file>Resources/white_delete.png</file>
+        <file>Resources/white_down.png</file>
+        <file>Resources/white_edit.png</file>
+        <file>Resources/white_email.png</file>
+        <file>Resources/white_image.png</file>
+        <file>Resources/white_italic.png</file>
+        <file>Resources/white_left-arrow.png</file>
+        <file>Resources/white_link.png</file>
+        <file>Resources/white_mail.png</file>
+        <file>Resources/white_menu.png</file>
+        <file>Resources/white_pin.png</file>
+        <file>Resources/white_plus.png</file>
+        <file>Resources/white_refresh.png</file>
+        <file>Resources/white_search.png</file>
+        <file>Resources/white_underline.png</file>
+        <file>Resources/white_upload.png</file>
+        <file>Resources/white_user.png</file>
     </qresource>
 </RCC>
