@@ -19,7 +19,6 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QHeaderView, QLabel, QProgressBar, QPushButton,
     QSizePolicy, QSpacerItem, QTableWidget, QTableWidgetItem,
     QWidget)
-import views.py.icons_rc
 
 class Ui_contacts1(object):
     def setupUi(self, contacts1):
@@ -32,23 +31,23 @@ class Ui_contacts1(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.horizontalLayout_24 = QHBoxLayout()
         self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
-        self.back_to_contacts_2 = QPushButton(contacts1)
-        self.back_to_contacts_2.setObjectName(u"back_to_contacts_2")
+        self.back_to_contacts_btn = QPushButton(contacts1)
+        self.back_to_contacts_btn.setObjectName(u"back_to_contacts_btn")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.back_to_contacts_2.sizePolicy().hasHeightForWidth())
-        self.back_to_contacts_2.setSizePolicy(sizePolicy)
-        self.back_to_contacts_2.setMinimumSize(QSize(0, 20))
-        self.back_to_contacts_2.setMaximumSize(QSize(16777215, 20))
+        sizePolicy.setHeightForWidth(self.back_to_contacts_btn.sizePolicy().hasHeightForWidth())
+        self.back_to_contacts_btn.setSizePolicy(sizePolicy)
+        self.back_to_contacts_btn.setMinimumSize(QSize(0, 20))
+        self.back_to_contacts_btn.setMaximumSize(QSize(16777215, 20))
         font = QFont()
-        font.setPointSize(11)
-        self.back_to_contacts_2.setFont(font)
-        self.back_to_contacts_2.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+        font.setPointSize(9)
+        self.back_to_contacts_btn.setFont(font)
+        self.back_to_contacts_btn.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);\n"
 "")
 
-        self.horizontalLayout_24.addWidget(self.back_to_contacts_2)
+        self.horizontalLayout_24.addWidget(self.back_to_contacts_btn)
 
         self.horizontalSpacer_17 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
@@ -98,9 +97,7 @@ class Ui_contacts1(object):
         self.sales_pipeline_4.setSizePolicy(sizePolicy1)
         self.sales_pipeline_4.setMinimumSize(QSize(100, 0))
         self.sales_pipeline_4.setMaximumSize(QSize(100, 16777215))
-        font1 = QFont()
-        font1.setPointSize(12)
-        self.sales_pipeline_4.setFont(font1)
+        self.sales_pipeline_4.setFont(font)
         self.sales_pipeline_4.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "border: none;\n"
 "")
@@ -109,12 +106,12 @@ class Ui_contacts1(object):
 
         self.horizontalLayout.addWidget(self.sales_pipeline_4)
 
-        self.progressBar_4 = QProgressBar(contacts1)
-        self.progressBar_4.setObjectName(u"progressBar_4")
-        self.progressBar_4.setStyleSheet(u"")
-        self.progressBar_4.setValue(24)
+        self.sales_progress = QProgressBar(contacts1)
+        self.sales_progress.setObjectName(u"sales_progress")
+        self.sales_progress.setStyleSheet(u"")
+        self.sales_progress.setValue(24)
 
-        self.horizontalLayout.addWidget(self.progressBar_4)
+        self.horizontalLayout.addWidget(self.sales_progress)
 
 
         self.gridLayout_3.addLayout(self.horizontalLayout, 2, 0, 1, 1)
@@ -219,16 +216,18 @@ class Ui_contacts1(object):
             self.tableWidget_4.setColumnCount(1)
         brush = QBrush(QColor(0, 0, 0, 255))
         brush.setStyle(Qt.SolidPattern)
-        font2 = QFont()
-        font2.setBold(False)
-        font2.setKerning(True)
+        font1 = QFont()
+        font1.setPointSize(11)
+        font1.setBold(False)
+        font1.setKerning(True)
         __qtablewidgetitem = QTableWidgetItem()
-        __qtablewidgetitem.setFont(font2);
+        __qtablewidgetitem.setFont(font1);
         __qtablewidgetitem.setBackground(QColor(255, 255, 255));
         __qtablewidgetitem.setForeground(brush);
         self.tableWidget_4.setHorizontalHeaderItem(0, __qtablewidgetitem)
         self.tableWidget_4.setObjectName(u"tableWidget_4")
         self.tableWidget_4.setMaximumSize(QSize(200, 16777215))
+        self.tableWidget_4.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.tableWidget_4.setStyleSheet(u"border: 2px solid black;\n"
 "border-radius: 10px;")
 
@@ -254,9 +253,9 @@ class Ui_contacts1(object):
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(self.contact_info_2.sizePolicy().hasHeightForWidth())
         self.contact_info_2.setSizePolicy(sizePolicy3)
-        font3 = QFont()
-        font3.setPointSize(16)
-        self.contact_info_2.setFont(font3)
+        font2 = QFont()
+        font2.setPointSize(11)
+        self.contact_info_2.setFont(font2)
         self.contact_info_2.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "border: none;")
         self.contact_info_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -286,7 +285,7 @@ class Ui_contacts1(object):
         self.sales_funnel_label_2.setObjectName(u"sales_funnel_label_2")
         sizePolicy3.setHeightForWidth(self.sales_funnel_label_2.sizePolicy().hasHeightForWidth())
         self.sales_funnel_label_2.setSizePolicy(sizePolicy3)
-        self.sales_funnel_label_2.setFont(font3)
+        self.sales_funnel_label_2.setFont(font2)
         self.sales_funnel_label_2.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "border: none;")
         self.sales_funnel_label_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -315,7 +314,7 @@ class Ui_contacts1(object):
 
     def retranslateUi(self, contacts1):
         contacts1.setWindowTitle(QCoreApplication.translate("contacts1", u"Form", None))
-        self.back_to_contacts_2.setText(QCoreApplication.translate("contacts1", u"< Back to Contacts", None))
+        self.back_to_contacts_btn.setText(QCoreApplication.translate("contacts1", u"< Back to Contacts", None))
         self.logo_user_2.setText(QCoreApplication.translate("contacts1", u"G", None))
         self.company_ni_gab_2.setText(QCoreApplication.translate("contacts1", u"Company ni Gab", None))
         self.sales_pipeline_4.setText(QCoreApplication.translate("contacts1", u"Sales Pipeline", None))
