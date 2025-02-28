@@ -1,14 +1,19 @@
 {
     "files": [
+        ".gitignore",
+        "Template.pyproject",
+        "Template.pyproject.user",
         "UIConverter.py",
+        "datas/mydb.db",
         "main.py",
         "models/__init__.py",
         "models/models_authentication.py",
         "models/models_sidebar.py",
+        "requirements.txt",
         "views/py/__init__.py",
         "views/py/ui_authenticationsystem.py",
         "views/py/ui_sidebar.py",
-        "views/qrc/icons.qrc",
+        "views/qss/__init__.py",
         "views/qss/style.qss",
         "views/ui/authenticationsystem.ui",
         "views/ui/sidebar.ui"
