@@ -37,10 +37,10 @@
      <widget class="QWidget" name="scrollAreaWidgetContents_4">
       <property name="geometry">
        <rect>
-        <x>-54</x>
+        <x>0</x>
         <y>0</y>
-        <width>1218</width>
-        <height>2518</height>
+        <width>1222</width>
+        <height>2522</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -2150,7 +2150,7 @@ QPushButton:hover {
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap>:/new/newPrefix/Resources/user.png</pixmap>
+                 <pixmap resource="../qrc/icons.qrc">:/Resources/black_user.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -2342,6 +2342,8 @@ QPushButton:hover {
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../qrc/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

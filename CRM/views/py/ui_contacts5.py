@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'contacts5.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.2
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -18,6 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
     QLabel, QLineEdit, QPushButton, QScrollArea,
     QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
+import views.py.icons_rc
 
 class Ui_contacts5(object):
     def setupUi(self, contacts5):
@@ -39,7 +40,7 @@ class Ui_contacts5(object):
         self.scrollArea_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(-54, 0, 1218, 2518))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 1222, 2522))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContents_4.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents_4.setSizePolicy(sizePolicy)
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents_4)
@@ -924,7 +925,7 @@ class Ui_contacts5(object):
 "    border: 1px solid #D0C4F0; /* Optional: Light border */\n"
 "}\n"
 "")
-        self.ProfilePic_4.setPixmap(QPixmap(u":/new/newPrefix/Resources/user.png"))
+        self.ProfilePic_4.setPixmap(QPixmap(u":/Resources/black_user.png"))
         self.ProfilePic_4.setScaledContents(True)
 
         self.gridLayout_26.addWidget(self.ProfilePic_4, 0, 1, 2, 1)
