@@ -8,9 +8,9 @@ from .models_sidebar import SidebarForm
 from views.py.ui_contacts import Ui_contacts
 from views.py.ui_contacts1 import Ui_contacts1
 from views.py.ui_contacts2 import Ui_contacts2
-from views.py.ui_contacts3 import Ui_contacts3
+from views.py.ui_contacts_landing import Ui_contacts_landing
 from views.py.ui_contacts4 import Ui_contacts4
-from views.py.ui_contacts5 import Ui_contacts5
+from views.py.ui_contacts_create import Ui_contacts_create
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -197,9 +197,9 @@ class MainWindow(QMainWindow):
         form_map = {
             "Home": Ui_contacts1,
             "Pipeline": Ui_contacts2,
-            "Funnel": Ui_contacts3,
+            "Funnel": Ui_contacts_create,
             "Leads": Ui_contacts4,
-            "Contacts": Ui_contacts5,
+            "Contacts": Ui_contacts_landing,
             "Logout": None
         }
 

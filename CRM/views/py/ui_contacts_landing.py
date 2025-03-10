@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'contacts3.ui'
+## Form generated from reading UI file 'contacts_landing.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -19,17 +19,18 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
     QHeaderView, QLabel, QLineEdit, QPushButton,
     QSizePolicy, QSpacerItem, QTableWidget, QTableWidgetItem,
     QWidget)
+import views.py.icons_rc
 
-class Ui_contacts3(object):
-    def setupUi(self, contacts3):
-        if not contacts3.objectName():
-            contacts3.setObjectName(u"contacts3")
-        contacts3.resize(1201, 680)
-        self.gridLayout_3 = QGridLayout(contacts3)
+class Ui_contacts_landing(object):
+    def setupUi(self, contacts_landing):
+        if not contacts_landing.objectName():
+            contacts_landing.setObjectName(u"contacts_landing")
+        contacts_landing.resize(1201, 680)
+        self.gridLayout_3 = QGridLayout(contacts_landing)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.tableWidget_tbl = QTableWidget(contacts3)
+        self.tableWidget_tbl = QTableWidget(contacts_landing)
         if (self.tableWidget_tbl.columnCount() < 4):
             self.tableWidget_tbl.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
@@ -54,7 +55,7 @@ class Ui_contacts3(object):
 
         self.horizontalLayout_22 = QHBoxLayout()
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.search_line = QLineEdit(contacts3)
+        self.search_line = QLineEdit(contacts_landing)
         self.search_line.setObjectName(u"search_line")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -80,7 +81,7 @@ class Ui_contacts3(object):
 
         self.horizontalLayout_6.addItem(self.horizontalSpacer)
 
-        self.add_btn = QPushButton(contacts3)
+        self.add_btn = QPushButton(contacts_landing)
         self.add_btn.setObjectName(u"add_btn")
         self.add_btn.setStyleSheet(u"QPushButton{\n"
 "	background: transparent;\n"
@@ -94,7 +95,7 @@ class Ui_contacts3(object):
 
         self.horizontalLayout_6.addWidget(self.add_btn)
 
-        self.refresh_btn = QPushButton(contacts3)
+        self.refresh_btn = QPushButton(contacts_landing)
         self.refresh_btn.setObjectName(u"refresh_btn")
         self.refresh_btn.setStyleSheet(u"QPushButton {\n"
 "	background: transparent;\n"
@@ -108,7 +109,7 @@ class Ui_contacts3(object):
 
         self.horizontalLayout_6.addWidget(self.refresh_btn)
 
-        self.delete_btn = QPushButton(contacts3)
+        self.delete_btn = QPushButton(contacts_landing)
         self.delete_btn.setObjectName(u"delete_btn")
         self.delete_btn.setStyleSheet(u"QPushButton{\n"
 "	background: transparent;\n"
@@ -128,7 +129,7 @@ class Ui_contacts3(object):
 
         self.gridLayout.addLayout(self.horizontalLayout_22, 2, 0, 1, 1)
 
-        self.contacts_txt = QLabel(contacts3)
+        self.contacts_txt = QLabel(contacts_landing)
         self.contacts_txt.setObjectName(u"contacts_txt")
         sizePolicy.setHeightForWidth(self.contacts_txt.sizePolicy().hasHeightForWidth())
         self.contacts_txt.setSizePolicy(sizePolicy)
@@ -152,7 +153,7 @@ class Ui_contacts3(object):
 
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.allContacts_combo = QComboBox(contacts3)
+        self.allContacts_combo = QComboBox(contacts_landing)
         self.allContacts_combo.setObjectName(u"allContacts_combo")
         sizePolicy.setHeightForWidth(self.allContacts_combo.sizePolicy().hasHeightForWidth())
         self.allContacts_combo.setSizePolicy(sizePolicy)
@@ -181,26 +182,26 @@ class Ui_contacts3(object):
         self.gridLayout_3.addLayout(self.gridLayout, 0, 0, 1, 1)
 
 
-        self.retranslateUi(contacts3)
+        self.retranslateUi(contacts_landing)
 
-        QMetaObject.connectSlotsByName(contacts3)
+        QMetaObject.connectSlotsByName(contacts_landing)
     # setupUi
 
-    def retranslateUi(self, contacts3):
-        contacts3.setWindowTitle(QCoreApplication.translate("contacts3", u"Form", None))
+    def retranslateUi(self, contacts_landing):
+        contacts_landing.setWindowTitle(QCoreApplication.translate("contacts_landing", u"Form", None))
         ___qtablewidgetitem = self.tableWidget_tbl.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("contacts3", u"Name", None));
+        ___qtablewidgetitem.setText(QCoreApplication.translate("contacts_landing", u"Name", None));
         ___qtablewidgetitem1 = self.tableWidget_tbl.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("contacts3", u"Email", None));
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("contacts_landing", u"Email", None));
         ___qtablewidgetitem2 = self.tableWidget_tbl.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("contacts3", u"Phone Number", None));
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("contacts_landing", u"Phone Number", None));
         ___qtablewidgetitem3 = self.tableWidget_tbl.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("contacts3", u"Company", None));
-        self.search_line.setPlaceholderText(QCoreApplication.translate("contacts3", u"Search", None))
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("contacts_landing", u"Company", None));
+        self.search_line.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"Search", None))
         self.add_btn.setText("")
         self.refresh_btn.setText("")
         self.delete_btn.setText("")
-        self.contacts_txt.setText(QCoreApplication.translate("contacts3", u"Contacts", None))
-        self.allContacts_combo.setPlaceholderText(QCoreApplication.translate("contacts3", u"All Contacts", None))
+        self.contacts_txt.setText(QCoreApplication.translate("contacts_landing", u"Contacts", None))
+        self.allContacts_combo.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"All Contacts", None))
     # retranslateUi
 

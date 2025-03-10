@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>contacts3</class>
- <widget class="QWidget" name="contacts3">
+ <class>contacts_landing</class>
+ <widget class="QWidget" name="contacts_landing">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -132,7 +132,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="../qrc/icons.qrc">
              <normaloff>:/Resources/black_plus .png</normaloff>
              <normalon>:/Resources/white_plus.png</normalon>:/Resources/black_plus .png</iconset>
            </property>
@@ -156,7 +156,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="../qrc/icons.qrc">
              <normaloff>:/Resources/black_refresh.png</normaloff>
              <normalon>:/Resources/white_refresh.png</normalon>:/Resources/black_refresh.png</iconset>
            </property>
@@ -180,7 +180,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="../qrc/icons.qrc">
              <normaloff>:/Resources/black_delete.png</normaloff>
              <normalon>:/Resources/white_delete.png</normalon>:/Resources/black_delete.png</iconset>
            </property>
@@ -326,6 +326,8 @@ background: transparent;</string>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../qrc/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
