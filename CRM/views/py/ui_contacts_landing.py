@@ -20,6 +20,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
     QSizePolicy, QSpacerItem, QTableWidget, QTableWidgetItem,
     QWidget)
 import views.py.icons_rc
+import views.py.icons_rc
 
 class Ui_contacts_landing(object):
     def setupUi(self, contacts_landing):
@@ -30,25 +31,6 @@ class Ui_contacts_landing(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.tableWidget_tbl = QTableWidget(contacts_landing)
-        if (self.tableWidget_tbl.columnCount() < 4):
-            self.tableWidget_tbl.setColumnCount(4)
-        __qtablewidgetitem = QTableWidgetItem()
-        self.tableWidget_tbl.setHorizontalHeaderItem(0, __qtablewidgetitem)
-        __qtablewidgetitem1 = QTableWidgetItem()
-        self.tableWidget_tbl.setHorizontalHeaderItem(1, __qtablewidgetitem1)
-        __qtablewidgetitem2 = QTableWidgetItem()
-        self.tableWidget_tbl.setHorizontalHeaderItem(2, __qtablewidgetitem2)
-        __qtablewidgetitem3 = QTableWidgetItem()
-        self.tableWidget_tbl.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        self.tableWidget_tbl.setObjectName(u"tableWidget_tbl")
-        self.tableWidget_tbl.setStyleSheet(u"QTableWidget{\n"
-"	border: 2px solid black\n"
-"}\n"
-"")
-
-        self.gridLayout.addWidget(self.tableWidget_tbl, 7, 0, 1, 1)
-
         self.verticalSpacer_41 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
 
         self.gridLayout.addItem(self.verticalSpacer_41, 1, 0, 1, 1)
@@ -88,8 +70,7 @@ class Ui_contacts_landing(object):
 "	border: none;\n"
 "}")
         icon = QIcon()
-        icon.addFile(u":/Resources/black_plus .png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon.addFile(u":/Resources/white_plus.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        icon.addFile(u":/Resources/add_circle_24dp_000_FILL0_wght400_GRAD0_opsz24.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.add_btn.setIcon(icon)
         self.add_btn.setIconSize(QSize(40, 40))
 
@@ -129,27 +110,9 @@ class Ui_contacts_landing(object):
 
         self.gridLayout.addLayout(self.horizontalLayout_22, 2, 0, 1, 1)
 
-        self.contacts_txt = QLabel(contacts_landing)
-        self.contacts_txt.setObjectName(u"contacts_txt")
-        sizePolicy.setHeightForWidth(self.contacts_txt.sizePolicy().hasHeightForWidth())
-        self.contacts_txt.setSizePolicy(sizePolicy)
-        self.contacts_txt.setMinimumSize(QSize(0, 0))
-        self.contacts_txt.setStyleSheet(u"font: 18pt \"Segoe UI\";\n"
-"background: transparent;")
-
-        self.gridLayout.addWidget(self.contacts_txt, 0, 0, 1, 1)
-
-        self.verticalSpacer_43 = QSpacerItem(20, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
-
-        self.gridLayout.addItem(self.verticalSpacer_43, 5, 0, 1, 1)
-
         self.verticalSpacer_42 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
 
         self.gridLayout.addItem(self.verticalSpacer_42, 1, 0, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(20, 25, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
-
-        self.gridLayout.addItem(self.verticalSpacer, 3, 0, 1, 1)
 
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
@@ -178,6 +141,49 @@ class Ui_contacts_landing(object):
 
         self.gridLayout.addLayout(self.gridLayout_2, 4, 0, 1, 1)
 
+        self.tableWidget_tbl = QTableWidget(contacts_landing)
+        if (self.tableWidget_tbl.columnCount() < 4):
+            self.tableWidget_tbl.setColumnCount(4)
+        __qtablewidgetitem = QTableWidgetItem()
+        self.tableWidget_tbl.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        __qtablewidgetitem1 = QTableWidgetItem()
+        self.tableWidget_tbl.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        self.tableWidget_tbl.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        self.tableWidget_tbl.setHorizontalHeaderItem(3, __qtablewidgetitem3)
+        self.tableWidget_tbl.setObjectName(u"tableWidget_tbl")
+        self.tableWidget_tbl.setStyleSheet(u"QTableWidget{\n"
+"	border: 2px solid black\n"
+"}\n"
+"")
+
+        self.gridLayout.addWidget(self.tableWidget_tbl, 7, 0, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 25, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.gridLayout.addItem(self.verticalSpacer, 3, 0, 1, 1)
+
+        self.verticalSpacer_43 = QSpacerItem(20, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.gridLayout.addItem(self.verticalSpacer_43, 5, 0, 1, 1)
+
+        self.contacts_txt = QLabel(contacts_landing)
+        self.contacts_txt.setObjectName(u"contacts_txt")
+        sizePolicy.setHeightForWidth(self.contacts_txt.sizePolicy().hasHeightForWidth())
+        self.contacts_txt.setSizePolicy(sizePolicy)
+        self.contacts_txt.setMinimumSize(QSize(0, 0))
+        font = QFont()
+        font.setFamilies([u"Segoe UI"])
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        self.contacts_txt.setFont(font)
+        self.contacts_txt.setStyleSheet(u"font: 18pt \"Segoe UI\";\n"
+"background: transparent;")
+
+        self.gridLayout.addWidget(self.contacts_txt, 0, 0, 1, 1)
+
 
         self.gridLayout_3.addLayout(self.gridLayout, 0, 0, 1, 1)
 
@@ -189,6 +195,11 @@ class Ui_contacts_landing(object):
 
     def retranslateUi(self, contacts_landing):
         contacts_landing.setWindowTitle(QCoreApplication.translate("contacts_landing", u"Form", None))
+        self.search_line.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"Search", None))
+        self.add_btn.setText("")
+        self.refresh_btn.setText("")
+        self.delete_btn.setText("")
+        self.allContacts_combo.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"All Contacts", None))
         ___qtablewidgetitem = self.tableWidget_tbl.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("contacts_landing", u"Name", None));
         ___qtablewidgetitem1 = self.tableWidget_tbl.horizontalHeaderItem(1)
@@ -197,11 +208,6 @@ class Ui_contacts_landing(object):
         ___qtablewidgetitem2.setText(QCoreApplication.translate("contacts_landing", u"Phone Number", None));
         ___qtablewidgetitem3 = self.tableWidget_tbl.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("contacts_landing", u"Company", None));
-        self.search_line.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"Search", None))
-        self.add_btn.setText("")
-        self.refresh_btn.setText("")
-        self.delete_btn.setText("")
         self.contacts_txt.setText(QCoreApplication.translate("contacts_landing", u"Contacts", None))
-        self.allContacts_combo.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"All Contacts", None))
     # retranslateUi
 
