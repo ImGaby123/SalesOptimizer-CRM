@@ -215,8 +215,6 @@ class MainWindow(QMainWindow):
         self.transposed = not self.transposed
         self.left_subwin, self.right_subwin = self.right_subwin, self.left_subwin
         self.realign_subwindows()
-        # Optional: animate the transition for smoother UX
-        self.animate_transition()
 
     def toggle_sidebar(self):
         sidebar_subwin = self.left_subwin if not self.transposed else self.right_subwin
