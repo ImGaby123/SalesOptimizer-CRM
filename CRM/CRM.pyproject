@@ -1,21 +1,21 @@
 {
     "files": [
-        "UIConverter.py",
+        "UIC.py",
         "main.py",
         "models/__init__.py",
         "models/models_authentication.py",
-        "models/models_contacts.py",
+        "models/models_contacts_create.py",
+        "models/models_contacts_landing.py",
         "models/models_sidebar.py",
-        "ts_individualpage.py",
         "views/py/__init__.py",
         "views/py/icons_rc.py",
         "views/py/ui_authenticationsystem.py",
         "views/py/ui_contacts.py",
         "views/py/ui_contacts1.py",
         "views/py/ui_contacts2.py",
-        "views/py/ui_contacts3.py",
         "views/py/ui_contacts4.py",
-        "views/py/ui_contacts5.py",
+        "views/py/ui_contacts_create.py",
+        "views/py/ui_contacts_landing.py",
         "views/py/ui_sidebar.py",
         "views/qrc/icons.qrc",
         "views/qss/style.qss",
@@ -23,9 +23,9 @@
         "views/ui/contacts.ui",
         "views/ui/contacts1.ui",
         "views/ui/contacts2.ui",
-        "views/ui/contacts3.ui",
         "views/ui/contacts4.ui",
-        "views/ui/contacts5.ui",
+        "views/ui/contacts_create.ui",
+        "views/ui/contacts_landing.ui",
         "views/ui/sidebar.ui"
     ]
 }

@@ -20,7 +20,6 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
     QSizePolicy, QSpacerItem, QTableWidget, QTableWidgetItem,
     QWidget)
 import views.py.icons_rc
-import views.py.icons_rc
 
 class Ui_contacts_landing(object):
     def setupUi(self, contacts_landing):
@@ -194,7 +193,7 @@ class Ui_contacts_landing(object):
     # setupUi
 
     def retranslateUi(self, contacts_landing):
-        contacts_landing.setWindowTitle(QCoreApplication.translate("contacts_landing", u"Form", None))
+        contacts_landing.setWindowTitle(QCoreApplication.translate("contacts_landing", u"Contacts", None))
         self.search_line.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"Search", None))
         self.add_btn.setText("")
         self.refresh_btn.setText("")

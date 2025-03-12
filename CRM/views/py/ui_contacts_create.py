@@ -688,7 +688,7 @@ class Ui_contacts_create(object):
     # setupUi
 
     def retranslateUi(self, contacts_create):
-        contacts_create.setWindowTitle(QCoreApplication.translate("contacts_create", u"Form", None))
+        contacts_create.setWindowTitle(QCoreApplication.translate("contacts_create", u"Add Contact", None))
         self.AdditionalInformation_5.setText(QCoreApplication.translate("contacts_create", u"ADDITIONAL INFORMATION", None))
         self.ContactsInformation_4.setText(QCoreApplication.translate("contacts_create", u"Contact Information", None))
         self.CompanyLabel_4.setText(QCoreApplication.translate("contacts_create", u"Company :", None))
