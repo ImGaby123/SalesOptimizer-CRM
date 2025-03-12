@@ -1,5 +1,4 @@
 <RCC>
-    <qresource prefix="/new/newPrefix"/>
     <qresource prefix="/">
         <file>Resources/black_attach.png</file>
         <file>Resources/black_bars.png</file>
@@ -45,5 +44,9 @@
         <file>Resources/white_underline.png</file>
         <file>Resources/white_upload.png</file>
         <file>Resources/white_user.png</file>
+        <file>Resources/add.svg</file>
+        <file>icons.qrc</file>
+        <file>Resources/add_circle_24dp_000_FILL0_wght400_GRAD0_opsz24.svg</file>
+        <file>Resources/cancel_24dp_000_FILL0_wght400_GRAD0_opsz24.png</file>
     </qresource>
 </RCC>
