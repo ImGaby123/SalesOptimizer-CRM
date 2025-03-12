@@ -23,9 +23,9 @@
         "views/ui/contacts.ui",
         "views/ui/contacts1.ui",
         "views/ui/contacts2.ui",
+        "views/ui/contacts_landing.ui",
         "views/ui/contacts4.ui",
         "views/ui/contacts_create.ui",
-        "views/ui/contacts_landing.ui",
         "views/ui/sidebar.ui"
     ]
 }

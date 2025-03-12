@@ -49,7 +49,11 @@ color: rgb(0, 0, 0);
 </string>
          </property>
          <property name="text">
-          <string>&lt; Back to Contacts</string>
+          <string> Back to Contacts</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../qrc/icons.qrc">
+           <normaloff>:/Resources/leftarrow.svg</normaloff>:/Resources/leftarrow.svg</iconset>
          </property>
         </widget>
        </item>
@@ -574,6 +578,8 @@ border: none;</string>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../qrc/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -144,9 +144,8 @@
                <string/>
               </property>
               <property name="icon">
-               <iconset>
-                <normaloff>:/Resources/black_edit.png</normaloff>
-                <normalon>:/Resources/white_edit.png</normalon>:/Resources/black_edit.png</iconset>
+               <iconset resource="../qrc/icons.qrc">
+                <normaloff>:/Resources/edit.svg</normaloff>:/Resources/edit.svg</iconset>
               </property>
              </widget>
             </item>
@@ -175,9 +174,8 @@
                <string/>
               </property>
               <property name="icon">
-               <iconset>
-                <normaloff>:/Resources/black_link.png</normaloff>
-                <normalon>:/Resources/white_link.png</normalon>:/Resources/black_link.png</iconset>
+               <iconset resource="../qrc/icons.qrc">
+                <normaloff>:/Resources/link.svg</normaloff>:/Resources/link.svg</iconset>
               </property>
              </widget>
             </item>
@@ -193,9 +191,8 @@
                <string/>
               </property>
               <property name="icon">
-               <iconset>
-                <normaloff>:/Resources/black_attach.png</normaloff>
-                <normalon>:/Resources/white_attach.png</normalon>:/Resources/black_attach.png</iconset>
+               <iconset resource="../qrc/icons.qrc">
+                <normaloff>:/Resources/attach.svg</normaloff>:/Resources/attach.svg</iconset>
               </property>
              </widget>
             </item>
@@ -265,9 +262,8 @@
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset>
-                  <normaloff>:/Resources/black_pin.png</normaloff>
-                  <normalon>:/Resources/white_pin.png</normalon>:/Resources/black_pin.png</iconset>
+                 <iconset resource="../qrc/icons.qrc">
+                  <normaloff>:/Resources/pin.svg</normaloff>:/Resources/pin.svg</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -289,9 +285,8 @@
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset>
-                  <normaloff>:/Resources/black_bars.png</normaloff>
-                  <normalon>:/Resources/white_bars.png</normalon>:/Resources/black_bars.png</iconset>
+                 <iconset resource="../qrc/icons.qrc">
+                  <normaloff>:/Resources/bars.svg</normaloff>:/Resources/bars.svg</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -313,9 +308,8 @@
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset>
-                  <normaloff>:/Resources/black_menu.png</normaloff>
-                  <normalon>:/Resources/white_menu.png</normalon>:/Resources/black_menu.png</iconset>
+                 <iconset resource="../qrc/icons.qrc">
+                  <normaloff>:/Resources/menu.svg</normaloff>:/Resources/menu.svg</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -646,9 +640,8 @@
           <string>Back To Contacts</string>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>:/Resources/black_left-arrow.png</normaloff>
-           <normalon>:/Resources/white_left-arrow.png</normalon>:/Resources/black_left-arrow.png</iconset>
+          <iconset resource="../qrc/icons.qrc">
+           <normaloff>:/Resources/leftarrow.svg</normaloff>:/Resources/leftarrow.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -795,6 +788,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../qrc/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

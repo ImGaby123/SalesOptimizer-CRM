@@ -18,6 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
     QLabel, QLineEdit, QPushButton, QSizePolicy,
     QSpacerItem, QTextEdit, QWidget)
+import views.py.icons_rc
 
 class Ui_contacts2(object):
     def setupUi(self, contacts2):
@@ -78,6 +79,9 @@ class Ui_contacts2(object):
         self.bold_btn.setFont(font1)
         self.bold_btn.setStyleSheet(u"\n"
 "color: rgb(0, 0, 0);")
+        icon = QIcon()
+        icon.addFile(u":/Resources/bold.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.bold_btn.setIcon(icon)
 
         self.horizontalLayout.addWidget(self.bold_btn)
 
@@ -95,6 +99,9 @@ class Ui_contacts2(object):
         self.italic_btn.setStyleSheet(u"\n"
 "\n"
 "color: rgb(0, 0, 0);")
+        icon1 = QIcon()
+        icon1.addFile(u":/Resources/italic.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.italic_btn.setIcon(icon1)
 
         self.horizontalLayout.addWidget(self.italic_btn)
 
@@ -111,6 +118,9 @@ class Ui_contacts2(object):
         self.underline_btn.setStyleSheet(u"\n"
 "\n"
 "color: rgb(0, 0, 0);")
+        icon2 = QIcon()
+        icon2.addFile(u":/Resources/underline.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.underline_btn.setIcon(icon2)
 
         self.horizontalLayout.addWidget(self.underline_btn)
 
@@ -255,9 +265,9 @@ class Ui_contacts2(object):
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
         self.to_label_4.setText(QCoreApplication.translate("contacts2", u"To:", None))
-        self.bold_btn.setText(QCoreApplication.translate("contacts2", u"B", None))
-        self.italic_btn.setText(QCoreApplication.translate("contacts2", u"I", None))
-        self.underline_btn.setText(QCoreApplication.translate("contacts2", u"U", None))
+        self.bold_btn.setText("")
+        self.italic_btn.setText("")
+        self.underline_btn.setText("")
         self.insert_combo.setItemText(0, QCoreApplication.translate("contacts2", u"Insert", None))
 
         self.comboBox.setItemText(0, QCoreApplication.translate("contacts2", u"More", None))

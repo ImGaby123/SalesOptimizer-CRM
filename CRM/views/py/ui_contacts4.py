@@ -19,6 +19,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QHeaderView, QLabel, QLineEdit, QProgressBar,
     QPushButton, QSizePolicy, QSpacerItem, QTableWidget,
     QTableWidgetItem, QWidget)
+import views.py.icons_rc
 
 class Ui_contacts4(object):
     def setupUi(self, contacts4):
@@ -95,8 +96,7 @@ class Ui_contacts4(object):
 "	border: none;\n"
 "}")
         icon = QIcon()
-        icon.addFile(u":/Resources/black_edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon.addFile(u":/Resources/white_edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        icon.addFile(u":/Resources/edit.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.edit_btn.setIcon(icon)
 
         self.horizontalLayout_45.addWidget(self.edit_btn)
@@ -112,8 +112,7 @@ class Ui_contacts4(object):
 "	border: none;\n"
 "}")
         icon1 = QIcon()
-        icon1.addFile(u":/Resources/black_link.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon1.addFile(u":/Resources/white_link.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        icon1.addFile(u":/Resources/link.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.link_btn.setIcon(icon1)
 
         self.horizontalLayout_45.addWidget(self.link_btn)
@@ -125,8 +124,7 @@ class Ui_contacts4(object):
 "	border: none;\n"
 "}")
         icon2 = QIcon()
-        icon2.addFile(u":/Resources/black_attach.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon2.addFile(u":/Resources/white_attach.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        icon2.addFile(u":/Resources/attach.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.attach_btn.setIcon(icon2)
 
         self.horizontalLayout_45.addWidget(self.attach_btn)
@@ -163,8 +161,7 @@ class Ui_contacts4(object):
 "	border: none;\n"
 "}")
         icon3 = QIcon()
-        icon3.addFile(u":/Resources/black_pin.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon3.addFile(u":/Resources/white_pin.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        icon3.addFile(u":/Resources/pin.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.pin_btn.setIcon(icon3)
         self.pin_btn.setIconSize(QSize(30, 30))
 
@@ -177,8 +174,7 @@ class Ui_contacts4(object):
 "	border: none;\n"
 "}")
         icon4 = QIcon()
-        icon4.addFile(u":/Resources/black_bars.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon4.addFile(u":/Resources/white_bars.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        icon4.addFile(u":/Resources/bars.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.bars_btn.setIcon(icon4)
         self.bars_btn.setIconSize(QSize(30, 30))
 
@@ -191,8 +187,7 @@ class Ui_contacts4(object):
 "	border: none;\n"
 "}")
         icon5 = QIcon()
-        icon5.addFile(u":/Resources/black_menu.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon5.addFile(u":/Resources/white_menu.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        icon5.addFile(u":/Resources/menu.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.menu_btn.setIcon(icon5)
         self.menu_btn.setIconSize(QSize(30, 30))
 
@@ -360,8 +355,7 @@ class Ui_contacts4(object):
 "    color: rgb(0, 0, 0); \n"
 "}")
         icon6 = QIcon()
-        icon6.addFile(u":/Resources/black_left-arrow.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon6.addFile(u":/Resources/white_left-arrow.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        icon6.addFile(u":/Resources/leftarrow.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.backToContacts_btn.setIcon(icon6)
         self.backToContacts_btn.setIconSize(QSize(15, 15))
 
