@@ -185,7 +185,7 @@ class Ui_contacts_landing(object):
     # setupUi
 
     def retranslateUi(self, contacts_landing):
-        contacts_landing.setWindowTitle(QCoreApplication.translate("contacts_landing", u"Form", None))
+        contacts_landing.setWindowTitle(QCoreApplication.translate("contacts_landing", u"Contacts", None))
         ___qtablewidgetitem = self.tableWidget_tbl.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("contacts_landing", u"Name", None));
         ___qtablewidgetitem1 = self.tableWidget_tbl.horizontalHeaderItem(1)
