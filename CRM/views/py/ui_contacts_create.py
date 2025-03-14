@@ -29,6 +29,7 @@ class Ui_contacts_create(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(contacts_create.sizePolicy().hasHeightForWidth())
         contacts_create.setSizePolicy(sizePolicy)
+        contacts_create.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.verticalLayout_3 = QVBoxLayout(contacts_create)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.scrollArea_4 = QScrollArea(contacts_create)
@@ -39,7 +40,7 @@ class Ui_contacts_create(object):
         self.scrollArea_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 1077, 1130))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 1094, 1082))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContents_4.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents_4.setSizePolicy(sizePolicy)
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents_4)
@@ -57,67 +58,14 @@ class Ui_contacts_create(object):
         self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout = QGridLayout(self.frame_4)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.verticalLayout_11 = QVBoxLayout()
-        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
-
-        self.gridLayout.addLayout(self.verticalLayout_11, 7, 0, 1, 1)
-
-        self.verticalLayout_31 = QVBoxLayout()
-        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
-
-        self.gridLayout.addLayout(self.verticalLayout_31, 5, 0, 1, 1)
-
-        self.verticalLayout_20 = QVBoxLayout()
-        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
-
-        self.gridLayout.addLayout(self.verticalLayout_20, 9, 0, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer, 13, 0, 1, 1)
-
-        self.gridLayout_19 = QGridLayout()
-        self.gridLayout_19.setObjectName(u"gridLayout_19")
-        self.verticalLayout_29 = QVBoxLayout()
-        self.verticalLayout_29.setObjectName(u"verticalLayout_29")
-
-        self.gridLayout_19.addLayout(self.verticalLayout_29, 0, 0, 1, 1)
-
-
-        self.gridLayout.addLayout(self.gridLayout_19, 12, 0, 1, 1)
-
-        self.gridLayout_27 = QGridLayout()
-        self.gridLayout_27.setObjectName(u"gridLayout_27")
-        self.widget_18 = QWidget(self.frame_4)
-        self.widget_18.setObjectName(u"widget_18")
-        sizePolicy1.setHeightForWidth(self.widget_18.sizePolicy().hasHeightForWidth())
-        self.widget_18.setSizePolicy(sizePolicy1)
-        self.widget_18.setMinimumSize(QSize(0, 40))
-        self.widget_18.setStyleSheet(u"background-color: rgb(149, 149, 149);")
-        self.gridLayout_7 = QGridLayout(self.widget_18)
-        self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.AdditionalInformation_5 = QLabel(self.widget_18)
-        self.AdditionalInformation_5.setObjectName(u"AdditionalInformation_5")
-        sizePolicy1.setHeightForWidth(self.AdditionalInformation_5.sizePolicy().hasHeightForWidth())
-        self.AdditionalInformation_5.setSizePolicy(sizePolicy1)
-        font = QFont()
-        font.setPointSize(10)
-        font.setBold(True)
-        self.AdditionalInformation_5.setFont(font)
-        self.AdditionalInformation_5.setStyleSheet(u"color: rgb(0, 0, 0);")
-
-        self.gridLayout_7.addWidget(self.AdditionalInformation_5, 0, 0, 1, 1)
-
-
-        self.gridLayout_27.addWidget(self.widget_18, 0, 0, 1, 1)
-
-
-        self.gridLayout.addLayout(self.gridLayout_27, 6, 0, 1, 1)
-
         self.verticalLayout_39 = QVBoxLayout()
         self.verticalLayout_39.setObjectName(u"verticalLayout_39")
 
         self.gridLayout.addLayout(self.verticalLayout_39, 4, 0, 1, 1)
+
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_5, 1, 0, 1, 1)
 
         self.verticalLayout_19 = QVBoxLayout()
         self.verticalLayout_19.setSpacing(0)
@@ -127,7 +75,7 @@ class Ui_contacts_create(object):
         sizePolicy1.setHeightForWidth(self.widget_19.sizePolicy().hasHeightForWidth())
         self.widget_19.setSizePolicy(sizePolicy1)
         self.widget_19.setMinimumSize(QSize(0, 25))
-        self.widget_19.setStyleSheet(u"background-color: rgb(149, 149, 149);")
+        self.widget_19.setStyleSheet(u"background-color: rgb(221, 221, 221);")
         self.verticalLayout_10 = QVBoxLayout(self.widget_19)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.ContactsInformation_4 = QLabel(self.widget_19)
@@ -135,6 +83,9 @@ class Ui_contacts_create(object):
         sizePolicy1.setHeightForWidth(self.ContactsInformation_4.sizePolicy().hasHeightForWidth())
         self.ContactsInformation_4.setSizePolicy(sizePolicy1)
         self.ContactsInformation_4.setMinimumSize(QSize(0, 30))
+        font = QFont()
+        font.setPointSize(10)
+        font.setBold(True)
         self.ContactsInformation_4.setFont(font)
         self.ContactsInformation_4.setStyleSheet(u"color: rgb(0, 0, 0);")
 
@@ -146,15 +97,55 @@ class Ui_contacts_create(object):
 
         self.gridLayout.addLayout(self.verticalLayout_19, 2, 0, 1, 1)
 
+        self.verticalLayout_11 = QVBoxLayout()
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+
+        self.gridLayout.addLayout(self.verticalLayout_11, 7, 0, 1, 1)
+
+        self.verticalLayout_20 = QVBoxLayout()
+        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+
+        self.gridLayout.addLayout(self.verticalLayout_20, 9, 0, 1, 1)
+
+        self.gridLayout_14 = QGridLayout()
+        self.gridLayout_14.setObjectName(u"gridLayout_14")
+        self.widget_20 = QWidget(self.frame_4)
+        self.widget_20.setObjectName(u"widget_20")
+        sizePolicy1.setHeightForWidth(self.widget_20.sizePolicy().hasHeightForWidth())
+        self.widget_20.setSizePolicy(sizePolicy1)
+        self.widget_20.setMinimumSize(QSize(0, 40))
+        self.widget_20.setStyleSheet(u"background-color: rgb(221, 221, 221);")
+        self.gridLayout_4 = QGridLayout(self.widget_20)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.AdditionalInformation_14 = QLabel(self.widget_20)
+        self.AdditionalInformation_14.setObjectName(u"AdditionalInformation_14")
+        sizePolicy1.setHeightForWidth(self.AdditionalInformation_14.sizePolicy().hasHeightForWidth())
+        self.AdditionalInformation_14.setSizePolicy(sizePolicy1)
+        self.AdditionalInformation_14.setFont(font)
+        self.AdditionalInformation_14.setStyleSheet(u"color: rgb(0, 0, 0);")
+
+        self.gridLayout_4.addWidget(self.AdditionalInformation_14, 0, 0, 1, 1)
+
+
+        self.gridLayout_14.addWidget(self.widget_20, 1, 0, 1, 1)
+
+        self.verticalLayout_33 = QVBoxLayout()
+        self.verticalLayout_33.setObjectName(u"verticalLayout_33")
+
+        self.gridLayout_14.addLayout(self.verticalLayout_33, 0, 0, 1, 1)
+
+
+        self.gridLayout.addLayout(self.gridLayout_14, 10, 0, 1, 1)
+
+        self.verticalLayout_31 = QVBoxLayout()
+        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
+
+        self.gridLayout.addLayout(self.verticalLayout_31, 5, 0, 1, 1)
+
         self.gridLayout_11 = QGridLayout()
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.gridLayout_17 = QGridLayout()
         self.gridLayout_17.setObjectName(u"gridLayout_17")
-        self.verticalLayout_12 = QVBoxLayout()
-        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
-
-        self.gridLayout_17.addLayout(self.verticalLayout_12, 4, 0, 1, 1)
-
         self.Company_4 = QLineEdit(self.frame_4)
         self.Company_4.setObjectName(u"Company_4")
         sizePolicy1.setHeightForWidth(self.Company_4.sizePolicy().hasHeightForWidth())
@@ -167,7 +158,15 @@ class Ui_contacts_create(object):
         self.verticalLayout_14 = QVBoxLayout()
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
 
-        self.gridLayout_17.addLayout(self.verticalLayout_14, 10, 0, 1, 1)
+        self.gridLayout_17.addLayout(self.verticalLayout_14, 9, 0, 1, 1)
+
+        self.CompanyLabel_4 = QLabel(self.frame_4)
+        self.CompanyLabel_4.setObjectName(u"CompanyLabel_4")
+        sizePolicy1.setHeightForWidth(self.CompanyLabel_4.sizePolicy().hasHeightForWidth())
+        self.CompanyLabel_4.setSizePolicy(sizePolicy1)
+        self.CompanyLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.gridLayout_17.addWidget(self.CompanyLabel_4, 0, 0, 1, 1)
 
         self.Fax_4 = QLineEdit(self.frame_4)
         self.Fax_4.setObjectName(u"Fax_4")
@@ -181,15 +180,7 @@ class Ui_contacts_create(object):
         self.verticalLayout_13 = QVBoxLayout()
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
 
-        self.gridLayout_17.addLayout(self.verticalLayout_13, 6, 0, 1, 1)
-
-        self.CompanyLabel_4 = QLabel(self.frame_4)
-        self.CompanyLabel_4.setObjectName(u"CompanyLabel_4")
-        sizePolicy1.setHeightForWidth(self.CompanyLabel_4.sizePolicy().hasHeightForWidth())
-        self.CompanyLabel_4.setSizePolicy(sizePolicy1)
-        self.CompanyLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
-
-        self.gridLayout_17.addWidget(self.CompanyLabel_4, 0, 0, 1, 1)
+        self.gridLayout_17.addLayout(self.verticalLayout_13, 5, 0, 1, 1)
 
         self.FaxLabel_4 = QLabel(self.frame_4)
         self.FaxLabel_4.setObjectName(u"FaxLabel_4")
@@ -204,11 +195,6 @@ class Ui_contacts_create(object):
 
         self.gridLayout_16 = QGridLayout()
         self.gridLayout_16.setObjectName(u"gridLayout_16")
-        self.verticalLayout_15 = QVBoxLayout()
-        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
-
-        self.gridLayout_16.addLayout(self.verticalLayout_15, 9, 0, 1, 1)
-
         self.OtherPhoneNumLabel_4 = QLabel(self.frame_4)
         self.OtherPhoneNumLabel_4.setObjectName(u"OtherPhoneNumLabel_4")
         sizePolicy1.setHeightForWidth(self.OtherPhoneNumLabel_4.sizePolicy().hasHeightForWidth())
@@ -216,6 +202,15 @@ class Ui_contacts_create(object):
         self.OtherPhoneNumLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_16.addWidget(self.OtherPhoneNumLabel_4, 3, 0, 1, 1)
+
+        self.comboBox = QComboBox(self.frame_4)
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.setObjectName(u"comboBox")
+        sizePolicy1.setHeightForWidth(self.comboBox.sizePolicy().hasHeightForWidth())
+        self.comboBox.setSizePolicy(sizePolicy1)
+
+        self.gridLayout_16.addWidget(self.comboBox, 7, 0, 1, 1)
 
         self.OtherPhoneNum_4 = QLineEdit(self.frame_4)
         self.OtherPhoneNum_4.setObjectName(u"OtherPhoneNum_4")
@@ -225,25 +220,6 @@ class Ui_contacts_create(object):
         self.OtherPhoneNum_4.setMaximumSize(QSize(16777215, 16777215))
 
         self.gridLayout_16.addWidget(self.OtherPhoneNum_4, 4, 0, 1, 1)
-
-        self.verticalLayout_16 = QVBoxLayout()
-        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
-
-        self.gridLayout_16.addLayout(self.verticalLayout_16, 11, 0, 1, 1)
-
-        self.comboBox = QComboBox(self.frame_4)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
-        sizePolicy1.setHeightForWidth(self.comboBox.sizePolicy().hasHeightForWidth())
-        self.comboBox.setSizePolicy(sizePolicy1)
-
-        self.gridLayout_16.addWidget(self.comboBox, 8, 0, 1, 1)
-
-        self.verticalLayout_18 = QVBoxLayout()
-        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
-
-        self.gridLayout_16.addLayout(self.verticalLayout_18, 5, 0, 1, 1)
 
         self.SecondaryEmailLabel_4 = QLabel(self.frame_4)
         self.SecondaryEmailLabel_4.setObjectName(u"SecondaryEmailLabel_4")
@@ -268,7 +244,7 @@ class Ui_contacts_create(object):
         self.GenderLabel_4.setSizePolicy(sizePolicy1)
         self.GenderLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
 
-        self.gridLayout_16.addWidget(self.GenderLabel_4, 7, 0, 1, 1)
+        self.gridLayout_16.addWidget(self.GenderLabel_4, 6, 0, 1, 1)
 
 
         self.gridLayout_11.addLayout(self.gridLayout_16, 0, 0, 1, 1)
@@ -280,159 +256,30 @@ class Ui_contacts_create(object):
 
         self.gridLayout.addLayout(self.gridLayout_11, 8, 0, 1, 1)
 
-        self.gridLayout_18 = QGridLayout()
-        self.gridLayout_18.setObjectName(u"gridLayout_18")
-        self.verticalLayout_32 = QVBoxLayout()
-        self.verticalLayout_32.setObjectName(u"verticalLayout_32")
+        self.gridLayout_27 = QGridLayout()
+        self.gridLayout_27.setObjectName(u"gridLayout_27")
+        self.widget_18 = QWidget(self.frame_4)
+        self.widget_18.setObjectName(u"widget_18")
+        sizePolicy1.setHeightForWidth(self.widget_18.sizePolicy().hasHeightForWidth())
+        self.widget_18.setSizePolicy(sizePolicy1)
+        self.widget_18.setMinimumSize(QSize(0, 40))
+        self.widget_18.setStyleSheet(u"background-color: rgb(221, 221, 221);")
+        self.gridLayout_7 = QGridLayout(self.widget_18)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.AdditionalInformation_5 = QLabel(self.widget_18)
+        self.AdditionalInformation_5.setObjectName(u"AdditionalInformation_5")
+        sizePolicy1.setHeightForWidth(self.AdditionalInformation_5.sizePolicy().hasHeightForWidth())
+        self.AdditionalInformation_5.setSizePolicy(sizePolicy1)
+        self.AdditionalInformation_5.setFont(font)
+        self.AdditionalInformation_5.setStyleSheet(u"color: rgb(0, 0, 0);")
 
-        self.gridLayout_18.addLayout(self.verticalLayout_32, 1, 0, 1, 1)
-
-        self.gridLayout_24 = QGridLayout()
-        self.gridLayout_24.setObjectName(u"gridLayout_24")
-        self.State_ProvinceLabel_4 = QLabel(self.frame_4)
-        self.State_ProvinceLabel_4.setObjectName(u"State_ProvinceLabel_4")
-        sizePolicy1.setHeightForWidth(self.State_ProvinceLabel_4.sizePolicy().hasHeightForWidth())
-        self.State_ProvinceLabel_4.setSizePolicy(sizePolicy1)
-        self.State_ProvinceLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
-
-        self.gridLayout_24.addWidget(self.State_ProvinceLabel_4, 4, 0, 1, 1)
-
-        self.StateProvince_4 = QLineEdit(self.frame_4)
-        self.StateProvince_4.setObjectName(u"StateProvince_4")
-        self.StateProvince_4.setMinimumSize(QSize(0, 0))
-        self.StateProvince_4.setMaximumSize(QSize(16777215, 16777215))
-
-        self.gridLayout_24.addWidget(self.StateProvince_4, 5, 0, 1, 1)
-
-        self.Country_4 = QLineEdit(self.frame_4)
-        self.Country_4.setObjectName(u"Country_4")
-        self.Country_4.setMinimumSize(QSize(0, 0))
-        self.Country_4.setMaximumSize(QSize(16777215, 16777215))
-
-        self.gridLayout_24.addWidget(self.Country_4, 2, 0, 1, 1)
-
-        self.ZipPostalCode_4 = QLineEdit(self.frame_4)
-        self.ZipPostalCode_4.setObjectName(u"ZipPostalCode_4")
-        self.ZipPostalCode_4.setMinimumSize(QSize(0, 0))
-        self.ZipPostalCode_4.setMaximumSize(QSize(16777215, 16777215))
-
-        self.gridLayout_24.addWidget(self.ZipPostalCode_4, 8, 0, 1, 1)
-
-        self.verticalLayout_22 = QVBoxLayout()
-        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
-
-        self.gridLayout_24.addLayout(self.verticalLayout_22, 3, 0, 1, 1)
-
-        self.verticalLayout_24 = QVBoxLayout()
-        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
-
-        self.gridLayout_24.addLayout(self.verticalLayout_24, 6, 0, 1, 1)
-
-        self.ZipPostalCodeLabel_4 = QLabel(self.frame_4)
-        self.ZipPostalCodeLabel_4.setObjectName(u"ZipPostalCodeLabel_4")
-        sizePolicy1.setHeightForWidth(self.ZipPostalCodeLabel_4.sizePolicy().hasHeightForWidth())
-        self.ZipPostalCodeLabel_4.setSizePolicy(sizePolicy1)
-        self.ZipPostalCodeLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
-
-        self.gridLayout_24.addWidget(self.ZipPostalCodeLabel_4, 7, 0, 1, 1)
-
-        self.verticalLayout_21 = QVBoxLayout()
-        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
-
-        self.gridLayout_24.addLayout(self.verticalLayout_21, 0, 0, 1, 1)
-
-        self.CountryLabel_4 = QLabel(self.frame_4)
-        self.CountryLabel_4.setObjectName(u"CountryLabel_4")
-        sizePolicy1.setHeightForWidth(self.CountryLabel_4.sizePolicy().hasHeightForWidth())
-        self.CountryLabel_4.setSizePolicy(sizePolicy1)
-        self.CountryLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
-
-        self.gridLayout_24.addWidget(self.CountryLabel_4, 1, 0, 1, 1)
-
-        self.verticalLayout_23 = QVBoxLayout()
-        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
-
-        self.gridLayout_24.addLayout(self.verticalLayout_23, 9, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.AdditionalInformation_5, 0, 0, 1, 1)
 
 
-        self.gridLayout_18.addLayout(self.gridLayout_24, 0, 0, 1, 1)
-
-        self.gridLayout_23 = QGridLayout()
-        self.gridLayout_23.setObjectName(u"gridLayout_23")
-        self.StreetLabel_4 = QLabel(self.frame_4)
-        self.StreetLabel_4.setObjectName(u"StreetLabel_4")
-        sizePolicy1.setHeightForWidth(self.StreetLabel_4.sizePolicy().hasHeightForWidth())
-        self.StreetLabel_4.setSizePolicy(sizePolicy1)
-        self.StreetLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
-
-        self.gridLayout_23.addWidget(self.StreetLabel_4, 4, 0, 1, 1)
-
-        self.CityLabel_4 = QLabel(self.frame_4)
-        self.CityLabel_4.setObjectName(u"CityLabel_4")
-        sizePolicy1.setHeightForWidth(self.CityLabel_4.sizePolicy().hasHeightForWidth())
-        self.CityLabel_4.setSizePolicy(sizePolicy1)
-        self.CityLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
-
-        self.gridLayout_23.addWidget(self.CityLabel_4, 0, 0, 1, 1)
-
-        self.City_4 = QLineEdit(self.frame_4)
-        self.City_4.setObjectName(u"City_4")
-        self.City_4.setMinimumSize(QSize(0, 0))
-        self.City_4.setMaximumSize(QSize(16777215, 300))
-
-        self.gridLayout_23.addWidget(self.City_4, 6, 0, 1, 1)
-
-        self.Street_4 = QLineEdit(self.frame_4)
-        self.Street_4.setObjectName(u"Street_4")
-        sizePolicy1.setHeightForWidth(self.Street_4.sizePolicy().hasHeightForWidth())
-        self.Street_4.setSizePolicy(sizePolicy1)
-
-        self.gridLayout_23.addWidget(self.Street_4, 1, 0, 1, 1)
-
-        self.verticalLayout_25 = QVBoxLayout()
-        self.verticalLayout_25.setObjectName(u"verticalLayout_25")
-
-        self.gridLayout_23.addLayout(self.verticalLayout_25, 7, 0, 1, 1)
+        self.gridLayout_27.addWidget(self.widget_18, 0, 0, 1, 1)
 
 
-        self.gridLayout_18.addLayout(self.gridLayout_23, 0, 2, 1, 1)
-
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_18.addItem(self.horizontalSpacer_3, 0, 1, 1, 1)
-
-
-        self.gridLayout.addLayout(self.gridLayout_18, 11, 0, 1, 1)
-
-        self.gridLayout_14 = QGridLayout()
-        self.gridLayout_14.setObjectName(u"gridLayout_14")
-        self.widget_20 = QWidget(self.frame_4)
-        self.widget_20.setObjectName(u"widget_20")
-        sizePolicy1.setHeightForWidth(self.widget_20.sizePolicy().hasHeightForWidth())
-        self.widget_20.setSizePolicy(sizePolicy1)
-        self.widget_20.setMinimumSize(QSize(0, 40))
-        self.widget_20.setStyleSheet(u"background-color: rgb(149, 149, 149);")
-        self.gridLayout_4 = QGridLayout(self.widget_20)
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.AdditionalInformation_14 = QLabel(self.widget_20)
-        self.AdditionalInformation_14.setObjectName(u"AdditionalInformation_14")
-        sizePolicy1.setHeightForWidth(self.AdditionalInformation_14.sizePolicy().hasHeightForWidth())
-        self.AdditionalInformation_14.setSizePolicy(sizePolicy1)
-        self.AdditionalInformation_14.setFont(font)
-        self.AdditionalInformation_14.setStyleSheet(u"color: rgb(0, 0, 0);")
-
-        self.gridLayout_4.addWidget(self.AdditionalInformation_14, 0, 0, 1, 1)
-
-
-        self.gridLayout_14.addWidget(self.widget_20, 1, 0, 1, 1)
-
-        self.verticalLayout_33 = QVBoxLayout()
-        self.verticalLayout_33.setObjectName(u"verticalLayout_33")
-
-        self.gridLayout_14.addLayout(self.verticalLayout_33, 0, 0, 1, 1)
-
-
-        self.gridLayout.addLayout(self.gridLayout_14, 10, 0, 1, 1)
+        self.gridLayout.addLayout(self.gridLayout_27, 6, 0, 1, 1)
 
         self.gridLayout_8 = QGridLayout()
         self.gridLayout_8.setObjectName(u"gridLayout_8")
@@ -645,6 +492,115 @@ class Ui_contacts_create(object):
 
         self.gridLayout.addLayout(self.gridLayout_8, 3, 0, 1, 1)
 
+        self.gridLayout_18 = QGridLayout()
+        self.gridLayout_18.setObjectName(u"gridLayout_18")
+        self.verticalLayout_32 = QVBoxLayout()
+        self.verticalLayout_32.setObjectName(u"verticalLayout_32")
+
+        self.gridLayout_18.addLayout(self.verticalLayout_32, 1, 0, 1, 1)
+
+        self.gridLayout_24 = QGridLayout()
+        self.gridLayout_24.setObjectName(u"gridLayout_24")
+        self.verticalLayout_21 = QVBoxLayout()
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+
+        self.gridLayout_24.addLayout(self.verticalLayout_21, 0, 0, 1, 1)
+
+        self.StateProvince_4 = QLineEdit(self.frame_4)
+        self.StateProvince_4.setObjectName(u"StateProvince_4")
+        self.StateProvince_4.setMinimumSize(QSize(0, 0))
+        self.StateProvince_4.setMaximumSize(QSize(16777215, 16777215))
+
+        self.gridLayout_24.addWidget(self.StateProvince_4, 4, 0, 1, 1)
+
+        self.ZipPostalCode_4 = QLineEdit(self.frame_4)
+        self.ZipPostalCode_4.setObjectName(u"ZipPostalCode_4")
+        self.ZipPostalCode_4.setMinimumSize(QSize(0, 0))
+        self.ZipPostalCode_4.setMaximumSize(QSize(16777215, 16777215))
+
+        self.gridLayout_24.addWidget(self.ZipPostalCode_4, 6, 0, 1, 1)
+
+        self.Country_4 = QLineEdit(self.frame_4)
+        self.Country_4.setObjectName(u"Country_4")
+        self.Country_4.setMinimumSize(QSize(0, 0))
+        self.Country_4.setMaximumSize(QSize(16777215, 16777215))
+
+        self.gridLayout_24.addWidget(self.Country_4, 2, 0, 1, 1)
+
+        self.CountryLabel_4 = QLabel(self.frame_4)
+        self.CountryLabel_4.setObjectName(u"CountryLabel_4")
+        sizePolicy1.setHeightForWidth(self.CountryLabel_4.sizePolicy().hasHeightForWidth())
+        self.CountryLabel_4.setSizePolicy(sizePolicy1)
+        self.CountryLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.gridLayout_24.addWidget(self.CountryLabel_4, 1, 0, 1, 1)
+
+        self.ZipPostalCodeLabel_4 = QLabel(self.frame_4)
+        self.ZipPostalCodeLabel_4.setObjectName(u"ZipPostalCodeLabel_4")
+        sizePolicy1.setHeightForWidth(self.ZipPostalCodeLabel_4.sizePolicy().hasHeightForWidth())
+        self.ZipPostalCodeLabel_4.setSizePolicy(sizePolicy1)
+        self.ZipPostalCodeLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.gridLayout_24.addWidget(self.ZipPostalCodeLabel_4, 5, 0, 1, 1)
+
+        self.State_ProvinceLabel_4 = QLabel(self.frame_4)
+        self.State_ProvinceLabel_4.setObjectName(u"State_ProvinceLabel_4")
+        sizePolicy1.setHeightForWidth(self.State_ProvinceLabel_4.sizePolicy().hasHeightForWidth())
+        self.State_ProvinceLabel_4.setSizePolicy(sizePolicy1)
+        self.State_ProvinceLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.gridLayout_24.addWidget(self.State_ProvinceLabel_4, 3, 0, 1, 1)
+
+
+        self.gridLayout_18.addLayout(self.gridLayout_24, 0, 0, 1, 1)
+
+        self.gridLayout_23 = QGridLayout()
+        self.gridLayout_23.setObjectName(u"gridLayout_23")
+        self.StreetLabel_4 = QLabel(self.frame_4)
+        self.StreetLabel_4.setObjectName(u"StreetLabel_4")
+        sizePolicy1.setHeightForWidth(self.StreetLabel_4.sizePolicy().hasHeightForWidth())
+        self.StreetLabel_4.setSizePolicy(sizePolicy1)
+        self.StreetLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.gridLayout_23.addWidget(self.StreetLabel_4, 4, 0, 1, 1)
+
+        self.CityLabel_4 = QLabel(self.frame_4)
+        self.CityLabel_4.setObjectName(u"CityLabel_4")
+        sizePolicy1.setHeightForWidth(self.CityLabel_4.sizePolicy().hasHeightForWidth())
+        self.CityLabel_4.setSizePolicy(sizePolicy1)
+        self.CityLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.gridLayout_23.addWidget(self.CityLabel_4, 0, 0, 1, 1)
+
+        self.City_4 = QLineEdit(self.frame_4)
+        self.City_4.setObjectName(u"City_4")
+        self.City_4.setMinimumSize(QSize(0, 0))
+        self.City_4.setMaximumSize(QSize(16777215, 300))
+
+        self.gridLayout_23.addWidget(self.City_4, 6, 0, 1, 1)
+
+        self.Street_4 = QLineEdit(self.frame_4)
+        self.Street_4.setObjectName(u"Street_4")
+        sizePolicy1.setHeightForWidth(self.Street_4.sizePolicy().hasHeightForWidth())
+        self.Street_4.setSizePolicy(sizePolicy1)
+
+        self.gridLayout_23.addWidget(self.Street_4, 1, 0, 1, 1)
+
+        self.verticalLayout_25 = QVBoxLayout()
+        self.verticalLayout_25.setObjectName(u"verticalLayout_25")
+
+        self.gridLayout_23.addLayout(self.verticalLayout_25, 7, 0, 1, 1)
+
+
+        self.gridLayout_18.addLayout(self.gridLayout_23, 0, 2, 1, 1)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_18.addItem(self.horizontalSpacer_3, 0, 1, 1, 1)
+
+
+        self.gridLayout.addLayout(self.gridLayout_18, 11, 0, 1, 1)
+
         self.BackToContactsBtn_4 = QPushButton(self.frame_4)
         self.BackToContactsBtn_4.setObjectName(u"BackToContactsBtn_4")
         sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
@@ -670,9 +626,9 @@ class Ui_contacts_create(object):
 
         self.gridLayout.addWidget(self.BackToContactsBtn_4, 0, 0, 1, 1)
 
-        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.gridLayout.addItem(self.verticalSpacer_5, 1, 0, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer, 12, 0, 1, 1)
 
 
         self.gridLayout_2.addWidget(self.frame_4, 0, 1, 1, 1)
@@ -689,8 +645,8 @@ class Ui_contacts_create(object):
 
     def retranslateUi(self, contacts_create):
         contacts_create.setWindowTitle(QCoreApplication.translate("contacts_create", u"Add Contact", None))
-        self.AdditionalInformation_5.setText(QCoreApplication.translate("contacts_create", u"ADDITIONAL INFORMATION", None))
-        self.ContactsInformation_4.setText(QCoreApplication.translate("contacts_create", u"Contact Information", None))
+        self.ContactsInformation_4.setText(QCoreApplication.translate("contacts_create", u"CONTACT INFORMATION", None))
+        self.AdditionalInformation_14.setText(QCoreApplication.translate("contacts_create", u"ADDRESS INFORMATION", None))
         self.CompanyLabel_4.setText(QCoreApplication.translate("contacts_create", u"Company :", None))
         self.FaxLabel_4.setText(QCoreApplication.translate("contacts_create", u"Fax :", None))
         self.OtherPhoneNumLabel_4.setText(QCoreApplication.translate("contacts_create", u"Other Phone Number  :", None))
@@ -699,12 +655,7 @@ class Ui_contacts_create(object):
 
         self.SecondaryEmailLabel_4.setText(QCoreApplication.translate("contacts_create", u"Secondary Email :", None))
         self.GenderLabel_4.setText(QCoreApplication.translate("contacts_create", u"Gender :", None))
-        self.State_ProvinceLabel_4.setText(QCoreApplication.translate("contacts_create", u"State/Province :", None))
-        self.ZipPostalCodeLabel_4.setText(QCoreApplication.translate("contacts_create", u"Zip/Postal Code :", None))
-        self.CountryLabel_4.setText(QCoreApplication.translate("contacts_create", u"Country  :", None))
-        self.StreetLabel_4.setText(QCoreApplication.translate("contacts_create", u"Street :", None))
-        self.CityLabel_4.setText(QCoreApplication.translate("contacts_create", u"City :", None))
-        self.AdditionalInformation_14.setText(QCoreApplication.translate("contacts_create", u"ADDRESS INFORMATION", None))
+        self.AdditionalInformation_5.setText(QCoreApplication.translate("contacts_create", u"ADDITIONAL INFORMATION", None))
         self.LastNameLabel_4.setText(QCoreApplication.translate("contacts_create", u"Last Name :", None))
         self.FirstNameLabel_4.setText(QCoreApplication.translate("contacts_create", u"First Name :", None))
         self.SalutationLabel_4.setText(QCoreApplication.translate("contacts_create", u"Middle Name :", None))
@@ -713,6 +664,11 @@ class Ui_contacts_create(object):
         self.TitleLabel_4.setText(QCoreApplication.translate("contacts_create", u"Title :", None))
         self.SuffixLabel_8.setText(QCoreApplication.translate("contacts_create", u"Phone Number :", None))
         self.MiddleNameLabel_8.setText(QCoreApplication.translate("contacts_create", u"Email :", None))
+        self.CountryLabel_4.setText(QCoreApplication.translate("contacts_create", u"Country  :", None))
+        self.ZipPostalCodeLabel_4.setText(QCoreApplication.translate("contacts_create", u"Zip/Postal Code :", None))
+        self.State_ProvinceLabel_4.setText(QCoreApplication.translate("contacts_create", u"State/Province :", None))
+        self.StreetLabel_4.setText(QCoreApplication.translate("contacts_create", u"Street :", None))
+        self.CityLabel_4.setText(QCoreApplication.translate("contacts_create", u"City :", None))
         self.BackToContactsBtn_4.setText(QCoreApplication.translate("contacts_create", u"Back to Contacts", None))
     # retranslateUi
 
