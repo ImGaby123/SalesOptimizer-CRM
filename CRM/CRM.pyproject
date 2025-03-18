@@ -26,6 +26,7 @@
         "views/ui/contacts_landing.ui",
         "views/ui/contacts4.ui",
         "views/ui/contacts_create.ui",
-        "views/ui/sidebar.ui"
+        "views/ui/sidebar.ui",
+        "datas/db_connection.py"
     ]
 }

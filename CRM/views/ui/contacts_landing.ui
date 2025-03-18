@@ -17,33 +17,16 @@
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
      <item row="7" column="0">
-      <widget class="QTableWidget" name="tableWidget_tbl">
+      <widget class="QTableWidget" name="contacts_tbl">
        <property name="styleSheet">
-        <string notr="true">QTableWidget{
-	border: 2px solid black
+        <string notr="true">QTableWidget {
+border: 1px solid black;
 }
 </string>
        </property>
-       <column>
-        <property name="text">
-         <string>Name</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Email</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Phone Number</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Company</string>
-        </property>
-       </column>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
       </widget>
      </item>
      <item row="1" column="0">
@@ -75,7 +58,7 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>40</height>
+           <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -86,10 +69,13 @@
          </property>
          <property name="styleSheet">
           <string notr="true">QLineEdit{
-	border: 2px solid black;
-    border-radius: 10px;
+	border: 1px solid black;
+    border-radius: 5px;
 }
 </string>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
          </property>
          <property name="placeholderText">
           <string>Search</string>
@@ -122,6 +108,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="add_btn">
+           <property name="whatsThis">
+            <string>add contact</string>
+           </property>
            <property name="styleSheet">
             <string notr="true">QPushButton{
 	background: transparent;
@@ -144,30 +133,10 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="refresh_btn">
-           <property name="styleSheet">
-            <string notr="true">QPushButton {
-	background: transparent;
-	border: transparent;
-}</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="../qrc/icons.qrc">
-             <normaloff>:/Resources/refresh.svg</normaloff>:/Resources/refresh.svg</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QPushButton" name="delete_btn">
+           <property name="whatsThis">
+            <string>delete contact</string>
+           </property>
            <property name="styleSheet">
             <string notr="true">QPushButton{
 	background: transparent;
@@ -287,14 +256,7 @@ background: transparent;</string>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">QComboBox{
-	border: 2px solid black;
-	border-radius: 10px;
-}
-
-
-
-</string>
+          <string notr="true"/>
          </property>
          <property name="editable">
           <bool>false</bool>
