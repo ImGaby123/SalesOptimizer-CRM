@@ -30,24 +30,14 @@ class Ui_contacts_landing(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.tableWidget_tbl = QTableWidget(contacts_landing)
-        if (self.tableWidget_tbl.columnCount() < 4):
-            self.tableWidget_tbl.setColumnCount(4)
-        __qtablewidgetitem = QTableWidgetItem()
-        self.tableWidget_tbl.setHorizontalHeaderItem(0, __qtablewidgetitem)
-        __qtablewidgetitem1 = QTableWidgetItem()
-        self.tableWidget_tbl.setHorizontalHeaderItem(1, __qtablewidgetitem1)
-        __qtablewidgetitem2 = QTableWidgetItem()
-        self.tableWidget_tbl.setHorizontalHeaderItem(2, __qtablewidgetitem2)
-        __qtablewidgetitem3 = QTableWidgetItem()
-        self.tableWidget_tbl.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        self.tableWidget_tbl.setObjectName(u"tableWidget_tbl")
-        self.tableWidget_tbl.setStyleSheet(u"QTableWidget{\n"
-"	border: 2px solid black\n"
+        self.contacts_tbl = QTableWidget(contacts_landing)
+        self.contacts_tbl.setObjectName(u"contacts_tbl")
+        self.contacts_tbl.setStyleSheet(u"QTableWidget {\n"
+"border: 1px solid black;\n"
 "}\n"
 "")
 
-        self.gridLayout.addWidget(self.tableWidget_tbl, 7, 0, 1, 1)
+        self.gridLayout.addWidget(self.contacts_tbl, 7, 0, 1, 1)
 
         self.verticalSpacer_41 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
 
@@ -62,13 +52,14 @@ class Ui_contacts_landing(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.search_line.sizePolicy().hasHeightForWidth())
         self.search_line.setSizePolicy(sizePolicy)
-        self.search_line.setMinimumSize(QSize(0, 40))
+        self.search_line.setMinimumSize(QSize(0, 30))
         self.search_line.setMaximumSize(QSize(400, 16777215))
         self.search_line.setStyleSheet(u"QLineEdit{\n"
-"	border: 2px solid black;\n"
-"    border-radius: 10px;\n"
+"	border: 1px solid black;\n"
+"    border-radius: 5px;\n"
 "}\n"
 "")
+        self.search_line.setFrame(True)
         self.search_line.setCursorMoveStyle(Qt.CursorMoveStyle.LogicalMoveStyle)
         self.search_line.setClearButtonEnabled(False)
 
@@ -94,28 +85,15 @@ class Ui_contacts_landing(object):
 
         self.horizontalLayout_6.addWidget(self.add_btn)
 
-        self.refresh_btn = QPushButton(contacts_landing)
-        self.refresh_btn.setObjectName(u"refresh_btn")
-        self.refresh_btn.setStyleSheet(u"QPushButton {\n"
-"	background: transparent;\n"
-"	border: transparent;\n"
-"}")
-        icon1 = QIcon()
-        icon1.addFile(u":/Resources/refresh.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.refresh_btn.setIcon(icon1)
-        self.refresh_btn.setIconSize(QSize(40, 40))
-
-        self.horizontalLayout_6.addWidget(self.refresh_btn)
-
         self.delete_btn = QPushButton(contacts_landing)
         self.delete_btn.setObjectName(u"delete_btn")
         self.delete_btn.setStyleSheet(u"QPushButton{\n"
 "	background: transparent;\n"
 "	border: none;\n"
 "}")
-        icon2 = QIcon()
-        icon2.addFile(u":/Resources/delete.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.delete_btn.setIcon(icon2)
+        icon1 = QIcon()
+        icon1.addFile(u":/Resources/delete.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.delete_btn.setIcon(icon1)
         self.delete_btn.setIconSize(QSize(40, 40))
 
         self.horizontalLayout_6.addWidget(self.delete_btn)
@@ -156,14 +134,7 @@ class Ui_contacts_landing(object):
         self.allContacts_combo.setSizePolicy(sizePolicy)
         self.allContacts_combo.setMinimumSize(QSize(0, 30))
         self.allContacts_combo.setMaximumSize(QSize(200, 16777215))
-        self.allContacts_combo.setStyleSheet(u"QComboBox{\n"
-"	border: 2px solid black;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"")
+        self.allContacts_combo.setStyleSheet(u"")
         self.allContacts_combo.setEditable(False)
 
         self.gridLayout_2.addWidget(self.allContacts_combo, 0, 0, 1, 1)
@@ -186,17 +157,14 @@ class Ui_contacts_landing(object):
 
     def retranslateUi(self, contacts_landing):
         contacts_landing.setWindowTitle(QCoreApplication.translate("contacts_landing", u"Contacts", None))
-        ___qtablewidgetitem = self.tableWidget_tbl.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("contacts_landing", u"Name", None));
-        ___qtablewidgetitem1 = self.tableWidget_tbl.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("contacts_landing", u"Email", None));
-        ___qtablewidgetitem2 = self.tableWidget_tbl.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("contacts_landing", u"Phone Number", None));
-        ___qtablewidgetitem3 = self.tableWidget_tbl.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("contacts_landing", u"Company", None));
         self.search_line.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"Search", None))
+#if QT_CONFIG(whatsthis)
+        self.add_btn.setWhatsThis(QCoreApplication.translate("contacts_landing", u"add contact", None))
+#endif // QT_CONFIG(whatsthis)
         self.add_btn.setText("")
-        self.refresh_btn.setText("")
+#if QT_CONFIG(whatsthis)
+        self.delete_btn.setWhatsThis(QCoreApplication.translate("contacts_landing", u"delete contact", None))
+#endif // QT_CONFIG(whatsthis)
         self.delete_btn.setText("")
         self.contacts_txt.setText(QCoreApplication.translate("contacts_landing", u"Contacts", None))
         self.allContacts_combo.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"All Contacts", None))

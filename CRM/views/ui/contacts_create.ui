@@ -114,51 +114,7 @@ QPushButton:hover {
           <item row="6" column="0">
            <layout class="QGridLayout" name="gridLayout_18">
             <item row="0" column="0">
-             <layout class="QGridLayout" name="gridLayout_24">
-              <item row="3" column="0">
-               <widget class="QLineEdit" name="state_line">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QLineEdit" name="zip_line">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
+             <layout class="QGridLayout" name="gridLayout_3">
               <item row="1" column="0">
                <widget class="QLineEdit" name="country_line">
                 <property name="sizePolicy">
@@ -197,19 +153,47 @@ QPushButton:hover {
                 </property>
                </widget>
               </item>
-              <item row="4" column="0">
-               <widget class="QLabel" name="ZipPostalCodeLabel_4">
+              <item row="5" column="0">
+               <widget class="QLineEdit" name="zip_line">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
                 </property>
-                <property name="text">
-                 <string>Zip/Postal Code :</string>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLineEdit" name="state_line">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -226,6 +210,22 @@ QPushButton:hover {
                 </property>
                 <property name="text">
                  <string>State/Province :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="ZipPostalCodeLabel_4">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(98, 98, 98);</string>
+                </property>
+                <property name="text">
+                 <string>Zip/Postal Code :</string>
                 </property>
                </widget>
               </item>
@@ -249,6 +249,9 @@ QPushButton:hover {
             </item>
             <item row="0" column="2">
              <layout class="QGridLayout" name="gridLayout_23">
+              <item row="7" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_25"/>
+              </item>
               <item row="4" column="0">
                <widget class="QLabel" name="StreetLabel_4">
                 <property name="sizePolicy">
@@ -262,22 +265,6 @@ QPushButton:hover {
                 </property>
                 <property name="text">
                  <string>Street :</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="QLineEdit" name="street_line">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>300</height>
-                 </size>
                 </property>
                </widget>
               </item>
@@ -297,6 +284,9 @@ QPushButton:hover {
                 </property>
                </widget>
               </item>
+              <item row="5" column="0">
+               <widget class="QLineEdit" name="street_line"/>
+              </item>
               <item row="1" column="0">
                <widget class="QLineEdit" name="city_line">
                 <property name="sizePolicy">
@@ -307,8 +297,8 @@ QPushButton:hover {
                 </property>
                </widget>
               </item>
-              <item row="7" column="0">
-               <layout class="QVBoxLayout" name="verticalLayout_25"/>
+              <item row="6" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_9"/>
               </item>
              </layout>
             </item>
@@ -396,6 +386,9 @@ QPushButton:hover {
               </item>
               <item row="8" column="0">
                <layout class="QVBoxLayout" name="verticalLayout_14"/>
+              </item>
+              <item row="4" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_8"/>
               </item>
              </layout>
             </item>
@@ -738,8 +731,78 @@ QPushButton:hover {
               </item>
              </layout>
             </item>
+            <item row="0" column="1">
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Policy::Preferred</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridLayout_10">
+              <item row="7" column="0">
+               <widget class="QLineEdit" name="suffix_line">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="FirstNameLabel_4">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(98, 98, 98);</string>
+                </property>
+                <property name="text">
+                 <string>First Name :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="LastNameLabel_4">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(98, 98, 98);</string>
+                </property>
+                <property name="text">
+                 <string>Last Name :</string>
+                </property>
+               </widget>
+              </item>
               <item row="3" column="0">
                <widget class="QLineEdit" name="lastname_line">
                 <property name="sizePolicy">
@@ -778,79 +841,6 @@ QPushButton:hover {
                 </property>
                </widget>
               </item>
-              <item row="7" column="0">
-               <widget class="QLineEdit" name="suffix_line">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="LastNameLabel_4">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
-                </property>
-                <property name="text">
-                 <string>Last Name :</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QLineEdit" name="middlename"/>
-              </item>
-              <item row="6" column="0">
-               <widget class="QLabel" name="SuffixLabel_7">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
-                </property>
-                <property name="text">
-                 <string>Suffix :</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="FirstNameLabel_4">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
-                </property>
-                <property name="text">
-                 <string>First Name :</string>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="0">
                <widget class="QLineEdit" name="firstname_line">
                 <property name="sizePolicy">
@@ -873,23 +863,29 @@ QPushButton:hover {
                 </property>
                </widget>
               </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="SuffixLabel_7">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(98, 98, 98);</string>
+                </property>
+                <property name="text">
+                 <string>Suffix :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLineEdit" name="middlename"/>
+              </item>
              </layout>
             </item>
-            <item row="0" column="1">
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Orientation::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Policy::Preferred</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
+            <item row="1" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout"/>
             </item>
            </layout>
           </item>
