@@ -32,10 +32,14 @@ class Ui_contacts_landing(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.contacts_tbl = QTableWidget(contacts_landing)
         self.contacts_tbl.setObjectName(u"contacts_tbl")
+        self.contacts_tbl.setMouseTracking(False)
         self.contacts_tbl.setStyleSheet(u"QTableWidget {\n"
 "border: 1px solid black;\n"
 "}\n"
 "")
+        self.contacts_tbl.horizontalHeader().setCascadingSectionResizes(False)
+        self.contacts_tbl.horizontalHeader().setDefaultSectionSize(200)
+        self.contacts_tbl.horizontalHeader().setStretchLastSection(True)
 
         self.gridLayout.addWidget(self.contacts_tbl, 7, 0, 1, 1)
 

@@ -1,5 +1,5 @@
-from PySide6.QtWidgets import QWidget, QTableWidgetItem, QHBoxLayout, QPushButton, QLabel, QSpacerItem, QSizePolicy
-from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QWidget, QTableWidgetItem, QHBoxLayout, QPushButton, QLabel, QSizePolicy, QSpacerItem
+from PySide6.QtCore import Qt, QEvent
 from PySide6.QtGui import QIcon
 from models.models_contacts_create import ContactsCreate
 from views.py.ui_contacts_landing import Ui_contacts_landing
@@ -14,10 +14,19 @@ class ContactsLanding(QWidget):
         # ✅ Initialize database connection
         self.db_conn = Database()
 
+        # ✅ Enable mouse tracking for hover detection
+        self.ui.contacts_tbl.viewport().setMouseTracking(True)
+
         # ✅ Connect add_btn to add_contact function
         self.ui.add_btn.clicked.connect(self.add_contact)
         self.load_contacts()
         self.ui.search_line.textChanged.connect(self.search_contacts)  # Live search
+
+        # ✅ Add hover event filter
+        self.ui.contacts_tbl.viewport().installEventFilter(self)
+
+        # Track currently highlighted row to remove icons when mouse moves
+        self.current_hover_row = -1
 
     def add_contact(self):
         """Opens the Contacts Create form inside the MDI subwindow."""
@@ -42,8 +51,8 @@ class ContactsLanding(QWidget):
             print("❌ Failed to fetch contacts.")
             return
 
-        # Define column headers
-        headers = ["ID (Hidden)", "First Name", "Middle Name", "Last Name", "Email", "Phone Number", "Company", "Actions"]
+        # Define column headers (NO "Actions" column!)
+        headers = ["ID (Hidden)", "First Name", "Middle Name", "Last Name", "Email", "Phone Number", "Company"]
 
         # Clear previous data and set up table structure
         self.ui.contacts_tbl.clear()
@@ -62,9 +71,6 @@ class ContactsLanding(QWidget):
                     self.ui.contacts_tbl.setColumnHidden(0, True)
 
                 self.ui.contacts_tbl.setItem(row_idx, col_idx, item)
-
-            # Add action buttons
-            self.add_icons(row_idx)
 
         print("✅ Contacts loaded successfully!")
 
@@ -97,7 +103,7 @@ class ContactsLanding(QWidget):
         print(f"🔍 Query Results: {results}")  # Debugging
 
         # Define headers
-        headers = ["ID (Hidden)", "First Name", "Middle Name", "Last Name", "Email", "Phone Number", "Company", "Actions"]
+        headers = ["ID (Hidden)", "First Name", "Middle Name", "Last Name", "Email", "Phone Number", "Company"]
 
         # Reset table
         self.ui.contacts_tbl.clear()
@@ -116,56 +122,70 @@ class ContactsLanding(QWidget):
 
                 self.ui.contacts_tbl.setItem(row_idx, col_idx, item)
 
-            # Add action buttons
-            self.add_icons(row_idx)
-
         print(f"✅ {len(results)} contacts found for '{search_term}'.")
 
-    def add_icons(self, row):
-        """Adds action buttons (Mail and Menu) to the last column."""
+
+    def eventFilter(self, obj, event):
+        """Handles row hover events to show/hide icons dynamically."""
+        if obj == self.ui.contacts_tbl.viewport():
+            if event.type() == QEvent.MouseMove:
+                row = self.ui.contacts_tbl.rowAt(event.pos().y())
+
+                if row != self.current_hover_row:  # Only update when row changes
+                    self.hide_all_icons()
+                    self.show_icons(row)
+                    self.current_hover_row = row
+
+            elif event.type() == QEvent.Leave:
+                self.hide_all_icons()
+                self.current_hover_row = -1  # Reset tracking
+
+        return super().eventFilter(obj, event)
+
+    def show_icons(self, row):
+        """Displays icons in the 'Company' column when hovered over a row."""
         table = self.ui.contacts_tbl
+        if row < 0:
+            return  # Skip invalid rows
+
         widget = QWidget()
         layout = QHBoxLayout(widget)
         layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(5)  # Adjust spacing between buttons
+        layout.setSpacing(10)  # Monospace spacing between icons
+        layout.setAlignment(Qt.AlignRight)  # Align icons to the right
 
-        # Create an invisible spacer to push buttons to the right
-        spacer = QSpacerItem(10, 10, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        # Spacer to push icons to the right
+        spacer = QSpacerItem(20, 10, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        layout.addItem(spacer)
 
-        # Base button style (borderless, transparent, hand cursor)
-        base_style = """
-            QPushButton {
-                border: none;
-                background: transparent;
-            }
-            QPushButton:hover {
-                background: rgba(0, 0, 0, 0.1);
-                border-radius: 5px;
-            }
-        """
-
-        # Create mail button
+        # Create Mail button
         mail_button = QPushButton()
         mail_button.setIcon(QIcon(":/Resources/mail.svg"))
         mail_button.setFixedSize(25, 25)
         mail_button.setCursor(Qt.PointingHandCursor)
-        mail_button.setStyleSheet(base_style)
+        mail_button.setStyleSheet("border: none; background: transparent;")
 
-        # Create menu button
+        # Create Menu button
         menu_button = QPushButton()
         menu_button.setIcon(QIcon(":/Resources/menu.svg"))
         menu_button.setFixedSize(25, 25)
         menu_button.setCursor(Qt.PointingHandCursor)
-        menu_button.setStyleSheet(base_style)
+        menu_button.setStyleSheet("border: none; background: transparent;")
 
-        # Add spacer first, then buttons (this pushes them to the right)
-        layout.addItem(spacer)
         layout.addWidget(mail_button)
         layout.addWidget(menu_button)
 
         widget.setLayout(layout)
         widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
-        # ✅ Use the last column index dynamically
-        last_column = table.columnCount() - 1
-        table.setCellWidget(row, last_column, widget)
+        company_column = 6  # Company column index
+        table.setCellWidget(row, company_column, widget)
+
+    def hide_all_icons(self):
+        """Removes all icons from the Company column to restore original text."""
+        table = self.ui.contacts_tbl
+        company_column = 6  # Company column index
+
+        for row in range(table.rowCount()):
+            if table.cellWidget(row, company_column):  # Only remove if icons exist
+                table.removeCellWidget(row, company_column)

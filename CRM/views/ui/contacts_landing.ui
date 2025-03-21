@@ -18,6 +18,9 @@
     <layout class="QGridLayout" name="gridLayout">
      <item row="7" column="0">
       <widget class="QTableWidget" name="contacts_tbl">
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
        <property name="styleSheet">
         <string notr="true">QTableWidget {
 border: 1px solid black;
@@ -26,6 +29,12 @@ border: 1px solid black;
        </property>
        <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>200</number>
+       </attribute>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>true</bool>
        </attribute>
       </widget>
      </item>
