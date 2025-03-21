@@ -282,8 +282,9 @@ class ContactsLanding(QWidget):
         widget.setLayout(layout)
         widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
-        table.setCellWidget(row, 3, widget)  # ✅ Company column is **index 3**
+        table.setCellWidget(row, 4, widget)  # ✅ Company column is **index 4**
+
     def hide_all_icons(self):
         """Removes all icons from the Company column."""
         for row in range(self.ui.contacts_tbl.rowCount()):
-            self.ui.contacts_tbl.removeCellWidget(row, 3)
+            self.ui.contacts_tbl.removeCellWidget(row, 4)
