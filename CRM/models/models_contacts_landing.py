@@ -176,6 +176,25 @@ class ContactsLanding(QWidget):
 
         return super().eventFilter(obj, event)
 
+    def create_icon_button(self, icon_path, tooltip):
+        """Creates a styled QPushButton with an icon and tooltip."""
+        button = QPushButton()
+        button.setIcon(QIcon(icon_path))
+        button.setFixedSize(25, 25)
+        button.setCursor(Qt.PointingHandCursor)
+        button.setToolTip(tooltip)
+        button.setStyleSheet("""
+            QPushButton {
+                border: none;
+                background: transparent;
+            }
+            QPushButton:hover {
+                background-color: rgba(100, 100, 100, 0.2);
+                border-radius: 5px;
+            }
+        """)
+        return button  # ✅ Now correctly placed
+
     def show_icons(self, row):
         """Displays icons in the 'Company' column when hovered over a row."""
         table = self.ui.contacts_tbl
@@ -185,21 +204,14 @@ class ContactsLanding(QWidget):
         widget = QWidget()
         layout = QHBoxLayout(widget)
         layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(10)
+        layout.setSpacing(2)
         layout.setAlignment(Qt.AlignRight)
 
-        mail_button = QPushButton()
-        mail_button.setIcon(QIcon(":/Resources/mail.svg"))
-        mail_button.setFixedSize(25, 25)
-        mail_button.setCursor(Qt.PointingHandCursor)
-        mail_button.setStyleSheet("border: none; background: transparent;")
+        # ✅ Create buttons using the correctly defined method
+        mail_button = self.create_icon_button(":/Resources/mail.svg", "Message")
+        menu_button = self.create_icon_button(":/Resources/menu.svg", "More")
 
-        menu_button = QPushButton()
-        menu_button.setIcon(QIcon(":/Resources/menu.svg"))
-        menu_button.setFixedSize(25, 25)
-        menu_button.setCursor(Qt.PointingHandCursor)
-        menu_button.setStyleSheet("border: none; background: transparent;")
-
+        # ✅ Add buttons to layout
         layout.addWidget(mail_button)
         layout.addWidget(menu_button)
 
@@ -207,13 +219,6 @@ class ContactsLanding(QWidget):
         widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         table.setCellWidget(row, 3, widget)  # ✅ Company column is **index 3**
-        # ✅ Hover Icon BGColor
-        self.ui.mail_button.setStyleSheet(
-            "QPushButton:hover { background-color: rgba(100, 100, 100, 0.2); border-radius: 5px; }"
-        )
-        self.ui.menu_button.setStyleSheet(
-            "QPushButton:hover { background-color: rgba(100, 100, 100, 0.2); border-radius: 5px; }"
-        )
 
     def hide_all_icons(self):
         """Removes all icons from the Company column."""
