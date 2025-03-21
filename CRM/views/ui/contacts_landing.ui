@@ -16,9 +16,12 @@
   <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="4" column="0">
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
+     <item row="3" column="0">
+      <layout class="QGridLayout" name="gridLayout_2"/>
+     </item>
+     <item row="2" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_22">
+       <item>
         <widget class="QComboBox" name="allContacts_combo">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -45,12 +48,12 @@
           <bool>false</bool>
          </property>
          <property name="placeholderText">
-          <string>All Contacts</string>
+          <string>Sort contacts by:</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <spacer name="horizontalSpacer_2">
+       <item>
+        <spacer name="horizontalSpacer">
          <property name="orientation">
           <enum>Qt::Orientation::Horizontal</enum>
          </property>
@@ -62,10 +65,6 @@
          </property>
         </spacer>
        </item>
-      </layout>
-     </item>
-     <item row="2" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout_22">
        <item>
         <widget class="QLineEdit" name="search_line">
          <property name="sizePolicy">
@@ -82,22 +81,20 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>400</width>
+           <width>290</width>
            <height>16777215</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QLineEdit{
 	border: 1px solid black;
-    border-radius: 5px;
-}
-</string>
+}</string>
          </property>
          <property name="frame">
           <bool>true</bool>
          </property>
          <property name="placeholderText">
-          <string>Search</string>
+          <string>Search contacts by name, email, or company</string>
          </property>
          <property name="cursorMoveStyle">
           <enum>Qt::CursorMoveStyle::LogicalMoveStyle</enum>
@@ -113,27 +110,24 @@
           <number>0</number>
          </property>
          <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Orientation::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
           <widget class="QPushButton" name="add_btn">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="toolTip">
+            <string>Add Contact</string>
+           </property>
            <property name="whatsThis">
             <string>add contact</string>
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton{
 	background: transparent;
-	border: none;
+	border: none;	
+}
+
+QPushButton:hover {
+    background: rgba(100, 100, 100, 0.2); /* Light gray with transparency */
 }</string>
            </property>
            <property name="text">
@@ -145,14 +139,20 @@
            </property>
            <property name="iconSize">
             <size>
-             <width>40</width>
-             <height>40</height>
+             <width>30</width>
+             <height>30</height>
             </size>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="delete_btn">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="toolTip">
+            <string>Delete Contacts</string>
+           </property>
            <property name="whatsThis">
             <string>delete contact</string>
            </property>
@@ -160,6 +160,10 @@
             <string notr="true">QPushButton{
 	background: transparent;
 	border: none;
+}
+
+QPushButton:hover {
+    background: rgba(100, 100, 100, 0.2); /* Light gray with transparency */
 }</string>
            </property>
            <property name="text">
@@ -171,8 +175,8 @@
            </property>
            <property name="iconSize">
             <size>
-             <width>40</width>
-             <height>40</height>
+             <width>30</width>
+             <height>30</height>
             </size>
            </property>
           </widget>
@@ -181,7 +185,7 @@
        </item>
       </layout>
      </item>
-     <item row="8" column="0">
+     <item row="7" column="0">
       <widget class="QTableWidget" name="contacts_tbl">
        <property name="mouseTracking">
         <bool>false</bool>
@@ -203,7 +207,7 @@ border: 1px solid black;
        </attribute>
       </widget>
      </item>
-     <item row="5" column="0">
+     <item row="4" column="0">
       <spacer name="verticalSpacer_43">
        <property name="orientation">
         <enum>Qt::Orientation::Vertical</enum>
@@ -242,21 +246,18 @@ background: transparent;</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <spacer name="verticalSpacer_42">
-       <property name="orientation">
-        <enum>Qt::Orientation::Vertical</enum>
+     <item row="5" column="0">
+      <widget class="QLabel" name="selecteditems_lbl">
+       <property name="enabled">
+        <bool>true</bool>
        </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Policy::Maximum</enum>
+       <property name="text">
+        <string>TextLabel</string>
        </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
-      </spacer>
+      </widget>
      </item>
      <item row="1" column="0">
       <spacer name="verticalSpacer_41">
@@ -273,35 +274,6 @@ background: transparent;</string>
         </size>
        </property>
       </spacer>
-     </item>
-     <item row="3" column="0">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Orientation::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Policy::Maximum</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>25</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="selecteditems_lbl">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
-       </property>
-      </widget>
      </item>
     </layout>
    </item>

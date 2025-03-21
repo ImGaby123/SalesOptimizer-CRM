@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import (
     QWidget, QTableWidgetItem, QHBoxLayout, QPushButton, QLabel, QSizePolicy,
-    QSpacerItem, QCheckBox, QHeaderView
+    QSpacerItem, QCheckBox, QHeaderView, QLineEdit
 )
 from PySide6.QtCore import Qt, QEvent
 from PySide6.QtGui import QIcon
@@ -36,6 +36,13 @@ class ContactsLanding(QWidget):
 
         # ✅ Hide label initially
         self.ui.selecteditems_lbl.hide()
+
+        # ✅ Table headings settings
+        self.ui.contacts_tbl.horizontalHeader().setStyleSheet("font-weight: 800;")
+
+        # ✅ Search Icon
+        search_icon = QIcon(":/Resources/search.svg")
+        self.ui.search_line.addAction(search_icon, QLineEdit.LeadingPosition)
 
     def add_contact(self):
         """Opens the Contacts Create form inside the MDI subwindow."""
@@ -200,6 +207,13 @@ class ContactsLanding(QWidget):
         widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         table.setCellWidget(row, 3, widget)  # ✅ Company column is **index 3**
+        # ✅ Hover Icon BGColor
+        self.ui.mail_button.setStyleSheet(
+            "QPushButton:hover { background-color: rgba(100, 100, 100, 0.2); border-radius: 5px; }"
+        )
+        self.ui.menu_button.setStyleSheet(
+            "QPushButton:hover { background-color: rgba(100, 100, 100, 0.2); border-radius: 5px; }"
+        )
 
     def hide_all_icons(self):
         """Removes all icons from the Company column."""
