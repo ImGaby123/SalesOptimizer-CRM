@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QWidget, QMessageBox
 from views.py.ui_contacts_create import Ui_contacts_create
-from datas.db_connection import Database
+from datas.db_connection import DB_Connection
 
 class ContactsCreate(QWidget):
     def __init__(self, contact_id=None):
@@ -13,7 +13,7 @@ class ContactsCreate(QWidget):
         self.ui.setupUi(self)
 
         # ✅ Initialize database connection
-        self.db_conn = Database()
+        self.db_conn = DB_Connection()
 
         # ✅ Connect buttons
         self.ui.back_line.clicked.connect(self.go_back)

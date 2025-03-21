@@ -1,12 +1,12 @@
 from PySide6.QtWidgets import (
     QWidget, QTableWidgetItem, QHBoxLayout, QPushButton, QLabel, QSizePolicy,
-    QSpacerItem, QCheckBox, QHeaderView, QLineEdit
+    QSpacerItem, QCheckBox, QHeaderView, QLineEdit, QMessageBox
 )
 from PySide6.QtCore import Qt, QEvent
 from PySide6.QtGui import QIcon
 from models.models_contacts_create import ContactsCreate
 from views.py.ui_contacts_landing import Ui_contacts_landing
-from datas.db_connection import Database
+from datas.db_connection import DB_Connection
 
 class ContactsLanding(QWidget):
     def __init__(self):
@@ -15,7 +15,7 @@ class ContactsLanding(QWidget):
         self.ui.setupUi(self)
 
         # ✅ Initialize database connection
-        self.db_conn = Database()
+        self.db_conn = DB_Connection()
 
         # ✅ Enable mouse tracking for hover detection
         self.ui.contacts_tbl.viewport().setMouseTracking(True)
@@ -27,7 +27,7 @@ class ContactsLanding(QWidget):
         self.ui.add_btn.clicked.connect(self.add_contact)
         self.load_contacts()
         self.ui.search_line.textChanged.connect(self.search_contacts)  # Live search
-
+        self.ui.delete_btn.clicked.connect(self.delete_contact)
         # ✅ Add hover event filter
         self.ui.contacts_tbl.viewport().installEventFilter(self)
 
@@ -48,6 +48,44 @@ class ContactsLanding(QWidget):
         """Opens the Contacts Create form inside the MDI subwindow."""
         from models.models_authentication import MDIManager  # ✅ Lazy import to avoid circular import
         MDIManager.load_into_mdi(ContactsCreate)
+
+    def delete_contact(self):
+        """Deletes selected contacts after confirmation."""
+        selected_ids = []
+
+        for row in range(self.ui.contacts_tbl.rowCount()):
+            cell_widget = self.ui.contacts_tbl.cellWidget(row, 1)  # ✅ Checkbox is in column 1
+            if cell_widget:
+                checkbox = cell_widget.layout().itemAt(0).widget()
+                if isinstance(checkbox, QCheckBox) and checkbox.isChecked():
+                    # ✅ Get contact_id from hidden column 0
+                    contact_id_item = self.ui.contacts_tbl.item(row, 0)
+                    if contact_id_item:
+                        selected_ids.append(contact_id_item.text().strip())
+
+        if not selected_ids:
+            QMessageBox.information(self, "No Selection", "Please select at least one contact to delete.")
+            return
+
+        # ✅ Show confirmation dialog
+        confirmation = QMessageBox.question(
+            self,
+            "Confirm Deletion",
+            f"Are you sure you want to delete {len(selected_ids)} selected contact(s)?",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No
+        )
+
+        if confirmation == QMessageBox.Yes:
+            # ✅ Execute delete query
+            query = f"DELETE FROM contact WHERE contact_id IN ({','.join(['%s'] * len(selected_ids))})"
+            success = self.db_conn.execute_query(query, tuple(selected_ids))
+
+            if success:
+                self.load_contacts()  # ✅ Refresh table
+                QMessageBox.information(self, "Deleted", f"Successfully deleted {len(selected_ids)} contact(s).")
+            else:
+                QMessageBox.critical(self, "Error", "Failed to delete selected contacts.")
 
     def load_contacts(self):
         """Fetches contacts from the database and populates the QTableWidget."""
@@ -71,15 +109,28 @@ class ContactsLanding(QWidget):
         # ✅ Define column headers
         headers = ["Name", "Email", "Phone Number", "Company"]
         self.ui.contacts_tbl.setColumnCount(len(headers))
+        self.ui.contacts_tbl# ✅ Add an extra column to store the hidden contact_id
+        headers = ["ID (Hidden)", "Name", "Email", "Phone Number", "Company"]
+        self.ui.contacts_tbl.setColumnCount(len(headers))
         self.ui.contacts_tbl.setHorizontalHeaderLabels(headers)
         self.ui.contacts_tbl.setRowCount(len(contacts))
 
-        # ✅ Populate table
         for row_idx, contact in enumerate(contacts):
-            self.ui.contacts_tbl.setCellWidget(row_idx, 0, self.create_name_cell(contact["name"], row_idx))
-            self.ui.contacts_tbl.setItem(row_idx, 1, QTableWidgetItem(contact["email"]))
-            self.ui.contacts_tbl.setItem(row_idx, 2, QTableWidgetItem(contact["phone_number"]))
-            self.ui.contacts_tbl.setItem(row_idx, 3, QTableWidgetItem(contact["company_name"]))
+            # ✅ Store contact_id in column 0 (Hidden)
+            contact_id_item = QTableWidgetItem(str(contact["contact_id"]))
+            contact_id_item.setFlags(Qt.ItemIsEnabled)  # Make it uneditable
+            self.ui.contacts_tbl.setItem(row_idx, 0, contact_id_item)
+
+            # ✅ Store checkbox + name in column 1
+            self.ui.contacts_tbl.setCellWidget(row_idx, 1, self.create_name_cell(contact["name"], row_idx))
+
+            # ✅ Insert remaining data
+            self.ui.contacts_tbl.setItem(row_idx, 2, QTableWidgetItem(contact["email"]))
+            self.ui.contacts_tbl.setItem(row_idx, 3, QTableWidgetItem(contact["phone_number"]))
+            self.ui.contacts_tbl.setItem(row_idx, 4, QTableWidgetItem(contact["company_name"]))
+
+        # ✅ Hide the ID column
+        self.ui.contacts_tbl.setColumnHidden(0, True)
 
         print("✅ Contacts loaded successfully!")
 
@@ -105,8 +156,12 @@ class ContactsLanding(QWidget):
     def update_selected_count(self):
         """Updates the count of selected items and toggles label visibility."""
         selected_count = sum(
+            self.ui.contacts_tbl.cellWidget(row, 0) and
+            self.ui.contacts_tbl.cellWidget(row, 0).layout() and
+            self.ui.contacts_tbl.cellWidget(row, 0).layout().itemAt(0) and
             self.ui.contacts_tbl.cellWidget(row, 0).layout().itemAt(0).widget().isChecked()
             for row in range(self.ui.contacts_tbl.rowCount())
+            if self.ui.contacts_tbl.cellWidget(row, 0)  # ✅ Ensure it's not None
         )
 
         if selected_count > 0:
@@ -133,10 +188,11 @@ class ContactsLanding(QWidget):
             FROM contact c
             LEFT JOIN owner o ON c.contact_id = o.contact_owner_id
             LEFT JOIN company comp ON o.company_id = comp.company_id
-            WHERE c.first_name LIKE %s OR c.last_name LIKE %s OR c.email LIKE %s OR c.phone_number LIKE %s OR comp.company_name LIKE %s
+            WHERE c.first_name LIKE %s OR c.last_name LIKE %s OR c.email LIKE %s
+                  OR c.phone_number LIKE %s OR comp.company_name LIKE %s
         """
 
-        params = (f"%{search_term}%", f"%{search_term}%", f"%{search_term}%", f"%{search_term}%", f"%{search_term}%")
+        params = (f"%{search_term}%",) * 5
         results = self.db_conn.fetch_all(query, params)
 
         if results is None:
@@ -145,19 +201,27 @@ class ContactsLanding(QWidget):
 
         print(f"🔍 Query Results: {results}")
 
-        # ✅ Reset headers before populating search results
-        headers = ["Name", "Email", "Phone Number", "Company"]
-        self.ui.contacts_tbl.setColumnCount(len(headers))
-        self.ui.contacts_tbl.setHorizontalHeaderLabels(headers)
+        # ✅ Reset table row count
         self.ui.contacts_tbl.setRowCount(len(results))
 
         for row_idx, contact in enumerate(results):
-            self.ui.contacts_tbl.setCellWidget(row_idx, 0, self.create_name_cell(contact["name"], row_idx))
-            self.ui.contacts_tbl.setItem(row_idx, 1, QTableWidgetItem(contact["email"]))
-            self.ui.contacts_tbl.setItem(row_idx, 2, QTableWidgetItem(contact["phone_number"]))
-            self.ui.contacts_tbl.setItem(row_idx, 3, QTableWidgetItem(contact["company_name"]))
+            # ✅ Set contact_id (Hidden but needed for deletion & selection tracking)
+            contact_id_item = QTableWidgetItem(str(contact["contact_id"]))
+            contact_id_item.setFlags(contact_id_item.flags() & ~Qt.ItemIsEditable)  # Make read-only
+            self.ui.contacts_tbl.setItem(row_idx, 0, contact_id_item)
+            self.ui.contacts_tbl.setColumnHidden(0, True)  # ✅ Hide this column
+
+            # ✅ Ensure checkboxes remain
+            self.ui.contacts_tbl.setCellWidget(row_idx, 1, self.create_name_cell(contact["name"], row_idx))
+
+            # ✅ Populate other columns correctly
+            self.ui.contacts_tbl.setItem(row_idx, 2, QTableWidgetItem(contact["email"]))
+            self.ui.contacts_tbl.setItem(row_idx, 3, QTableWidgetItem(contact["phone_number"]))
+            self.ui.contacts_tbl.setItem(row_idx, 4, QTableWidgetItem(contact["company_name"]))
 
         print(f"✅ {len(results)} contacts found for '{search_term}'.")
+
+
 
     def eventFilter(self, obj, event):
         """Handles row hover events to show/hide icons dynamically."""
@@ -219,7 +283,6 @@ class ContactsLanding(QWidget):
         widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         table.setCellWidget(row, 3, widget)  # ✅ Company column is **index 3**
-
     def hide_all_icons(self):
         """Removes all icons from the Company column."""
         for row in range(self.ui.contacts_tbl.rowCount()):
