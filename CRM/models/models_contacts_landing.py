@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QWidget, QTableWidgetItem, QHBoxLayout, QPushButton, QLabel, QSizePolicy, QSpacerItem
+from PySide6.QtWidgets import QWidget, QTableWidgetItem, QHBoxLayout, QPushButton, QLabel, QSizePolicy, QSpacerItem, QCheckBox
 from PySide6.QtCore import Qt, QEvent
 from PySide6.QtGui import QIcon
 from models.models_contacts_create import ContactsCreate
@@ -28,10 +28,13 @@ class ContactsLanding(QWidget):
         # Track currently highlighted row to remove icons when mouse moves
         self.current_hover_row = -1
 
+        # ✅ Initially hide selected items label
+        self.ui.selecteditems_lbl.hide()
+
     def add_contact(self):
         """Opens the Contacts Create form inside the MDI subwindow."""
         from models.models_authentication import MDIManager  # ✅ Lazy import to avoid circular import
-        MDIManager.load_into_mdi(ContactsCreate)  # ✅ Now just one line
+        MDIManager.load_into_mdi(ContactsCreate)
 
     def load_contacts(self):
         """Fetches contacts from the database and populates the QTableWidget with required fields."""
@@ -51,79 +54,61 @@ class ContactsLanding(QWidget):
             print("❌ Failed to fetch contacts.")
             return
 
-        # Define column headers (NO "Actions" column!)
+        # ✅ Define column headers (No "Select" header for better alignment)
         headers = ["ID (Hidden)", "First Name", "Middle Name", "Last Name", "Email", "Phone Number", "Company"]
 
-        # Clear previous data and set up table structure
+        # ✅ Reset table
         self.ui.contacts_tbl.clear()
         self.ui.contacts_tbl.setColumnCount(len(headers))
-        self.ui.contacts_tbl.setHorizontalHeaderLabels(headers)
         self.ui.contacts_tbl.setRowCount(len(contacts))
+        self.ui.contacts_tbl.setHorizontalHeaderLabels(headers)
+        self.ui.contacts_tbl.setColumnHidden(0, True)  # Hide contact_id column
 
-        # Populate table with data
         for row_idx, contact in enumerate(contacts):
-            for col_idx, value in enumerate(contact.values()):
-                item = QTableWidgetItem(str(value) if value is not None else "")
+            contact_values = [
+                contact["contact_id"], contact["first_name"], contact["middle_name"],
+                contact["last_name"], contact["email"], contact["phone_number"], contact["company_name"]
+            ]
 
-                # Hide contact_id (First Column)
-                if col_idx == 0:
-                    item.setFlags(item.flags() & ~Qt.ItemIsSelectable & ~Qt.ItemIsEditable)
-                    self.ui.contacts_tbl.setColumnHidden(0, True)
+            # ✅ Create checkbox widget inside "First Name" column
+            checkbox_widget = QWidget()
+            layout = QHBoxLayout(checkbox_widget)
+            layout.setContentsMargins(0, 0, 0, 0)  # ✅ Ensure tight alignment
+            layout.setSpacing(8)  # ✅ Reduce space between checkbox and text
 
+            checkbox = QCheckBox()
+            checkbox.setFixedSize(15, 15)  # ✅ Standardized size
+            checkbox.stateChanged.connect(self.update_selected_count)
+
+            name_label = QLabel(contact_values[1])  # First Name text
+            name_label.setStyleSheet("font-family: monospace; padding-left: 5px;")  # ✅ Monospace for consistency
+
+            layout.addWidget(checkbox)
+            layout.addWidget(name_label)
+            layout.addStretch()  # ✅ Push elements to the left for even spacing
+            checkbox_widget.setLayout(layout)
+
+            # ✅ Insert the checkbox + name inside "First Name" column (Index 1)
+            self.ui.contacts_tbl.setCellWidget(row_idx, 1, checkbox_widget)
+
+            # ✅ Set other columns with correct data
+            for col_idx in range(2, len(contact_values)):  # Skipping contact_id (Hidden)
+                item = QTableWidgetItem(str(contact_values[col_idx]) if contact_values[col_idx] else "")
                 self.ui.contacts_tbl.setItem(row_idx, col_idx, item)
 
         print("✅ Contacts loaded successfully!")
 
-    def search_contacts(self):
-        """Search for contacts by first name, last name, or company name and update the table."""
-        search_term = self.ui.search_line.text().strip()
+    def update_selected_count(self):
+        """Updates the selected items label based on checked checkboxes."""
+        selected_count = sum(
+            1 for row in range(self.ui.contacts_tbl.rowCount()) if self.ui.contacts_tbl.cellWidget(row, 1).layout().itemAt(0).widget().isChecked()
+        )
 
-        # If search is empty, reload all contacts
-        if not search_term:
-            self.load_contacts()
-            return
-
-        query = """
-            SELECT
-                c.contact_id, c.first_name, c.middle_name, c.last_name,
-                c.email, c.phone_number, COALESCE(comp.company_name, '') AS company_name
-            FROM contact c
-            LEFT JOIN owner o ON c.contact_id = o.contact_owner_id
-            LEFT JOIN company comp ON o.company_id = comp.company_id
-            WHERE c.first_name LIKE %s OR c.last_name LIKE %s OR comp.company_name LIKE %s
-        """
-
-        params = (f"%{search_term}%", f"%{search_term}%", f"%{search_term}%")
-        results = self.db_conn.fetch_all(query, params)
-
-        if results is None:
-            print("❌ Error fetching search results.")
-            return
-
-        print(f"🔍 Query Results: {results}")  # Debugging
-
-        # Define headers
-        headers = ["ID (Hidden)", "First Name", "Middle Name", "Last Name", "Email", "Phone Number", "Company"]
-
-        # Reset table
-        self.ui.contacts_tbl.clear()
-        self.ui.contacts_tbl.setColumnCount(len(headers))
-        self.ui.contacts_tbl.setHorizontalHeaderLabels(headers)
-        self.ui.contacts_tbl.setRowCount(len(results))
-
-        for row_idx, contact in enumerate(results):
-            for col_idx, value in enumerate(contact.values()):
-                item = QTableWidgetItem(str(value) if value is not None else "")
-
-                # Hide contact_id (First Column)
-                if col_idx == 0:
-                    item.setFlags(Qt.ItemIsEnabled)  # Make uneditable but selectable
-                    self.ui.contacts_tbl.setColumnHidden(0, True)
-
-                self.ui.contacts_tbl.setItem(row_idx, col_idx, item)
-
-        print(f"✅ {len(results)} contacts found for '{search_term}'.")
-
+        if selected_count > 0:
+            self.ui.selecteditems_lbl.setText(f"Selected {selected_count} Item{'s' if selected_count > 1 else ''}")
+            self.ui.selecteditems_lbl.show()
+        else:
+            self.ui.selecteditems_lbl.hide()
 
     def eventFilter(self, obj, event):
         """Handles row hover events to show/hide icons dynamically."""
@@ -178,7 +163,7 @@ class ContactsLanding(QWidget):
         widget.setLayout(layout)
         widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
-        company_column = 6  # Company column index
+        company_column = 6  # Company column index (Fixed icon placement issue)
         table.setCellWidget(row, company_column, widget)
 
     def hide_all_icons(self):
@@ -189,3 +174,71 @@ class ContactsLanding(QWidget):
         for row in range(table.rowCount()):
             if table.cellWidget(row, company_column):  # Only remove if icons exist
                 table.removeCellWidget(row, company_column)
+
+    def search_contacts(self):
+        """Search for contacts by first name, last name, or company name and update the table."""
+        search_term = self.ui.search_line.text().strip()
+
+        # If search is empty, reload all contacts
+        if not search_term:
+            self.load_contacts()
+            return
+
+        query = """
+            SELECT
+                c.contact_id, c.first_name, c.middle_name, c.last_name,
+                c.email, c.phone_number, COALESCE(comp.company_name, '') AS company_name
+            FROM contact c
+            LEFT JOIN owner o ON c.contact_id = o.contact_owner_id
+            LEFT JOIN company comp ON o.company_id = comp.company_id
+            WHERE c.first_name LIKE %s OR c.last_name LIKE %s OR comp.company_name LIKE %s
+        """
+
+        params = (f"%{search_term}%", f"%{search_term}%", f"%{search_term}%")
+        results = self.db_conn.fetch_all(query, params)
+
+        if results is None:
+            print("❌ Error fetching search results.")
+            return
+
+        print(f"🔍 Query Results: {results}")  # Debugging
+
+        # ✅ Define headers
+        headers = ["ID (Hidden)", "First Name", "Middle Name", "Last Name", "Email", "Phone Number", "Company"]
+
+        # ✅ Reset table
+        self.ui.contacts_tbl.clear()
+        self.ui.contacts_tbl.setColumnCount(len(headers))
+        self.ui.contacts_tbl.setRowCount(len(results))
+        self.ui.contacts_tbl.setHorizontalHeaderLabels(headers)
+        self.ui.contacts_tbl.setColumnHidden(0, True)  # Hide contact_id column
+
+        for row_idx, contact in enumerate(results):
+            contact_values = [
+                contact["contact_id"], contact["first_name"], contact["middle_name"],
+                contact["last_name"], contact["email"], contact["phone_number"], contact["company_name"]
+            ]
+
+            # ✅ Create checkbox widget inside "First Name" column (Index 1)
+            checkbox_widget = QWidget()
+            layout = QHBoxLayout(checkbox_widget)
+            layout.setContentsMargins(5, 0, 0, 0)
+            layout.setSpacing(5)
+
+            checkbox = QCheckBox()
+            checkbox.stateChanged.connect(self.update_selected_count)
+
+            name_label = QLabel(contact_values[1])  # First Name text
+            layout.addWidget(checkbox)
+            layout.addWidget(name_label)
+            checkbox_widget.setLayout(layout)
+
+            # ✅ Set checkbox + name inside "First Name" column (Index 1)
+            self.ui.contacts_tbl.setCellWidget(row_idx, 1, checkbox_widget)
+
+            # ✅ Set other columns with correct data
+            for col_idx in range(2, len(contact_values)):  # Skipping contact_id (Hidden)
+                item = QTableWidgetItem(str(contact_values[col_idx]) if contact_values[col_idx] else "")
+                self.ui.contacts_tbl.setItem(row_idx, col_idx, item)
+
+        print(f"✅ {len(results)} contacts found for '{search_term}'.")

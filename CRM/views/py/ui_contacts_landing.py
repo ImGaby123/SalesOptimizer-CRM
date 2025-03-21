@@ -30,30 +30,33 @@ class Ui_contacts_landing(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.contacts_tbl = QTableWidget(contacts_landing)
-        self.contacts_tbl.setObjectName(u"contacts_tbl")
-        self.contacts_tbl.setMouseTracking(False)
-        self.contacts_tbl.setStyleSheet(u"QTableWidget {\n"
-"border: 1px solid black;\n"
-"}\n"
-"")
-        self.contacts_tbl.horizontalHeader().setCascadingSectionResizes(False)
-        self.contacts_tbl.horizontalHeader().setDefaultSectionSize(200)
-        self.contacts_tbl.horizontalHeader().setStretchLastSection(True)
+        self.gridLayout_2 = QGridLayout()
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.allContacts_combo = QComboBox(contacts_landing)
+        self.allContacts_combo.setObjectName(u"allContacts_combo")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.allContacts_combo.sizePolicy().hasHeightForWidth())
+        self.allContacts_combo.setSizePolicy(sizePolicy)
+        self.allContacts_combo.setMinimumSize(QSize(0, 30))
+        self.allContacts_combo.setMaximumSize(QSize(200, 16777215))
+        self.allContacts_combo.setStyleSheet(u"")
+        self.allContacts_combo.setEditable(False)
 
-        self.gridLayout.addWidget(self.contacts_tbl, 7, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.allContacts_combo, 0, 0, 1, 1)
 
-        self.verticalSpacer_41 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout.addItem(self.verticalSpacer_41, 1, 0, 1, 1)
+        self.gridLayout_2.addItem(self.horizontalSpacer_2, 0, 1, 1, 1)
+
+
+        self.gridLayout.addLayout(self.gridLayout_2, 4, 0, 1, 1)
 
         self.horizontalLayout_22 = QHBoxLayout()
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
         self.search_line = QLineEdit(contacts_landing)
         self.search_line.setObjectName(u"search_line")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.search_line.sizePolicy().hasHeightForWidth())
         self.search_line.setSizePolicy(sizePolicy)
         self.search_line.setMinimumSize(QSize(0, 30))
@@ -108,6 +111,23 @@ class Ui_contacts_landing(object):
 
         self.gridLayout.addLayout(self.horizontalLayout_22, 2, 0, 1, 1)
 
+        self.contacts_tbl = QTableWidget(contacts_landing)
+        self.contacts_tbl.setObjectName(u"contacts_tbl")
+        self.contacts_tbl.setMouseTracking(False)
+        self.contacts_tbl.setStyleSheet(u"QTableWidget {\n"
+"border: 1px solid black;\n"
+"}\n"
+"")
+        self.contacts_tbl.horizontalHeader().setCascadingSectionResizes(False)
+        self.contacts_tbl.horizontalHeader().setDefaultSectionSize(200)
+        self.contacts_tbl.horizontalHeader().setStretchLastSection(True)
+
+        self.gridLayout.addWidget(self.contacts_tbl, 8, 0, 1, 1)
+
+        self.verticalSpacer_43 = QSpacerItem(20, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.gridLayout.addItem(self.verticalSpacer_43, 5, 0, 1, 1)
+
         self.contacts_txt = QLabel(contacts_landing)
         self.contacts_txt.setObjectName(u"contacts_txt")
         sizePolicy.setHeightForWidth(self.contacts_txt.sizePolicy().hasHeightForWidth())
@@ -118,37 +138,24 @@ class Ui_contacts_landing(object):
 
         self.gridLayout.addWidget(self.contacts_txt, 0, 0, 1, 1)
 
-        self.verticalSpacer_43 = QSpacerItem(20, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
-
-        self.gridLayout.addItem(self.verticalSpacer_43, 5, 0, 1, 1)
-
         self.verticalSpacer_42 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
 
         self.gridLayout.addItem(self.verticalSpacer_42, 1, 0, 1, 1)
+
+        self.verticalSpacer_41 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.gridLayout.addItem(self.verticalSpacer_41, 1, 0, 1, 1)
 
         self.verticalSpacer = QSpacerItem(20, 25, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
 
         self.gridLayout.addItem(self.verticalSpacer, 3, 0, 1, 1)
 
-        self.gridLayout_2 = QGridLayout()
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.allContacts_combo = QComboBox(contacts_landing)
-        self.allContacts_combo.setObjectName(u"allContacts_combo")
-        sizePolicy.setHeightForWidth(self.allContacts_combo.sizePolicy().hasHeightForWidth())
-        self.allContacts_combo.setSizePolicy(sizePolicy)
-        self.allContacts_combo.setMinimumSize(QSize(0, 30))
-        self.allContacts_combo.setMaximumSize(QSize(200, 16777215))
-        self.allContacts_combo.setStyleSheet(u"")
-        self.allContacts_combo.setEditable(False)
+        self.selecteditems_lbl = QLabel(contacts_landing)
+        self.selecteditems_lbl.setObjectName(u"selecteditems_lbl")
+        self.selecteditems_lbl.setEnabled(True)
+        self.selecteditems_lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.gridLayout_2.addWidget(self.allContacts_combo, 0, 0, 1, 1)
-
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_2.addItem(self.horizontalSpacer_2, 0, 1, 1, 1)
-
-
-        self.gridLayout.addLayout(self.gridLayout_2, 4, 0, 1, 1)
+        self.gridLayout.addWidget(self.selecteditems_lbl, 6, 0, 1, 1)
 
 
         self.gridLayout_3.addLayout(self.gridLayout, 0, 0, 1, 1)
@@ -161,6 +168,7 @@ class Ui_contacts_landing(object):
 
     def retranslateUi(self, contacts_landing):
         contacts_landing.setWindowTitle(QCoreApplication.translate("contacts_landing", u"Contacts", None))
+        self.allContacts_combo.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"All Contacts", None))
         self.search_line.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"Search", None))
 #if QT_CONFIG(whatsthis)
         self.add_btn.setWhatsThis(QCoreApplication.translate("contacts_landing", u"add contact", None))
@@ -171,6 +179,6 @@ class Ui_contacts_landing(object):
 #endif // QT_CONFIG(whatsthis)
         self.delete_btn.setText("")
         self.contacts_txt.setText(QCoreApplication.translate("contacts_landing", u"Contacts", None))
-        self.allContacts_combo.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"All Contacts", None))
+        self.selecteditems_lbl.setText(QCoreApplication.translate("contacts_landing", u"TextLabel", None))
     # retranslateUi
 
