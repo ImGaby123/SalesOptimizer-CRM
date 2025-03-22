@@ -252,6 +252,12 @@ class MainWindow(QMainWindow):
         self.realign_subwindows()
         super().resizeEvent(event)
 
+    def moveEvent(self, event):
+        """Keeps the email dialog positioned when MainWindow moves."""
+        if hasattr(self, "email_dialog") and self.email_dialog.isVisible():
+            self.email_dialog.move_to_bottom_right()
+        super().moveEvent(event)
+
 #################################
 # MainForm Wrapper for UI Scaling
 #################################
