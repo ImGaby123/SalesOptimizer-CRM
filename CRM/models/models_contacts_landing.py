@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import (
     QWidget, QTableWidgetItem, QHBoxLayout, QPushButton, QLabel, QSizePolicy,
-    QSpacerItem, QCheckBox, QHeaderView, QLineEdit, QMessageBox, QDialog
+    QSpacerItem, QCheckBox, QHeaderView, QLineEdit, QMessageBox, QDialog, QApplication
 )
 from PySide6.QtCore import Qt, QEvent
 from PySide6.QtGui import QIcon
@@ -293,15 +293,6 @@ class ContactsLanding(QWidget):
         for row in range(self.ui.contacts_tbl.rowCount()):
             self.ui.contacts_tbl.removeCellWidget(row, 4)
 
-    def mail(self, row):
-        """Opens the email dialog with the selected contact's email."""
-        contact_email_item = self.ui.contacts_tbl.item(row, 2)  # Column 2 = Email
-        if contact_email_item:
-            contact_email_address = contact_email_item.text().strip()
-
-            # ✅ Open Email Dialog
-            self.email_dialog = ContactsEmail(contact_email_address)
-            self.email_dialog.exec()  # Show as a modal dialog
 
     def show_icons(self, row):
         """Displays icons in the 'Company' column when hovered over a row."""
@@ -329,3 +320,28 @@ class ContactsLanding(QWidget):
 
         table.setCellWidget(row, 4, widget)  # ✅ Last column (Company)
 
+    def mail(self, row):
+        """Opens the email dialog positioned at the bottom-right of MainWindow."""
+        from models.models_contacts_email import ContactsEmail
+        from models.models_authentication import MainWindow  # Ensure we get MainWindow
+
+        # ✅ Get the contact's email
+        email_item = self.ui.contacts_tbl.item(row, 2)  # Column index for email
+        if not email_item:
+            print("❌ No email found for this contact.")
+            return
+
+        contact_email_address = email_item.text().strip()
+
+        # ✅ Get the MainWindow instance
+        main_window = next(
+            (w for w in QApplication.instance().topLevelWidgets() if isinstance(w, MainWindow)), None
+        )
+        if not main_window:
+            print("❌ MainWindow not found.")
+            return
+
+        # ✅ Create and position the dialog
+        self.email_dialog = ContactsEmail(contact_email_address, parent=main_window)
+        self.email_dialog.move_to_bottom_right()
+        self.email_dialog.show()

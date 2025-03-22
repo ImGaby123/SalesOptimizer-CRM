@@ -23,7 +23,7 @@ class Ui_contacts_email(object):
     def setupUi(self, contacts_email):
         if not contacts_email.objectName():
             contacts_email.setObjectName(u"contacts_email")
-        contacts_email.resize(640, 480)
+        contacts_email.resize(440, 280)
         self.gridLayout_2 = QGridLayout(contacts_email)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout = QGridLayout()
@@ -47,8 +47,8 @@ class Ui_contacts_email(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.send_btn.sizePolicy().hasHeightForWidth())
         self.send_btn.setSizePolicy(sizePolicy)
-        self.send_btn.setMinimumSize(QSize(105, 0))
-        self.send_btn.setMaximumSize(QSize(16777215, 30))
+        self.send_btn.setMinimumSize(QSize(90, 0))
+        self.send_btn.setMaximumSize(QSize(90, 16777215))
         self.send_btn.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "")
 
