@@ -157,19 +157,22 @@ class ContactsLanding(QWidget):
     def update_selected_count(self):
         """Updates the count of selected items and toggles label visibility."""
         selected_count = sum(
-            self.ui.contacts_tbl.cellWidget(row, 0) and
-            self.ui.contacts_tbl.cellWidget(row, 0).layout() and
-            self.ui.contacts_tbl.cellWidget(row, 0).layout().itemAt(0) and
-            self.ui.contacts_tbl.cellWidget(row, 0).layout().itemAt(0).widget().isChecked()
+            self.ui.contacts_tbl.cellWidget(row, 1) and
+            self.ui.contacts_tbl.cellWidget(row, 1).layout() and
+            self.ui.contacts_tbl.cellWidget(row, 1).layout().itemAt(0) and
+            self.ui.contacts_tbl.cellWidget(row, 1).layout().itemAt(0).widget().isChecked()
             for row in range(self.ui.contacts_tbl.rowCount())
-            if self.ui.contacts_tbl.cellWidget(row, 0)  # ✅ Ensure it's not None
+            if self.ui.contacts_tbl.cellWidget(row, 1)  # ✅ Ensure it's not None
         )
+
+        print(f"🔍 Selected Count: {selected_count}")  # ✅ Debugging
 
         if selected_count > 0:
             self.ui.selecteditems_lbl.setText(f"Selected {selected_count} Item{'s' if selected_count > 1 else ''}")
             self.ui.selecteditems_lbl.show()
         else:
             self.ui.selecteditems_lbl.hide()
+
 
     def search_contacts(self):
         """Search for contacts by name, email, phone, or company name and update the table."""

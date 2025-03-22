@@ -11,7 +11,6 @@ from views.py.ui_authenticationsystem import Ui_authenticationsystem
 from .models_sidebar import SidebarForm
 from .models_contacts_landing import ContactsLanding
 from views.py.ui_contacts1 import Ui_contacts1
-from views.py.ui_contacts2 import Ui_contacts2
 from views.py.ui_contacts4 import Ui_contacts4
 from views.py.ui_contacts_create import Ui_contacts_create
 
@@ -161,7 +160,7 @@ class MainWindow(QMainWindow):
     def load_form(self, form_name):
         form_map = {
             "Home": Ui_contacts1,
-            "Pipeline": Ui_contacts2,
+            "Pipeline": Ui_contacts1,
             "Funnel": Ui_contacts_create,
             "Leads": Ui_contacts4,
             "Contacts": ContactsLanding,
