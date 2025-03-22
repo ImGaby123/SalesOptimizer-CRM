@@ -1,9 +1,11 @@
 from PySide6.QtWidgets import (
     QWidget, QTableWidgetItem, QHBoxLayout, QPushButton, QLabel, QSizePolicy,
-    QSpacerItem, QCheckBox, QHeaderView, QLineEdit, QMessageBox
+    QSpacerItem, QCheckBox, QHeaderView, QLineEdit, QMessageBox, QDialog, QApplication
 )
 from PySide6.QtCore import Qt, QEvent
 from PySide6.QtGui import QIcon
+
+from models.models_contacts_email import ContactsEmail
 from models.models_contacts_create import ContactsCreate
 from views.py.ui_contacts_landing import Ui_contacts_landing
 from datas.db_connection import DB_Connection
@@ -17,8 +19,9 @@ class ContactsLanding(QWidget):
         # ✅ Initialize database connection
         self.db_conn = DB_Connection()
 
-        # ✅ Enable mouse tracking for hover detection
+        # ✅ Enable mouse tracking for hover detection, mail button clicks
         self.ui.contacts_tbl.viewport().setMouseTracking(True)
+        self.ui.contacts_tbl.viewport().installEventFilter(self)
 
         # ✅ Properly expand columns
         self.ui.contacts_tbl.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -28,8 +31,6 @@ class ContactsLanding(QWidget):
         self.load_contacts()
         self.ui.search_line.textChanged.connect(self.search_contacts)  # Live search
         self.ui.delete_btn.clicked.connect(self.delete_contact)
-        # ✅ Add hover event filter
-        self.ui.contacts_tbl.viewport().installEventFilter(self)
 
         # ✅ Track currently highlighted row
         self.current_hover_row = -1
@@ -156,19 +157,22 @@ class ContactsLanding(QWidget):
     def update_selected_count(self):
         """Updates the count of selected items and toggles label visibility."""
         selected_count = sum(
-            self.ui.contacts_tbl.cellWidget(row, 0) and
-            self.ui.contacts_tbl.cellWidget(row, 0).layout() and
-            self.ui.contacts_tbl.cellWidget(row, 0).layout().itemAt(0) and
-            self.ui.contacts_tbl.cellWidget(row, 0).layout().itemAt(0).widget().isChecked()
+            self.ui.contacts_tbl.cellWidget(row, 1) and
+            self.ui.contacts_tbl.cellWidget(row, 1).layout() and
+            self.ui.contacts_tbl.cellWidget(row, 1).layout().itemAt(0) and
+            self.ui.contacts_tbl.cellWidget(row, 1).layout().itemAt(0).widget().isChecked()
             for row in range(self.ui.contacts_tbl.rowCount())
-            if self.ui.contacts_tbl.cellWidget(row, 0)  # ✅ Ensure it's not None
+            if self.ui.contacts_tbl.cellWidget(row, 1)  # ✅ Ensure it's not None
         )
+
+        print(f"🔍 Selected Count: {selected_count}")  # ✅ Debugging
 
         if selected_count > 0:
             self.ui.selecteditems_lbl.setText(f"Selected {selected_count} Item{'s' if selected_count > 1 else ''}")
             self.ui.selecteditems_lbl.show()
         else:
             self.ui.selecteditems_lbl.hide()
+
 
     def search_contacts(self):
         """Search for contacts by name, email, phone, or company name and update the table."""
@@ -288,3 +292,56 @@ class ContactsLanding(QWidget):
         """Removes all icons from the Company column."""
         for row in range(self.ui.contacts_tbl.rowCount()):
             self.ui.contacts_tbl.removeCellWidget(row, 4)
+
+
+    def show_icons(self, row):
+        """Displays icons in the 'Company' column when hovered over a row."""
+        table = self.ui.contacts_tbl
+        if row < 0:
+            return
+
+        widget = QWidget()
+        layout = QHBoxLayout(widget)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(5)
+        layout.setAlignment(Qt.AlignRight)
+
+        # ✅ Create buttons
+        mail_button = self.create_icon_button(":/Resources/mail.svg", "Message")
+        menu_button = self.create_icon_button(":/Resources/menu.svg", "More")
+
+        # ✅ Connect mail button to `mail()`
+        mail_button.clicked.connect(lambda: self.mail(row))
+
+        layout.addWidget(mail_button)
+        layout.addWidget(menu_button)
+        widget.setLayout(layout)
+        widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+        table.setCellWidget(row, 4, widget)  # ✅ Last column (Company)
+
+    def mail(self, row):
+        """Opens the email dialog positioned at the bottom-right of MainWindow."""
+        from models.models_contacts_email import ContactsEmail
+        from models.models_authentication import MainWindow  # Ensure we get MainWindow
+
+        # ✅ Get the contact's email
+        email_item = self.ui.contacts_tbl.item(row, 2)  # Column index for email
+        if not email_item:
+            print("❌ No email found for this contact.")
+            return
+
+        contact_email_address = email_item.text().strip()
+
+        # ✅ Get the MainWindow instance
+        main_window = next(
+            (w for w in QApplication.instance().topLevelWidgets() if isinstance(w, MainWindow)), None
+        )
+        if not main_window:
+            print("❌ MainWindow not found.")
+            return
+
+        # ✅ Create and position the dialog
+        self.email_dialog = ContactsEmail(contact_email_address, parent=main_window)
+        self.email_dialog.move_to_bottom_right()
+        self.email_dialog.show()

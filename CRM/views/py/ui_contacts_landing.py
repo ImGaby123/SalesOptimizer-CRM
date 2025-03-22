@@ -51,6 +51,17 @@ class Ui_contacts_landing(object):
 
         self.horizontalLayout_22.addWidget(self.allContacts_combo)
 
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_22.addItem(self.horizontalSpacer_2)
+
+        self.selecteditems_lbl = QLabel(contacts_landing)
+        self.selecteditems_lbl.setObjectName(u"selecteditems_lbl")
+        self.selecteditems_lbl.setEnabled(True)
+        self.selecteditems_lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_22.addWidget(self.selecteditems_lbl)
+
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_22.addItem(self.horizontalSpacer)
@@ -142,13 +153,6 @@ class Ui_contacts_landing(object):
 
         self.gridLayout.addWidget(self.contacts_txt, 0, 0, 1, 1)
 
-        self.selecteditems_lbl = QLabel(contacts_landing)
-        self.selecteditems_lbl.setObjectName(u"selecteditems_lbl")
-        self.selecteditems_lbl.setEnabled(True)
-        self.selecteditems_lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.gridLayout.addWidget(self.selecteditems_lbl, 5, 0, 1, 1)
-
         self.verticalSpacer_41 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
 
         self.gridLayout.addItem(self.verticalSpacer_41, 1, 0, 1, 1)
@@ -165,6 +169,7 @@ class Ui_contacts_landing(object):
     def retranslateUi(self, contacts_landing):
         contacts_landing.setWindowTitle(QCoreApplication.translate("contacts_landing", u"Contacts", None))
         self.allContacts_combo.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"Sort contacts by:", None))
+        self.selecteditems_lbl.setText(QCoreApplication.translate("contacts_landing", u"TextLabel", None))
         self.search_line.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"Search contacts by name, email, or company", None))
 #if QT_CONFIG(tooltip)
         self.add_btn.setToolTip(QCoreApplication.translate("contacts_landing", u"Add Contact", None))
@@ -181,6 +186,5 @@ class Ui_contacts_landing(object):
 #endif // QT_CONFIG(whatsthis)
         self.delete_btn.setText("")
         self.contacts_txt.setText(QCoreApplication.translate("contacts_landing", u"Contacts", None))
-        self.selecteditems_lbl.setText(QCoreApplication.translate("contacts_landing", u"TextLabel", None))
     # retranslateUi
 

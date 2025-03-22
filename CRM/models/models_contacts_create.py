@@ -98,8 +98,8 @@ class ContactsCreate(QWidget):
         company_name = self.ui.comany_line.text().strip()
 
         # ✅ Validate required fields
-        if not first_name or not last_name or not email:
-            QMessageBox.warning(self, "Missing Fields", "First name, last name, and email are required.")
+        if not first_name or not last_name or not email or not phone_number or not company_name:
+            QMessageBox.warning(self, "Missing Fields", "First name, last name, email, phone number, and company are required.")
             return
 
         # ✅ Insert into `contact` table
