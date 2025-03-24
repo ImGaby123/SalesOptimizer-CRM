@@ -1,12 +1,13 @@
 from PySide6.QtWidgets import (
     QWidget, QTableWidgetItem, QHBoxLayout, QPushButton, QLabel, QSizePolicy,
-    QSpacerItem, QCheckBox, QHeaderView, QLineEdit, QMessageBox, QDialog, QApplication
+    QCheckBox, QHeaderView, QLineEdit, QMessageBox, QApplication, QMenu
 )
 from PySide6.QtCore import Qt, QEvent
-from PySide6.QtGui import QIcon
+from PySide6.QtGui import QIcon, QAction
 
-from models.models_contacts_email import ContactsEmail
 from models.models_contacts_create import ContactsCreate
+from models.models_contacts_view import ContactsView
+from models.models_contacts_update import ContactsUpdate
 from views.py.ui_contacts_landing import Ui_contacts_landing
 from datas.db_connection import DB_Connection
 
@@ -49,6 +50,28 @@ class ContactsLanding(QWidget):
         """Opens the Contacts Create form inside the MDI subwindow."""
         from models.models_authentication import MDIManager  # ✅ Lazy import to avoid circular import
         MDIManager.load_into_mdi(ContactsCreate)
+
+    def view_contact(self, row):
+        """Loads the View Contact form inside the MDI area."""
+        from models.models_authentication import MDIManager  # ✅ Lazy import to avoid circular import
+        contact_id_item = self.ui.contacts_tbl.item(row, 0)  # ✅ Get Contact ID
+        if not contact_id_item:
+            print("❌ No contact ID found for this row.")
+            return
+
+        contact_id = contact_id_item.text().strip()
+        MDIManager.load_into_mdi(lambda: ContactsView(contact_id))  # ✅ Load into MDI
+
+    def edit_contact(self, row):
+        from models.models_authentication import MDIManager  # ✅ Lazy import to avoid circular import
+        """Loads the Edit Contact form inside the MDI area."""
+        contact_id_item = self.ui.contacts_tbl.item(row, 0)  # ✅ Get Contact ID
+        if not contact_id_item:
+            print("❌ No contact ID found for this row.")
+            return
+
+        contact_id = contact_id_item.text().strip()
+        MDIManager.load_into_mdi(lambda: ContactsUpdate(contact_id))
 
     def delete_contact(self):
         """Deletes selected contacts after confirmation."""
@@ -263,31 +286,6 @@ class ContactsLanding(QWidget):
         """)
         return button  # ✅ Now correctly placed
 
-    def show_icons(self, row):
-        """Displays icons in the 'Company' column when hovered over a row."""
-        table = self.ui.contacts_tbl
-        if row < 0:
-            return
-
-        widget = QWidget()
-        layout = QHBoxLayout(widget)
-        layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(2)
-        layout.setAlignment(Qt.AlignRight)
-
-        # ✅ Create buttons using the correctly defined method
-        mail_button = self.create_icon_button(":/Resources/mail.svg", "Message")
-        menu_button = self.create_icon_button(":/Resources/menu.svg", "More")
-
-        # ✅ Add buttons to layout
-        layout.addWidget(mail_button)
-        layout.addWidget(menu_button)
-
-        widget.setLayout(layout)
-        widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-
-        table.setCellWidget(row, 4, widget)  # ✅ Company column is **index 4**
-
     def hide_all_icons(self):
         """Removes all icons from the Company column."""
         for row in range(self.ui.contacts_tbl.rowCount()):
@@ -306,12 +304,13 @@ class ContactsLanding(QWidget):
         layout.setSpacing(5)
         layout.setAlignment(Qt.AlignRight)
 
-        # ✅ Create buttons
+        # ✅ Mail button
         mail_button = self.create_icon_button(":/Resources/mail.svg", "Message")
-        menu_button = self.create_icon_button(":/Resources/menu.svg", "More")
-
-        # ✅ Connect mail button to `mail()`
         mail_button.clicked.connect(lambda: self.mail(row))
+
+        # ✅ Menu button (Options for View/Edit)
+        menu_button = self.create_icon_button(":/Resources/menu.svg", "Options")
+        menu_button.clicked.connect(lambda _, btn=menu_button: self.show_contact_menu(row, btn))
 
         layout.addWidget(mail_button)
         layout.addWidget(menu_button)
@@ -345,3 +344,29 @@ class ContactsLanding(QWidget):
         self.email_dialog = ContactsEmail(contact_email_address, parent=main_window)
         self.email_dialog.move_to_bottom_right()
         self.email_dialog.show()
+
+    def show_contact_menu(self, row, button):
+        """Displays a menu with 'View' and 'Edit' options for a contact."""
+        menu = QMenu(self)
+
+        # ✅ View Contact Action
+        view_action = QAction("View Contact Details", self)
+        view_action.triggered.connect(lambda: self.view_contact(row))
+
+        # ✅ Edit Contact Action
+        edit_action = QAction("Edit Contact", self)
+        edit_action.triggered.connect(lambda: self.edit_contact(row))
+
+        # ✅ Apply hover effects
+        menu.setStyleSheet("""
+            QMenu { background-color: white; border: 1px solid #ccc; }
+            QMenu::item { padding: 8px 20px; }
+            QMenu::item:selected { background-color: #f0f0f0; }
+        """)
+
+        menu.addAction(view_action)
+        menu.addAction(edit_action)
+
+        # ✅ Get cursor position and show menu
+        cursor_pos = button.mapToGlobal(button.rect().bottomLeft())
+        menu.exec(cursor_pos)

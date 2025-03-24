@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Add Contact</string>
+   <string>Contact Details</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -99,6 +99,9 @@
              <layout class="QGridLayout" name="gridLayout_9">
               <item row="7" column="0">
                <widget class="QLineEdit" name="phone_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -153,6 +156,9 @@
               </item>
               <item row="5" column="0">
                <widget class="QLineEdit" name="email_btn">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -207,6 +213,9 @@
               </item>
               <item row="3" column="0">
                <widget class="QLineEdit" name="title_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -229,6 +238,9 @@
               </item>
               <item row="1" column="0">
                <widget class="QLineEdit" name="dateofbirth_btn">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -271,6 +283,9 @@
              <layout class="QGridLayout" name="gridLayout_10">
               <item row="7" column="0">
                <widget class="QLineEdit" name="suffix_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -325,6 +340,9 @@
               </item>
               <item row="3" column="0">
                <widget class="QLineEdit" name="lastname_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -363,6 +381,9 @@
               </item>
               <item row="1" column="0">
                <widget class="QLineEdit" name="firstname_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -400,7 +421,11 @@
                </widget>
               </item>
               <item row="5" column="0">
-               <widget class="QLineEdit" name="middlename"/>
+               <widget class="QLineEdit" name="middlename">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -471,6 +496,9 @@
              <layout class="QGridLayout" name="gridLayout_3">
               <item row="1" column="0">
                <widget class="QLineEdit" name="country_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -509,6 +537,9 @@
               </item>
               <item row="5" column="0">
                <widget class="QLineEdit" name="zip_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -531,6 +562,9 @@
               </item>
               <item row="3" column="0">
                <widget class="QLineEdit" name="state_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -639,10 +673,17 @@
                </widget>
               </item>
               <item row="5" column="0">
-               <widget class="QLineEdit" name="street_line"/>
+               <widget class="QLineEdit" name="street_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
               </item>
               <item row="1" column="0">
                <widget class="QLineEdit" name="city_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -802,6 +843,9 @@ QPushButton:hover {
              <layout class="QGridLayout" name="gridLayout_17">
               <item row="1" column="0">
                <widget class="QLineEdit" name="comany_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -840,6 +884,9 @@ QPushButton:hover {
               </item>
               <item row="3" column="0">
                <widget class="QLineEdit" name="fax_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -904,6 +951,9 @@ QPushButton:hover {
               </item>
               <item row="7" column="0">
                <widget class="QComboBox" name="gender_combo">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -924,6 +974,9 @@ QPushButton:hover {
               </item>
               <item row="4" column="0">
                <widget class="QLineEdit" name="otherphone_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -962,6 +1015,9 @@ QPushButton:hover {
               </item>
               <item row="1" column="0">
                <widget class="QLineEdit" name="secondaryemail_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>

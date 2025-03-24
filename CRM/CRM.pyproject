@@ -32,6 +32,8 @@
         "views/ui/contacts_update.ui",
         "views/ui/contacts_view.ui",
         "views/py/ui_contacts_update.py",
-        "views/py/ui_contacts_view.py"
+        "views/py/ui_contacts_view.py",
+        "models/models_contacts_update.py",
+        "models/models_contacts_view.py"
     ]
 }

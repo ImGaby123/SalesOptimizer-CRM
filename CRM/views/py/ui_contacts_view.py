@@ -68,6 +68,7 @@ class Ui_contacts_view(object):
         self.gridLayout_9.setObjectName(u"gridLayout_9")
         self.phone_line = QLineEdit(self.frame_4)
         self.phone_line.setObjectName(u"phone_line")
+        self.phone_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.phone_line.sizePolicy().hasHeightForWidth())
         self.phone_line.setSizePolicy(sizePolicy1)
         self.phone_line.setMinimumSize(QSize(0, 0))
@@ -93,6 +94,7 @@ class Ui_contacts_view(object):
 
         self.email_btn = QLineEdit(self.frame_4)
         self.email_btn.setObjectName(u"email_btn")
+        self.email_btn.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.email_btn.sizePolicy().hasHeightForWidth())
         self.email_btn.setSizePolicy(sizePolicy1)
         self.email_btn.setMinimumSize(QSize(0, 0))
@@ -118,6 +120,7 @@ class Ui_contacts_view(object):
 
         self.title_line = QLineEdit(self.frame_4)
         self.title_line.setObjectName(u"title_line")
+        self.title_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.title_line.sizePolicy().hasHeightForWidth())
         self.title_line.setSizePolicy(sizePolicy1)
         self.title_line.setMinimumSize(QSize(0, 0))
@@ -127,6 +130,7 @@ class Ui_contacts_view(object):
 
         self.dateofbirth_btn = QLineEdit(self.frame_4)
         self.dateofbirth_btn.setObjectName(u"dateofbirth_btn")
+        self.dateofbirth_btn.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.dateofbirth_btn.sizePolicy().hasHeightForWidth())
         self.dateofbirth_btn.setSizePolicy(sizePolicy1)
         self.dateofbirth_btn.setMinimumSize(QSize(0, 0))
@@ -145,6 +149,7 @@ class Ui_contacts_view(object):
         self.gridLayout_10.setObjectName(u"gridLayout_10")
         self.suffix_line = QLineEdit(self.frame_4)
         self.suffix_line.setObjectName(u"suffix_line")
+        self.suffix_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.suffix_line.sizePolicy().hasHeightForWidth())
         self.suffix_line.setSizePolicy(sizePolicy1)
         self.suffix_line.setMinimumSize(QSize(0, 0))
@@ -170,6 +175,7 @@ class Ui_contacts_view(object):
 
         self.lastname_line = QLineEdit(self.frame_4)
         self.lastname_line.setObjectName(u"lastname_line")
+        self.lastname_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.lastname_line.sizePolicy().hasHeightForWidth())
         self.lastname_line.setSizePolicy(sizePolicy1)
         self.lastname_line.setMinimumSize(QSize(0, 0))
@@ -187,6 +193,7 @@ class Ui_contacts_view(object):
 
         self.firstname_line = QLineEdit(self.frame_4)
         self.firstname_line.setObjectName(u"firstname_line")
+        self.firstname_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.firstname_line.sizePolicy().hasHeightForWidth())
         self.firstname_line.setSizePolicy(sizePolicy1)
         self.firstname_line.setMinimumSize(QSize(0, 0))
@@ -204,6 +211,7 @@ class Ui_contacts_view(object):
 
         self.middlename = QLineEdit(self.frame_4)
         self.middlename.setObjectName(u"middlename")
+        self.middlename.setEnabled(False)
 
         self.gridLayout_10.addWidget(self.middlename, 5, 0, 1, 1)
 
@@ -254,6 +262,7 @@ class Ui_contacts_view(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.country_line = QLineEdit(self.frame_4)
         self.country_line.setObjectName(u"country_line")
+        self.country_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.country_line.sizePolicy().hasHeightForWidth())
         self.country_line.setSizePolicy(sizePolicy1)
         self.country_line.setMinimumSize(QSize(0, 0))
@@ -271,6 +280,7 @@ class Ui_contacts_view(object):
 
         self.zip_line = QLineEdit(self.frame_4)
         self.zip_line.setObjectName(u"zip_line")
+        self.zip_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.zip_line.sizePolicy().hasHeightForWidth())
         self.zip_line.setSizePolicy(sizePolicy1)
         self.zip_line.setMinimumSize(QSize(0, 0))
@@ -280,6 +290,7 @@ class Ui_contacts_view(object):
 
         self.state_line = QLineEdit(self.frame_4)
         self.state_line.setObjectName(u"state_line")
+        self.state_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.state_line.sizePolicy().hasHeightForWidth())
         self.state_line.setSizePolicy(sizePolicy1)
         self.state_line.setMinimumSize(QSize(0, 0))
@@ -335,11 +346,13 @@ class Ui_contacts_view(object):
 
         self.street_line = QLineEdit(self.frame_4)
         self.street_line.setObjectName(u"street_line")
+        self.street_line.setEnabled(False)
 
         self.gridLayout_23.addWidget(self.street_line, 5, 0, 1, 1)
 
         self.city_line = QLineEdit(self.frame_4)
         self.city_line.setObjectName(u"city_line")
+        self.city_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.city_line.sizePolicy().hasHeightForWidth())
         self.city_line.setSizePolicy(sizePolicy1)
 
@@ -441,6 +454,7 @@ class Ui_contacts_view(object):
         self.gridLayout_17.setObjectName(u"gridLayout_17")
         self.comany_line = QLineEdit(self.frame_4)
         self.comany_line.setObjectName(u"comany_line")
+        self.comany_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.comany_line.sizePolicy().hasHeightForWidth())
         self.comany_line.setSizePolicy(sizePolicy1)
         self.comany_line.setMinimumSize(QSize(0, 0))
@@ -458,6 +472,7 @@ class Ui_contacts_view(object):
 
         self.fax_line = QLineEdit(self.frame_4)
         self.fax_line.setObjectName(u"fax_line")
+        self.fax_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.fax_line.sizePolicy().hasHeightForWidth())
         self.fax_line.setSizePolicy(sizePolicy1)
         self.fax_line.setMinimumSize(QSize(0, 0))
@@ -500,6 +515,7 @@ class Ui_contacts_view(object):
         self.gender_combo.addItem("")
         self.gender_combo.addItem("")
         self.gender_combo.setObjectName(u"gender_combo")
+        self.gender_combo.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.gender_combo.sizePolicy().hasHeightForWidth())
         self.gender_combo.setSizePolicy(sizePolicy1)
 
@@ -507,6 +523,7 @@ class Ui_contacts_view(object):
 
         self.otherphone_line = QLineEdit(self.frame_4)
         self.otherphone_line.setObjectName(u"otherphone_line")
+        self.otherphone_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.otherphone_line.sizePolicy().hasHeightForWidth())
         self.otherphone_line.setSizePolicy(sizePolicy1)
         self.otherphone_line.setMinimumSize(QSize(0, 0))
@@ -524,6 +541,7 @@ class Ui_contacts_view(object):
 
         self.secondaryemail_line = QLineEdit(self.frame_4)
         self.secondaryemail_line.setObjectName(u"secondaryemail_line")
+        self.secondaryemail_line.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.secondaryemail_line.sizePolicy().hasHeightForWidth())
         self.secondaryemail_line.setSizePolicy(sizePolicy1)
         self.secondaryemail_line.setMinimumSize(QSize(0, 0))
@@ -563,7 +581,7 @@ class Ui_contacts_view(object):
     # setupUi
 
     def retranslateUi(self, contacts_view):
-        contacts_view.setWindowTitle(QCoreApplication.translate("contacts_view", u"Add Contact", None))
+        contacts_view.setWindowTitle(QCoreApplication.translate("contacts_view", u"Contact Details", None))
         self.MiddleNameLabel_8.setText(QCoreApplication.translate("contacts_view", u"Email :", None))
         self.SuffixLabel_8.setText(QCoreApplication.translate("contacts_view", u"Phone Number :", None))
         self.TitleLabel_4.setText(QCoreApplication.translate("contacts_view", u"Title :", None))

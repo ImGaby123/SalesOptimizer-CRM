@@ -589,7 +589,7 @@ class Ui_contacts_update(object):
     # setupUi
 
     def retranslateUi(self, contacts_update):
-        contacts_update.setWindowTitle(QCoreApplication.translate("contacts_update", u"Add Contact", None))
+        contacts_update.setWindowTitle(QCoreApplication.translate("contacts_update", u"Edit Contact", None))
         self.CountryLabel_4.setText(QCoreApplication.translate("contacts_update", u"Country  :", None))
         self.State_ProvinceLabel_4.setText(QCoreApplication.translate("contacts_update", u"State/Province :", None))
         self.ZipPostalCodeLabel_4.setText(QCoreApplication.translate("contacts_update", u"Zip/Postal Code :", None))
