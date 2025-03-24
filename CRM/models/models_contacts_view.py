@@ -1,4 +1,5 @@
 from PySide6.QtWidgets import QWidget
+from PySide6.QtCore import QDate
 from views.py.ui_contacts_view import Ui_contacts_view
 from datas.db_connection import DB_Connection
 
@@ -43,9 +44,11 @@ class ContactsView(QWidget):  # ✅ Changed from QDialog to QWidget
             self.ui.lastname_line.setText(contact.get("last_name", ""))
             self.ui.middlename.setText(contact.get("middle_name", ""))
             self.ui.suffix_line.setText(contact.get("suffix", ""))
-            self.ui.dateofbirth_btn.setText(str(contact.get("date_of_birth", "")))
+            dob = contact.get("date_of_birth", None)
+            if dob:
+                self.ui.dob_date.setDate(QDate.fromString(str(dob), "yyyy-MM-dd"))
             self.ui.title_line.setText(contact.get("job_title", ""))
-            self.ui.email_btn.setText(contact.get("email", ""))
+            self.ui.email_line.setText(contact.get("email", ""))
             self.ui.phone_line.setText(contact.get("phone_number", ""))
             self.ui.secondaryemail_line.setText(contact.get("secondary_email", ""))
             self.ui.otherphone_line.setText(contact.get("other_phone_number", ""))
