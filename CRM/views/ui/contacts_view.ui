@@ -937,7 +937,7 @@ QPushButton:hover {
               <item row="7" column="0">
                <widget class="QComboBox" name="gender_combo">
                 <property name="enabled">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">

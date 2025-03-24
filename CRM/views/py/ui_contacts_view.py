@@ -519,7 +519,7 @@ class Ui_contacts_view(object):
         self.gender_combo.addItem("")
         self.gender_combo.addItem("")
         self.gender_combo.setObjectName(u"gender_combo")
-        self.gender_combo.setEnabled(True)
+        self.gender_combo.setEnabled(False)
         sizePolicy1.setHeightForWidth(self.gender_combo.sizePolicy().hasHeightForWidth())
         self.gender_combo.setSizePolicy(sizePolicy1)
 
