@@ -47,7 +47,10 @@ class ContactsCreate(QWidget):
             self.ui.lastname_line.setText(contact.get("last_name", ""))
             self.ui.middlename.setText(contact.get("middle_name", ""))
             self.ui.suffix_line.setText(contact.get("suffix", ""))
-            self.ui.dateofbirth_btn.setText(str(contact.get("date_of_birth", "")))
+            date_of_birth = contact.get("date_of_birth", "")
+            if date_of_birth:
+                qdate = QDate.fromString(date_of_birth, "yyyy-MM-dd")
+                self.ui.dob_date.setDate(qdate)
             self.ui.title_line.setText(contact.get("job_title", ""))
             self.ui.email_btn.setText(contact.get("email", ""))
             self.ui.phone_line.setText(contact.get("phone_number", ""))
@@ -79,9 +82,9 @@ class ContactsCreate(QWidget):
         last_name = self.ui.lastname_line.text().strip()
         middle_name = self.ui.middlename.text().strip()
         suffix = self.ui.suffix_line.text().strip()
-        date_of_birth = self.ui.dateofbirth_btn.text().strip()
+        date_of_birth = self.ui.dob_date.date().toString("yyyy-MM-dd")
         job_title = self.ui.title_line.text().strip()
-        email = self.ui.email_btn.text().strip()
+        email = self.ui.email_line.text().strip()
         phone_number = self.ui.phone_line.text().strip()
 
         secondary_email = self.ui.secondaryemail_line.text().strip()

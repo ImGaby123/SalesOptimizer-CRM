@@ -15,9 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
-    QLabel, QLineEdit, QPushButton, QScrollArea,
-    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QFrame,
+    QGridLayout, QLabel, QLineEdit, QPushButton,
+    QScrollArea, QSizePolicy, QSpacerItem, QVBoxLayout,
+    QWidget)
 
 class Ui_contacts_view(object):
     def setupUi(self, contacts_view):
@@ -72,41 +73,15 @@ class Ui_contacts_view(object):
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_9 = QGridLayout()
         self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.phone_line = QLineEdit(self.frame_4)
-        self.phone_line.setObjectName(u"phone_line")
-        self.phone_line.setEnabled(False)
-        sizePolicy1.setHeightForWidth(self.phone_line.sizePolicy().hasHeightForWidth())
-        self.phone_line.setSizePolicy(sizePolicy1)
-        self.phone_line.setMinimumSize(QSize(0, 0))
-        self.phone_line.setMaximumSize(QSize(16777215, 16777215))
+        self.email_line = QLineEdit(self.frame_4)
+        self.email_line.setObjectName(u"email_line")
+        self.email_line.setEnabled(False)
+        sizePolicy1.setHeightForWidth(self.email_line.sizePolicy().hasHeightForWidth())
+        self.email_line.setSizePolicy(sizePolicy1)
+        self.email_line.setMinimumSize(QSize(0, 0))
+        self.email_line.setMaximumSize(QSize(16777215, 16777215))
 
-        self.gridLayout_9.addWidget(self.phone_line, 7, 0, 1, 1)
-
-        self.MiddleNameLabel_8 = QLabel(self.frame_4)
-        self.MiddleNameLabel_8.setObjectName(u"MiddleNameLabel_8")
-        sizePolicy1.setHeightForWidth(self.MiddleNameLabel_8.sizePolicy().hasHeightForWidth())
-        self.MiddleNameLabel_8.setSizePolicy(sizePolicy1)
-        self.MiddleNameLabel_8.setStyleSheet(u"color: rgb(98, 98, 98);")
-
-        self.gridLayout_9.addWidget(self.MiddleNameLabel_8, 4, 0, 1, 1)
-
-        self.SuffixLabel_8 = QLabel(self.frame_4)
-        self.SuffixLabel_8.setObjectName(u"SuffixLabel_8")
-        sizePolicy1.setHeightForWidth(self.SuffixLabel_8.sizePolicy().hasHeightForWidth())
-        self.SuffixLabel_8.setSizePolicy(sizePolicy1)
-        self.SuffixLabel_8.setStyleSheet(u"color: rgb(98, 98, 98);")
-
-        self.gridLayout_9.addWidget(self.SuffixLabel_8, 6, 0, 1, 1)
-
-        self.email_btn = QLineEdit(self.frame_4)
-        self.email_btn.setObjectName(u"email_btn")
-        self.email_btn.setEnabled(False)
-        sizePolicy1.setHeightForWidth(self.email_btn.sizePolicy().hasHeightForWidth())
-        self.email_btn.setSizePolicy(sizePolicy1)
-        self.email_btn.setMinimumSize(QSize(0, 0))
-        self.email_btn.setMaximumSize(QSize(16777215, 16777215))
-
-        self.gridLayout_9.addWidget(self.email_btn, 5, 0, 1, 1)
+        self.gridLayout_9.addWidget(self.email_line, 5, 0, 1, 1)
 
         self.TitleLabel_4 = QLabel(self.frame_4)
         self.TitleLabel_4.setObjectName(u"TitleLabel_4")
@@ -134,15 +109,37 @@ class Ui_contacts_view(object):
 
         self.gridLayout_9.addWidget(self.title_line, 3, 0, 1, 1)
 
-        self.dateofbirth_btn = QLineEdit(self.frame_4)
-        self.dateofbirth_btn.setObjectName(u"dateofbirth_btn")
-        self.dateofbirth_btn.setEnabled(False)
-        sizePolicy1.setHeightForWidth(self.dateofbirth_btn.sizePolicy().hasHeightForWidth())
-        self.dateofbirth_btn.setSizePolicy(sizePolicy1)
-        self.dateofbirth_btn.setMinimumSize(QSize(0, 0))
-        self.dateofbirth_btn.setMaximumSize(QSize(16777215, 16777215))
+        self.phone_line = QLineEdit(self.frame_4)
+        self.phone_line.setObjectName(u"phone_line")
+        self.phone_line.setEnabled(False)
+        sizePolicy1.setHeightForWidth(self.phone_line.sizePolicy().hasHeightForWidth())
+        self.phone_line.setSizePolicy(sizePolicy1)
+        self.phone_line.setMinimumSize(QSize(0, 0))
+        self.phone_line.setMaximumSize(QSize(16777215, 16777215))
 
-        self.gridLayout_9.addWidget(self.dateofbirth_btn, 1, 0, 1, 1)
+        self.gridLayout_9.addWidget(self.phone_line, 7, 0, 1, 1)
+
+        self.MiddleNameLabel_8 = QLabel(self.frame_4)
+        self.MiddleNameLabel_8.setObjectName(u"MiddleNameLabel_8")
+        sizePolicy1.setHeightForWidth(self.MiddleNameLabel_8.sizePolicy().hasHeightForWidth())
+        self.MiddleNameLabel_8.setSizePolicy(sizePolicy1)
+        self.MiddleNameLabel_8.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.gridLayout_9.addWidget(self.MiddleNameLabel_8, 4, 0, 1, 1)
+
+        self.SuffixLabel_8 = QLabel(self.frame_4)
+        self.SuffixLabel_8.setObjectName(u"SuffixLabel_8")
+        sizePolicy1.setHeightForWidth(self.SuffixLabel_8.sizePolicy().hasHeightForWidth())
+        self.SuffixLabel_8.setSizePolicy(sizePolicy1)
+        self.SuffixLabel_8.setStyleSheet(u"color: rgb(98, 98, 98);")
+
+        self.gridLayout_9.addWidget(self.SuffixLabel_8, 6, 0, 1, 1)
+
+        self.dob_date = QDateEdit(self.frame_4)
+        self.dob_date.setObjectName(u"dob_date")
+        self.dob_date.setEnabled(False)
+
+        self.gridLayout_9.addWidget(self.dob_date, 1, 0, 1, 1)
 
 
         self.gridLayout_8.addLayout(self.gridLayout_9, 0, 2, 1, 1)
@@ -150,6 +147,11 @@ class Ui_contacts_view(object):
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.gridLayout_8.addItem(self.horizontalSpacer, 0, 1, 1, 1)
+
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+
+        self.gridLayout_8.addLayout(self.verticalLayout, 1, 0, 1, 1)
 
         self.gridLayout_10 = QGridLayout()
         self.gridLayout_10.setObjectName(u"gridLayout_10")
@@ -223,11 +225,6 @@ class Ui_contacts_view(object):
 
 
         self.gridLayout_8.addLayout(self.gridLayout_10, 0, 0, 1, 1)
-
-        self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setObjectName(u"verticalLayout")
-
-        self.gridLayout_8.addLayout(self.verticalLayout, 1, 0, 1, 1)
 
 
         self.gridLayout.addLayout(self.gridLayout_8, 3, 0, 1, 1)
@@ -520,8 +517,9 @@ class Ui_contacts_view(object):
         self.gender_combo = QComboBox(self.frame_4)
         self.gender_combo.addItem("")
         self.gender_combo.addItem("")
+        self.gender_combo.addItem("")
         self.gender_combo.setObjectName(u"gender_combo")
-        self.gender_combo.setEnabled(False)
+        self.gender_combo.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.gender_combo.sizePolicy().hasHeightForWidth())
         self.gender_combo.setSizePolicy(sizePolicy1)
 
@@ -589,10 +587,10 @@ class Ui_contacts_view(object):
     def retranslateUi(self, contacts_view):
         contacts_view.setWindowTitle(QCoreApplication.translate("contacts_view", u"Contact Details", None))
         self.label.setText(QCoreApplication.translate("contacts_view", u"CONTACT DETAILS", None))
-        self.MiddleNameLabel_8.setText(QCoreApplication.translate("contacts_view", u"Email :", None))
-        self.SuffixLabel_8.setText(QCoreApplication.translate("contacts_view", u"Phone Number :", None))
         self.TitleLabel_4.setText(QCoreApplication.translate("contacts_view", u"Title :", None))
         self.DateOfBirthLabel_4.setText(QCoreApplication.translate("contacts_view", u"Date of Birth :", None))
+        self.MiddleNameLabel_8.setText(QCoreApplication.translate("contacts_view", u"Email :", None))
+        self.SuffixLabel_8.setText(QCoreApplication.translate("contacts_view", u"Phone Number :", None))
         self.FirstNameLabel_4.setText(QCoreApplication.translate("contacts_view", u"First Name :", None))
         self.LastNameLabel_4.setText(QCoreApplication.translate("contacts_view", u"Last Name :", None))
         self.SalutationLabel_4.setText(QCoreApplication.translate("contacts_view", u"Middle Name :", None))
@@ -609,8 +607,9 @@ class Ui_contacts_view(object):
         self.CompanyLabel_4.setText(QCoreApplication.translate("contacts_view", u"Company :", None))
         self.FaxLabel_4.setText(QCoreApplication.translate("contacts_view", u"Fax :", None))
         self.OtherPhoneNumLabel_4.setText(QCoreApplication.translate("contacts_view", u"Other Phone Number  :", None))
-        self.gender_combo.setItemText(0, QCoreApplication.translate("contacts_view", u"Male", None))
-        self.gender_combo.setItemText(1, QCoreApplication.translate("contacts_view", u"Female", None))
+        self.gender_combo.setItemText(0, QCoreApplication.translate("contacts_view", u"male", None))
+        self.gender_combo.setItemText(1, QCoreApplication.translate("contacts_view", u"female", None))
+        self.gender_combo.setItemText(2, QCoreApplication.translate("contacts_view", u"other", None))
 
         self.SecondaryEmailLabel_4.setText(QCoreApplication.translate("contacts_view", u"Secondary Email :", None))
         self.GenderLabel_4.setText(QCoreApplication.translate("contacts_view", u"Gender :", None))

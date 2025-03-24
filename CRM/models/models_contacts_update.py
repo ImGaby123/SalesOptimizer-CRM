@@ -1,4 +1,5 @@
 from PySide6.QtWidgets import QWidget, QMessageBox
+from PySide6.QtCore import QDate
 from views.py.ui_contacts_update import Ui_contacts_update
 from datas.db_connection import DB_Connection
 
@@ -45,9 +46,14 @@ class ContactsUpdate(QWidget):
             self.ui.lastname_line.setText(contact.get("last_name", ""))
             self.ui.middlename.setText(contact.get("middle_name", ""))
             self.ui.suffix_line.setText(contact.get("suffix", ""))
-            self.ui.dateofbirth_btn.setText(str(contact.get("date_of_birth", "")))
+            dob = contact.get("date_of_birth", None)
+            if dob:
+                self.ui.dob_date.setDate(QDate.fromString(str(dob), "yyyy-MM-dd"))
+            else:
+                self.ui.dob_date.setDate(QDate.currentDate())  # Default to today if no DOB
+
             self.ui.title_line.setText(contact.get("job_title", ""))
-            self.ui.email_btn.setText(contact.get("email", ""))
+            self.ui.email_line.setText(contact.get("email", ""))
             self.ui.phone_line.setText(contact.get("phone_number", ""))
             self.ui.secondaryemail_line.setText(contact.get("secondary_email", ""))
             self.ui.otherphone_line.setText(contact.get("other_phone_number", ""))
@@ -66,9 +72,9 @@ class ContactsUpdate(QWidget):
         last_name = self.ui.lastname_line.text().strip()
         middle_name = self.ui.middlename.text().strip()
         suffix = self.ui.suffix_line.text().strip()
-        date_of_birth = self.ui.dateofbirth_btn.text().strip()
+        date_of_birth = self.ui.dob_date.date().toString("yyyy-MM-dd")
         job_title = self.ui.title_line.text().strip()
-        email = self.ui.email_btn.text().strip()
+        email = self.ui.email_line.text().strip()
         phone_number = self.ui.phone_line.text().strip()
         secondary_email = self.ui.secondaryemail_line.text().strip()
         other_phone_number = self.ui.otherphone_line.text().strip()
@@ -81,6 +87,7 @@ class ContactsUpdate(QWidget):
         postal_code = self.ui.zip_line.text().strip()
         company_name = self.ui.comany_line.text().strip()
 
+        # ✅ Ensure required fields are not empty
         if not first_name or not last_name or not email or not phone_number:
             QMessageBox.warning(self, "Missing Fields", "First name, last name, email, and phone number are required.")
             return
@@ -110,9 +117,10 @@ class ContactsUpdate(QWidget):
         address_params = (country, state, city, street, postal_code, self.contact_id)
         success_address = self.db_conn.execute_query(address_query, address_params)
 
-        # ✅ Handle company update
+        # ✅ Update `company` (If company is provided)
+        success_owner = True
         if company_name:
-            # Check if the company exists
+            # Check if company already exists
             company_query = "SELECT company_id FROM company WHERE company_name = %s"
             company = self.db_conn.fetch_one(company_query, (company_name,))
 
@@ -122,16 +130,18 @@ class ContactsUpdate(QWidget):
                 # Insert new company
                 insert_company_query = "INSERT INTO company (company_name) VALUES (%s)"
                 self.db_conn.execute_query(insert_company_query, (company_name,))
-                company_id = self.db_conn.fetch_one("SELECT LAST_INSERT_ID()")["LAST_INSERT_ID()"]
+                # Fetch the new company ID
+                company_id = self.db_conn.fetch_one("SELECT company_id FROM company WHERE company_name = %s", (company_name,))["company_id"]
 
             # ✅ Update `owner` table
-            owner_query = "UPDATE owner SET company_id=%s WHERE contact_owner_id=%s"
-            owner_params = (company_id, self.contact_id)
+            owner_query = """
+            INSERT INTO owner (contact_owner_id, company_id) VALUES (%s, %s)
+            ON DUPLICATE KEY UPDATE company_id = VALUES(company_id)
+            """
+            owner_params = (self.contact_id, company_id)
             success_owner = self.db_conn.execute_query(owner_query, owner_params)
-        else:
-            success_owner = True  # No company update needed
 
-        # ✅ Check if any update failed
+        # ✅ Check if all updates were successful
         if success_contact and success_info and success_address and success_owner:
             QMessageBox.information(self, "Success", "Contact updated successfully!")
         else:
