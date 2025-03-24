@@ -22,7 +22,7 @@
      <item row="2" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout_22">
        <item>
-        <widget class="QComboBox" name="allContacts_combo">
+        <widget class="QComboBox" name="sort_combo">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -50,6 +50,21 @@
          <property name="placeholderText">
           <string>Sort contacts by:</string>
          </property>
+         <item>
+          <property name="text">
+           <string>Recently Added</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Oldest</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Alphabetical</string>
+          </property>
+         </item>
         </widget>
        </item>
        <item>

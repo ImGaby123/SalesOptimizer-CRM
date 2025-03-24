@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'contacts_create.ui'
+## Form generated from reading UI file 'contacts_update.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -20,20 +20,20 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
     QScrollArea, QSizePolicy, QSpacerItem, QVBoxLayout,
     QWidget)
 
-class Ui_contacts_create(object):
-    def setupUi(self, contacts_create):
-        if not contacts_create.objectName():
-            contacts_create.setObjectName(u"contacts_create")
-        contacts_create.resize(1118, 1106)
+class Ui_contacts_update(object):
+    def setupUi(self, contacts_update):
+        if not contacts_update.objectName():
+            contacts_update.setObjectName(u"contacts_update")
+        contacts_update.resize(1118, 1106)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(contacts_create.sizePolicy().hasHeightForWidth())
-        contacts_create.setSizePolicy(sizePolicy)
-        contacts_create.setStyleSheet(u"background-color: rgb(255, 255, 255);")
-        self.verticalLayout_3 = QVBoxLayout(contacts_create)
+        sizePolicy.setHeightForWidth(contacts_update.sizePolicy().hasHeightForWidth())
+        contacts_update.setSizePolicy(sizePolicy)
+        contacts_update.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.verticalLayout_3 = QVBoxLayout(contacts_update)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.scrollArea_4 = QScrollArea(contacts_create)
+        self.scrollArea_4 = QScrollArea(contacts_update)
         self.scrollArea_4.setObjectName(u"scrollArea_4")
         sizePolicy.setHeightForWidth(self.scrollArea_4.sizePolicy().hasHeightForWidth())
         self.scrollArea_4.setSizePolicy(sizePolicy)
@@ -583,39 +583,39 @@ class Ui_contacts_create(object):
         self.verticalLayout_3.addWidget(self.scrollArea_4)
 
 
-        self.retranslateUi(contacts_create)
+        self.retranslateUi(contacts_update)
 
-        QMetaObject.connectSlotsByName(contacts_create)
+        QMetaObject.connectSlotsByName(contacts_update)
     # setupUi
 
-    def retranslateUi(self, contacts_create):
-        contacts_create.setWindowTitle(QCoreApplication.translate("contacts_create", u"Add Contact", None))
-        self.CountryLabel_4.setText(QCoreApplication.translate("contacts_create", u"Country  :", None))
-        self.State_ProvinceLabel_4.setText(QCoreApplication.translate("contacts_create", u"State/Province :", None))
-        self.ZipPostalCodeLabel_4.setText(QCoreApplication.translate("contacts_create", u"Zip/Postal Code :", None))
-        self.StreetLabel_4.setText(QCoreApplication.translate("contacts_create", u"Street :", None))
-        self.CityLabel_4.setText(QCoreApplication.translate("contacts_create", u"City :", None))
-        self.back_line.setText(QCoreApplication.translate("contacts_create", u"Back to Contacts", None))
-        self.AdditionalInformation_5.setText(QCoreApplication.translate("contacts_create", u"ADDITIONAL INFORMATION", None))
-        self.save_btn.setText(QCoreApplication.translate("contacts_create", u"Save", None))
-        self.CompanyLabel_4.setText(QCoreApplication.translate("contacts_create", u"Company :", None))
-        self.FaxLabel_4.setText(QCoreApplication.translate("contacts_create", u"Fax :", None))
-        self.OtherPhoneNumLabel_4.setText(QCoreApplication.translate("contacts_create", u"Other Phone Number  :", None))
-        self.gender_combo.setItemText(0, QCoreApplication.translate("contacts_create", u"Male", None))
-        self.gender_combo.setItemText(1, QCoreApplication.translate("contacts_create", u"Female", None))
+    def retranslateUi(self, contacts_update):
+        contacts_update.setWindowTitle(QCoreApplication.translate("contacts_update", u"Edit Contact", None))
+        self.CountryLabel_4.setText(QCoreApplication.translate("contacts_update", u"Country  :", None))
+        self.State_ProvinceLabel_4.setText(QCoreApplication.translate("contacts_update", u"State/Province :", None))
+        self.ZipPostalCodeLabel_4.setText(QCoreApplication.translate("contacts_update", u"Zip/Postal Code :", None))
+        self.StreetLabel_4.setText(QCoreApplication.translate("contacts_update", u"Street :", None))
+        self.CityLabel_4.setText(QCoreApplication.translate("contacts_update", u"City :", None))
+        self.back_line.setText(QCoreApplication.translate("contacts_update", u"Back to Contacts", None))
+        self.AdditionalInformation_5.setText(QCoreApplication.translate("contacts_update", u"ADDITIONAL INFORMATION", None))
+        self.save_btn.setText(QCoreApplication.translate("contacts_update", u"Save", None))
+        self.CompanyLabel_4.setText(QCoreApplication.translate("contacts_update", u"Company :", None))
+        self.FaxLabel_4.setText(QCoreApplication.translate("contacts_update", u"Fax :", None))
+        self.OtherPhoneNumLabel_4.setText(QCoreApplication.translate("contacts_update", u"Other Phone Number  :", None))
+        self.gender_combo.setItemText(0, QCoreApplication.translate("contacts_update", u"Male", None))
+        self.gender_combo.setItemText(1, QCoreApplication.translate("contacts_update", u"Female", None))
 
-        self.SecondaryEmailLabel_4.setText(QCoreApplication.translate("contacts_create", u"Secondary Email :", None))
-        self.GenderLabel_4.setText(QCoreApplication.translate("contacts_create", u"Gender :", None))
-        self.MiddleNameLabel_8.setText(QCoreApplication.translate("contacts_create", u"Email :", None))
-        self.SuffixLabel_8.setText(QCoreApplication.translate("contacts_create", u"Phone Number :", None))
-        self.TitleLabel_4.setText(QCoreApplication.translate("contacts_create", u"Title :", None))
-        self.DateOfBirthLabel_4.setText(QCoreApplication.translate("contacts_create", u"Date of Birth :", None))
-        self.FirstNameLabel_4.setText(QCoreApplication.translate("contacts_create", u"First Name :", None))
-        self.LastNameLabel_4.setText(QCoreApplication.translate("contacts_create", u"Last Name :", None))
-        self.SalutationLabel_4.setText(QCoreApplication.translate("contacts_create", u"Middle Name :", None))
-        self.SuffixLabel_7.setText(QCoreApplication.translate("contacts_create", u"Suffix :", None))
-        self.AdditionalInformation_14.setText(QCoreApplication.translate("contacts_create", u"ADDRESS INFORMATION", None))
-        self.ContactsInformation_4.setText(QCoreApplication.translate("contacts_create", u"CONTACT INFORMATION", None))
-        self.label.setText(QCoreApplication.translate("contacts_create", u"ADD CONTACT", None))
+        self.SecondaryEmailLabel_4.setText(QCoreApplication.translate("contacts_update", u"Secondary Email :", None))
+        self.GenderLabel_4.setText(QCoreApplication.translate("contacts_update", u"Gender :", None))
+        self.MiddleNameLabel_8.setText(QCoreApplication.translate("contacts_update", u"Email :", None))
+        self.SuffixLabel_8.setText(QCoreApplication.translate("contacts_update", u"Phone Number :", None))
+        self.TitleLabel_4.setText(QCoreApplication.translate("contacts_update", u"Title :", None))
+        self.DateOfBirthLabel_4.setText(QCoreApplication.translate("contacts_update", u"Date of Birth :", None))
+        self.FirstNameLabel_4.setText(QCoreApplication.translate("contacts_update", u"First Name :", None))
+        self.LastNameLabel_4.setText(QCoreApplication.translate("contacts_update", u"Last Name :", None))
+        self.SalutationLabel_4.setText(QCoreApplication.translate("contacts_update", u"Middle Name :", None))
+        self.SuffixLabel_7.setText(QCoreApplication.translate("contacts_update", u"Suffix :", None))
+        self.AdditionalInformation_14.setText(QCoreApplication.translate("contacts_update", u"ADDRESS INFORMATION", None))
+        self.ContactsInformation_4.setText(QCoreApplication.translate("contacts_update", u"CONTACT INFORMATION", None))
+        self.label.setText(QCoreApplication.translate("contacts_update", u"EDIT CONTACT", None))
     # retranslateUi
 

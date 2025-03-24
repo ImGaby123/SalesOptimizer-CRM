@@ -1,12 +1,13 @@
 from PySide6.QtWidgets import (
     QWidget, QTableWidgetItem, QHBoxLayout, QPushButton, QLabel, QSizePolicy,
-    QSpacerItem, QCheckBox, QHeaderView, QLineEdit, QMessageBox, QDialog, QApplication
+    QCheckBox, QHeaderView, QLineEdit, QMessageBox, QApplication, QMenu
 )
 from PySide6.QtCore import Qt, QEvent
-from PySide6.QtGui import QIcon
+from PySide6.QtGui import QIcon, QAction
 
-from models.models_contacts_email import ContactsEmail
 from models.models_contacts_create import ContactsCreate
+from models.models_contacts_view import ContactsView
+from models.models_contacts_update import ContactsUpdate
 from views.py.ui_contacts_landing import Ui_contacts_landing
 from datas.db_connection import DB_Connection
 
@@ -28,9 +29,10 @@ class ContactsLanding(QWidget):
 
         # ✅ Connect add_btn to add_contact function
         self.ui.add_btn.clicked.connect(self.add_contact)
-        self.load_contacts()
         self.ui.search_line.textChanged.connect(self.search_contacts)  # Live search
         self.ui.delete_btn.clicked.connect(self.delete_contact)
+        self.ui.sort_combo.currentIndexChanged.connect(self.sort_contacts)
+        self.load_contacts(order_by="created_at", ascending=False)  # Default: Recently Added
 
         # ✅ Track currently highlighted row
         self.current_hover_row = -1
@@ -45,10 +47,45 @@ class ContactsLanding(QWidget):
         search_icon = QIcon(":/Resources/search.svg")
         self.ui.search_line.addAction(search_icon, QLineEdit.LeadingPosition)
 
+    def sort_contacts(self):
+        """Sorts contacts based on the selected option from sort_combo."""
+        selected_option = self.ui.sort_combo.currentText()
+
+        if selected_option == "Alphabetical":
+            self.load_contacts(order_by="name", ascending=True)
+        elif selected_option == "Recently Added":
+            self.load_contacts(order_by="created_at", ascending=False)
+        elif selected_option == "Oldest":
+            self.load_contacts(order_by="created_at", ascending=True)
+        else:
+            print("⚠️ Invalid sort option selected.")
+
     def add_contact(self):
         """Opens the Contacts Create form inside the MDI subwindow."""
         from models.models_authentication import MDIManager  # ✅ Lazy import to avoid circular import
         MDIManager.load_into_mdi(ContactsCreate)
+
+    def view_contact(self, row):
+        """Loads the View Contact form inside the MDI area."""
+        from models.models_authentication import MDIManager  # ✅ Lazy import to avoid circular import
+        contact_id_item = self.ui.contacts_tbl.item(row, 0)  # ✅ Get Contact ID
+        if not contact_id_item:
+            print("❌ No contact ID found for this row.")
+            return
+
+        contact_id = contact_id_item.text().strip()
+        MDIManager.load_into_mdi(lambda: ContactsView(contact_id))  # ✅ Load into MDI
+
+    def edit_contact(self, row):
+        from models.models_authentication import MDIManager  # ✅ Lazy import to avoid circular import
+        """Loads the Edit Contact form inside the MDI area."""
+        contact_id_item = self.ui.contacts_tbl.item(row, 0)  # ✅ Get Contact ID
+        if not contact_id_item:
+            print("❌ No contact ID found for this row.")
+            return
+
+        contact_id = contact_id_item.text().strip()
+        MDIManager.load_into_mdi(lambda: ContactsUpdate(contact_id))
 
     def delete_contact(self):
         """Deletes selected contacts after confirmation."""
@@ -88,18 +125,22 @@ class ContactsLanding(QWidget):
             else:
                 QMessageBox.critical(self, "Error", "Failed to delete selected contacts.")
 
-    def load_contacts(self):
+    def load_contacts(self, order_by="created_at", ascending=False):
         """Fetches contacts from the database and populates the QTableWidget."""
-        query = """
+        order_direction = "ASC" if ascending else "DESC"
+
+        query = f"""
             SELECT
                 c.contact_id,
-                CONCAT_WS(' ', c.first_name, c.middle_name, c.last_name) AS name,
+                CONCAT_WS(' ', c.first_name, c.middle_name, c.last_name, COALESCE(c.suffix, '')) AS name,
                 c.email,
                 c.phone_number,
-                COALESCE(comp.company_name, '') AS company_name
+                COALESCE(comp.company_name, '') AS company_name,
+                c.created_at
             FROM contact c
             LEFT JOIN owner o ON c.contact_id = o.contact_owner_id
             LEFT JOIN company comp ON o.company_id = comp.company_id
+            ORDER BY {order_by} {order_direction}  -- 🔹 Dynamic ordering
         """
 
         contacts = self.db_conn.fetch_all(query)
@@ -108,9 +149,6 @@ class ContactsLanding(QWidget):
             return
 
         # ✅ Define column headers
-        headers = ["Name", "Email", "Phone Number", "Company"]
-        self.ui.contacts_tbl.setColumnCount(len(headers))
-        self.ui.contacts_tbl# ✅ Add an extra column to store the hidden contact_id
         headers = ["ID (Hidden)", "Name", "Email", "Phone Number", "Company"]
         self.ui.contacts_tbl.setColumnCount(len(headers))
         self.ui.contacts_tbl.setHorizontalHeaderLabels(headers)
@@ -133,7 +171,7 @@ class ContactsLanding(QWidget):
         # ✅ Hide the ID column
         self.ui.contacts_tbl.setColumnHidden(0, True)
 
-        print("✅ Contacts loaded successfully!")
+        print(f"✅ Contacts loaded successfully! Sorted by {order_by} ({'ASC' if ascending else 'DESC'})")
 
     def create_name_cell(self, name, row):
         """Creates a widget with a checkbox and properly spaced name."""
@@ -185,18 +223,20 @@ class ContactsLanding(QWidget):
         query = """
             SELECT
                 c.contact_id,
-                CONCAT_WS(' ', c.first_name, c.middle_name, c.last_name) AS name,
+                CONCAT_WS(' ', c.first_name, c.middle_name, c.last_name, COALESCE(c.suffix, '')) AS name,
                 c.email,
                 c.phone_number,
                 COALESCE(comp.company_name, '') AS company_name
             FROM contact c
             LEFT JOIN owner o ON c.contact_id = o.contact_owner_id
             LEFT JOIN company comp ON o.company_id = comp.company_id
-            WHERE c.first_name LIKE %s OR c.last_name LIKE %s OR c.email LIKE %s
-                  OR c.phone_number LIKE %s OR comp.company_name LIKE %s
+            WHERE c.first_name LIKE %s OR c.last_name LIKE %s OR c.middle_name LIKE %s OR
+                  c.suffix LIKE %s OR c.email LIKE %s OR c.phone_number LIKE %s OR comp.company_name LIKE %s
         """
 
-        params = (f"%{search_term}%",) * 5
+        params = (f"%{search_term}%", f"%{search_term}%", f"%{search_term}%", f"%{search_term}%",
+                  f"%{search_term}%", f"%{search_term}%", f"%{search_term}%")
+
         results = self.db_conn.fetch_all(query, params)
 
         if results is None:
@@ -224,7 +264,6 @@ class ContactsLanding(QWidget):
             self.ui.contacts_tbl.setItem(row_idx, 4, QTableWidgetItem(contact["company_name"]))
 
         print(f"✅ {len(results)} contacts found for '{search_term}'.")
-
 
 
     def eventFilter(self, obj, event):
@@ -263,31 +302,6 @@ class ContactsLanding(QWidget):
         """)
         return button  # ✅ Now correctly placed
 
-    def show_icons(self, row):
-        """Displays icons in the 'Company' column when hovered over a row."""
-        table = self.ui.contacts_tbl
-        if row < 0:
-            return
-
-        widget = QWidget()
-        layout = QHBoxLayout(widget)
-        layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(2)
-        layout.setAlignment(Qt.AlignRight)
-
-        # ✅ Create buttons using the correctly defined method
-        mail_button = self.create_icon_button(":/Resources/mail.svg", "Message")
-        menu_button = self.create_icon_button(":/Resources/menu.svg", "More")
-
-        # ✅ Add buttons to layout
-        layout.addWidget(mail_button)
-        layout.addWidget(menu_button)
-
-        widget.setLayout(layout)
-        widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-
-        table.setCellWidget(row, 4, widget)  # ✅ Company column is **index 4**
-
     def hide_all_icons(self):
         """Removes all icons from the Company column."""
         for row in range(self.ui.contacts_tbl.rowCount()):
@@ -306,12 +320,13 @@ class ContactsLanding(QWidget):
         layout.setSpacing(5)
         layout.setAlignment(Qt.AlignRight)
 
-        # ✅ Create buttons
+        # ✅ Mail button
         mail_button = self.create_icon_button(":/Resources/mail.svg", "Message")
-        menu_button = self.create_icon_button(":/Resources/menu.svg", "More")
-
-        # ✅ Connect mail button to `mail()`
         mail_button.clicked.connect(lambda: self.mail(row))
+
+        # ✅ Menu button (Options for View/Edit)
+        menu_button = self.create_icon_button(":/Resources/menu.svg", "Options")
+        menu_button.clicked.connect(lambda _, btn=menu_button: self.show_contact_menu(row, btn))
 
         layout.addWidget(mail_button)
         layout.addWidget(menu_button)
@@ -345,3 +360,29 @@ class ContactsLanding(QWidget):
         self.email_dialog = ContactsEmail(contact_email_address, parent=main_window)
         self.email_dialog.move_to_bottom_right()
         self.email_dialog.show()
+
+    def show_contact_menu(self, row, button):
+        """Displays a menu with 'View' and 'Edit' options for a contact."""
+        menu = QMenu(self)
+
+        # ✅ View Contact Action
+        view_action = QAction("View Contact Details", self)
+        view_action.triggered.connect(lambda: self.view_contact(row))
+
+        # ✅ Edit Contact Action
+        edit_action = QAction("Edit Contact", self)
+        edit_action.triggered.connect(lambda: self.edit_contact(row))
+
+        # ✅ Apply hover effects
+        menu.setStyleSheet("""
+            QMenu { background-color: white; border: 1px solid #ccc; }
+            QMenu::item { padding: 8px 20px; }
+            QMenu::item:selected { background-color: #f0f0f0; }
+        """)
+
+        menu.addAction(view_action)
+        menu.addAction(edit_action)
+
+        # ✅ Get cursor position and show menu
+        cursor_pos = button.mapToGlobal(button.rect().bottomLeft())
+        menu.exec(cursor_pos)
