@@ -12,7 +12,6 @@
         "views/py/ui_authenticationsystem.py",
         "views/py/ui_contacts.py",
         "views/py/ui_contacts1.py",
-        "views/py/ui_contacts2.py",
         "views/py/ui_contacts4.py",
         "views/py/ui_contacts_create.py",
         "views/py/ui_contacts_landing.py",
@@ -22,7 +21,6 @@
         "views/ui/authenticationsystem.ui",
         "views/ui/contacts.ui",
         "views/ui/contacts1.ui",
-        "views/ui/contacts2.ui",
         "views/ui/contacts_landing.ui",
         "views/ui/contacts4.ui",
         "views/ui/contacts_create.ui",
@@ -30,6 +28,10 @@
         "datas/db_connection.py",
         "views/ui/contacts_email.ui",
         "views/py/ui_contacts_email.py",
-        "models/models_contacts_email.py"
+        "models/models_contacts_email.py",
+        "views/ui/contacts_update.ui",
+        "views/ui/contacts_view.ui",
+        "views/py/ui_contacts_update.py",
+        "views/py/ui_contacts_view.py"
     ]
 }

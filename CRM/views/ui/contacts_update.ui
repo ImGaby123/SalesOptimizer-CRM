@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>contacts_create</class>
- <widget class="QWidget" name="contacts_create">
+ <class>contacts_update</class>
+ <widget class="QWidget" name="contacts_update">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -1044,7 +1044,7 @@ QPushButton:hover {
              </font>
             </property>
             <property name="text">
-             <string>ADD CONTACT</string>
+             <string>EDIT CONTACT</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
