@@ -116,7 +116,7 @@ class ContactsLanding(QWidget):
         query = """
             SELECT
                 c.contact_id,
-                CONCAT_WS(' ', c.first_name, c.middle_name, c.last_name) AS name,
+                CONCAT_WS(' ', c.first_name, c.middle_name, c.last_name, COALESCE(c.suffix, '')) AS name,
                 c.email,
                 c.phone_number,
                 COALESCE(comp.company_name, '') AS company_name
@@ -131,9 +131,6 @@ class ContactsLanding(QWidget):
             return
 
         # ✅ Define column headers
-        headers = ["Name", "Email", "Phone Number", "Company"]
-        self.ui.contacts_tbl.setColumnCount(len(headers))
-        self.ui.contacts_tbl# ✅ Add an extra column to store the hidden contact_id
         headers = ["ID (Hidden)", "Name", "Email", "Phone Number", "Company"]
         self.ui.contacts_tbl.setColumnCount(len(headers))
         self.ui.contacts_tbl.setHorizontalHeaderLabels(headers)
@@ -208,18 +205,20 @@ class ContactsLanding(QWidget):
         query = """
             SELECT
                 c.contact_id,
-                CONCAT_WS(' ', c.first_name, c.middle_name, c.last_name) AS name,
+                CONCAT_WS(' ', c.first_name, c.middle_name, c.last_name, COALESCE(c.suffix, '')) AS name,
                 c.email,
                 c.phone_number,
                 COALESCE(comp.company_name, '') AS company_name
             FROM contact c
             LEFT JOIN owner o ON c.contact_id = o.contact_owner_id
             LEFT JOIN company comp ON o.company_id = comp.company_id
-            WHERE c.first_name LIKE %s OR c.last_name LIKE %s OR c.email LIKE %s
-                  OR c.phone_number LIKE %s OR comp.company_name LIKE %s
+            WHERE c.first_name LIKE %s OR c.last_name LIKE %s OR c.middle_name LIKE %s OR
+                  c.suffix LIKE %s OR c.email LIKE %s OR c.phone_number LIKE %s OR comp.company_name LIKE %s
         """
 
-        params = (f"%{search_term}%",) * 5
+        params = (f"%{search_term}%", f"%{search_term}%", f"%{search_term}%", f"%{search_term}%",
+                  f"%{search_term}%", f"%{search_term}%", f"%{search_term}%")
+
         results = self.db_conn.fetch_all(query, params)
 
         if results is None:
@@ -247,7 +246,6 @@ class ContactsLanding(QWidget):
             self.ui.contacts_tbl.setItem(row_idx, 4, QTableWidgetItem(contact["company_name"]))
 
         print(f"✅ {len(results)} contacts found for '{search_term}'.")
-
 
 
     def eventFilter(self, obj, event):
