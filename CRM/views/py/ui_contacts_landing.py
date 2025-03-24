@@ -37,19 +37,22 @@ class Ui_contacts_landing(object):
 
         self.horizontalLayout_22 = QHBoxLayout()
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.allContacts_combo = QComboBox(contacts_landing)
-        self.allContacts_combo.setObjectName(u"allContacts_combo")
+        self.sort_combo = QComboBox(contacts_landing)
+        self.sort_combo.addItem("")
+        self.sort_combo.addItem("")
+        self.sort_combo.addItem("")
+        self.sort_combo.setObjectName(u"sort_combo")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.allContacts_combo.sizePolicy().hasHeightForWidth())
-        self.allContacts_combo.setSizePolicy(sizePolicy)
-        self.allContacts_combo.setMinimumSize(QSize(0, 30))
-        self.allContacts_combo.setMaximumSize(QSize(200, 16777215))
-        self.allContacts_combo.setStyleSheet(u"")
-        self.allContacts_combo.setEditable(False)
+        sizePolicy.setHeightForWidth(self.sort_combo.sizePolicy().hasHeightForWidth())
+        self.sort_combo.setSizePolicy(sizePolicy)
+        self.sort_combo.setMinimumSize(QSize(0, 30))
+        self.sort_combo.setMaximumSize(QSize(200, 16777215))
+        self.sort_combo.setStyleSheet(u"")
+        self.sort_combo.setEditable(False)
 
-        self.horizontalLayout_22.addWidget(self.allContacts_combo)
+        self.horizontalLayout_22.addWidget(self.sort_combo)
 
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
@@ -168,7 +171,11 @@ class Ui_contacts_landing(object):
 
     def retranslateUi(self, contacts_landing):
         contacts_landing.setWindowTitle(QCoreApplication.translate("contacts_landing", u"Contacts", None))
-        self.allContacts_combo.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"Sort contacts by:", None))
+        self.sort_combo.setItemText(0, QCoreApplication.translate("contacts_landing", u"Recently Added", None))
+        self.sort_combo.setItemText(1, QCoreApplication.translate("contacts_landing", u"Oldest", None))
+        self.sort_combo.setItemText(2, QCoreApplication.translate("contacts_landing", u"Alphabetical", None))
+
+        self.sort_combo.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"Sort contacts by:", None))
         self.selecteditems_lbl.setText(QCoreApplication.translate("contacts_landing", u"TextLabel", None))
         self.search_line.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"Search contacts by name, email, or company", None))
 #if QT_CONFIG(tooltip)

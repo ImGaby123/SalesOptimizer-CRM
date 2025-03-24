@@ -29,9 +29,10 @@ class ContactsLanding(QWidget):
 
         # ✅ Connect add_btn to add_contact function
         self.ui.add_btn.clicked.connect(self.add_contact)
-        self.load_contacts()
         self.ui.search_line.textChanged.connect(self.search_contacts)  # Live search
         self.ui.delete_btn.clicked.connect(self.delete_contact)
+        self.ui.sort_combo.currentIndexChanged.connect(self.sort_contacts)
+        self.load_contacts(order_by="created_at", ascending=False)  # Default: Recently Added
 
         # ✅ Track currently highlighted row
         self.current_hover_row = -1
@@ -45,6 +46,19 @@ class ContactsLanding(QWidget):
         # ✅ Search Icon
         search_icon = QIcon(":/Resources/search.svg")
         self.ui.search_line.addAction(search_icon, QLineEdit.LeadingPosition)
+
+    def sort_contacts(self):
+        """Sorts contacts based on the selected option from sort_combo."""
+        selected_option = self.ui.sort_combo.currentText()
+
+        if selected_option == "Alphabetical":
+            self.load_contacts(order_by="name", ascending=True)
+        elif selected_option == "Recently Added":
+            self.load_contacts(order_by="created_at", ascending=False)
+        elif selected_option == "Oldest":
+            self.load_contacts(order_by="created_at", ascending=True)
+        else:
+            print("⚠️ Invalid sort option selected.")
 
     def add_contact(self):
         """Opens the Contacts Create form inside the MDI subwindow."""
@@ -111,18 +125,22 @@ class ContactsLanding(QWidget):
             else:
                 QMessageBox.critical(self, "Error", "Failed to delete selected contacts.")
 
-    def load_contacts(self):
+    def load_contacts(self, order_by="created_at", ascending=False):
         """Fetches contacts from the database and populates the QTableWidget."""
-        query = """
+        order_direction = "ASC" if ascending else "DESC"
+
+        query = f"""
             SELECT
                 c.contact_id,
                 CONCAT_WS(' ', c.first_name, c.middle_name, c.last_name, COALESCE(c.suffix, '')) AS name,
                 c.email,
                 c.phone_number,
-                COALESCE(comp.company_name, '') AS company_name
+                COALESCE(comp.company_name, '') AS company_name,
+                c.created_at
             FROM contact c
             LEFT JOIN owner o ON c.contact_id = o.contact_owner_id
             LEFT JOIN company comp ON o.company_id = comp.company_id
+            ORDER BY {order_by} {order_direction}  -- 🔹 Dynamic ordering
         """
 
         contacts = self.db_conn.fetch_all(query)
@@ -153,7 +171,7 @@ class ContactsLanding(QWidget):
         # ✅ Hide the ID column
         self.ui.contacts_tbl.setColumnHidden(0, True)
 
-        print("✅ Contacts loaded successfully!")
+        print(f"✅ Contacts loaded successfully! Sorted by {order_by} ({'ASC' if ascending else 'DESC'})")
 
     def create_name_cell(self, name, row):
         """Creates a widget with a checkbox and properly spaced name."""

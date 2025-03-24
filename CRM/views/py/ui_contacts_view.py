@@ -58,9 +58,15 @@ class Ui_contacts_view(object):
         self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout = QGridLayout(self.frame_4)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.label = QLabel(self.frame_4)
+        self.label.setObjectName(u"label")
+        font = QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        self.label.setFont(font)
+        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.gridLayout.addItem(self.verticalSpacer_2, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
 
         self.gridLayout_8 = QGridLayout()
         self.gridLayout_8.setObjectName(u"gridLayout_8")
@@ -242,10 +248,10 @@ class Ui_contacts_view(object):
         sizePolicy1.setHeightForWidth(self.ContactsInformation_4.sizePolicy().hasHeightForWidth())
         self.ContactsInformation_4.setSizePolicy(sizePolicy1)
         self.ContactsInformation_4.setMinimumSize(QSize(0, 30))
-        font = QFont()
-        font.setPointSize(10)
-        font.setBold(True)
-        self.ContactsInformation_4.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(10)
+        font1.setBold(True)
+        self.ContactsInformation_4.setFont(font1)
         self.ContactsInformation_4.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.verticalLayout_10.addWidget(self.ContactsInformation_4)
@@ -383,7 +389,7 @@ class Ui_contacts_view(object):
         self.AdditionalInformation_5.setObjectName(u"AdditionalInformation_5")
         sizePolicy1.setHeightForWidth(self.AdditionalInformation_5.sizePolicy().hasHeightForWidth())
         self.AdditionalInformation_5.setSizePolicy(sizePolicy1)
-        self.AdditionalInformation_5.setFont(font)
+        self.AdditionalInformation_5.setFont(font1)
         self.AdditionalInformation_5.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.gridLayout_7.addWidget(self.AdditionalInformation_5, 0, 0, 1, 1)
@@ -437,7 +443,7 @@ class Ui_contacts_view(object):
         self.AdditionalInformation_14.setObjectName(u"AdditionalInformation_14")
         sizePolicy1.setHeightForWidth(self.AdditionalInformation_14.sizePolicy().hasHeightForWidth())
         self.AdditionalInformation_14.setSizePolicy(sizePolicy1)
-        self.AdditionalInformation_14.setFont(font)
+        self.AdditionalInformation_14.setFont(font1)
         self.AdditionalInformation_14.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.gridLayout_4.addWidget(self.AdditionalInformation_14, 0, 0, 1, 1)
@@ -582,6 +588,7 @@ class Ui_contacts_view(object):
 
     def retranslateUi(self, contacts_view):
         contacts_view.setWindowTitle(QCoreApplication.translate("contacts_view", u"Contact Details", None))
+        self.label.setText(QCoreApplication.translate("contacts_view", u"CONTACT DETAILS", None))
         self.MiddleNameLabel_8.setText(QCoreApplication.translate("contacts_view", u"Email :", None))
         self.SuffixLabel_8.setText(QCoreApplication.translate("contacts_view", u"Phone Number :", None))
         self.TitleLabel_4.setText(QCoreApplication.translate("contacts_view", u"Title :", None))
