@@ -132,15 +132,14 @@ class ContactsLanding(QWidget):
         query = f"""
             SELECT
                 c.contact_id,
-                CONCAT_WS(' ', c.first_name, c.middle_name, c.last_name, COALESCE(c.suffix, '')) AS name,
+                CONCAT_WS(' ', c.first_name, c.last_name) AS name,
                 c.email,
                 c.phone_number,
                 COALESCE(comp.company_name, '') AS company_name,
                 c.created_at
             FROM contact c
-            LEFT JOIN owner o ON c.contact_id = o.contact_owner_id
-            LEFT JOIN company comp ON o.company_id = comp.company_id
-            ORDER BY {order_by} {order_direction}  -- 🔹 Dynamic ordering
+            LEFT JOIN company comp ON c.company_id = comp.company_id
+            ORDER BY {order_by} {order_direction}
         """
 
         contacts = self.db_conn.fetch_all(query)
@@ -148,30 +147,64 @@ class ContactsLanding(QWidget):
             print("❌ Failed to fetch contacts.")
             return
 
-        # ✅ Define column headers
-        headers = ["ID (Hidden)", "Name", "Email", "Phone Number", "Company"]
+        headers = ["ID (Hidden)", "Name", "Email", "Phone", "Company"]
         self.ui.contacts_tbl.setColumnCount(len(headers))
         self.ui.contacts_tbl.setHorizontalHeaderLabels(headers)
         self.ui.contacts_tbl.setRowCount(len(contacts))
 
         for row_idx, contact in enumerate(contacts):
-            # ✅ Store contact_id in column 0 (Hidden)
             contact_id_item = QTableWidgetItem(str(contact["contact_id"]))
-            contact_id_item.setFlags(Qt.ItemIsEnabled)  # Make it uneditable
+            contact_id_item.setFlags(Qt.ItemIsEnabled)
             self.ui.contacts_tbl.setItem(row_idx, 0, contact_id_item)
 
-            # ✅ Store checkbox + name in column 1
             self.ui.contacts_tbl.setCellWidget(row_idx, 1, self.create_name_cell(contact["name"], row_idx))
-
-            # ✅ Insert remaining data
             self.ui.contacts_tbl.setItem(row_idx, 2, QTableWidgetItem(contact["email"]))
             self.ui.contacts_tbl.setItem(row_idx, 3, QTableWidgetItem(contact["phone_number"]))
             self.ui.contacts_tbl.setItem(row_idx, 4, QTableWidgetItem(contact["company_name"]))
 
-        # ✅ Hide the ID column
         self.ui.contacts_tbl.setColumnHidden(0, True)
-
         print(f"✅ Contacts loaded successfully! Sorted by {order_by} ({'ASC' if ascending else 'DESC'})")
+
+    def search_contacts(self):
+        """Search contacts by name, email, phone, or company."""
+        search_term = self.ui.search_line.text().strip()
+        if not search_term:
+            self.load_contacts()
+            return
+
+        query = """
+            SELECT
+                c.contact_id,
+                CONCAT_WS(' ', c.first_name, c.last_name) AS name,
+                c.email,
+                c.phone_number,
+                COALESCE(comp.company_name, '') AS company_name
+            FROM contact c
+            LEFT JOIN company comp ON c.company_id = comp.company_id
+            WHERE c.first_name LIKE %s OR c.last_name LIKE %s OR c.email LIKE %s
+                  OR c.phone_number LIKE %s OR comp.company_name LIKE %s
+        """
+
+        params = (f"%{search_term}%",) * 5
+        results = self.db_conn.fetch_all(query, params)
+
+        if results is None:
+            print("❌ Error fetching search results.")
+            return
+
+        self.ui.contacts_tbl.setRowCount(len(results))
+        for row_idx, contact in enumerate(results):
+            contact_id_item = QTableWidgetItem(str(contact["contact_id"]))
+            contact_id_item.setFlags(contact_id_item.flags() & ~Qt.ItemIsEditable)
+            self.ui.contacts_tbl.setItem(row_idx, 0, contact_id_item)
+
+            self.ui.contacts_tbl.setCellWidget(row_idx, 1, self.create_name_cell(contact["name"], row_idx))
+            self.ui.contacts_tbl.setItem(row_idx, 2, QTableWidgetItem(contact["email"]))
+            self.ui.contacts_tbl.setItem(row_idx, 3, QTableWidgetItem(contact["phone_number"]))
+            self.ui.contacts_tbl.setItem(row_idx, 4, QTableWidgetItem(contact["company_name"]))
+
+        print(f"✅ {len(results)} contacts found for '{search_term}'.")
+
 
     def create_name_cell(self, name, row):
         """Creates a widget with a checkbox and properly spaced name."""
@@ -210,61 +243,6 @@ class ContactsLanding(QWidget):
             self.ui.selecteditems_lbl.show()
         else:
             self.ui.selecteditems_lbl.hide()
-
-
-    def search_contacts(self):
-        """Search for contacts by name, email, phone, or company name and update the table."""
-        search_term = self.ui.search_line.text().strip()
-
-        if not search_term:
-            self.load_contacts()
-            return
-
-        query = """
-            SELECT
-                c.contact_id,
-                CONCAT_WS(' ', c.first_name, c.middle_name, c.last_name, COALESCE(c.suffix, '')) AS name,
-                c.email,
-                c.phone_number,
-                COALESCE(comp.company_name, '') AS company_name
-            FROM contact c
-            LEFT JOIN owner o ON c.contact_id = o.contact_owner_id
-            LEFT JOIN company comp ON o.company_id = comp.company_id
-            WHERE c.first_name LIKE %s OR c.last_name LIKE %s OR c.middle_name LIKE %s OR
-                  c.suffix LIKE %s OR c.email LIKE %s OR c.phone_number LIKE %s OR comp.company_name LIKE %s
-        """
-
-        params = (f"%{search_term}%", f"%{search_term}%", f"%{search_term}%", f"%{search_term}%",
-                  f"%{search_term}%", f"%{search_term}%", f"%{search_term}%")
-
-        results = self.db_conn.fetch_all(query, params)
-
-        if results is None:
-            print("❌ Error fetching search results.")
-            return
-
-        print(f"🔍 Query Results: {results}")
-
-        # ✅ Reset table row count
-        self.ui.contacts_tbl.setRowCount(len(results))
-
-        for row_idx, contact in enumerate(results):
-            # ✅ Set contact_id (Hidden but needed for deletion & selection tracking)
-            contact_id_item = QTableWidgetItem(str(contact["contact_id"]))
-            contact_id_item.setFlags(contact_id_item.flags() & ~Qt.ItemIsEditable)  # Make read-only
-            self.ui.contacts_tbl.setItem(row_idx, 0, contact_id_item)
-            self.ui.contacts_tbl.setColumnHidden(0, True)  # ✅ Hide this column
-
-            # ✅ Ensure checkboxes remain
-            self.ui.contacts_tbl.setCellWidget(row_idx, 1, self.create_name_cell(contact["name"], row_idx))
-
-            # ✅ Populate other columns correctly
-            self.ui.contacts_tbl.setItem(row_idx, 2, QTableWidgetItem(contact["email"]))
-            self.ui.contacts_tbl.setItem(row_idx, 3, QTableWidgetItem(contact["phone_number"]))
-            self.ui.contacts_tbl.setItem(row_idx, 4, QTableWidgetItem(contact["company_name"]))
-
-        print(f"✅ {len(results)} contacts found for '{search_term}'.")
-
 
     def eventFilter(self, obj, event):
         """Handles row hover events to show/hide icons dynamically."""

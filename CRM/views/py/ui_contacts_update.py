@@ -429,14 +429,14 @@ class Ui_contacts_update(object):
 
         self.gridLayout_17.addWidget(self.CompanyLabel_4, 0, 0, 1, 1)
 
-        self.comany_line = QLineEdit(self.frame_4)
-        self.comany_line.setObjectName(u"comany_line")
-        sizePolicy1.setHeightForWidth(self.comany_line.sizePolicy().hasHeightForWidth())
-        self.comany_line.setSizePolicy(sizePolicy1)
-        self.comany_line.setMinimumSize(QSize(0, 0))
-        self.comany_line.setMaximumSize(QSize(16777215, 16777215))
+        self.company_line = QLineEdit(self.frame_4)
+        self.company_line.setObjectName(u"company_line")
+        sizePolicy1.setHeightForWidth(self.company_line.sizePolicy().hasHeightForWidth())
+        self.company_line.setSizePolicy(sizePolicy1)
+        self.company_line.setMinimumSize(QSize(0, 0))
+        self.company_line.setMaximumSize(QSize(16777215, 16777215))
 
-        self.gridLayout_17.addWidget(self.comany_line, 1, 0, 1, 1)
+        self.gridLayout_17.addWidget(self.company_line, 1, 0, 1, 1)
 
         self.fax_line = QLineEdit(self.frame_4)
         self.fax_line.setObjectName(u"fax_line")
@@ -471,6 +471,7 @@ class Ui_contacts_update(object):
         self.gridLayout_16.addWidget(self.OtherPhoneNumLabel_4, 3, 0, 1, 1)
 
         self.gender_combo = QComboBox(self.frame_4)
+        self.gender_combo.addItem("")
         self.gender_combo.addItem("")
         self.gender_combo.addItem("")
         self.gender_combo.addItem("")
@@ -603,9 +604,10 @@ class Ui_contacts_update(object):
         self.FaxLabel_4.setText(QCoreApplication.translate("contacts_update", u"Fax :", None))
         self.CompanyLabel_4.setText(QCoreApplication.translate("contacts_update", u"Company :", None))
         self.OtherPhoneNumLabel_4.setText(QCoreApplication.translate("contacts_update", u"Other Phone Number  :", None))
-        self.gender_combo.setItemText(0, QCoreApplication.translate("contacts_update", u"male", None))
-        self.gender_combo.setItemText(1, QCoreApplication.translate("contacts_update", u"female", None))
-        self.gender_combo.setItemText(2, QCoreApplication.translate("contacts_update", u"other", None))
+        self.gender_combo.setItemText(0, "")
+        self.gender_combo.setItemText(1, QCoreApplication.translate("contacts_update", u"Male", None))
+        self.gender_combo.setItemText(2, QCoreApplication.translate("contacts_update", u"Female", None))
+        self.gender_combo.setItemText(3, QCoreApplication.translate("contacts_update", u"Other", None))
 
         self.SecondaryEmailLabel_4.setText(QCoreApplication.translate("contacts_update", u"Secondary Email :", None))
         self.GenderLabel_4.setText(QCoreApplication.translate("contacts_update", u"Gender :", None))
