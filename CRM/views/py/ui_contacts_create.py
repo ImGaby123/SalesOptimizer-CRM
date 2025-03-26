@@ -483,7 +483,7 @@ class Ui_contacts_create(object):
     # setupUi
 
     def retranslateUi(self, contacts_create):
-        contacts_create.setWindowTitle(QCoreApplication.translate("contacts_create", u"Edit Contact", None))
+        contacts_create.setWindowTitle(QCoreApplication.translate("contacts_create", u"Add Contact", None))
         self.save_btn.setText(QCoreApplication.translate("contacts_create", u"Confirm", None))
         self.gender_combo.setItemText(0, QCoreApplication.translate("contacts_create", u"Male", None))
         self.gender_combo.setItemText(1, QCoreApplication.translate("contacts_create", u"Female", None))

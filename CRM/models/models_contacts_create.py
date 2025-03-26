@@ -37,6 +37,7 @@ class ContactsCreate(QWidget):
         email = self.ui.email_line.text().strip()
         phone_number = self.ui.phone_line.text().strip()
         gender = self.ui.gender_combo.currentText().strip()
+        job_title = self.ui.title_line.text().strip()  # ✅ Added Job Title
 
         street = self.ui.street_line.text().strip()
         city = self.ui.city_line.text().strip()
@@ -60,12 +61,12 @@ class ContactsCreate(QWidget):
 
         company_id = company["company_id"]
 
-        # ✅ Insert into `contact` table
+        # ✅ Insert into `contact` table with job title
         contact_query = """
-            INSERT INTO contact (first_name, last_name, email, phone_number, gender, company_id)
-            VALUES (%s, %s, %s, %s, %s, %s)
+            INSERT INTO contact (first_name, last_name, email, phone_number, gender, job_title, company_id)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
         """
-        contact_params = (first_name, last_name, email, phone_number, gender, company_id)
+        contact_params = (first_name, last_name, email, phone_number, gender, job_title, company_id)
         self.db_conn.execute_query(contact_query, contact_params)
 
         # ✅ Retrieve `contact_id`

@@ -24,7 +24,7 @@ class ContactsView(QWidget):  # ✅ Changed from QDialog to QWidget
     def load_contact_details(self):
         """Fetches and displays contact details (Including Address & Gender)."""
         query = """
-        SELECT c.first_name, c.last_name, c.email, c.phone_number, c.gender,
+        SELECT c.first_name, c.last_name, c.email, c.phone_number, c.gender, c.job_title,
                a.street, a.city, a.state, a.zip_code, a.country,
                COALESCE(comp.company_name, '') AS company_name
         FROM contact c
@@ -40,6 +40,7 @@ class ContactsView(QWidget):  # ✅ Changed from QDialog to QWidget
             self.ui.email_line.setText(contact.get("email", ""))
             self.ui.phone_line.setText(contact.get("phone_number", ""))
             self.ui.gender_combo.setCurrentText(contact.get("gender", ""))
+            self.ui.title_line.setText(contact.get("job_title", ""))
             self.ui.street_line.setText(contact.get("street", ""))
             self.ui.city_line.setText(contact.get("city", ""))
             self.ui.state_line.setText(contact.get("state", ""))

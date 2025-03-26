@@ -47,58 +47,13 @@ class Ui_contacts_view(object):
         self.scrollAreaWidgetContents_4.setSizePolicy(sizePolicy)
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents_4)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.horizontalLayout_6 = QHBoxLayout()
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_6.addItem(self.horizontalSpacer_8)
-
-        self.save_btn = QPushButton(self.scrollAreaWidgetContents_4)
-        self.save_btn.setObjectName(u"save_btn")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.save_btn.sizePolicy().hasHeightForWidth())
-        self.save_btn.setSizePolicy(sizePolicy1)
-        font = QFont()
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setItalic(False)
-        self.save_btn.setFont(font)
-        self.save_btn.setStyleSheet(u"QPushButton {\n"
-"    background: #d9d9d9;\n"
-"    padding: 5px 20px; /* Adjusted for a more natural size */\n"
-"    border-radius: 5px;\n"
-"    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background: #000;\n"
-"    color: #d3d3d9;\n"
-"    border: 1px solid #555; /* Optional for visibility */\n"
-"}")
-        self.save_btn.setFlat(True)
-
-        self.horizontalLayout_6.addWidget(self.save_btn)
-
-        self.horizontalSpacer_9 = QSpacerItem(45, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_6.addItem(self.horizontalSpacer_9)
-
-
-        self.gridLayout_2.addLayout(self.horizontalLayout_6, 3, 0, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout_2.addItem(self.verticalSpacer, 2, 0, 1, 1)
-
         self.frame_4 = QFrame(self.scrollAreaWidgetContents_4)
         self.frame_4.setObjectName(u"frame_4")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.frame_4.sizePolicy().hasHeightForWidth())
-        self.frame_4.setSizePolicy(sizePolicy2)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.frame_4.sizePolicy().hasHeightForWidth())
+        self.frame_4.setSizePolicy(sizePolicy1)
         self.frame_4.setMinimumSize(QSize(0, 0))
         self.frame_4.setMaximumSize(QSize(16777215, 16777215))
         self.frame_4.setStyleSheet(u"\n"
@@ -120,40 +75,40 @@ class Ui_contacts_view(object):
         self.gender_combo.addItem("")
         self.gender_combo.addItem("")
         self.gender_combo.setObjectName(u"gender_combo")
-        sizePolicy2.setHeightForWidth(self.gender_combo.sizePolicy().hasHeightForWidth())
-        self.gender_combo.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.gender_combo.sizePolicy().hasHeightForWidth())
+        self.gender_combo.setSizePolicy(sizePolicy1)
         self.gender_combo.setStyleSheet(u"")
 
         self.gridLayout_9.addWidget(self.gender_combo, 3, 0, 1, 1)
 
         self.GenderLabel_4 = QLabel(self.frame_4)
         self.GenderLabel_4.setObjectName(u"GenderLabel_4")
-        sizePolicy2.setHeightForWidth(self.GenderLabel_4.sizePolicy().hasHeightForWidth())
-        self.GenderLabel_4.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.GenderLabel_4.sizePolicy().hasHeightForWidth())
+        self.GenderLabel_4.setSizePolicy(sizePolicy1)
         self.GenderLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_9.addWidget(self.GenderLabel_4, 2, 0, 1, 1)
 
         self.TitleLabel_4 = QLabel(self.frame_4)
         self.TitleLabel_4.setObjectName(u"TitleLabel_4")
-        sizePolicy2.setHeightForWidth(self.TitleLabel_4.sizePolicy().hasHeightForWidth())
-        self.TitleLabel_4.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.TitleLabel_4.sizePolicy().hasHeightForWidth())
+        self.TitleLabel_4.setSizePolicy(sizePolicy1)
         self.TitleLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_9.addWidget(self.TitleLabel_4, 4, 0, 1, 1)
 
         self.CompanyLabel_4 = QLabel(self.frame_4)
         self.CompanyLabel_4.setObjectName(u"CompanyLabel_4")
-        sizePolicy2.setHeightForWidth(self.CompanyLabel_4.sizePolicy().hasHeightForWidth())
-        self.CompanyLabel_4.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.CompanyLabel_4.sizePolicy().hasHeightForWidth())
+        self.CompanyLabel_4.setSizePolicy(sizePolicy1)
         self.CompanyLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_9.addWidget(self.CompanyLabel_4, 0, 0, 1, 1)
 
         self.company_line = QLineEdit(self.frame_4)
         self.company_line.setObjectName(u"company_line")
-        sizePolicy2.setHeightForWidth(self.company_line.sizePolicy().hasHeightForWidth())
-        self.company_line.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.company_line.sizePolicy().hasHeightForWidth())
+        self.company_line.setSizePolicy(sizePolicy1)
         self.company_line.setMinimumSize(QSize(0, 0))
         self.company_line.setMaximumSize(QSize(16777215, 16777215))
 
@@ -166,8 +121,8 @@ class Ui_contacts_view(object):
 
         self.title_line = QLineEdit(self.frame_4)
         self.title_line.setObjectName(u"title_line")
-        sizePolicy2.setHeightForWidth(self.title_line.sizePolicy().hasHeightForWidth())
-        self.title_line.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.title_line.sizePolicy().hasHeightForWidth())
+        self.title_line.setSizePolicy(sizePolicy1)
         self.title_line.setMinimumSize(QSize(0, 0))
         self.title_line.setMaximumSize(QSize(16777215, 16777215))
 
@@ -184,24 +139,24 @@ class Ui_contacts_view(object):
         self.gridLayout_10.setObjectName(u"gridLayout_10")
         self.SuffixLabel_8 = QLabel(self.frame_4)
         self.SuffixLabel_8.setObjectName(u"SuffixLabel_8")
-        sizePolicy2.setHeightForWidth(self.SuffixLabel_8.sizePolicy().hasHeightForWidth())
-        self.SuffixLabel_8.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.SuffixLabel_8.sizePolicy().hasHeightForWidth())
+        self.SuffixLabel_8.setSizePolicy(sizePolicy1)
         self.SuffixLabel_8.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_10.addWidget(self.SuffixLabel_8, 6, 1, 1, 1)
 
         self.FirstNameLabel_4 = QLabel(self.frame_4)
         self.FirstNameLabel_4.setObjectName(u"FirstNameLabel_4")
-        sizePolicy2.setHeightForWidth(self.FirstNameLabel_4.sizePolicy().hasHeightForWidth())
-        self.FirstNameLabel_4.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.FirstNameLabel_4.sizePolicy().hasHeightForWidth())
+        self.FirstNameLabel_4.setSizePolicy(sizePolicy1)
         self.FirstNameLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_10.addWidget(self.FirstNameLabel_4, 0, 1, 1, 1)
 
         self.phone_line = QLineEdit(self.frame_4)
         self.phone_line.setObjectName(u"phone_line")
-        sizePolicy2.setHeightForWidth(self.phone_line.sizePolicy().hasHeightForWidth())
-        self.phone_line.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.phone_line.sizePolicy().hasHeightForWidth())
+        self.phone_line.setSizePolicy(sizePolicy1)
         self.phone_line.setMinimumSize(QSize(0, 0))
         self.phone_line.setMaximumSize(QSize(16777215, 16777215))
 
@@ -209,8 +164,8 @@ class Ui_contacts_view(object):
 
         self.lastname_line = QLineEdit(self.frame_4)
         self.lastname_line.setObjectName(u"lastname_line")
-        sizePolicy2.setHeightForWidth(self.lastname_line.sizePolicy().hasHeightForWidth())
-        self.lastname_line.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.lastname_line.sizePolicy().hasHeightForWidth())
+        self.lastname_line.setSizePolicy(sizePolicy1)
         self.lastname_line.setMinimumSize(QSize(0, 0))
         self.lastname_line.setMaximumSize(QSize(16777215, 16777215))
 
@@ -218,8 +173,8 @@ class Ui_contacts_view(object):
 
         self.firstname_line = QLineEdit(self.frame_4)
         self.firstname_line.setObjectName(u"firstname_line")
-        sizePolicy2.setHeightForWidth(self.firstname_line.sizePolicy().hasHeightForWidth())
-        self.firstname_line.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.firstname_line.sizePolicy().hasHeightForWidth())
+        self.firstname_line.setSizePolicy(sizePolicy1)
         self.firstname_line.setMinimumSize(QSize(0, 0))
         self.firstname_line.setMaximumSize(QSize(16777215, 16777215))
 
@@ -227,16 +182,16 @@ class Ui_contacts_view(object):
 
         self.MiddleNameLabel_8 = QLabel(self.frame_4)
         self.MiddleNameLabel_8.setObjectName(u"MiddleNameLabel_8")
-        sizePolicy2.setHeightForWidth(self.MiddleNameLabel_8.sizePolicy().hasHeightForWidth())
-        self.MiddleNameLabel_8.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.MiddleNameLabel_8.sizePolicy().hasHeightForWidth())
+        self.MiddleNameLabel_8.setSizePolicy(sizePolicy1)
         self.MiddleNameLabel_8.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_10.addWidget(self.MiddleNameLabel_8, 4, 1, 1, 1)
 
         self.email_line = QLineEdit(self.frame_4)
         self.email_line.setObjectName(u"email_line")
-        sizePolicy2.setHeightForWidth(self.email_line.sizePolicy().hasHeightForWidth())
-        self.email_line.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.email_line.sizePolicy().hasHeightForWidth())
+        self.email_line.setSizePolicy(sizePolicy1)
         self.email_line.setMinimumSize(QSize(0, 0))
         self.email_line.setMaximumSize(QSize(16777215, 16777215))
 
@@ -244,8 +199,8 @@ class Ui_contacts_view(object):
 
         self.LastNameLabel_4 = QLabel(self.frame_4)
         self.LastNameLabel_4.setObjectName(u"LastNameLabel_4")
-        sizePolicy2.setHeightForWidth(self.LastNameLabel_4.sizePolicy().hasHeightForWidth())
-        self.LastNameLabel_4.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.LastNameLabel_4.sizePolicy().hasHeightForWidth())
+        self.LastNameLabel_4.setSizePolicy(sizePolicy1)
         self.LastNameLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_10.addWidget(self.LastNameLabel_4, 2, 1, 1, 1)
@@ -266,8 +221,8 @@ class Ui_contacts_view(object):
         self.gridLayout_23.setObjectName(u"gridLayout_23")
         self.StreetLabel_4 = QLabel(self.frame_4)
         self.StreetLabel_4.setObjectName(u"StreetLabel_4")
-        sizePolicy2.setHeightForWidth(self.StreetLabel_4.sizePolicy().hasHeightForWidth())
-        self.StreetLabel_4.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.StreetLabel_4.sizePolicy().hasHeightForWidth())
+        self.StreetLabel_4.setSizePolicy(sizePolicy1)
         self.StreetLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_23.addWidget(self.StreetLabel_4, 4, 0, 1, 1)
@@ -278,8 +233,8 @@ class Ui_contacts_view(object):
 
         self.ZipPostalCodeLabel_4 = QLabel(self.frame_4)
         self.ZipPostalCodeLabel_4.setObjectName(u"ZipPostalCodeLabel_4")
-        sizePolicy2.setHeightForWidth(self.ZipPostalCodeLabel_4.sizePolicy().hasHeightForWidth())
-        self.ZipPostalCodeLabel_4.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.ZipPostalCodeLabel_4.sizePolicy().hasHeightForWidth())
+        self.ZipPostalCodeLabel_4.setSizePolicy(sizePolicy1)
         self.ZipPostalCodeLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_23.addWidget(self.ZipPostalCodeLabel_4, 7, 0, 1, 1)
@@ -291,8 +246,8 @@ class Ui_contacts_view(object):
 
         self.zip_line = QLineEdit(self.frame_4)
         self.zip_line.setObjectName(u"zip_line")
-        sizePolicy2.setHeightForWidth(self.zip_line.sizePolicy().hasHeightForWidth())
-        self.zip_line.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.zip_line.sizePolicy().hasHeightForWidth())
+        self.zip_line.setSizePolicy(sizePolicy1)
         self.zip_line.setMinimumSize(QSize(0, 0))
         self.zip_line.setMaximumSize(QSize(16777215, 16777215))
 
@@ -314,31 +269,31 @@ class Ui_contacts_view(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.city_line = QLineEdit(self.frame_4)
         self.city_line.setObjectName(u"city_line")
-        sizePolicy2.setHeightForWidth(self.city_line.sizePolicy().hasHeightForWidth())
-        self.city_line.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.city_line.sizePolicy().hasHeightForWidth())
+        self.city_line.setSizePolicy(sizePolicy1)
 
         self.gridLayout_3.addWidget(self.city_line, 6, 1, 1, 1)
 
         self.State_ProvinceLabel_4 = QLabel(self.frame_4)
         self.State_ProvinceLabel_4.setObjectName(u"State_ProvinceLabel_4")
-        sizePolicy2.setHeightForWidth(self.State_ProvinceLabel_4.sizePolicy().hasHeightForWidth())
-        self.State_ProvinceLabel_4.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.State_ProvinceLabel_4.sizePolicy().hasHeightForWidth())
+        self.State_ProvinceLabel_4.setSizePolicy(sizePolicy1)
         self.State_ProvinceLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_3.addWidget(self.State_ProvinceLabel_4, 2, 1, 1, 1)
 
         self.CityLabel_4 = QLabel(self.frame_4)
         self.CityLabel_4.setObjectName(u"CityLabel_4")
-        sizePolicy2.setHeightForWidth(self.CityLabel_4.sizePolicy().hasHeightForWidth())
-        self.CityLabel_4.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.CityLabel_4.sizePolicy().hasHeightForWidth())
+        self.CityLabel_4.setSizePolicy(sizePolicy1)
         self.CityLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_3.addWidget(self.CityLabel_4, 5, 1, 1, 1)
 
         self.country_line = QLineEdit(self.frame_4)
         self.country_line.setObjectName(u"country_line")
-        sizePolicy2.setHeightForWidth(self.country_line.sizePolicy().hasHeightForWidth())
-        self.country_line.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.country_line.sizePolicy().hasHeightForWidth())
+        self.country_line.setSizePolicy(sizePolicy1)
         self.country_line.setMinimumSize(QSize(0, 0))
         self.country_line.setMaximumSize(QSize(16777215, 16777215))
 
@@ -346,8 +301,8 @@ class Ui_contacts_view(object):
 
         self.state_line = QLineEdit(self.frame_4)
         self.state_line.setObjectName(u"state_line")
-        sizePolicy2.setHeightForWidth(self.state_line.sizePolicy().hasHeightForWidth())
-        self.state_line.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.state_line.sizePolicy().hasHeightForWidth())
+        self.state_line.setSizePolicy(sizePolicy1)
         self.state_line.setMinimumSize(QSize(0, 0))
         self.state_line.setMaximumSize(QSize(16777215, 16777215))
 
@@ -355,8 +310,8 @@ class Ui_contacts_view(object):
 
         self.CountryLabel_4 = QLabel(self.frame_4)
         self.CountryLabel_4.setObjectName(u"CountryLabel_4")
-        sizePolicy2.setHeightForWidth(self.CountryLabel_4.sizePolicy().hasHeightForWidth())
-        self.CountryLabel_4.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.CountryLabel_4.sizePolicy().hasHeightForWidth())
+        self.CountryLabel_4.setSizePolicy(sizePolicy1)
         self.CountryLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
 
         self.gridLayout_3.addWidget(self.CountryLabel_4, 0, 1, 1, 1)
@@ -376,8 +331,8 @@ class Ui_contacts_view(object):
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.widget_21 = QWidget(self.frame_4)
         self.widget_21.setObjectName(u"widget_21")
-        sizePolicy2.setHeightForWidth(self.widget_21.sizePolicy().hasHeightForWidth())
-        self.widget_21.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.widget_21.sizePolicy().hasHeightForWidth())
+        self.widget_21.setSizePolicy(sizePolicy1)
         self.widget_21.setMinimumSize(QSize(0, 40))
         self.widget_21.setStyleSheet(u"background-color: rgb(235, 235, 235);\n"
 "\n"
@@ -386,12 +341,12 @@ class Ui_contacts_view(object):
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.AdditionalInformation_15 = QLabel(self.widget_21)
         self.AdditionalInformation_15.setObjectName(u"AdditionalInformation_15")
-        sizePolicy2.setHeightForWidth(self.AdditionalInformation_15.sizePolicy().hasHeightForWidth())
-        self.AdditionalInformation_15.setSizePolicy(sizePolicy2)
-        font1 = QFont()
-        font1.setPointSize(10)
-        font1.setBold(True)
-        self.AdditionalInformation_15.setFont(font1)
+        sizePolicy1.setHeightForWidth(self.AdditionalInformation_15.sizePolicy().hasHeightForWidth())
+        self.AdditionalInformation_15.setSizePolicy(sizePolicy1)
+        font = QFont()
+        font.setPointSize(10)
+        font.setBold(True)
+        self.AdditionalInformation_15.setFont(font)
         self.AdditionalInformation_15.setStyleSheet(u"")
 
         self.gridLayout_5.addWidget(self.AdditionalInformation_15, 1, 0, 1, 1)
@@ -406,17 +361,17 @@ class Ui_contacts_view(object):
         self.gridLayout_14.setObjectName(u"gridLayout_14")
         self.widget_20 = QWidget(self.frame_4)
         self.widget_20.setObjectName(u"widget_20")
-        sizePolicy2.setHeightForWidth(self.widget_20.sizePolicy().hasHeightForWidth())
-        self.widget_20.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.widget_20.sizePolicy().hasHeightForWidth())
+        self.widget_20.setSizePolicy(sizePolicy1)
         self.widget_20.setMinimumSize(QSize(0, 40))
         self.widget_20.setStyleSheet(u"background-color: rgb(235, 235, 235);")
         self.gridLayout_4 = QGridLayout(self.widget_20)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.AdditionalInformation_14 = QLabel(self.widget_20)
         self.AdditionalInformation_14.setObjectName(u"AdditionalInformation_14")
-        sizePolicy2.setHeightForWidth(self.AdditionalInformation_14.sizePolicy().hasHeightForWidth())
-        self.AdditionalInformation_14.setSizePolicy(sizePolicy2)
-        self.AdditionalInformation_14.setFont(font1)
+        sizePolicy1.setHeightForWidth(self.AdditionalInformation_14.sizePolicy().hasHeightForWidth())
+        self.AdditionalInformation_14.setSizePolicy(sizePolicy1)
+        self.AdditionalInformation_14.setFont(font)
         self.AdditionalInformation_14.setStyleSheet(u"")
 
         self.gridLayout_4.addWidget(self.AdditionalInformation_14, 0, 0, 1, 1)
@@ -431,15 +386,15 @@ class Ui_contacts_view(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.back_line = QPushButton(self.frame_4)
         self.back_line.setObjectName(u"back_line")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.back_line.sizePolicy().hasHeightForWidth())
-        self.back_line.setSizePolicy(sizePolicy3)
-        font2 = QFont()
-        font2.setPointSize(12)
-        font2.setBold(True)
-        self.back_line.setFont(font2)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.back_line.sizePolicy().hasHeightForWidth())
+        self.back_line.setSizePolicy(sizePolicy2)
+        font1 = QFont()
+        font1.setPointSize(12)
+        font1.setBold(True)
+        self.back_line.setFont(font1)
         self.back_line.setStyleSheet(u"QPushButton {\n"
 "    border: none;          /* Removes the button border */\n"
 "    background: transparent; /* Makes it blend with the background */\n"
@@ -465,9 +420,13 @@ class Ui_contacts_view(object):
 
         self.gridLayout_2.addWidget(self.frame_4, 1, 0, 1, 1)
 
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_2.addItem(self.verticalSpacer, 2, 0, 1, 1)
+
         self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_2.addItem(self.horizontalSpacer_10, 4, 0, 1, 1)
+        self.gridLayout_2.addItem(self.horizontalSpacer_10, 3, 0, 1, 1)
 
         self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_4)
 
@@ -483,8 +442,7 @@ class Ui_contacts_view(object):
     # setupUi
 
     def retranslateUi(self, contacts_view):
-        contacts_view.setWindowTitle(QCoreApplication.translate("contacts_view", u"Edit Contact", None))
-        self.save_btn.setText(QCoreApplication.translate("contacts_view", u"Confirm", None))
+        contacts_view.setWindowTitle(QCoreApplication.translate("contacts_view", u"Contact Details", None))
         self.gender_combo.setItemText(0, QCoreApplication.translate("contacts_view", u"Male", None))
         self.gender_combo.setItemText(1, QCoreApplication.translate("contacts_view", u"Female", None))
         self.gender_combo.setItemText(2, QCoreApplication.translate("contacts_view", u"Other", None))

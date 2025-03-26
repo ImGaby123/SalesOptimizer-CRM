@@ -26,7 +26,7 @@ class ContactsUpdate(QWidget):
     def load_contact_details(self):
         """Fetches and displays contact details (Including Address & Gender)."""
         query = """
-        SELECT c.first_name, c.last_name, c.email, c.phone_number, c.gender,
+        SELECT c.first_name, c.last_name, c.email, c.phone_number, c.gender, c.job_title,
                a.street, a.city, a.state, a.zip_code, a.country,
                COALESCE(comp.company_name, '') AS company_name
         FROM contact c
@@ -42,6 +42,7 @@ class ContactsUpdate(QWidget):
             self.ui.email_line.setText(contact.get("email", ""))
             self.ui.phone_line.setText(contact.get("phone_number", ""))
             self.ui.gender_combo.setCurrentText(contact.get("gender", ""))
+            self.ui.title_line.setText(contact.get("job_title", ""))
             self.ui.street_line.setText(contact.get("street", ""))
             self.ui.city_line.setText(contact.get("city", ""))
             self.ui.state_line.setText(contact.get("state", ""))
@@ -56,11 +57,14 @@ class ContactsUpdate(QWidget):
         email = self.ui.email_line.text().strip()
         phone_number = self.ui.phone_line.text().strip()
         gender = self.ui.gender_combo.currentText().strip()
+        job_title = self.ui.title_line.text().strip()
+
         street = self.ui.street_line.text().strip()
         city = self.ui.city_line.text().strip()
         state = self.ui.state_line.text().strip()
         zip_code = self.ui.zip_line.text().strip()
         country = self.ui.country_line.text().strip()
+
         company_name = self.ui.company_line.text().strip()
 
         if not first_name or not last_name or not email or not phone_number:
@@ -69,10 +73,10 @@ class ContactsUpdate(QWidget):
 
         # ✅ Update `contact` table
         contact_query = """
-        UPDATE contact SET first_name=%s, last_name=%s, email=%s, phone_number=%s, gender=%s
+        UPDATE contact SET first_name=%s, last_name=%s, email=%s, phone_number=%s, gender=%s, job_title=%s
         WHERE contact_id=%s
         """
-        contact_params = (first_name, last_name, email, phone_number, gender, self.contact_id)
+        contact_params = (first_name, last_name, email, phone_number, gender, job_title, self.contact_id)
         self.db_conn.execute_query(contact_query, contact_params)
 
         # ✅ Check if address exists
