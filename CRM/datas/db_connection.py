@@ -2,7 +2,7 @@ import mysql.connector
 from mysql.connector import Error
 
 class DB_Connection:
-    def __init__(self, host="127.0.0.1", user="root", password="", database="crm_db", port=3306):
+    def __init__(self, host="127.0.0.1", user="root", password="", database="crm", port=3306):
         """Initialize the database connection."""
         self.host = host
         self.user = user
