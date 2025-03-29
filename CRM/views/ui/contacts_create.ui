@@ -940,6 +940,9 @@ background-color: rgb(255, 255, 255);</string>
                 <bold>false</bold>
                </font>
               </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
               <property name="styleSheet">
                <string notr="true">QPushButton {
 }

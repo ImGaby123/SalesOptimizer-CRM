@@ -488,6 +488,7 @@ class Ui_contacts_create(object):
         font1.setBold(False)
         font1.setItalic(False)
         self.save_btn.setFont(font1)
+        self.save_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.save_btn.setStyleSheet(u"QPushButton {\n"
 "}\n"
 "")

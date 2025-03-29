@@ -35,7 +35,7 @@
         "views/py/ui_contacts_view.py",
         "models/models_contacts_update.py",
         "models/models_contacts_view.py",
-        "views/ui/lead_info.ui",
+        "views/ui/lead_profile.ui",
         "views/ui/lead_landing.ui"
     ]
 }
