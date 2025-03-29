@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'lead_info.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.2
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -93,7 +93,7 @@ class Ui_Form(object):
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.info_bar = QProgressBar(self.gridLayoutWidget)
         self.info_bar.setObjectName(u"info_bar")
-        self.info_bar.setValue(24)
+        self.info_bar.setValue(15)
 
         self.horizontalLayout_6.addWidget(self.info_bar)
 
