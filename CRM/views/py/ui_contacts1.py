@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'contacts1.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+## Created by: Qt User Interface Compiler version 6.8.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -19,6 +19,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QHeaderView, QLabel, QProgressBar, QPushButton,
     QSizePolicy, QSpacerItem, QTableWidget, QTableWidgetItem,
     QWidget)
+import views.py.icons_rc
 
 class Ui_contacts1(object):
     def setupUi(self, contacts1):
@@ -46,6 +47,9 @@ class Ui_contacts1(object):
         self.back_to_contacts_btn.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);\n"
 "")
+        icon = QIcon()
+        icon.addFile(u":/Resources/leftarrow.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.back_to_contacts_btn.setIcon(icon)
 
         self.horizontalLayout_24.addWidget(self.back_to_contacts_btn)
 
@@ -314,7 +318,7 @@ class Ui_contacts1(object):
 
     def retranslateUi(self, contacts1):
         contacts1.setWindowTitle(QCoreApplication.translate("contacts1", u"Form", None))
-        self.back_to_contacts_btn.setText(QCoreApplication.translate("contacts1", u"< Back to Contacts", None))
+        self.back_to_contacts_btn.setText(QCoreApplication.translate("contacts1", u" Back to Contacts", None))
         self.logo_user_2.setText(QCoreApplication.translate("contacts1", u"G", None))
         self.company_ni_gab_2.setText(QCoreApplication.translate("contacts1", u"Company ni Gab", None))
         self.sales_pipeline_4.setText(QCoreApplication.translate("contacts1", u"Sales Pipeline", None))
