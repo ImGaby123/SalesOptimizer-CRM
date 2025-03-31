@@ -11,9 +11,10 @@ class ContactsUpdate(QWidget):
 
         self.db_conn = DB_Connection()
         self.contact_id = contact_id
+
         self.load_contact_details()
 
-        # ✅ Connect Save Button
+        # ✅ Connect Buttons
         self.ui.back_line.clicked.connect(self.go_back)
         self.ui.save_btn.clicked.connect(self.update_contact)
 
@@ -24,7 +25,11 @@ class ContactsUpdate(QWidget):
         MDIManager.load_into_mdi(ContactsLanding)
 
     def load_contact_details(self):
-        """Fetches and displays contact details (Including Address & Gender)."""
+        """Fetches and displays contact details, including address and company."""
+        if not self.db_conn.conn:  # ✅ Ensure DB connection exists
+            QMessageBox.critical(self, "Database Error", "Unable to connect to the database.")
+            return
+
         query = """
         SELECT c.first_name, c.last_name, c.email, c.phone_number, c.gender, c.job_title,
                a.street, a.city, a.state, a.zip_code, a.country,
@@ -36,19 +41,25 @@ class ContactsUpdate(QWidget):
         """
 
         contact = self.db_conn.fetch_one(query, (self.contact_id,))
-        if contact:
-            self.ui.firstname_line.setText(contact.get("first_name", ""))
-            self.ui.lastname_line.setText(contact.get("last_name", ""))
-            self.ui.email_line.setText(contact.get("email", ""))
-            self.ui.phone_line.setText(contact.get("phone_number", ""))
-            self.ui.gender_combo.setCurrentText(contact.get("gender", ""))
-            self.ui.title_line.setText(contact.get("job_title", ""))
-            self.ui.street_line.setText(contact.get("street", ""))
-            self.ui.city_line.setText(contact.get("city", ""))
-            self.ui.state_line.setText(contact.get("state", ""))
-            self.ui.zip_line.setText(contact.get("zip_code", ""))
-            self.ui.country_line.setText(contact.get("country", ""))
-            self.ui.company_line.setText(contact.get("company_name", ""))
+
+        if not contact:
+            QMessageBox.warning(self, "Not Found", "The requested contact does not exist.")
+            self.go_back()
+            return
+
+        # ✅ Set text safely (preventing NoneType errors)
+        self.ui.firstname_line.setText(contact.get("first_name", ""))
+        self.ui.lastname_line.setText(contact.get("last_name", ""))
+        self.ui.email_line.setText(contact.get("email", ""))
+        self.ui.phone_line.setText(contact.get("phone_number", ""))
+        self.ui.gender_combo.setCurrentText(contact.get("gender", ""))
+        self.ui.title_line.setText(contact.get("job_title", ""))
+        self.ui.street_line.setText(contact.get("street", ""))
+        self.ui.city_line.setText(contact.get("city", ""))
+        self.ui.state_line.setText(contact.get("state", ""))
+        self.ui.zip_line.setText(contact.get("zip_code", ""))
+        self.ui.country_line.setText(contact.get("country", ""))
+        self.ui.company_line.setText(contact.get("company_name", ""))
 
     def update_contact(self):
         """Updates contact, address, and company information."""
@@ -71,32 +82,39 @@ class ContactsUpdate(QWidget):
             QMessageBox.warning(self, "Missing Fields", "First name, last name, email, and phone number are required.")
             return
 
+        if not self.db_conn.conn:  # ✅ Ensure DB connection exists
+            QMessageBox.critical(self, "Database Error", "Database connection is unavailable.")
+            return
+
         # ✅ Update `contact` table
         contact_query = """
-        UPDATE contact SET first_name=%s, last_name=%s, email=%s, phone_number=%s, gender=%s, job_title=%s
+        UPDATE contact
+        SET first_name=%s, last_name=%s, email=%s, phone_number=%s, gender=%s, job_title=%s
         WHERE contact_id=%s
         """
         contact_params = (first_name, last_name, email, phone_number, gender, job_title, self.contact_id)
         self.db_conn.execute_query(contact_query, contact_params)
 
         # ✅ Check if address exists
-        check_address = self.db_conn.fetch_one("SELECT * FROM contact_address WHERE contact_id = %s", (self.contact_id,))
+        check_address = self.db_conn.fetch_one("SELECT 1 FROM contact_address WHERE contact_id = %s", (self.contact_id,))
 
         if check_address:
             address_query = """
-                UPDATE contact_address SET street=%s, city=%s, state=%s, zip_code=%s, country=%s
+                UPDATE contact_address
+                SET street=%s, city=%s, state=%s, zip_code=%s, country=%s
                 WHERE contact_id=%s
             """
+            address_params = (street, city, state, zip_code, country, self.contact_id)
         else:
             address_query = """
                 INSERT INTO contact_address (contact_id, street, city, state, zip_code, country)
                 VALUES (%s, %s, %s, %s, %s, %s)
             """
+            address_params = (self.contact_id, street, city, state, zip_code, country)
 
-        address_params = (street, city, state, zip_code, country, self.contact_id)
         self.db_conn.execute_query(address_query, address_params)
 
-        # ✅ Update `company`
+        # ✅ Update or Insert `company`
         if company_name:
             company_query = "SELECT company_id FROM company WHERE company_name = %s"
             company = self.db_conn.fetch_one(company_query, (company_name,))
@@ -106,7 +124,7 @@ class ContactsUpdate(QWidget):
             else:
                 # Insert new company if not found
                 self.db_conn.execute_query("INSERT INTO company (company_name) VALUES (%s)", (company_name,))
-                company_id = self.db_conn.fetch_one("SELECT company_id FROM company WHERE company_name = %s", (company_name,))["company_id"]
+                company_id = self.db_conn.fetch_one("SELECT LAST_INSERT_ID() AS company_id")["company_id"]
 
             # ✅ Update `contact` with new `company_id`
             update_company_query = "UPDATE contact SET company_id = %s WHERE contact_id = %s"

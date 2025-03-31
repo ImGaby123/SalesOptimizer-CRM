@@ -37,7 +37,7 @@ class ContactsCreate(QWidget):
         email = self.ui.email_line.text().strip()
         phone_number = self.ui.phone_line.text().strip()
         gender = self.ui.gender_combo.currentText().strip()
-        job_title = self.ui.title_line.text().strip()  # ✅ Added Job Title
+        job_title = self.ui.title_line.text().strip()
 
         street = self.ui.street_line.text().strip()
         city = self.ui.city_line.text().strip()
@@ -51,34 +51,61 @@ class ContactsCreate(QWidget):
             QMessageBox.warning(self, "Missing Fields", "First name, last name, email, phone, and company are required.")
             return
 
-        # ✅ Ensure company exists
-        company_query = "SELECT company_id FROM company WHERE company_name = %s"
-        company = self.db_conn.fetch_one(company_query, (company_name,))
+        self.db_conn.ensure_connection()
+        conn = self.db_conn.conn
+        cursor = conn.cursor(dictionary=True)
 
-        if not company:
-            self.db_conn.execute_query("INSERT INTO company (company_name) VALUES (%s)", (company_name,))
-            company = self.db_conn.fetch_one("SELECT LAST_INSERT_ID() AS company_id")
+        try:
+            conn.start_transaction()
 
-        company_id = company["company_id"]
+            # ✅ Prevent duplicate company entries
+            cursor.execute(
+                "SELECT company_id FROM company WHERE company_name = %s LIMIT 1",
+                (company_name,)
+            )
+            company = cursor.fetchone()
 
-        # ✅ Insert into `contact` table with job title
-        contact_query = """
-            INSERT INTO contact (first_name, last_name, email, phone_number, gender, job_title, company_id)
-            VALUES (%s, %s, %s, %s, %s, %s, %s)
-        """
-        contact_params = (first_name, last_name, email, phone_number, gender, job_title, company_id)
-        self.db_conn.execute_query(contact_query, contact_params)
+            if not company:
+                cursor.execute("INSERT INTO company (company_name) VALUES (%s)", (company_name,))
+                company_id = cursor.lastrowid  # Get new company_id
+            else:
+                company_id = company["company_id"]
 
-        # ✅ Retrieve `contact_id`
-        contact_id = self.db_conn.fetch_one("SELECT LAST_INSERT_ID() AS contact_id")["contact_id"]
+            # ✅ Prevent duplicate contacts (email must be unique)
+            cursor.execute("SELECT contact_id FROM contact WHERE email = %s LIMIT 1", (email,))
+            existing_contact = cursor.fetchone()
 
-        # ✅ Insert into `contact_address` table
-        address_query = """
-            INSERT INTO contact_address (contact_id, street, city, state, zip_code, country)
-            VALUES (%s, %s, %s, %s, %s, %s)
-        """
-        address_params = (contact_id, street, city, state, zip_code, country)
-        self.db_conn.execute_query(address_query, address_params)
+            if existing_contact:
+                QMessageBox.warning(self, "Duplicate Contact", "A contact with this email already exists.")
+                conn.rollback()
+                return
 
-        QMessageBox.information(self, "Success", "Contact saved successfully!")
-        self.go_back()
+            # ✅ Insert contact
+            cursor.execute(
+                """
+                INSERT INTO contact (first_name, last_name, email, phone_number, gender, job_title, company_id)
+                VALUES (%s, %s, %s, %s, %s, %s, %s)
+                """,
+                (first_name, last_name, email, phone_number, gender, job_title, company_id)
+            )
+            contact_id = cursor.lastrowid  # Get new contact_id
+
+            # ✅ Insert contact address
+            cursor.execute(
+                """
+                INSERT INTO contact_address (contact_id, street, city, state, zip_code, country)
+                VALUES (%s, %s, %s, %s, %s, %s)
+                """,
+                (contact_id, street, city, state, zip_code, country)
+            )
+
+            conn.commit()
+            QMessageBox.information(self, "Success", "Contact saved successfully!")
+            self.go_back()
+
+        except Exception as e:
+            conn.rollback()
+            QMessageBox.critical(self, "Database Error", f"An error occurred: {str(e)}")
+
+        finally:
+            cursor.close()

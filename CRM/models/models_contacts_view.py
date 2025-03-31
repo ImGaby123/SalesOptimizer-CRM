@@ -23,6 +23,10 @@ class ContactsView(QWidget):  # ✅ Changed from QDialog to QWidget
 
     def load_contact_details(self):
         """Fetches and displays contact details (Including Address & Gender)."""
+        if not self.db_conn.conn:  # ✅ Ensure DB connection exists
+            QMessageBox.critical(self, "Database Error", "Unable to connect to the database.")
+            return
+
         query = """
         SELECT c.first_name, c.last_name, c.email, c.phone_number, c.gender, c.job_title,
                a.street, a.city, a.state, a.zip_code, a.country,
@@ -34,16 +38,22 @@ class ContactsView(QWidget):  # ✅ Changed from QDialog to QWidget
         """
 
         contact = self.db_conn.fetch_one(query, (self.contact_id,))
-        if contact:
-            self.ui.firstname_line.setText(contact.get("first_name", ""))
-            self.ui.lastname_line.setText(contact.get("last_name", ""))
-            self.ui.email_line.setText(contact.get("email", ""))
-            self.ui.phone_line.setText(contact.get("phone_number", ""))
-            self.ui.gender_combo.setCurrentText(contact.get("gender", ""))
-            self.ui.title_line.setText(contact.get("job_title", ""))
-            self.ui.street_line.setText(contact.get("street", ""))
-            self.ui.city_line.setText(contact.get("city", ""))
-            self.ui.state_line.setText(contact.get("state", ""))
-            self.ui.zip_line.setText(contact.get("zip_code", ""))
-            self.ui.country_line.setText(contact.get("country", ""))
-            self.ui.company_line.setText(contact.get("company_name", ""))
+
+        if not contact:
+            QMessageBox.warning(self, "Not Found", "The requested contact does not exist.")
+            self.go_back()
+            return
+
+        # ✅ Set text safely (preventing NoneType errors)
+        self.ui.firstname_line.setText(contact.get("first_name", ""))
+        self.ui.lastname_line.setText(contact.get("last_name", ""))
+        self.ui.email_line.setText(contact.get("email", ""))
+        self.ui.phone_line.setText(contact.get("phone_number", ""))
+        self.ui.gender_combo.setCurrentText(contact.get("gender", ""))
+        self.ui.title_line.setText(contact.get("job_title", ""))
+        self.ui.street_line.setText(contact.get("street", ""))
+        self.ui.city_line.setText(contact.get("city", ""))
+        self.ui.state_line.setText(contact.get("state", ""))
+        self.ui.zip_line.setText(contact.get("zip_code", ""))
+        self.ui.country_line.setText(contact.get("country", ""))
+        self.ui.company_line.setText(contact.get("company_name", ""))
