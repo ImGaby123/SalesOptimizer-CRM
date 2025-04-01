@@ -42,7 +42,7 @@ class Ui_contacts_view(object):
         self.scrollArea_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 1094, 1049))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 1094, 1047))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContents_4.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents_4.setSizePolicy(sizePolicy)
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents_4)
@@ -764,26 +764,6 @@ class Ui_contacts_view(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer_4)
 
-        self.save_btn = QPushButton(self.frame_4)
-        self.save_btn.setObjectName(u"save_btn")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.save_btn.sizePolicy().hasHeightForWidth())
-        self.save_btn.setSizePolicy(sizePolicy4)
-        font2 = QFont()
-        font2.setPointSize(9)
-        font2.setBold(False)
-        font2.setItalic(False)
-        self.save_btn.setFont(font2)
-        self.save_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.save_btn.setStyleSheet(u"QPushButton {\n"
-"}\n"
-"")
-        self.save_btn.setFlat(False)
-
-        self.horizontalLayout.addWidget(self.save_btn)
-
 
         self.gridLayout.addLayout(self.horizontalLayout, 4, 1, 1, 1)
 
@@ -842,8 +822,7 @@ class Ui_contacts_view(object):
         QWidget.setTabOrder(self.company_city_line, self.company_street_line)
         QWidget.setTabOrder(self.company_street_line, self.company_zip_line)
         QWidget.setTabOrder(self.company_zip_line, self.address_type_combo)
-        QWidget.setTabOrder(self.address_type_combo, self.save_btn)
-        QWidget.setTabOrder(self.save_btn, self.back_line)
+        QWidget.setTabOrder(self.address_type_combo, self.back_line)
         QWidget.setTabOrder(self.back_line, self.street_line_2)
         QWidget.setTabOrder(self.street_line_2, self.scrollArea_4)
 
@@ -899,7 +878,6 @@ class Ui_contacts_view(object):
         self.CityLabel_4.setText(QCoreApplication.translate("contacts_view", u"City (Optional):", None))
         self.AdditionalInformation_20.setText(QCoreApplication.translate("contacts_view", u"Contact Address ", None))
         self.back_line.setText(QCoreApplication.translate("contacts_view", u"< Back to Contacts", None))
-        self.save_btn.setText(QCoreApplication.translate("contacts_view", u"Confirm", None))
         self.AdditionalInformation_16.setText(QCoreApplication.translate("contacts_view", u"Lead Information", None))
     # retranslateUi
 
