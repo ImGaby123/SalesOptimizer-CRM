@@ -58,8 +58,8 @@ class ContactsCreate(QWidget):
         contact_zip_code = self.ui.zip_line.text().strip()
         contact_country = self.ui.country_line.text().strip()
 
-        if not first_name or not last_name or not email or not phone_number or not company_name:
-            QMessageBox.warning(self, "Missing Fields", "First name, last name, email, phone, and company are required.")
+        if not first_name or not last_name or not email or not phone_number or not company_name or not company_email:
+            QMessageBox.warning(self, "Missing Fields", "First name, last name, email, phone, company and company_email are required.")
             return
 
         # ✅ Check if email already exists
@@ -79,10 +79,19 @@ class ContactsCreate(QWidget):
 
         source_id = source["source_id"] if source else None
 
-        # ✅ Ensure `company` exists
+        # ✅ Ensure company does not exist with the same email
+        company_query = "SELECT company_id FROM company WHERE company_email = %s"
+        company = self.db_conn.fetch_one(company_query, (company_email,))
+
+        if company:
+            QMessageBox.warning(self, "Duplicate Company Email", "A company with this email already exists.")
+            return
+
+        # ✅ Ensure company does not exist with the same name
         company_query = "SELECT company_id FROM company WHERE company_name = %s"
         company = self.db_conn.fetch_one(company_query, (company_name,))
 
+        # ✅ Insert new company if it doesn't exist
         if not company:
             self.db_conn.execute_query(
                 "INSERT INTO company (company_name, company_email, website, industry) VALUES (%s, %s, %s, %s)",

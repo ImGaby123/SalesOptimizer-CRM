@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'lead_profile.ui'
+## Form generated from reading UI file 'leads_profile.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.2
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -18,12 +18,12 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
     QProgressBar, QSizePolicy, QSpacerItem, QWidget)
 
-class Ui_lead_profile(object):
-    def setupUi(self, lead_profile):
-        if not lead_profile.objectName():
-            lead_profile.setObjectName(u"lead_profile")
-        lead_profile.resize(1201, 680)
-        self.gridLayoutWidget = QWidget(lead_profile)
+class Ui_leads_profile(object):
+    def setupUi(self, leads_profile):
+        if not leads_profile.objectName():
+            leads_profile.setObjectName(u"leads_profile")
+        leads_profile.resize(1201, 680)
+        self.gridLayoutWidget = QWidget(leads_profile)
         self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
         self.gridLayoutWidget.setGeometry(QRect(0, 0, 1201, 671))
         self.gridLayout = QGridLayout(self.gridLayoutWidget)
@@ -105,19 +105,19 @@ class Ui_lead_profile(object):
         self.gridLayout.addItem(self.verticalSpacer, 3, 0, 1, 1)
 
 
-        self.retranslateUi(lead_profile)
+        self.retranslateUi(leads_profile)
 
-        QMetaObject.connectSlotsByName(lead_profile)
+        QMetaObject.connectSlotsByName(leads_profile)
     # setupUi
 
-    def retranslateUi(self, lead_profile):
-        lead_profile.setWindowTitle(QCoreApplication.translate("lead_profile", u"Lead ", None))
-        self.label.setText(QCoreApplication.translate("lead_profile", u"Leads", None))
-        self.prospecting_txt.setText(QCoreApplication.translate("lead_profile", u"Prospecting", None))
-        self.qualifications_txt.setText(QCoreApplication.translate("lead_profile", u"Qualifications", None))
-        self.contacting_txt.setText(QCoreApplication.translate("lead_profile", u"Contacting", None))
-        self.negotiating_txt.setText(QCoreApplication.translate("lead_profile", u"Negotiating", None))
-        self.loss_txt.setText(QCoreApplication.translate("lead_profile", u"Closed Loss", None))
-        self.won_txt.setText(QCoreApplication.translate("lead_profile", u"Closed Won", None))
+    def retranslateUi(self, leads_profile):
+        leads_profile.setWindowTitle(QCoreApplication.translate("leads_profile", u"Lead ", None))
+        self.label.setText(QCoreApplication.translate("leads_profile", u"Leads", None))
+        self.prospecting_txt.setText(QCoreApplication.translate("leads_profile", u"Prospecting", None))
+        self.qualifications_txt.setText(QCoreApplication.translate("leads_profile", u"Qualifications", None))
+        self.contacting_txt.setText(QCoreApplication.translate("leads_profile", u"Contacting", None))
+        self.negotiating_txt.setText(QCoreApplication.translate("leads_profile", u"Negotiating", None))
+        self.loss_txt.setText(QCoreApplication.translate("leads_profile", u"Closed Loss", None))
+        self.won_txt.setText(QCoreApplication.translate("leads_profile", u"Closed Won", None))
     # retranslateUi
 
