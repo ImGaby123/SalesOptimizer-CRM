@@ -14,9 +14,10 @@ class SidebarForm(QWidget):
         self.setLayout(self.ui.verticalLayout)
 
         # Connect buttons to signal with form name
-        self.ui.home_btn.clicked.connect(lambda: self.changeForm.emit("Home"))
-        self.ui.pipeline_btn.clicked.connect(lambda: self.changeForm.emit("Pipeline"))
-        self.ui.funnel_btn.clicked.connect(lambda: self.changeForm.emit("Funnel"))
-        self.ui.leads_btn.clicked.connect(lambda: self.changeForm.emit("Leads"))
+        self.ui.dashboard_btn.clicked.connect(lambda: self.changeForm.emit("Dashboard"))
         self.ui.contacts_btn.clicked.connect(lambda: self.changeForm.emit("Contacts"))
+        self.ui.leads_btn.clicked.connect(lambda: self.changeForm.emit("Leads"))
+        self.ui.account_btn.clicked.connect(lambda: self.changeForm.emit("Account"))
+        self.ui.opportunities_btn.clicked.connect(lambda: self.changeForm.emit("Opportunities"))
+        self.ui.settings_btn.clicked.connect(lambda: self.changeForm.emit("Settings"))
         self.ui.logout_btn.clicked.connect(lambda: self.changeForm.emit("Logout"))
