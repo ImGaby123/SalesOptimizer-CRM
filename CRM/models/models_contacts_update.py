@@ -5,16 +5,16 @@ from datas.db_connection import DB_Connection
 
 class ContactsUpdate(QWidget):
     def __init__(self, contact_id):
+        """Initialize the Contacts Update form."""
         super().__init__()
-        self.ui = Ui_contacts_update()
+        self.ui = Ui_contacts_update()  # Setup the UI components
         self.ui.setupUi(self)
 
-        self.db_conn = DB_Connection()
-        self.contact_id = contact_id
+        self.db_conn = DB_Connection()  # Database connection
+        self.contact_id = contact_id  # Contact ID to update
+        self.load_contact_details()  # Load current contact details from the database
 
-        self.load_contact_details()
-
-        # Connect Buttons
+        # Connect UI buttons to methods
         self.ui.back_line.clicked.connect(self.go_back)
         self.ui.save_btn.clicked.connect(self.update_contact)
 
@@ -22,14 +22,15 @@ class ContactsUpdate(QWidget):
         """Returns to the ContactsLanding form."""
         from models.models_authentication import MDIManager  # Lazy import to prevent circular imports
         from models.models_contacts_landing import ContactsLanding
-        MDIManager.load_into_mdi(ContactsLanding)
+        MDIManager.load_into_mdi(ContactsLanding)  # Loads the ContactsLanding form
 
     def load_contact_details(self):
-        """Fetches and displays contact details, including address, company, and lead source."""
+        """Fetches and displays contact details from the database."""
         if not self.db_conn.conn:  # Ensure DB connection exists
             QMessageBox.critical(self, "Database Error", "Unable to connect to the database.")
             return
 
+        # SQL query to retrieve contact details
         query = """
         SELECT c.first_name, c.last_name, c.email, c.phone_number, c.gender, c.job_title,
                a.street, a.city, a.state, a.zip_code, a.country,
@@ -48,14 +49,16 @@ class ContactsUpdate(QWidget):
         WHERE c.contact_id = %s
         """
 
+        # Fetch the contact data
         contact = self.db_conn.fetch_one(query, (self.contact_id,))
 
+        # If contact is not found, show a warning and go back
         if not contact:
             QMessageBox.warning(self, "Not Found", "The requested contact does not exist.")
             self.go_back()
             return
 
-        # Set text safely (preventing NoneType errors)
+        # Populate UI fields with fetched data (safe from NoneType errors)
         self.ui.firstname_line.setText(contact.get("first_name", ""))
         self.ui.lastname_line.setText(contact.get("last_name", ""))
         self.ui.email_line.setText(contact.get("email", ""))
@@ -85,10 +88,11 @@ class ContactsUpdate(QWidget):
         if address_type:
             self.ui.address_type_combo.setCurrentText(address_type)
         else:
-            self.ui.address_type_combo.setCurrentIndex(0)  # Default to the first option
+            self.ui.address_type_combo.setCurrentIndex(0)  # Default to the first option if no address type
 
     def update_contact(self):
         """Updates contact, address, company, and lead source information."""
+        # Collect all input values from the UI fields
         first_name = self.ui.firstname_line.text().strip()
         last_name = self.ui.lastname_line.text().strip()
         email = self.ui.email_line.text().strip()
@@ -115,7 +119,7 @@ class ContactsUpdate(QWidget):
         company_country = self.ui.company_country_line.text().strip()
         address_type = self.ui.address_type_combo.currentText().strip()
 
-        lead_source = self.ui.source_name_line.text().strip()  # Corrected here
+        lead_source = self.ui.source_name_line.text().strip()
 
         if not first_name or not last_name or not email or not phone_number:
             QMessageBox.warning(self, "Missing Fields", "First name, last name, email, and phone number are required.")
@@ -153,30 +157,57 @@ class ContactsUpdate(QWidget):
 
         self.db_conn.execute_query(address_query, address_params)
 
-        # Update or Insert `company`
-        if company_name:
-            company_query = "SELECT company_id FROM company WHERE company_name = %s"
-            company = self.db_conn.fetch_one(company_query, (company_name,))
+        # Check if company email already exists, if yes, update the company details
+        if company_email:
+            existing_company_email_query = "SELECT company_id FROM company WHERE company_email = %s"
+            existing_company_email = self.db_conn.fetch_one(existing_company_email_query, (company_email,))
 
-            if company:
-                company_id = company["company_id"]
+            if existing_company_email:
+                # If the company exists, update its details
+                company_id = existing_company_email["company_id"]
                 update_company_query = """
                     UPDATE company
-                    SET company_email=%s, website=%s, industry=%s
-                    WHERE company_id=%s
+                    SET company_name = %s, company_email = %s, website = %s, industry = %s
+                    WHERE company_id = %s
                 """
-                self.db_conn.execute_query(update_company_query, (company_email, website, industry, company_id))
+                self.db_conn.execute_query(update_company_query, (company_name, company_email, website, industry, company_id))
             else:
                 # Insert new company if not found
-                self.db_conn.execute_query("INSERT INTO company (company_name, company_email, website, industry) VALUES (%s, %s, %s, %s)",
-                                            (company_name, company_email, website, industry))
+                self.db_conn.execute_query(
+                    "INSERT INTO company (company_name, company_email, website, industry) VALUES (%s, %s, %s, %s)",
+                    (company_name, company_email, website, industry)
+                )
                 company_id = self.db_conn.fetch_one("SELECT LAST_INSERT_ID() AS company_id")["company_id"]
+        else:
+            # Handle case where company_email is not provided
+            company_id = None
+            if company_name:
+                # Search by company_name if company_email is not provided
+                company_query = "SELECT company_id FROM company WHERE company_name = %s"
+                company = self.db_conn.fetch_one(company_query, (company_name,))
 
-            # Update `contact` with new `company_id`
+                if company:
+                    company_id = company["company_id"]
+                    update_company_query = """
+                        UPDATE company
+                        SET company_email = %s, website = %s, industry = %s
+                        WHERE company_id = %s
+                    """
+                    self.db_conn.execute_query(update_company_query, (company_email, website, industry, company_id))
+                else:
+                    # Insert new company if not found
+                    self.db_conn.execute_query(
+                        "INSERT INTO company (company_name, company_email, website, industry) VALUES (%s, %s, %s, %s)",
+                        (company_name, company_email, website, industry)
+                    )
+                    company_id = self.db_conn.fetch_one("SELECT LAST_INSERT_ID() AS company_id")["company_id"]
+
+        # Ensure `company_id` exists (in case company name was empty)
+        if company_id:
             update_company_query = "UPDATE contact SET company_id = %s WHERE contact_id = %s"
             self.db_conn.execute_query(update_company_query, (company_id, self.contact_id))
 
-            # Update or Insert `company_address`
+            # Update or Insert company address
             company_address_query = """
                 SELECT company_address_id FROM company_address WHERE company_id = %s
             """
@@ -186,8 +217,8 @@ class ContactsUpdate(QWidget):
                 # Update company address
                 company_address_update_query = """
                     UPDATE company_address
-                    SET street=%s, city=%s, state=%s, zip_code=%s, country=%s, address_type=%s
-                    WHERE company_address_id=%s
+                    SET street = %s, city = %s, state = %s, zip_code = %s, country = %s, address_type = %s
+                    WHERE company_address_id = %s
                 """
                 company_address_params = (company_street, company_city, company_state, company_zip_code, company_country, address_type, company_address["company_address_id"])
                 self.db_conn.execute_query(company_address_update_query, company_address_params)

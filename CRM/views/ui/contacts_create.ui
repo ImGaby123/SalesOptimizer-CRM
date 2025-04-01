@@ -46,7 +46,7 @@
         <x>0</x>
         <y>0</y>
         <width>1094</width>
-        <height>1049</height>
+        <height>1042</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -120,45 +120,7 @@ background-color: rgb(255, 255, 255);</string>
             </item>
             <item row="0" column="2">
              <layout class="QGridLayout" name="gridLayout_9">
-              <item row="3" column="0">
-               <widget class="QLineEdit" name="company_email_line">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="0">
-               <widget class="QLabel" name="TitleLabel_4">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
-                </property>
-                <property name="text">
-                 <string>Job Title (Optional):</string>
-                </property>
-               </widget>
-              </item>
-              <item row="10" column="0">
+              <item row="11" column="0">
                <widget class="QLineEdit" name="title_line">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -180,24 +142,8 @@ background-color: rgb(255, 255, 255);</string>
                 </property>
                </widget>
               </item>
-              <item row="5" column="1">
-               <spacer name="horizontalSpacer_5">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Policy::Preferred</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="5" column="0">
-               <widget class="QLabel" name="CompanyLabel_6">
+              <item row="10" column="0">
+               <widget class="QLabel" name="TitleLabel_4">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -208,87 +154,11 @@ background-color: rgb(255, 255, 255);</string>
                  <string notr="true">color: rgb(98, 98, 98);</string>
                 </property>
                 <property name="text">
-                 <string>Company Website (Optional):</string>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="0">
-               <widget class="QLineEdit" name="company_industry_line">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLineEdit" name="company_line">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="CompanyLabel_5">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
-                </property>
-                <property name="text">
-                 <string>Company Email (Optional):</string>
+                 <string>Job Title (Optional):</string>
                 </property>
                </widget>
               </item>
               <item row="7" column="0">
-               <widget class="QLabel" name="CompanyLabel_7">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
-                </property>
-                <property name="text">
-                 <string>Industry (Optional):</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
                <widget class="QLineEdit" name="company_website_line">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -341,6 +211,156 @@ background-color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="text">
                    <string>Company :</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="9" column="0">
+               <widget class="QLineEdit" name="company_industry_line">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLineEdit" name="company_line">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="0">
+               <widget class="QLabel" name="CompanyLabel_7">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(98, 98, 98);</string>
+                </property>
+                <property name="text">
+                 <string>Industry (Optional):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="CompanyLabel_6">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(98, 98, 98);</string>
+                </property>
+                <property name="text">
+                 <string>Company Website (Optional):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLineEdit" name="company_email_line">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <spacer name="horizontalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Preferred</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="2" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <item>
+                 <widget class="QLabel" name="FirstNameLabel_11">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: red;</string>
+                  </property>
+                  <property name="text">
+                   <string>*</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="CompanyLabel_5">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: rgb(98, 98, 98);</string>
+                  </property>
+                  <property name="text">
+                   <string>Company Email :</string>
                   </property>
                  </widget>
                 </item>
@@ -1022,24 +1042,28 @@ background-color: rgb(255, 255, 255);</string>
           </item>
           <item row="8" column="1">
            <layout class="QGridLayout" name="gridLayout_19">
-            <item row="0" column="1">
-             <spacer name="horizontalSpacer_9">
-              <property name="orientation">
-               <enum>Qt::Orientation::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Policy::Preferred</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>90</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridLayout_7">
+              <item row="0" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <item>
+                 <widget class="QLabel" name="source_name_label">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: rgb(98, 98, 98);</string>
+                  </property>
+                  <property name="text">
+                   <string>Lead Source (Optional):</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
               <item row="1" column="1">
                <widget class="QLineEdit" name="source_name_line">
                 <property name="sizePolicy">
@@ -1078,41 +1102,55 @@ background-color: rgb(255, 255, 255);</string>
                 </property>
                </spacer>
               </item>
-              <item row="0" column="1">
-               <layout class="QHBoxLayout" name="horizontalLayout_11">
-                <item>
-                 <widget class="QLabel" name="source_name_label">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">color: rgb(98, 98, 98);</string>
-                  </property>
-                  <property name="text">
-                   <string>Lead Source (Optional):</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
              </layout>
+            </item>
+            <item row="0" column="1">
+             <spacer name="horizontalSpacer_9">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Policy::Preferred</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>90</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item row="0" column="2">
              <layout class="QGridLayout" name="gridLayout_24">
-              <item row="4" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_10"/>
-              </item>
               <item row="6" column="0">
-               <widget class="QLineEdit" name="street_line_2">
+               <widget class="QLineEdit" name="zip_line_2">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
                </widget>
               </item>
-              <item row="5" column="1">
+              <item row="4" column="1">
                <spacer name="horizontalSpacer_8">
                 <property name="orientation">
                  <enum>Qt::Orientation::Horizontal</enum>
@@ -1127,6 +1165,22 @@ background-color: rgb(255, 255, 255);</string>
                  </size>
                 </property>
                </spacer>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="StreetLabel_5">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Street (Optional):</string>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -1210,7 +1264,11 @@ background-color: rgb(255, 255, 255);</string>
                </widget>
               </item>
               <item row="11" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <widget class="QWidget" name="widget" native="true"/>
+                </item>
+               </layout>
               </item>
              </layout>
             </item>
@@ -1550,11 +1608,11 @@ background-color: rgb(255, 255, 255);</string>
   <tabstop>phone_line</tabstop>
   <tabstop>gender_combo</tabstop>
   <tabstop>company_line</tabstop>
-  <tabstop>source_name_line</tabstop>
   <tabstop>company_email_line</tabstop>
   <tabstop>company_website_line</tabstop>
   <tabstop>company_industry_line</tabstop>
   <tabstop>title_line</tabstop>
+  <tabstop>source_name_line</tabstop>
   <tabstop>country_line</tabstop>
   <tabstop>state_line</tabstop>
   <tabstop>city_line</tabstop>
@@ -1568,8 +1626,8 @@ background-color: rgb(255, 255, 255);</string>
   <tabstop>address_type_combo</tabstop>
   <tabstop>save_btn</tabstop>
   <tabstop>back_line</tabstop>
-  <tabstop>street_line_2</tabstop>
   <tabstop>scrollArea_4</tabstop>
+  <tabstop>zip_line_2</tabstop>
  </tabstops>
  <resources/>
  <connections/>
