@@ -30,7 +30,7 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="QPushButton" name="home_btn">
+     <widget class="QPushButton" name="dashboard_btn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -52,7 +52,7 @@ QPushButton:hover {
 }</string>
       </property>
       <property name="text">
-       <string>Home</string>
+       <string>Dashboard</string>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -60,7 +60,7 @@ QPushButton:hover {
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pipeline_btn">
+     <widget class="QPushButton" name="contacts_btn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -82,37 +82,7 @@ QPushButton:hover {
 }</string>
       </property>
       <property name="text">
-       <string>Pipeline</string>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="funnel_btn">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(0, 0, 0);
-    padding: 5px;
-    color: rgb(0, 0, 0);
-}
-
-QPushButton:hover {
-    background-color: rgb(0, 0, 0);
-    border: 1px solid rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
-}</string>
-      </property>
-      <property name="text">
-       <string>Funnel</string>
+       <string>Contacts</string>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -150,7 +120,7 @@ QPushButton:hover {
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="contacts_btn">
+     <widget class="QPushButton" name="account_btn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -172,7 +142,67 @@ QPushButton:hover {
 }</string>
       </property>
       <property name="text">
-       <string>Contacts</string>
+       <string>Account</string>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="opportunities_btn">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
+    color: rgb(0, 0, 0);
+}
+
+QPushButton:hover {
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+}</string>
+      </property>
+      <property name="text">
+       <string>Opportunities</string>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="settings_btn">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
+    color: rgb(0, 0, 0);
+}
+
+QPushButton:hover {
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+}</string>
+      </property>
+      <property name="text">
+       <string>Settings</string>
       </property>
       <property name="flat">
        <bool>true</bool>
