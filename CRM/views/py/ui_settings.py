@@ -23,17 +23,23 @@ class Ui_settings(object):
         if not settings.objectName():
             settings.setObjectName(u"settings")
         settings.resize(1201, 680)
-        settings.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        settings.setStyleSheet(u"")
         self.gridLayout = QGridLayout(settings)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_3, 4, 2, 1, 1)
+
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.gridLayout.addItem(self.verticalSpacer, 3, 0, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer, 4, 1, 1, 1)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label = QLabel(settings)
         self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"background-color: transparent;\n"
+"color: White")
 
         self.horizontalLayout.addWidget(self.label)
 
@@ -41,23 +47,40 @@ class Ui_settings(object):
         self.theme_combo.addItem("")
         self.theme_combo.addItem("")
         self.theme_combo.setObjectName(u"theme_combo")
+        self.theme_combo.setStyleSheet(u"background-color: transparent;\n"
+"color: White")
 
         self.horizontalLayout.addWidget(self.theme_combo)
 
 
-        self.gridLayout.addLayout(self.horizontalLayout, 2, 0, 1, 1)
+        self.gridLayout.addLayout(self.horizontalLayout, 3, 1, 1, 1)
 
         self.label_ = QLabel(settings)
         self.label_.setObjectName(u"label_")
         font = QFont()
         font.setPointSize(18)
+        font.setBold(True)
         self.label_.setFont(font)
+        self.label_.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
 
-        self.gridLayout.addWidget(self.label_, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_, 1, 1, 1, 1)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_2, 0, 1, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_2, 4, 0, 1, 1)
 
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout.addItem(self.horizontalSpacer, 1, 0, 1, 1)
+        self.gridLayout.addItem(self.horizontalSpacer, 2, 1, 1, 1)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_3, 5, 1, 1, 1)
 
 
         self.retranslateUi(settings)
@@ -68,8 +91,8 @@ class Ui_settings(object):
     def retranslateUi(self, settings):
         settings.setWindowTitle(QCoreApplication.translate("settings", u"Settings", None))
         self.label.setText(QCoreApplication.translate("settings", u"Theme", None))
-        self.theme_combo.setItemText(0, QCoreApplication.translate("settings", u"Light", None))
-        self.theme_combo.setItemText(1, QCoreApplication.translate("settings", u"Dark", None))
+        self.theme_combo.setItemText(0, QCoreApplication.translate("settings", u"Dark", None))
+        self.theme_combo.setItemText(1, QCoreApplication.translate("settings", u"Light", None))
 
         self.theme_combo.setPlaceholderText("")
         self.label_.setText(QCoreApplication.translate("settings", u"Settings", None))
