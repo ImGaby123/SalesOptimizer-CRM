@@ -46,7 +46,7 @@ class DB_Connection:
         try:
             cursor = self.conn.cursor(dictionary=True)
             cursor.execute(query, params)
-            self.conn.commit()
+            self.conn.commit()  # Commit for INSERT/UPDATE/DELETE
             cursor.close()
             return True
         except Error as e:
