@@ -41,7 +41,6 @@
         "models/models_leads_landing.py",
         "models/models_settings.py",
         "views/py/ui_settings.py",
-        "views/py/ui_leads_profile.py",
-        "views/py/ui_lead_landing.py"
+        "views/py/ui_leads_profile.py"
     ]
 }

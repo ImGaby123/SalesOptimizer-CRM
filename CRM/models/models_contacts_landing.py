@@ -373,9 +373,6 @@ class ContactsLanding(QWidget):
 ################################
 # Add contact to leads functions
 ################################
-################################
-# Add contact to leads functions
-################################
 
     def add_to_leads(self, row):
         """Handles adding a contact to the leads table."""

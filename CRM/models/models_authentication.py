@@ -14,7 +14,6 @@ from .models_leads_landing import LeadsLanding
 from .models_settings import Settings
 from views.py.ui_contacts1 import Ui_contacts1
 from views.py.ui_contacts4 import Ui_contacts4
-from views.py.ui_contacts_create import Ui_contacts_create
 
 # Setup database connection path (persistent connection in this example)
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -107,12 +106,11 @@ class AuthenticationSystem(QDialog, QMainWindow):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("CRM | SalesOptimizer")
+        self.setWindowTitle("CRM")
 
         self.mdi_area = QMdiArea()
         self.setCentralWidget(self.mdi_area)
         self.mdi_area.setBackground(QBrush(QColor(255, 255, 255)))
-
         self.setMenuBar(QMenuBar(self))
         self.setStatusBar(QStatusBar(self))
 
@@ -158,6 +156,12 @@ class MainWindow(QMainWindow):
         self.right_subwin = self.create_mdi_subwindow(QWidget(), int(screen_width * 0.9), screen_height, int(screen_width * 0.1), 0)
         self.right_subwin.closeEvent = self.handle_right_close
         self.left_subwin.closeEvent = self.handle_left_close
+
+        self.left_subwin.setStyleSheet("QMdiSubWindow { background-color: black; }")
+        self.right_subwin.setStyleSheet("QMdiSubWindow { background-color: black; }")
+
+        # Load "Contacts" by default when sidebar is loaded
+        self.load_form("Contacts")  # Ensure this is called after sidebar setup
 
     def load_form(self, form_name):
         form_map = {

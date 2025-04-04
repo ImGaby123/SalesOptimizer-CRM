@@ -23,7 +23,7 @@ class Ui_sidebar(object):
         if not sidebar.objectName():
             sidebar.setObjectName(u"sidebar")
         sidebar.resize(172, 702)
-        sidebar.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        sidebar.setStyleSheet(u"")
         self.verticalLayoutWidget = QWidget(sidebar)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
         self.verticalLayoutWidget.setGeometry(QRect(0, 0, 171, 701))
@@ -38,18 +38,37 @@ class Ui_sidebar(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.dashboard_btn.sizePolicy().hasHeightForWidth())
         self.dashboard_btn.setSizePolicy(sizePolicy)
+        font = QFont()
+        font.setPointSize(12)
+        self.dashboard_btn.setFont(font)
+        self.dashboard_btn.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.dashboard_btn.setStyleSheet(u"QPushButton {\n"
-"    background-color: rgb(255, 255, 255);\n"
-"    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
-"    color: rgb(0, 0, 0);\n"
+"    background-color: rgb(30, 30, 30);  /* Dark grey background */\n"
+"    border: 1px solid rgb(80, 80, 80);  /* Slightly lighter border */\n"
+"    padding: 8px;  /* Slightly larger padding for better spacing */\n"
+"    color: rgb(220, 220, 220);  /* Light grey text for contrast */\n"
+"    border-radius: 5px;  /* Smooth rounded corners */\n"
+"    text-align: left;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(0, 0, 0);\n"
-"    border: 1px solid rgb(255, 255, 255);\n"
-"    color: rgb(255, 255, 255);\n"
-"}")
+"    background-color: rgb(50, 50, 50);  /* Slightly lighter on hover */\n"
+"    border: 1px solid rgb(255, 255, 255);  /* White border for highlight */\n"
+"    color: rgb(255, 255, 255);  /* Pure white text */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(20, 20, 20);  /* Darker when pressed */\n"
+"    border: 1px solid rgb(180, 180, 180);  /* Less intense white border */\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: rgb(50, 50, 50);  /* Muted grey */\n"
+"    color: rgb(130, 130, 130);  /* Dull text for disabled state */\n"
+"    border: 1px solid rgb(80, "
+                        "80, 80);  /* Less contrast */\n"
+"}\n"
+"")
         self.dashboard_btn.setFlat(True)
 
         self.verticalLayout.addWidget(self.dashboard_btn)
@@ -58,18 +77,34 @@ class Ui_sidebar(object):
         self.contacts_btn.setObjectName(u"contacts_btn")
         sizePolicy.setHeightForWidth(self.contacts_btn.sizePolicy().hasHeightForWidth())
         self.contacts_btn.setSizePolicy(sizePolicy)
+        self.contacts_btn.setFont(font)
         self.contacts_btn.setStyleSheet(u"QPushButton {\n"
-"    background-color: rgb(255, 255, 255);\n"
-"    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
-"    color: rgb(0, 0, 0);\n"
+"    background-color: rgb(30, 30, 30);  /* Dark grey background */\n"
+"    border: 1px solid rgb(80, 80, 80);  /* Slightly lighter border */\n"
+"    padding: 8px;  /* Slightly larger padding for better spacing */\n"
+"    color: rgb(220, 220, 220);  /* Light grey text for contrast */\n"
+"    border-radius: 5px;  /* Smooth rounded corners */\n"
+"    text-align: left;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(0, 0, 0);\n"
-"    border: 1px solid rgb(255, 255, 255);\n"
-"    color: rgb(255, 255, 255);\n"
-"}")
+"    background-color: rgb(50, 50, 50);  /* Slightly lighter on hover */\n"
+"    border: 1px solid rgb(255, 255, 255);  /* White border for highlight */\n"
+"    color: rgb(255, 255, 255);  /* Pure white text */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(20, 20, 20);  /* Darker when pressed */\n"
+"    border: 1px solid rgb(180, 180, 180);  /* Less intense white border */\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: rgb(50, 50, 50);  /* Muted grey */\n"
+"    color: rgb(130, 130, 130);  /* Dull text for disabled state */\n"
+"    border: 1px solid rgb(80, "
+                        "80, 80);  /* Less contrast */\n"
+"}\n"
+"")
         self.contacts_btn.setFlat(True)
 
         self.verticalLayout.addWidget(self.contacts_btn)
@@ -78,18 +113,34 @@ class Ui_sidebar(object):
         self.leads_btn.setObjectName(u"leads_btn")
         sizePolicy.setHeightForWidth(self.leads_btn.sizePolicy().hasHeightForWidth())
         self.leads_btn.setSizePolicy(sizePolicy)
+        self.leads_btn.setFont(font)
         self.leads_btn.setStyleSheet(u"QPushButton {\n"
-"    background-color: rgb(255, 255, 255);\n"
-"    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
-"    color: rgb(0, 0, 0);\n"
+"    background-color: rgb(30, 30, 30);  /* Dark grey background */\n"
+"    border: 1px solid rgb(80, 80, 80);  /* Slightly lighter border */\n"
+"    padding: 8px;  /* Slightly larger padding for better spacing */\n"
+"    color: rgb(220, 220, 220);  /* Light grey text for contrast */\n"
+"    border-radius: 5px;  /* Smooth rounded corners */\n"
+"    text-align: left;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(0, 0, 0);\n"
-"    border: 1px solid rgb(255, 255, 255);\n"
-"    color: rgb(255, 255, 255);\n"
-"}")
+"    background-color: rgb(50, 50, 50);  /* Slightly lighter on hover */\n"
+"    border: 1px solid rgb(255, 255, 255);  /* White border for highlight */\n"
+"    color: rgb(255, 255, 255);  /* Pure white text */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(20, 20, 20);  /* Darker when pressed */\n"
+"    border: 1px solid rgb(180, 180, 180);  /* Less intense white border */\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: rgb(50, 50, 50);  /* Muted grey */\n"
+"    color: rgb(130, 130, 130);  /* Dull text for disabled state */\n"
+"    border: 1px solid rgb(80, "
+                        "80, 80);  /* Less contrast */\n"
+"}\n"
+"")
         self.leads_btn.setFlat(True)
 
         self.verticalLayout.addWidget(self.leads_btn)
@@ -98,38 +149,70 @@ class Ui_sidebar(object):
         self.account_btn.setObjectName(u"account_btn")
         sizePolicy.setHeightForWidth(self.account_btn.sizePolicy().hasHeightForWidth())
         self.account_btn.setSizePolicy(sizePolicy)
+        self.account_btn.setFont(font)
         self.account_btn.setStyleSheet(u"QPushButton {\n"
-"    background-color: rgb(255, 255, 255);\n"
-"    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
-"    color: rgb(0, 0, 0);\n"
+"    background-color: rgb(30, 30, 30);  /* Dark grey background */\n"
+"    border: 1px solid rgb(80, 80, 80);  /* Slightly lighter border */\n"
+"    padding: 8px;  /* Slightly larger padding for better spacing */\n"
+"    color: rgb(220, 220, 220);  /* Light grey text for contrast */\n"
+"    border-radius: 5px;  /* Smooth rounded corners */\n"
+"    text-align: left;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(0, 0, 0);\n"
-"    border: 1px solid rgb(255, 255, 255);\n"
-"    color: rgb(255, 255, 255);\n"
-"}")
+"    background-color: rgb(50, 50, 50);  /* Slightly lighter on hover */\n"
+"    border: 1px solid rgb(255, 255, 255);  /* White border for highlight */\n"
+"    color: rgb(255, 255, 255);  /* Pure white text */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(20, 20, 20);  /* Darker when pressed */\n"
+"    border: 1px solid rgb(180, 180, 180);  /* Less intense white border */\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: rgb(50, 50, 50);  /* Muted grey */\n"
+"    color: rgb(130, 130, 130);  /* Dull text for disabled state */\n"
+"    border: 1px solid rgb(80, "
+                        "80, 80);  /* Less contrast */\n"
+"}\n"
+"")
         self.account_btn.setFlat(True)
 
-        self.verticalLayout.addWidget(self.account_btn)
+        self.verticalLayout.addWidget(self.account_btn, 0, Qt.AlignmentFlag.AlignVCenter)
 
         self.opportunities_btn = QPushButton(self.verticalLayoutWidget)
         self.opportunities_btn.setObjectName(u"opportunities_btn")
         sizePolicy.setHeightForWidth(self.opportunities_btn.sizePolicy().hasHeightForWidth())
         self.opportunities_btn.setSizePolicy(sizePolicy)
+        self.opportunities_btn.setFont(font)
         self.opportunities_btn.setStyleSheet(u"QPushButton {\n"
-"    background-color: rgb(255, 255, 255);\n"
-"    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
-"    color: rgb(0, 0, 0);\n"
+"    background-color: rgb(30, 30, 30);  /* Dark grey background */\n"
+"    border: 1px solid rgb(80, 80, 80);  /* Slightly lighter border */\n"
+"    padding: 8px;  /* Slightly larger padding for better spacing */\n"
+"    color: rgb(220, 220, 220);  /* Light grey text for contrast */\n"
+"    border-radius: 5px;  /* Smooth rounded corners */\n"
+"    text-align: left;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(0, 0, 0);\n"
-"    border: 1px solid rgb(255, 255, 255);\n"
-"    color: rgb(255, 255, 255);\n"
-"}")
+"    background-color: rgb(50, 50, 50);  /* Slightly lighter on hover */\n"
+"    border: 1px solid rgb(255, 255, 255);  /* White border for highlight */\n"
+"    color: rgb(255, 255, 255);  /* Pure white text */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(20, 20, 20);  /* Darker when pressed */\n"
+"    border: 1px solid rgb(180, 180, 180);  /* Less intense white border */\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: rgb(50, 50, 50);  /* Muted grey */\n"
+"    color: rgb(130, 130, 130);  /* Dull text for disabled state */\n"
+"    border: 1px solid rgb(80, "
+                        "80, 80);  /* Less contrast */\n"
+"}\n"
+"")
         self.opportunities_btn.setFlat(True)
 
         self.verticalLayout.addWidget(self.opportunities_btn)
@@ -138,18 +221,34 @@ class Ui_sidebar(object):
         self.settings_btn.setObjectName(u"settings_btn")
         sizePolicy.setHeightForWidth(self.settings_btn.sizePolicy().hasHeightForWidth())
         self.settings_btn.setSizePolicy(sizePolicy)
+        self.settings_btn.setFont(font)
         self.settings_btn.setStyleSheet(u"QPushButton {\n"
-"    background-color: rgb(255, 255, 255);\n"
-"    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
-"    color: rgb(0, 0, 0);\n"
+"    background-color: rgb(30, 30, 30);  /* Dark grey background */\n"
+"    border: 1px solid rgb(80, 80, 80);  /* Slightly lighter border */\n"
+"    padding: 8px;  /* Slightly larger padding for better spacing */\n"
+"    color: rgb(220, 220, 220);  /* Light grey text for contrast */\n"
+"    border-radius: 5px;  /* Smooth rounded corners */\n"
+"    text-align: left;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(0, 0, 0);\n"
-"    border: 1px solid rgb(255, 255, 255);\n"
-"    color: rgb(255, 255, 255);\n"
-"}")
+"    background-color: rgb(50, 50, 50);  /* Slightly lighter on hover */\n"
+"    border: 1px solid rgb(255, 255, 255);  /* White border for highlight */\n"
+"    color: rgb(255, 255, 255);  /* Pure white text */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(20, 20, 20);  /* Darker when pressed */\n"
+"    border: 1px solid rgb(180, 180, 180);  /* Less intense white border */\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: rgb(50, 50, 50);  /* Muted grey */\n"
+"    color: rgb(130, 130, 130);  /* Dull text for disabled state */\n"
+"    border: 1px solid rgb(80, "
+                        "80, 80);  /* Less contrast */\n"
+"}\n"
+"")
         self.settings_btn.setFlat(True)
 
         self.verticalLayout.addWidget(self.settings_btn)
@@ -164,18 +263,34 @@ class Ui_sidebar(object):
         self.logout_btn.setSizePolicy(sizePolicy)
         self.logout_btn.setMinimumSize(QSize(0, 0))
         self.logout_btn.setMaximumSize(QSize(16777215, 16777215))
+        self.logout_btn.setFont(font)
         self.logout_btn.setStyleSheet(u"QPushButton {\n"
-"    background-color: rgb(255, 255, 255);\n"
-"    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
-"    color: rgb(0, 0, 0);\n"
+"    background-color: rgb(30, 30, 30);  /* Dark grey background */\n"
+"    border: 1px solid rgb(80, 80, 80);  /* Slightly lighter border */\n"
+"    padding: 8px;  /* Slightly larger padding for better spacing */\n"
+"    color: rgb(220, 220, 220);  /* Light grey text for contrast */\n"
+"    border-radius: 5px;  /* Smooth rounded corners */\n"
+"    text-align: left;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(0, 0, 0);\n"
-"    border: 1px solid rgb(255, 255, 255);\n"
-"    color: rgb(255, 255, 255);\n"
-"}")
+"    background-color: rgb(50, 50, 50);  /* Slightly lighter on hover */\n"
+"    border: 1px solid rgb(255, 255, 255);  /* White border for highlight */\n"
+"    color: rgb(255, 255, 255);  /* Pure white text */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(20, 20, 20);  /* Darker when pressed */\n"
+"    border: 1px solid rgb(180, 180, 180);  /* Less intense white border */\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: rgb(50, 50, 50);  /* Muted grey */\n"
+"    color: rgb(130, 130, 130);  /* Dull text for disabled state */\n"
+"    border: 1px solid rgb(80, "
+                        "80, 80);  /* Less contrast */\n"
+"}\n"
+"")
         self.logout_btn.setFlat(True)
 
         self.verticalLayout.addWidget(self.logout_btn)
