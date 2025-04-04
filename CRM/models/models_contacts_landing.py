@@ -340,7 +340,7 @@ class ContactsLanding(QWidget):
         self.email_dialog.show()
 
     def show_contact_menu(self, row, button):
-        """Displays a menu with 'View' and 'Edit' options for a contact."""
+        """Displays a menu with 'View', 'Edit', and 'Add to Leads' options for a contact."""
         menu = QMenu(self)
 
         # ✅ View Contact Action
@@ -351,6 +351,10 @@ class ContactsLanding(QWidget):
         edit_action = QAction("Edit Contact", self)
         edit_action.triggered.connect(lambda: self.edit_contact(row))
 
+        # ✅ Add to Leads Action
+        add_to_leads_action = QAction("Add to Leads", self)
+        add_to_leads_action.triggered.connect(lambda: self.add_to_leads(row))
+
         # ✅ Apply hover effects
         menu.setStyleSheet("""
             QMenu { background-color: white; border: 1px solid #ccc; }
@@ -360,7 +364,72 @@ class ContactsLanding(QWidget):
 
         menu.addAction(view_action)
         menu.addAction(edit_action)
+        menu.addAction(add_to_leads_action)
 
         # ✅ Get cursor position and show menu
         cursor_pos = button.mapToGlobal(button.rect().bottomLeft())
         menu.exec(cursor_pos)
+
+################################
+# Add contact to leads functions
+################################
+################################
+# Add contact to leads functions
+################################
+
+    def add_to_leads(self, row):
+        """Handles adding a contact to the leads table."""
+        # Get the contact_id of the selected row
+        contact_id_item = self.ui.contacts_tbl.item(row, 0)  # First column (ID) contains contact_id
+        if not contact_id_item:
+            print("❌ No contact ID found for this row.")
+            return
+
+        contact_id = contact_id_item.text().strip()
+
+        # Check if the contact is already a lead
+        check_query = "SELECT * FROM leads WHERE contact_id = %s"
+        existing_lead = self.db_conn.fetch_one(check_query, (contact_id,))
+
+        if existing_lead:
+            # If the contact is already a lead, show a message box
+            QMessageBox.warning(self, "Already a Lead", "This contact is already a lead!")
+            return
+
+        # Show confirmation dialog
+        confirmation = QMessageBox.question(
+            self,
+            "Add to Leads",
+            "Are you sure you want to add this contact to leads?",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No
+        )
+
+        if confirmation == QMessageBox.Yes:
+            # Proceed to add the contact to leads
+            self.insert_into_leads(contact_id)
+
+    def insert_into_leads(self, contact_id):
+        """Inserts the contact into the leads table without assigning a source_id."""
+        # Fetch the company_id for the contact
+        contact_query = "SELECT company_id FROM contact WHERE contact_id = %s"
+        contact = self.db_conn.fetch_one(contact_query, (contact_id,))
+
+        if not contact:
+            QMessageBox.warning(self, "Contact Not Found", "No contact found with this ID.")
+            return
+
+        company_id = contact['company_id']
+
+        # Insert the contact into the leads table with NULL for source_id
+        insert_query = """
+            INSERT INTO leads (company_id, contact_id, source_id)
+            VALUES (%s, %s, NULL)
+        """
+        success = self.db_conn.execute_query(insert_query, (company_id, contact_id))
+
+        if success:
+            QMessageBox.information(self, "Success", "Contact has been successfully added to leads.")
+            # Optionally refresh contacts list or perform any other actions
+        else:
+            QMessageBox.critical(self, "Error", "Failed to add contact to leads.")
