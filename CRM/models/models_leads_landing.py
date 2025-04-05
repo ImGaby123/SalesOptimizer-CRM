@@ -40,7 +40,7 @@ class LeadsLanding(QWidget):
         self.ui.leads_tbl.horizontalHeader().setStyleSheet("font-weight: 800;")
 
         # ✅ Search Icon
-        search_icon = QIcon(":/Resources/search.svg")
+        search_icon = QIcon(":/Resources/search_white.svg")
         self.ui.search_line.addAction(search_icon, QLineEdit.LeadingPosition)
 
     def sort_leads(self):

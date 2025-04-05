@@ -39,7 +39,6 @@ class SidebarForm(QWidget):
                 border: none;
                 padding: 8px;
                 color: rgb(220, 220, 220);
-                border-radius: 5px;
                 text-align: left;
             }
             QPushButton:hover {
@@ -52,16 +51,22 @@ class SidebarForm(QWidget):
         """
 
     def get_active_style(self):
-        """ Active button style: dark grey background, bold white text, no border """
+        """ Active button style: lighter grey background, bold white text, and left border """
         return """
             QPushButton {
-                background-color: rgb(80, 80, 80);
+                background-color: rgb(30, 30, 30);  /* Lighter than inactive button */
                 border: none;
                 padding: 8px;
                 color: rgb(255, 255, 255);
-                border-radius: 5px;
                 text-align: left;
                 font-weight: bold;
+                border-left: 5px solid rgb(80, 80, 80);  /* White left border */
+            }
+            QPushButton:hover {
+                background-color: rgb(50, 50, 50);  /* Lighter hover color */
+            }
+            QPushButton:pressed {
+                background-color: rgb(30, 30, 30);  /* Lighter pressed color */
             }
         """
 

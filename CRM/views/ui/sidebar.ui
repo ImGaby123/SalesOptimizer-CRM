@@ -30,6 +30,26 @@
      <number>0</number>
     </property>
     <item>
+     <widget class="QLabel" name="crm_lbl">
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    border-top: none;   /* Change color/width as needed */
+    border-bottom: 2px solid #737373;
+    border-left: none;
+    border-right: none;
+	margin-bottom: 20px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="../qrc/icons.qrc">:/Resources/crm_logo.png</pixmap>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="dashboard_btn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -406,6 +426,8 @@ QPushButton:disabled {
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../qrc/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

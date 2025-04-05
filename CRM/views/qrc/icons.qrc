@@ -21,8 +21,11 @@
         <file>Resources/underline.svg</file>
         <file>Resources/upload.svg</file>
         <file>Resources/user.svg</file>
-        <file>Resources/dropdown.svg</file>
         <file>Resources/plus (1).svg</file>
+        <file>Resources/crm_logo.png</file>
+        <file>Resources/dropdown_white.svg</file>
+        <file>Resources/search_white.svg</file>
+        <file>Resources/crm_blck.png</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
 </RCC>

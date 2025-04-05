@@ -15,8 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QPushButton, QSizePolicy, QSpacerItem,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QLabel, QPushButton, QSizePolicy,
+    QSpacerItem, QVBoxLayout, QWidget)
+import views.py.icons_rc
 
 class Ui_sidebar(object):
     def setupUi(self, sidebar):
@@ -31,6 +32,20 @@ class Ui_sidebar(object):
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.crm_lbl = QLabel(self.verticalLayoutWidget)
+        self.crm_lbl.setObjectName(u"crm_lbl")
+        self.crm_lbl.setStyleSheet(u"QLabel {\n"
+"    border-top: none;   /* Change color/width as needed */\n"
+"    border-bottom: 2px solid #737373;\n"
+"    border-left: none;\n"
+"    border-right: none;\n"
+"	margin-bottom: 20px;\n"
+"}\n"
+"")
+        self.crm_lbl.setPixmap(QPixmap(u":/Resources/crm_logo.png"))
+
+        self.verticalLayout.addWidget(self.crm_lbl)
+
         self.dashboard_btn = QPushButton(self.verticalLayoutWidget)
         self.dashboard_btn.setObjectName(u"dashboard_btn")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
@@ -303,6 +318,7 @@ class Ui_sidebar(object):
 
     def retranslateUi(self, sidebar):
         sidebar.setWindowTitle(QCoreApplication.translate("sidebar", u"Form", None))
+        self.crm_lbl.setText("")
         self.dashboard_btn.setText(QCoreApplication.translate("sidebar", u"Dashboard", None))
         self.contacts_btn.setText(QCoreApplication.translate("sidebar", u"Contacts", None))
         self.leads_btn.setText(QCoreApplication.translate("sidebar", u"Leads", None))

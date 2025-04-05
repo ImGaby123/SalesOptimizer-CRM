@@ -39,8 +39,31 @@ class Ui_contacts_landing(object):
         self.contacts_tbl.setObjectName(u"contacts_tbl")
         self.contacts_tbl.setMouseTracking(False)
         self.contacts_tbl.setStyleSheet(u"QTableWidget {\n"
-"	background-color: rgb(255, 255, 255);\n"
-"	alternate-background-color: rgb(235, 235, 235);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    alternate-background-color: rgb(235, 235, 235);\n"
+"    gridline-color: rgb(200, 200, 200);\n"
+"    color: black;\n"
+"    font: 10pt \"Segoe UI\";\n"
+"    selection-background-color: rgb(100, 149, 237);  /* Light blue selection */\n"
+"    selection-color: white;\n"
+"    border: 1px solid rgb(200, 200, 200);\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: rgb(240, 240, 240);\n"
+"    color: black;\n"
+"    padding: 6px;\n"
+"    border: 1px solid rgb(200, 200, 200);\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QTableCornerButton::section {\n"
+"    background-color: rgb(240, 240, 240);\n"
+"    border: 1px solid rgb(200, 200, 200);\n"
 "}\n"
 "")
         self.contacts_tbl.setAlternatingRowColors(True)
@@ -70,27 +93,30 @@ class Ui_contacts_landing(object):
         self.sort_combo.setMinimumSize(QSize(0, 10))
         self.sort_combo.setMaximumSize(QSize(150, 16777215))
         self.sort_combo.setStyleSheet(u"QComboBox {\n"
-"    border: 1px solid #000;\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
 "    border-radius: 5px;\n"
-"    padding-left: 10px; /* Space for text, since arrow is on the left */\n"
-"    padding-right: 10px; /* Adjust right padding */\n"
-"    background-color: white;\n"
+"    padding: 5px;\n"
+"    font: 10pt \"Segoe UI\";\n"
 "}\n"
 "\n"
-"/* Drop-down button */\n"
 "QComboBox::drop-down {\n"
 "    border: none;\n"
-"    width: 10px;  /* Adjust dropdown size */\n"
-"    subcontrol-position: left center;  /* Ensures arrow is on the left */\n"
-"    padding-left: 5px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color: #262626;\n"
+"    color: white;\n"
+"    border-radius: 5px;\n"
 "}\n"
 "\n"
 "/* Down Arrow (Icon) */\n"
 "QComboBox::down-arrow {\n"
-"    image: url(:/Resources/dropdown.svg);\n"
-"    width: 16px;\n"
-"    height: 16px;\n"
-"    margin-left: 5px; /* Space from the left */\n"
+"    image: url(:/Resources/dropdown_white.svg);\n"
+"    width: 30px;\n"
+"    height: 30px;\n"
+"    margin-right: 15px; /* Space from the left */\n"
 "}\n"
 "")
         self.sort_combo.setEditable(False)
@@ -105,6 +131,10 @@ class Ui_contacts_landing(object):
         self.selecteditems_lbl = QLabel(contacts_landing)
         self.selecteditems_lbl.setObjectName(u"selecteditems_lbl")
         self.selecteditems_lbl.setEnabled(True)
+        font = QFont()
+        font.setPointSize(10)
+        font.setBold(True)
+        self.selecteditems_lbl.setFont(font)
         self.selecteditems_lbl.setStyleSheet(u"color: white")
         self.selecteditems_lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
@@ -122,12 +152,12 @@ class Ui_contacts_landing(object):
         self.search_line.setMinimumSize(QSize(0, 30))
         self.search_line.setMaximumSize(QSize(290, 16777215))
         self.search_line.setStyleSheet(u"QLineEdit {\n"
-"    background-color: #f0f0f0;  /* Light gray background */\n"
-"    border-radius: 5px;\n"
-"    border: 1px solid #b0b0b0;  /* Subtle border */\n"
-"    color: #202020;  /* Dark text for contrast */\n"
-"    padding: 6px;\n"
-"    selection-background-color: #3498db;  /* Highlight color */\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 5px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
 "}\n"
 "\n"
 "/* Placeholder Text */\n"
@@ -206,12 +236,12 @@ class Ui_contacts_landing(object):
         sizePolicy.setHeightForWidth(self.contacts_txt.sizePolicy().hasHeightForWidth())
         self.contacts_txt.setSizePolicy(sizePolicy)
         self.contacts_txt.setMinimumSize(QSize(0, 0))
-        font = QFont()
-        font.setFamilies([u"Segoe UI"])
-        font.setPointSize(18)
-        font.setBold(True)
-        font.setItalic(False)
-        self.contacts_txt.setFont(font)
+        font1 = QFont()
+        font1.setFamilies([u"Segoe UI"])
+        font1.setPointSize(18)
+        font1.setBold(True)
+        font1.setItalic(False)
+        self.contacts_txt.setFont(font1)
         self.contacts_txt.setStyleSheet(u"background: transparent;\n"
 "color: #fff;")
 

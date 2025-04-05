@@ -30,19 +30,23 @@ class Ui_contacts_create(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(contacts_create.sizePolicy().hasHeightForWidth())
         contacts_create.setSizePolicy(sizePolicy)
-        contacts_create.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        contacts_create.setStyleSheet(u"background-color: transparent;\n"
+"background-color: rgb(255, 255, 255);\n"
+"\n"
+"")
         self.gridLayout_11 = QGridLayout(contacts_create)
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.scrollArea_4 = QScrollArea(contacts_create)
         self.scrollArea_4.setObjectName(u"scrollArea_4")
         sizePolicy.setHeightForWidth(self.scrollArea_4.sizePolicy().hasHeightForWidth())
         self.scrollArea_4.setSizePolicy(sizePolicy)
-        self.scrollArea_4.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.scrollArea_4.setStyleSheet(u"background-color: transparent;\n"
+"")
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollArea_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 1094, 1042))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 1094, 1186))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContents_4.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents_4.setSizePolicy(sizePolicy)
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents_4)
@@ -60,8 +64,8 @@ class Ui_contacts_create(object):
         self.frame_4.setSizePolicy(sizePolicy1)
         self.frame_4.setMinimumSize(QSize(0, 0))
         self.frame_4.setMaximumSize(QSize(16777215, 16777215))
-        self.frame_4.setStyleSheet(u"\n"
-"background-color: rgb(255, 255, 255);")
+        self.frame_4.setStyleSheet(u"background-color: transparent;\n"
+"")
         self.frame_4.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout = QGridLayout(self.frame_4)
@@ -80,6 +84,14 @@ class Ui_contacts_create(object):
         self.title_line.setSizePolicy(sizePolicy1)
         self.title_line.setMinimumSize(QSize(0, 0))
         self.title_line.setMaximumSize(QSize(16777215, 16777215))
+        self.title_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_9.addWidget(self.title_line, 11, 0, 1, 1)
 
@@ -87,7 +99,7 @@ class Ui_contacts_create(object):
         self.TitleLabel_4.setObjectName(u"TitleLabel_4")
         sizePolicy1.setHeightForWidth(self.TitleLabel_4.sizePolicy().hasHeightForWidth())
         self.TitleLabel_4.setSizePolicy(sizePolicy1)
-        self.TitleLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.TitleLabel_4.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_9.addWidget(self.TitleLabel_4, 10, 0, 1, 1)
 
@@ -97,6 +109,14 @@ class Ui_contacts_create(object):
         self.company_website_line.setSizePolicy(sizePolicy1)
         self.company_website_line.setMinimumSize(QSize(0, 0))
         self.company_website_line.setMaximumSize(QSize(16777215, 16777215))
+        self.company_website_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_9.addWidget(self.company_website_line, 7, 0, 1, 1)
 
@@ -117,7 +137,7 @@ class Ui_contacts_create(object):
         self.CompanyLabel.setObjectName(u"CompanyLabel")
         sizePolicy1.setHeightForWidth(self.CompanyLabel.sizePolicy().hasHeightForWidth())
         self.CompanyLabel.setSizePolicy(sizePolicy1)
-        self.CompanyLabel.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.CompanyLabel.setStyleSheet(u"color: #FAFAFA;")
 
         self.horizontalLayout_8.addWidget(self.CompanyLabel)
 
@@ -139,6 +159,14 @@ class Ui_contacts_create(object):
         self.company_line.setSizePolicy(sizePolicy1)
         self.company_line.setMinimumSize(QSize(0, 0))
         self.company_line.setMaximumSize(QSize(16777215, 16777215))
+        self.company_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_9.addWidget(self.company_line, 1, 0, 1, 1)
 
@@ -146,7 +174,7 @@ class Ui_contacts_create(object):
         self.CompanyLabel_7.setObjectName(u"CompanyLabel_7")
         sizePolicy1.setHeightForWidth(self.CompanyLabel_7.sizePolicy().hasHeightForWidth())
         self.CompanyLabel_7.setSizePolicy(sizePolicy1)
-        self.CompanyLabel_7.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.CompanyLabel_7.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_9.addWidget(self.CompanyLabel_7, 8, 0, 1, 1)
 
@@ -154,7 +182,7 @@ class Ui_contacts_create(object):
         self.CompanyLabel_6.setObjectName(u"CompanyLabel_6")
         sizePolicy1.setHeightForWidth(self.CompanyLabel_6.sizePolicy().hasHeightForWidth())
         self.CompanyLabel_6.setSizePolicy(sizePolicy1)
-        self.CompanyLabel_6.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.CompanyLabel_6.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_9.addWidget(self.CompanyLabel_6, 6, 0, 1, 1)
 
@@ -164,6 +192,14 @@ class Ui_contacts_create(object):
         self.company_email_line.setSizePolicy(sizePolicy1)
         self.company_email_line.setMinimumSize(QSize(0, 0))
         self.company_email_line.setMaximumSize(QSize(16777215, 16777215))
+        self.company_email_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_9.addWidget(self.company_email_line, 4, 0, 1, 1)
 
@@ -185,7 +221,7 @@ class Ui_contacts_create(object):
         self.CompanyLabel_5.setObjectName(u"CompanyLabel_5")
         sizePolicy1.setHeightForWidth(self.CompanyLabel_5.sizePolicy().hasHeightForWidth())
         self.CompanyLabel_5.setSizePolicy(sizePolicy1)
-        self.CompanyLabel_5.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.CompanyLabel_5.setStyleSheet(u"color: #FAFAFA;")
 
         self.horizontalLayout_9.addWidget(self.CompanyLabel_5)
 
@@ -203,6 +239,14 @@ class Ui_contacts_create(object):
         self.email_line.setSizePolicy(sizePolicy1)
         self.email_line.setMinimumSize(QSize(0, 0))
         self.email_line.setMaximumSize(QSize(16777215, 16777215))
+        self.email_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_10.addWidget(self.email_line, 6, 1, 1, 1)
 
@@ -212,6 +256,14 @@ class Ui_contacts_create(object):
         self.phone_line.setSizePolicy(sizePolicy1)
         self.phone_line.setMinimumSize(QSize(0, 0))
         self.phone_line.setMaximumSize(QSize(16777215, 16777215))
+        self.phone_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_10.addWidget(self.phone_line, 8, 1, 1, 1)
 
@@ -219,7 +271,7 @@ class Ui_contacts_create(object):
         self.GenderLabel_4.setObjectName(u"GenderLabel_4")
         sizePolicy1.setHeightForWidth(self.GenderLabel_4.sizePolicy().hasHeightForWidth())
         self.GenderLabel_4.setSizePolicy(sizePolicy1)
-        self.GenderLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.GenderLabel_4.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_10.addWidget(self.GenderLabel_4, 9, 1, 1, 1)
 
@@ -229,6 +281,14 @@ class Ui_contacts_create(object):
         self.lastname_line.setSizePolicy(sizePolicy1)
         self.lastname_line.setMinimumSize(QSize(0, 0))
         self.lastname_line.setMaximumSize(QSize(16777215, 16777215))
+        self.lastname_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_10.addWidget(self.lastname_line, 4, 1, 1, 1)
 
@@ -239,7 +299,24 @@ class Ui_contacts_create(object):
         self.gender_combo.setObjectName(u"gender_combo")
         sizePolicy1.setHeightForWidth(self.gender_combo.sizePolicy().hasHeightForWidth())
         self.gender_combo.setSizePolicy(sizePolicy1)
-        self.gender_combo.setStyleSheet(u"")
+        self.gender_combo.setStyleSheet(u"QComboBox {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"    font: 10pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color: #262626;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
+"}")
 
         self.gridLayout_10.addWidget(self.gender_combo, 10, 1, 1, 1)
 
@@ -261,7 +338,7 @@ class Ui_contacts_create(object):
         self.FirstNameLabel_4.setObjectName(u"FirstNameLabel_4")
         sizePolicy1.setHeightForWidth(self.FirstNameLabel_4.sizePolicy().hasHeightForWidth())
         self.FirstNameLabel_4.setSizePolicy(sizePolicy1)
-        self.FirstNameLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.FirstNameLabel_4.setStyleSheet(u"color: #FAFAFA;")
 
         self.horizontalLayout_4.addWidget(self.FirstNameLabel_4)
 
@@ -274,6 +351,14 @@ class Ui_contacts_create(object):
         self.firstname_line.setSizePolicy(sizePolicy1)
         self.firstname_line.setMinimumSize(QSize(0, 0))
         self.firstname_line.setMaximumSize(QSize(16777215, 16777215))
+        self.firstname_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_10.addWidget(self.firstname_line, 2, 1, 1, 1)
 
@@ -291,7 +376,7 @@ class Ui_contacts_create(object):
         self.LastNameLabel_4.setObjectName(u"LastNameLabel_4")
         sizePolicy1.setHeightForWidth(self.LastNameLabel_4.sizePolicy().hasHeightForWidth())
         self.LastNameLabel_4.setSizePolicy(sizePolicy1)
-        self.LastNameLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.LastNameLabel_4.setStyleSheet(u"color: #FAFAFA;")
 
         self.horizontalLayout_5.addWidget(self.LastNameLabel_4)
 
@@ -312,7 +397,7 @@ class Ui_contacts_create(object):
         self.MiddleNameLabel_8.setObjectName(u"MiddleNameLabel_8")
         sizePolicy1.setHeightForWidth(self.MiddleNameLabel_8.sizePolicy().hasHeightForWidth())
         self.MiddleNameLabel_8.setSizePolicy(sizePolicy1)
-        self.MiddleNameLabel_8.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.MiddleNameLabel_8.setStyleSheet(u"color: #FAFAFA;")
 
         self.horizontalLayout_6.addWidget(self.MiddleNameLabel_8)
 
@@ -333,7 +418,7 @@ class Ui_contacts_create(object):
         self.SuffixLabel_8.setObjectName(u"SuffixLabel_8")
         sizePolicy1.setHeightForWidth(self.SuffixLabel_8.sizePolicy().hasHeightForWidth())
         self.SuffixLabel_8.setSizePolicy(sizePolicy1)
-        self.SuffixLabel_8.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.SuffixLabel_8.setStyleSheet(u"color: #FAFAFA;")
 
         self.horizontalLayout_7.addWidget(self.SuffixLabel_8)
 
@@ -353,7 +438,14 @@ class Ui_contacts_create(object):
         sizePolicy1.setHeightForWidth(self.widget_20.sizePolicy().hasHeightForWidth())
         self.widget_20.setSizePolicy(sizePolicy1)
         self.widget_20.setMinimumSize(QSize(0, 40))
-        self.widget_20.setStyleSheet(u"background-color: rgb(235, 235, 235);")
+        self.widget_20.setStyleSheet(u"QWidget {\n"
+"    background-color: #171717;\n"
+"    border-top: 2px solid #ffffff;   /* Change color/width as needed */\n"
+"    border-bottom: 2px solid #ffffff;\n"
+"    border-left: none;\n"
+"    border-right: none;\n"
+"}\n"
+"")
         self.gridLayout_4 = QGridLayout(self.widget_20)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.AdditionalInformation_14 = QLabel(self.widget_20)
@@ -361,10 +453,16 @@ class Ui_contacts_create(object):
         sizePolicy1.setHeightForWidth(self.AdditionalInformation_14.sizePolicy().hasHeightForWidth())
         self.AdditionalInformation_14.setSizePolicy(sizePolicy1)
         font = QFont()
-        font.setPointSize(10)
-        font.setBold(True)
+        font.setFamilies([u"Segoe UI"])
+        font.setPointSize(12)
+        font.setWeight(QFont.Black)
+        font.setItalic(False)
         self.AdditionalInformation_14.setFont(font)
-        self.AdditionalInformation_14.setStyleSheet(u"")
+        self.AdditionalInformation_14.setStyleSheet(u"QLabel {\n"
+"    border: none;\n"
+"    color: white;\n"
+"font: 900 12pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_4.addWidget(self.AdditionalInformation_14, 0, 0, 1, 1)
 
@@ -380,6 +478,14 @@ class Ui_contacts_create(object):
         self.gridLayout_27.setObjectName(u"gridLayout_27")
         self.company_street_line = QLineEdit(self.frame_4)
         self.company_street_line.setObjectName(u"company_street_line")
+        self.company_street_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_27.addWidget(self.company_street_line, 5, 0, 1, 1)
 
@@ -394,7 +500,24 @@ class Ui_contacts_create(object):
         self.address_type_combo.setObjectName(u"address_type_combo")
         sizePolicy1.setHeightForWidth(self.address_type_combo.sizePolicy().hasHeightForWidth())
         self.address_type_combo.setSizePolicy(sizePolicy1)
-        self.address_type_combo.setStyleSheet(u"")
+        self.address_type_combo.setStyleSheet(u"QComboBox {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"    font: 10pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color: #262626;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
+"}")
 
         self.gridLayout_27.addWidget(self.address_type_combo, 10, 0, 1, 1)
 
@@ -402,7 +525,7 @@ class Ui_contacts_create(object):
         self.ZipPostalCodeLabel_7.setObjectName(u"ZipPostalCodeLabel_7")
         sizePolicy1.setHeightForWidth(self.ZipPostalCodeLabel_7.sizePolicy().hasHeightForWidth())
         self.ZipPostalCodeLabel_7.setSizePolicy(sizePolicy1)
-        self.ZipPostalCodeLabel_7.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.ZipPostalCodeLabel_7.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_27.addWidget(self.ZipPostalCodeLabel_7, 7, 0, 1, 1)
 
@@ -410,7 +533,7 @@ class Ui_contacts_create(object):
         self.StreetLabel_7.setObjectName(u"StreetLabel_7")
         sizePolicy1.setHeightForWidth(self.StreetLabel_7.sizePolicy().hasHeightForWidth())
         self.StreetLabel_7.setSizePolicy(sizePolicy1)
-        self.StreetLabel_7.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.StreetLabel_7.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_27.addWidget(self.StreetLabel_7, 4, 0, 1, 1)
 
@@ -420,6 +543,14 @@ class Ui_contacts_create(object):
         self.company_zip_line.setSizePolicy(sizePolicy1)
         self.company_zip_line.setMinimumSize(QSize(0, 0))
         self.company_zip_line.setMaximumSize(QSize(16777215, 16777215))
+        self.company_zip_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_27.addWidget(self.company_zip_line, 8, 0, 1, 1)
 
@@ -427,7 +558,7 @@ class Ui_contacts_create(object):
         self.ZipPostalCodeLabel_8.setObjectName(u"ZipPostalCodeLabel_8")
         sizePolicy1.setHeightForWidth(self.ZipPostalCodeLabel_8.sizePolicy().hasHeightForWidth())
         self.ZipPostalCodeLabel_8.setSizePolicy(sizePolicy1)
-        self.ZipPostalCodeLabel_8.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.ZipPostalCodeLabel_8.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_27.addWidget(self.ZipPostalCodeLabel_8, 9, 0, 1, 1)
 
@@ -448,7 +579,7 @@ class Ui_contacts_create(object):
         self.CountryLabel_7.setObjectName(u"CountryLabel_7")
         sizePolicy1.setHeightForWidth(self.CountryLabel_7.sizePolicy().hasHeightForWidth())
         self.CountryLabel_7.setSizePolicy(sizePolicy1)
-        self.CountryLabel_7.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.CountryLabel_7.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_28.addWidget(self.CountryLabel_7, 0, 1, 1, 1)
 
@@ -458,6 +589,14 @@ class Ui_contacts_create(object):
         self.company_country_line.setSizePolicy(sizePolicy1)
         self.company_country_line.setMinimumSize(QSize(0, 0))
         self.company_country_line.setMaximumSize(QSize(16777215, 16777215))
+        self.company_country_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_28.addWidget(self.company_country_line, 1, 1, 1, 1)
 
@@ -467,6 +606,14 @@ class Ui_contacts_create(object):
         self.company_state_line.setSizePolicy(sizePolicy1)
         self.company_state_line.setMinimumSize(QSize(0, 0))
         self.company_state_line.setMaximumSize(QSize(16777215, 16777215))
+        self.company_state_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_28.addWidget(self.company_state_line, 3, 1, 1, 1)
 
@@ -474,7 +621,7 @@ class Ui_contacts_create(object):
         self.State_ProvinceLabel_7.setObjectName(u"State_ProvinceLabel_7")
         sizePolicy1.setHeightForWidth(self.State_ProvinceLabel_7.sizePolicy().hasHeightForWidth())
         self.State_ProvinceLabel_7.setSizePolicy(sizePolicy1)
-        self.State_ProvinceLabel_7.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.State_ProvinceLabel_7.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_28.addWidget(self.State_ProvinceLabel_7, 2, 1, 1, 1)
 
@@ -482,7 +629,7 @@ class Ui_contacts_create(object):
         self.CityLabel_7.setObjectName(u"CityLabel_7")
         sizePolicy1.setHeightForWidth(self.CityLabel_7.sizePolicy().hasHeightForWidth())
         self.CityLabel_7.setSizePolicy(sizePolicy1)
-        self.CityLabel_7.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.CityLabel_7.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_28.addWidget(self.CityLabel_7, 5, 1, 1, 1)
 
@@ -490,6 +637,14 @@ class Ui_contacts_create(object):
         self.company_city_line.setObjectName(u"company_city_line")
         sizePolicy1.setHeightForWidth(self.company_city_line.sizePolicy().hasHeightForWidth())
         self.company_city_line.setSizePolicy(sizePolicy1)
+        self.company_city_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_28.addWidget(self.company_city_line, 6, 1, 1, 1)
 
@@ -507,8 +662,13 @@ class Ui_contacts_create(object):
         sizePolicy1.setHeightForWidth(self.widget_21.sizePolicy().hasHeightForWidth())
         self.widget_21.setSizePolicy(sizePolicy1)
         self.widget_21.setMinimumSize(QSize(0, 40))
-        self.widget_21.setStyleSheet(u"background-color: rgb(235, 235, 235);\n"
-"\n"
+        self.widget_21.setStyleSheet(u"QWidget {\n"
+"    background-color: #171717;\n"
+"    border-top: 2px solid #ffffff;   /* Change color/width as needed */\n"
+"    border-bottom: 2px solid #ffffff;\n"
+"    border-left: none;\n"
+"    border-right: none;\n"
+"}\n"
 "")
         self.gridLayout_5 = QGridLayout(self.widget_21)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
@@ -517,7 +677,11 @@ class Ui_contacts_create(object):
         sizePolicy1.setHeightForWidth(self.AdditionalInformation_15.sizePolicy().hasHeightForWidth())
         self.AdditionalInformation_15.setSizePolicy(sizePolicy1)
         self.AdditionalInformation_15.setFont(font)
-        self.AdditionalInformation_15.setStyleSheet(u"")
+        self.AdditionalInformation_15.setStyleSheet(u"QLabel {\n"
+"    border: none;\n"
+"    color: white;\n"
+"font: 900 12pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_5.addWidget(self.AdditionalInformation_15, 1, 0, 1, 1)
 
@@ -537,7 +701,7 @@ class Ui_contacts_create(object):
         self.source_name_label.setObjectName(u"source_name_label")
         sizePolicy1.setHeightForWidth(self.source_name_label.sizePolicy().hasHeightForWidth())
         self.source_name_label.setSizePolicy(sizePolicy1)
-        self.source_name_label.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.source_name_label.setStyleSheet(u"color: #FAFAFA;")
 
         self.horizontalLayout_11.addWidget(self.source_name_label)
 
@@ -550,6 +714,14 @@ class Ui_contacts_create(object):
         self.source_name_line.setSizePolicy(sizePolicy1)
         self.source_name_line.setMinimumSize(QSize(0, 0))
         self.source_name_line.setMaximumSize(QSize(16777215, 16777215))
+        self.source_name_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_7.addWidget(self.source_name_line, 1, 1, 1, 1)
 
@@ -585,7 +757,7 @@ class Ui_contacts_create(object):
         self.StreetLabel_5.setObjectName(u"StreetLabel_5")
         sizePolicy1.setHeightForWidth(self.StreetLabel_5.sizePolicy().hasHeightForWidth())
         self.StreetLabel_5.setSizePolicy(sizePolicy1)
-        self.StreetLabel_5.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.StreetLabel_5.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.gridLayout_24.addWidget(self.StreetLabel_5, 4, 0, 1, 1)
 
@@ -601,6 +773,14 @@ class Ui_contacts_create(object):
         self.gridLayout_23.setObjectName(u"gridLayout_23")
         self.street_line = QLineEdit(self.frame_4)
         self.street_line.setObjectName(u"street_line")
+        self.street_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_23.addWidget(self.street_line, 5, 0, 1, 1)
 
@@ -608,7 +788,7 @@ class Ui_contacts_create(object):
         self.StreetLabel_4.setObjectName(u"StreetLabel_4")
         sizePolicy1.setHeightForWidth(self.StreetLabel_4.sizePolicy().hasHeightForWidth())
         self.StreetLabel_4.setSizePolicy(sizePolicy1)
-        self.StreetLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.StreetLabel_4.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_23.addWidget(self.StreetLabel_4, 4, 0, 1, 1)
 
@@ -622,6 +802,14 @@ class Ui_contacts_create(object):
         self.zip_line.setSizePolicy(sizePolicy1)
         self.zip_line.setMinimumSize(QSize(0, 0))
         self.zip_line.setMaximumSize(QSize(16777215, 16777215))
+        self.zip_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_23.addWidget(self.zip_line, 8, 0, 1, 1)
 
@@ -629,7 +817,7 @@ class Ui_contacts_create(object):
         self.ZipPostalCodeLabel_4.setObjectName(u"ZipPostalCodeLabel_4")
         sizePolicy1.setHeightForWidth(self.ZipPostalCodeLabel_4.sizePolicy().hasHeightForWidth())
         self.ZipPostalCodeLabel_4.setSizePolicy(sizePolicy1)
-        self.ZipPostalCodeLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.ZipPostalCodeLabel_4.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_23.addWidget(self.ZipPostalCodeLabel_4, 7, 0, 1, 1)
 
@@ -656,7 +844,7 @@ class Ui_contacts_create(object):
         self.CountryLabel_4.setObjectName(u"CountryLabel_4")
         sizePolicy1.setHeightForWidth(self.CountryLabel_4.sizePolicy().hasHeightForWidth())
         self.CountryLabel_4.setSizePolicy(sizePolicy1)
-        self.CountryLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.CountryLabel_4.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_3.addWidget(self.CountryLabel_4, 0, 1, 1, 1)
 
@@ -666,6 +854,14 @@ class Ui_contacts_create(object):
         self.country_line.setSizePolicy(sizePolicy1)
         self.country_line.setMinimumSize(QSize(0, 0))
         self.country_line.setMaximumSize(QSize(16777215, 16777215))
+        self.country_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_3.addWidget(self.country_line, 1, 1, 1, 1)
 
@@ -675,6 +871,14 @@ class Ui_contacts_create(object):
         self.state_line.setSizePolicy(sizePolicy1)
         self.state_line.setMinimumSize(QSize(0, 0))
         self.state_line.setMaximumSize(QSize(16777215, 16777215))
+        self.state_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_3.addWidget(self.state_line, 3, 1, 1, 1)
 
@@ -682,7 +886,7 @@ class Ui_contacts_create(object):
         self.State_ProvinceLabel_4.setObjectName(u"State_ProvinceLabel_4")
         sizePolicy1.setHeightForWidth(self.State_ProvinceLabel_4.sizePolicy().hasHeightForWidth())
         self.State_ProvinceLabel_4.setSizePolicy(sizePolicy1)
-        self.State_ProvinceLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.State_ProvinceLabel_4.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_3.addWidget(self.State_ProvinceLabel_4, 2, 1, 1, 1)
 
@@ -690,7 +894,7 @@ class Ui_contacts_create(object):
         self.CityLabel_4.setObjectName(u"CityLabel_4")
         sizePolicy1.setHeightForWidth(self.CityLabel_4.sizePolicy().hasHeightForWidth())
         self.CityLabel_4.setSizePolicy(sizePolicy1)
-        self.CityLabel_4.setStyleSheet(u"color: rgb(98, 98, 98);")
+        self.CityLabel_4.setStyleSheet(u"color: #FAFAFA;")
 
         self.gridLayout_3.addWidget(self.CityLabel_4, 5, 1, 1, 1)
 
@@ -698,6 +902,14 @@ class Ui_contacts_create(object):
         self.city_line.setObjectName(u"city_line")
         sizePolicy1.setHeightForWidth(self.city_line.sizePolicy().hasHeightForWidth())
         self.city_line.setSizePolicy(sizePolicy1)
+        self.city_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_3.addWidget(self.city_line, 6, 1, 1, 1)
 
@@ -718,7 +930,14 @@ class Ui_contacts_create(object):
         sizePolicy1.setHeightForWidth(self.widget_24.sizePolicy().hasHeightForWidth())
         self.widget_24.setSizePolicy(sizePolicy1)
         self.widget_24.setMinimumSize(QSize(0, 40))
-        self.widget_24.setStyleSheet(u"background-color: rgb(235, 235, 235);")
+        self.widget_24.setStyleSheet(u"QWidget {\n"
+"    background-color: #171717;\n"
+"    border-top: 2px solid #ffffff;   /* Change color/width as needed */\n"
+"    border-bottom: 2px solid #ffffff;\n"
+"    border-left: none;\n"
+"    border-right: none;\n"
+"}\n"
+"")
         self.gridLayout_17 = QGridLayout(self.widget_24)
         self.gridLayout_17.setObjectName(u"gridLayout_17")
         self.AdditionalInformation_20 = QLabel(self.widget_24)
@@ -726,7 +945,11 @@ class Ui_contacts_create(object):
         sizePolicy1.setHeightForWidth(self.AdditionalInformation_20.sizePolicy().hasHeightForWidth())
         self.AdditionalInformation_20.setSizePolicy(sizePolicy1)
         self.AdditionalInformation_20.setFont(font)
-        self.AdditionalInformation_20.setStyleSheet(u"")
+        self.AdditionalInformation_20.setStyleSheet(u"QLabel {\n"
+"    border: none;\n"
+"    color: white;\n"
+"font: 900 12pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_17.addWidget(self.AdditionalInformation_20, 0, 0, 1, 1)
 
@@ -746,16 +969,20 @@ class Ui_contacts_create(object):
         sizePolicy3.setHeightForWidth(self.back_line.sizePolicy().hasHeightForWidth())
         self.back_line.setSizePolicy(sizePolicy3)
         font1 = QFont()
-        font1.setPointSize(12)
-        font1.setBold(True)
+        font1.setFamilies([u"Segoe UI"])
+        font1.setPointSize(15)
+        font1.setWeight(QFont.Black)
+        font1.setItalic(False)
         self.back_line.setFont(font1)
         self.back_line.setStyleSheet(u"QPushButton {\n"
 "    border: none;          /* Removes the button border */\n"
 "    background: transparent; /* Makes it blend with the background */\n"
-"    color: black;          /* Matches QLabel text color */\n"
+"    color: white;          /* Matches QLabel text color */\n"
 "    text-align: left;      /* Aligns text like a QLabel (optional) */\n"
 "    padding: 0px;          /* Removes extra spacing */\n"
-"}")
+"font: 900 15pt \"Segoe UI\";\n"
+"}\n"
+"")
         icon = QIcon()
         icon.addFile(u":/new/newPrefix/Resources/left-arrow.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         icon.addFile(u":/new/newPrefix/Resources/left-arrow.png", QSize(), QIcon.Mode.Disabled, QIcon.State.On)
@@ -775,13 +1002,15 @@ class Ui_contacts_create(object):
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.save_btn.sizePolicy().hasHeightForWidth())
         self.save_btn.setSizePolicy(sizePolicy4)
-        font2 = QFont()
-        font2.setPointSize(9)
-        font2.setBold(False)
-        font2.setItalic(False)
-        self.save_btn.setFont(font2)
+        self.save_btn.setFont(font1)
         self.save_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.save_btn.setStyleSheet(u"QPushButton {\n"
+"    border: none;          /* Removes the button border */\n"
+"    background: transparent; /* Makes it blend with the background */\n"
+"    color: white;          /* Matches QLabel text color */\n"
+"    text-align: left;      /* Aligns text like a QLabel (optional) */\n"
+"    padding: 0px;          /* Removes extra spacing */\n"
+"font: 900 15pt \"Segoe UI\";\n"
 "}\n"
 "")
         self.save_btn.setFlat(False)
@@ -798,7 +1027,14 @@ class Ui_contacts_create(object):
         sizePolicy1.setHeightForWidth(self.widget_22.sizePolicy().hasHeightForWidth())
         self.widget_22.setSizePolicy(sizePolicy1)
         self.widget_22.setMinimumSize(QSize(0, 40))
-        self.widget_22.setStyleSheet(u"background-color: rgb(235, 235, 235);\n"
+        self.widget_22.setStyleSheet(u"QWidget {\n"
+"    background-color: #171717;\n"
+"    border-top: 2px solid #ffffff;   /* Change color/width as needed */\n"
+"    border-bottom: 2px solid #ffffff;\n"
+"    border-left: none;\n"
+"    border-right: none;\n"
+"}\n"
+"background-color: rgb(235, 235, 235);\n"
 "\n"
 "")
         self.gridLayout_6 = QGridLayout(self.widget_22)
@@ -808,7 +1044,11 @@ class Ui_contacts_create(object):
         sizePolicy1.setHeightForWidth(self.AdditionalInformation_16.sizePolicy().hasHeightForWidth())
         self.AdditionalInformation_16.setSizePolicy(sizePolicy1)
         self.AdditionalInformation_16.setFont(font)
-        self.AdditionalInformation_16.setStyleSheet(u"")
+        self.AdditionalInformation_16.setStyleSheet(u"QLabel {\n"
+"    border: none;\n"
+"    color: white;\n"
+"font: 900 12pt \"Segoe UI\";\n"
+"}")
 
         self.gridLayout_6.addWidget(self.AdditionalInformation_16, 1, 0, 1, 1)
 
@@ -865,6 +1105,14 @@ class Ui_contacts_create(object):
         self.TitleLabel_4.setText(QCoreApplication.translate("contacts_create", u"Job Title (Optional):", None))
         self.FirstNameLabel_9.setText(QCoreApplication.translate("contacts_create", u"*", None))
         self.CompanyLabel.setText(QCoreApplication.translate("contacts_create", u"Company :", None))
+        self.company_industry_line.setStyleSheet(QCoreApplication.translate("contacts_create", u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}", None))
         self.CompanyLabel_7.setText(QCoreApplication.translate("contacts_create", u"Industry (Optional):", None))
         self.CompanyLabel_6.setText(QCoreApplication.translate("contacts_create", u"Company Website (Optional):", None))
         self.FirstNameLabel_11.setText(QCoreApplication.translate("contacts_create", u"*", None))
