@@ -12,6 +12,7 @@ from .models_sidebar import SidebarForm
 from .models_contacts_landing import ContactsLanding
 from .models_leads_landing import LeadsLanding
 from .models_settings import Settings
+from views.py.ui_leads_profile import Ui_leads_profile
 from views.py.ui_contacts1 import Ui_contacts1
 from views.py.ui_contacts4 import Ui_contacts4
 
@@ -168,7 +169,7 @@ class MainWindow(QMainWindow):
             "Dashboard": Ui_contacts1,
             "Contacts": ContactsLanding,
             "Leads": LeadsLanding,
-            "Account": Ui_contacts4,
+            "Account": Ui_leads_profile,
             "Opportunities": ContactsLanding,
             "Settings": Settings,
             "Logout": None
