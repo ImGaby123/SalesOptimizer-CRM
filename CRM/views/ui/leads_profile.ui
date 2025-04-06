@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1201</width>
-    <height>680</height>
+    <height>748</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -63,7 +63,7 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_17">
             <item>
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="leadprofile_lbl">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -120,7 +120,7 @@ border: none;</string>
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_6">
               <item>
-               <widget class="QLabel" name="label_16">
+               <widget class="QLabel" name="compheader_lbl">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -144,7 +144,7 @@ border: none</string>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_17">
+               <widget class="QLabel" name="company_lbl">
                 <property name="font">
                  <font>
                   <pointsize>11</pointsize>
@@ -178,7 +178,7 @@ border: none</string>
            </spacer>
           </item>
           <item>
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="salespipe_lbl">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -202,7 +202,7 @@ border: none</string>
            </widget>
           </item>
           <item>
-           <widget class="QProgressBar" name="info_bar">
+           <widget class="QProgressBar" name="sales_bar">
             <property name="styleSheet">
              <string notr="true">QProgressBar {
     background-color: #2e2e2e;
@@ -232,7 +232,7 @@ QProgressBar::chunk {
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_8">
             <item alignment="Qt::AlignmentFlag::AlignRight">
-             <widget class="QRadioButton" name="radioButton">
+             <widget class="QRadioButton" name="lead_radio">
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -270,7 +270,7 @@ QRadioButton::indicator {
              </widget>
             </item>
             <item alignment="Qt::AlignmentFlag::AlignRight">
-             <widget class="QRadioButton" name="radioButton_9">
+             <widget class="QRadioButton" name="prospecting_radio">
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -308,7 +308,7 @@ QRadioButton::indicator {
              </widget>
             </item>
             <item alignment="Qt::AlignmentFlag::AlignRight">
-             <widget class="QRadioButton" name="radioButton_8">
+             <widget class="QRadioButton" name="qualifications_radio">
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -346,7 +346,7 @@ QRadioButton::indicator {
              </widget>
             </item>
             <item alignment="Qt::AlignmentFlag::AlignRight">
-             <widget class="QRadioButton" name="radioButton_10">
+             <widget class="QRadioButton" name="contacting_radio">
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -384,7 +384,7 @@ QRadioButton::indicator {
              </widget>
             </item>
             <item alignment="Qt::AlignmentFlag::AlignRight">
-             <widget class="QRadioButton" name="radioButton_12">
+             <widget class="QRadioButton" name="negotiating_radio">
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -422,7 +422,7 @@ QRadioButton::indicator {
              </widget>
             </item>
             <item alignment="Qt::AlignmentFlag::AlignRight">
-             <widget class="QRadioButton" name="radioButton_11">
+             <widget class="QRadioButton" name="loss_radio">
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -463,7 +463,7 @@ QRadioButton::indicator {
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="radioButton_4">
+             <widget class="QRadioButton" name="won_radio">
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -537,7 +537,7 @@ border-radius: 15px;</string>
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_5">
                      <item>
-                      <widget class="QLabel" name="label_23">
+                      <widget class="QLabel" name="totalleadhead_lbl">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                          <horstretch>0</horstretch>
@@ -561,7 +561,7 @@ border: none</string>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QComboBox" name="comboBox">
+                      <widget class="QComboBox" name="lead_combo">
                        <property name="styleSheet">
                         <string notr="true">QComboBox {
     background-color: #262626;
@@ -633,7 +633,7 @@ QComboBox::down-arrow {
                      <item>
                       <layout class="QVBoxLayout" name="verticalLayout_10">
                        <item>
-                        <widget class="QLabel" name="label_7">
+                        <widget class="QLabel" name="totalleadmini_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -645,7 +645,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_9">
+                        <widget class="QLabel" name="leadmini2_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -657,7 +657,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_8">
+                        <widget class="QLabel" name="leadmini1_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -677,7 +677,7 @@ border: none</string>
                          <item>
                           <layout class="QVBoxLayout" name="verticalLayout_11">
                            <item>
-                            <widget class="QLabel" name="label_15">
+                            <widget class="QLabel" name="equal_lbl">
                              <property name="styleSheet">
                               <string notr="true">background: transparent;
 color: #fff;
@@ -693,7 +693,7 @@ border: none</string>
                              <item>
                               <layout class="QVBoxLayout" name="verticalLayout_24">
                                <item>
-                                <widget class="QLabel" name="label_40">
+                                <widget class="QLabel" name="green50_lbl">
                                  <property name="sizePolicy">
                                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                                    <horstretch>0</horstretch>
@@ -711,7 +711,7 @@ border: none</string>
                                 </widget>
                                </item>
                                <item>
-                                <widget class="QLabel" name="label_41">
+                                <widget class="QLabel" name="red50_lbl">
                                  <property name="styleSheet">
                                   <string notr="true">background: transparent;
 color: #FCA5A5;
@@ -727,7 +727,7 @@ border: none</string>
                              <item>
                               <layout class="QVBoxLayout" name="verticalLayout_25">
                                <item>
-                                <widget class="QLabel" name="label_4">
+                                <widget class="QLabel" name="up50_lbl">
                                  <property name="sizePolicy">
                                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                                    <horstretch>0</horstretch>
@@ -746,7 +746,7 @@ border: none</string>
                                 </widget>
                                </item>
                                <item>
-                                <widget class="QLabel" name="label_39">
+                                <widget class="QLabel" name="down50_lbl">
                                  <property name="styleSheet">
                                   <string notr="true">border: none;</string>
                                  </property>
@@ -767,7 +767,7 @@ border: none</string>
                          <item>
                           <layout class="QVBoxLayout" name="verticalLayout_12">
                            <item>
-                            <widget class="QLabel" name="label_5">
+                            <widget class="QLabel" name="total_leads_qty_lbl">
                              <property name="styleSheet">
                               <string notr="true">background: transparent;
 color: #fff;
@@ -779,7 +779,7 @@ border: none</string>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QLabel" name="label_6">
+                            <widget class="QLabel" name="leads_50_up_lbl">
                              <property name="styleSheet">
                               <string notr="true">background: transparent;
 color: #fff;
@@ -791,7 +791,7 @@ border: none</string>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QLabel" name="label_10">
+                            <widget class="QLabel" name="leads_50_down_lbl">
                              <property name="styleSheet">
                               <string notr="true">background: transparent;
 color: #fff;
@@ -814,7 +814,7 @@ border: none</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QTableWidget" name="tableWidget">
+                 <widget class="QTableWidget" name="lead_list_table">
                   <property name="styleSheet">
                    <string notr="true">QTableWidget {
     background-color: rgb(255, 255, 255);
@@ -883,10 +883,10 @@ border-radius: 20px;</string>
                 <widget class="QWidget" name="scrollAreaWidgetContents">
                  <property name="geometry">
                   <rect>
-                   <x>-16</x>
+                   <x>0</x>
                    <y>0</y>
                    <width>406</width>
-                   <height>264</height>
+                   <height>332</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_21">
@@ -897,7 +897,7 @@ border-radius: 20px;</string>
                       <item>
                        <layout class="QHBoxLayout" name="horizontalLayout_13">
                         <item>
-                         <widget class="QLabel" name="label_18">
+                         <widget class="QLabel" name="campaignhead_lbl">
                           <property name="sizePolicy">
                            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                             <horstretch>0</horstretch>
@@ -923,7 +923,7 @@ border: none</string>
                        </layout>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="pushButton_2">
+                       <widget class="QPushButton" name="promote_to_prospect_btn">
                         <property name="font">
                          <font>
                           <family>Segoe UI</family>
@@ -992,7 +992,7 @@ QPushButton:pressed {
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_14">
                     <item>
-                     <widget class="QFrame" name="frame_5">
+                     <widget class="QFrame" name="timeline_frame">
                       <property name="styleSheet">
                        <string notr="true">border-radius: 10px;</string>
                       </property>
@@ -1004,7 +1004,7 @@ QPushButton:pressed {
                       </property>
                       <layout class="QHBoxLayout" name="horizontalLayout_15">
                        <item>
-                        <widget class="QLabel" name="label_38">
+                        <widget class="QLabel" name="timeline_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1072,7 +1072,7 @@ border-radius: 15px;</string>
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_11">
                      <item>
-                      <widget class="QLabel" name="label_26">
+                      <widget class="QLabel" name="contactinfohead_lbl">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                          <horstretch>0</horstretch>
@@ -1115,7 +1115,7 @@ border: none</string>
                      <item>
                       <layout class="QVBoxLayout" name="verticalLayout_18">
                        <item>
-                        <widget class="QLabel" name="label_28">
+                        <widget class="QLabel" name="accname_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1127,7 +1127,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_29">
+                        <widget class="QLabel" name="compname_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1139,7 +1139,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_30">
+                        <widget class="QLabel" name="comprole_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1151,7 +1151,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_34">
+                        <widget class="QLabel" name="emailadd_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1163,7 +1163,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_35">
+                        <widget class="QLabel" name="contnum_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1179,7 +1179,7 @@ border: none</string>
                      <item>
                       <layout class="QVBoxLayout" name="verticalLayout_19">
                        <item>
-                        <widget class="QLabel" name="label_31">
+                        <widget class="QLabel" name="name_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1191,7 +1191,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_32">
+                        <widget class="QLabel" name="company_lbl_2">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1203,7 +1203,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_33">
+                        <widget class="QLabel" name="job_title_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1215,7 +1215,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_36">
+                        <widget class="QLabel" name="email_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1227,7 +1227,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_37">
+                        <widget class="QLabel" name="number_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1265,7 +1265,7 @@ border-radius: 15px;</string>
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_10">
                      <item>
-                      <widget class="QLabel" name="label_20">
+                      <widget class="QLabel" name="leadinfohead_lbl">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                          <horstretch>0</horstretch>
@@ -1308,7 +1308,7 @@ border: none</string>
                      <item>
                       <layout class="QVBoxLayout" name="verticalLayout_14">
                        <item>
-                        <widget class="QLabel" name="label_19">
+                        <widget class="QLabel" name="leadscore_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1320,7 +1320,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_22">
+                        <widget class="QLabel" name="engagement_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1332,7 +1332,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_25">
+                        <widget class="QLabel" name="leadquality_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1348,7 +1348,7 @@ border: none</string>
                      <item>
                       <layout class="QVBoxLayout" name="verticalLayout_15">
                        <item>
-                        <widget class="QLabel" name="label_21">
+                        <widget class="QLabel" name="score_value_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1360,7 +1360,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_24">
+                        <widget class="QLabel" name="engagement_value_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1372,7 +1372,7 @@ border: none</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_27">
+                        <widget class="QLabel" name="quality_lbl">
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;

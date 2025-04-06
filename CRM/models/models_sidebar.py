@@ -19,7 +19,6 @@ class SidebarForm(QWidget):
             "Contacts": self.ui.contacts_btn,
             "Leads": self.ui.leads_btn,
             "Account": self.ui.account_btn,
-            "Opportunities": self.ui.opportunities_btn,
             "Settings": self.ui.settings_btn,
             "Logout": self.ui.logout_btn
         }

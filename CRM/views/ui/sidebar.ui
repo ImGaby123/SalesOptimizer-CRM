@@ -249,55 +249,6 @@ QPushButton:disabled {
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="opportunities_btn">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-    background-color: rgb(30, 30, 30);  /* Dark grey background */
-    border: 1px solid rgb(80, 80, 80);  /* Slightly lighter border */
-    padding: 8px;  /* Slightly larger padding for better spacing */
-    color: rgb(220, 220, 220);  /* Light grey text for contrast */
-    border-radius: 5px;  /* Smooth rounded corners */
-    text-align: left;
-}
-
-QPushButton:hover {
-    background-color: rgb(50, 50, 50);  /* Slightly lighter on hover */
-    border: 1px solid rgb(255, 255, 255);  /* White border for highlight */
-    color: rgb(255, 255, 255);  /* Pure white text */
-}
-
-QPushButton:pressed {
-    background-color: rgb(20, 20, 20);  /* Darker when pressed */
-    border: 1px solid rgb(180, 180, 180);  /* Less intense white border */
-}
-
-QPushButton:disabled {
-    background-color: rgb(50, 50, 50);  /* Muted grey */
-    color: rgb(130, 130, 130);  /* Dull text for disabled state */
-    border: 1px solid rgb(80, 80, 80);  /* Less contrast */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Opportunities</string>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QPushButton" name="settings_btn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">

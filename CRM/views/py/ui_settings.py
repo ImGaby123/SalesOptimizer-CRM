@@ -38,6 +38,10 @@ class Ui_settings(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label = QLabel(settings)
         self.label.setObjectName(u"label")
+        font = QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        self.label.setFont(font)
         self.label.setStyleSheet(u"background-color: transparent;\n"
 "color: White")
 
@@ -45,10 +49,34 @@ class Ui_settings(object):
 
         self.theme_combo = QComboBox(settings)
         self.theme_combo.addItem("")
-        self.theme_combo.addItem("")
         self.theme_combo.setObjectName(u"theme_combo")
-        self.theme_combo.setStyleSheet(u"background-color: transparent;\n"
-"color: White")
+        self.theme_combo.setStyleSheet(u"QComboBox {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    font: 10pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color: #262626;\n"
+"    color: white;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"/* Down Arrow (Icon) */\n"
+"QComboBox::down-arrow {\n"
+"    image: url(:/Resources/dropdown_white.svg);\n"
+"    width: 30px;\n"
+"    height: 30px;\n"
+"    margin-right: 15px; /* Space from the left */\n"
+"}\n"
+"")
 
         self.horizontalLayout.addWidget(self.theme_combo)
 
@@ -57,10 +85,10 @@ class Ui_settings(object):
 
         self.label_ = QLabel(settings)
         self.label_.setObjectName(u"label_")
-        font = QFont()
-        font.setPointSize(18)
-        font.setBold(True)
-        self.label_.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(18)
+        font1.setBold(True)
+        self.label_.setFont(font1)
         self.label_.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "background-color: transparent;")
 
@@ -92,7 +120,6 @@ class Ui_settings(object):
         settings.setWindowTitle(QCoreApplication.translate("settings", u"Settings", None))
         self.label.setText(QCoreApplication.translate("settings", u"Theme", None))
         self.theme_combo.setItemText(0, QCoreApplication.translate("settings", u"Dark", None))
-        self.theme_combo.setItemText(1, QCoreApplication.translate("settings", u"Light", None))
 
         self.theme_combo.setPlaceholderText("")
         self.label_.setText(QCoreApplication.translate("settings", u"Settings", None))

@@ -166,11 +166,10 @@ class MainWindow(QMainWindow):
 
     def load_form(self, form_name):
         form_map = {
-            "Dashboard": Ui_contacts1,
+            "Dashboard": None,
             "Contacts": ContactsLanding,
             "Leads": LeadsLanding,
             "Account": Ui_leads_profile,
-            "Opportunities": ContactsLanding,
             "Settings": Settings,
             "Logout": None
         }

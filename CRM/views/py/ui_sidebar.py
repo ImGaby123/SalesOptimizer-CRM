@@ -196,42 +196,6 @@ class Ui_sidebar(object):
 
         self.verticalLayout.addWidget(self.account_btn, 0, Qt.AlignmentFlag.AlignVCenter)
 
-        self.opportunities_btn = QPushButton(self.verticalLayoutWidget)
-        self.opportunities_btn.setObjectName(u"opportunities_btn")
-        sizePolicy.setHeightForWidth(self.opportunities_btn.sizePolicy().hasHeightForWidth())
-        self.opportunities_btn.setSizePolicy(sizePolicy)
-        self.opportunities_btn.setFont(font)
-        self.opportunities_btn.setStyleSheet(u"QPushButton {\n"
-"    background-color: rgb(30, 30, 30);  /* Dark grey background */\n"
-"    border: 1px solid rgb(80, 80, 80);  /* Slightly lighter border */\n"
-"    padding: 8px;  /* Slightly larger padding for better spacing */\n"
-"    color: rgb(220, 220, 220);  /* Light grey text for contrast */\n"
-"    border-radius: 5px;  /* Smooth rounded corners */\n"
-"    text-align: left;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(50, 50, 50);  /* Slightly lighter on hover */\n"
-"    border: 1px solid rgb(255, 255, 255);  /* White border for highlight */\n"
-"    color: rgb(255, 255, 255);  /* Pure white text */\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(20, 20, 20);  /* Darker when pressed */\n"
-"    border: 1px solid rgb(180, 180, 180);  /* Less intense white border */\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: rgb(50, 50, 50);  /* Muted grey */\n"
-"    color: rgb(130, 130, 130);  /* Dull text for disabled state */\n"
-"    border: 1px solid rgb(80, "
-                        "80, 80);  /* Less contrast */\n"
-"}\n"
-"")
-        self.opportunities_btn.setFlat(True)
-
-        self.verticalLayout.addWidget(self.opportunities_btn)
-
         self.settings_btn = QPushButton(self.verticalLayoutWidget)
         self.settings_btn.setObjectName(u"settings_btn")
         sizePolicy.setHeightForWidth(self.settings_btn.sizePolicy().hasHeightForWidth())
@@ -323,7 +287,6 @@ class Ui_sidebar(object):
         self.contacts_btn.setText(QCoreApplication.translate("sidebar", u"Contacts", None))
         self.leads_btn.setText(QCoreApplication.translate("sidebar", u"Leads", None))
         self.account_btn.setText(QCoreApplication.translate("sidebar", u"Account", None))
-        self.opportunities_btn.setText(QCoreApplication.translate("sidebar", u"Opportunities", None))
         self.settings_btn.setText(QCoreApplication.translate("sidebar", u"Settings", None))
         self.logout_btn.setText(QCoreApplication.translate("sidebar", u"Logout", None))
     # retranslateUi
