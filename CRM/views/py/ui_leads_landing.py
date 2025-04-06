@@ -92,6 +92,7 @@ class Ui_leads_landing(object):
         self.sort_combo.setSizePolicy(sizePolicy)
         self.sort_combo.setMinimumSize(QSize(0, 10))
         self.sort_combo.setMaximumSize(QSize(150, 16777215))
+        self.sort_combo.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.sort_combo.setStyleSheet(u"QComboBox {\n"
 "    background-color: #262626;\n"
 "    border: 1px solid #737373;\n"
@@ -133,6 +134,7 @@ class Ui_leads_landing(object):
         self.set_icp_btn.setSizePolicy(sizePolicy1)
         self.set_icp_btn.setMinimumSize(QSize(0, 0))
         self.set_icp_btn.setMaximumSize(QSize(16777215, 16777215))
+        self.set_icp_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.set_icp_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #262626;\n"
 "    border: 1px solid #737373;\n"

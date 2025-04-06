@@ -106,6 +106,9 @@ QTableCornerButton::section {
            <height>16777215</height>
           </size>
          </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="styleSheet">
           <string notr="true">QComboBox {
     background-color: #262626;
@@ -180,6 +183,9 @@ QComboBox::down-arrow {
            <width>16777215</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {

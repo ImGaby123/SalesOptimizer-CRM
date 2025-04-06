@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1201</width>
-    <height>748</height>
+    <width>1101</width>
+    <height>777</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -86,6 +86,60 @@ border: none;</string>
               </property>
              </widget>
             </item>
+            <item>
+             <spacer name="horizontalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="back_btn">
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>10</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+    text-align: center;
+	padding-left: 20px;
+    padding-right: 20px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);  /* Darker gray on hover */
+    color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+    background-color: rgb(180, 180, 180);  /* Darker gray on press */
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Back</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </item>
           <item>
@@ -120,7 +174,7 @@ border: none;</string>
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_6">
               <item>
-               <widget class="QLabel" name="compheader_lbl">
+               <widget class="QLabel" name="name_lbl_2">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -139,7 +193,7 @@ color: #fff;
 border: none</string>
                 </property>
                 <property name="text">
-                 <string>Company Name:</string>
+                 <string>Name:</string>
                 </property>
                </widget>
               </item>
@@ -202,7 +256,7 @@ border: none</string>
            </widget>
           </item>
           <item>
-           <widget class="QProgressBar" name="sales_bar">
+           <widget class="QProgressBar" name="lead_status_bar">
             <property name="styleSheet">
              <string notr="true">QProgressBar {
     background-color: #2e2e2e;
@@ -222,7 +276,7 @@ QProgressBar::chunk {
 </string>
             </property>
             <property name="value">
-             <number>81</number>
+             <number>5</number>
             </property>
             <property name="format">
              <string/>
@@ -233,6 +287,9 @@ QProgressBar::chunk {
            <layout class="QHBoxLayout" name="horizontalLayout_8">
             <item alignment="Qt::AlignmentFlag::AlignRight">
              <widget class="QRadioButton" name="lead_radio">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -264,13 +321,22 @@ QRadioButton::indicator {
               <property name="text">
                <string>Lead</string>
               </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
               <property name="checked">
+               <bool>false</bool>
+              </property>
+              <property name="autoExclusive">
                <bool>false</bool>
               </property>
              </widget>
             </item>
             <item alignment="Qt::AlignmentFlag::AlignRight">
              <widget class="QRadioButton" name="prospecting_radio">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -302,13 +368,22 @@ QRadioButton::indicator {
               <property name="text">
                <string>Prospecting</string>
               </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
               <property name="checked">
+               <bool>false</bool>
+              </property>
+              <property name="autoExclusive">
                <bool>false</bool>
               </property>
              </widget>
             </item>
             <item alignment="Qt::AlignmentFlag::AlignRight">
              <widget class="QRadioButton" name="qualifications_radio">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -340,13 +415,22 @@ QRadioButton::indicator {
               <property name="text">
                <string>Qualifications</string>
               </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
               <property name="checked">
+               <bool>false</bool>
+              </property>
+              <property name="autoExclusive">
                <bool>false</bool>
               </property>
              </widget>
             </item>
             <item alignment="Qt::AlignmentFlag::AlignRight">
              <widget class="QRadioButton" name="contacting_radio">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -378,13 +462,22 @@ QRadioButton::indicator {
               <property name="text">
                <string>Contacting</string>
               </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
               <property name="checked">
+               <bool>false</bool>
+              </property>
+              <property name="autoExclusive">
                <bool>false</bool>
               </property>
              </widget>
             </item>
             <item alignment="Qt::AlignmentFlag::AlignRight">
              <widget class="QRadioButton" name="negotiating_radio">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -416,13 +509,22 @@ QRadioButton::indicator {
               <property name="text">
                <string>Negotiating</string>
               </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
               <property name="checked">
+               <bool>false</bool>
+              </property>
+              <property name="autoExclusive">
                <bool>false</bool>
               </property>
              </widget>
             </item>
             <item alignment="Qt::AlignmentFlag::AlignRight">
              <widget class="QRadioButton" name="loss_radio">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -460,10 +562,16 @@ QRadioButton::indicator {
               <property name="checked">
                <bool>false</bool>
               </property>
+              <property name="autoExclusive">
+               <bool>false</bool>
+              </property>
              </widget>
             </item>
             <item>
              <widget class="QRadioButton" name="won_radio">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
@@ -498,6 +606,9 @@ QRadioButton::indicator {
               <property name="checked">
                <bool>false</bool>
               </property>
+              <property name="autoExclusive">
+               <bool>false</bool>
+              </property>
              </widget>
             </item>
            </layout>
@@ -524,7 +635,7 @@ QRadioButton::indicator {
                 <item>
                  <widget class="QFrame" name="frame_2">
                   <property name="styleSheet">
-                   <string notr="true">border: 1px solid rgb(226, 226, 226);
+                   <string notr="true">border: 2px solid rgb(226, 226, 226);
 border-radius: 15px;</string>
                   </property>
                   <property name="frameShape">
@@ -546,7 +657,7 @@ border-radius: 15px;</string>
                        </property>
                        <property name="font">
                         <font>
-                         <pointsize>10</pointsize>
+                         <pointsize>11</pointsize>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -562,6 +673,17 @@ border: none</string>
                      </item>
                      <item>
                       <widget class="QComboBox" name="lead_combo">
+                       <property name="font">
+                        <font>
+                         <family>Segoe UI</family>
+                         <pointsize>10</pointsize>
+                         <italic>false</italic>
+                         <bold>false</bold>
+                        </font>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">QComboBox {
     background-color: #262626;
@@ -592,7 +714,7 @@ QComboBox::down-arrow {
 </string>
                        </property>
                        <property name="placeholderText">
-                        <string>view all</string>
+                        <string>View All</string>
                        </property>
                        <item>
                         <property name="text">
@@ -611,7 +733,7 @@ QComboBox::down-arrow {
                        </item>
                        <item>
                         <property name="text">
-                         <string>New Year</string>
+                         <string>Last Year</string>
                         </property>
                        </item>
                       </widget>
@@ -619,7 +741,15 @@ QComboBox::down-arrow {
                     </layout>
                    </item>
                    <item>
-                    <widget class="Line" name="line">
+                    <widget class="Line" name="linelead">
+                     <property name="styleSheet">
+                      <string notr="true">
+    background-color: white;
+    max-height: 1px;
+    min-height: 1px;
+    border: none;
+</string>
+                     </property>
                      <property name="frameShadow">
                       <enum>QFrame::Shadow::Sunken</enum>
                      </property>
@@ -634,6 +764,11 @@ QComboBox::down-arrow {
                       <layout class="QVBoxLayout" name="verticalLayout_10">
                        <item>
                         <widget class="QLabel" name="totalleadmini_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -646,6 +781,11 @@ border: none</string>
                        </item>
                        <item>
                         <widget class="QLabel" name="leadmini2_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -658,6 +798,11 @@ border: none</string>
                        </item>
                        <item>
                         <widget class="QLabel" name="leadmini1_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -678,6 +823,11 @@ border: none</string>
                           <layout class="QVBoxLayout" name="verticalLayout_11">
                            <item>
                             <widget class="QLabel" name="equal_lbl">
+                             <property name="font">
+                              <font>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
                              <property name="styleSheet">
                               <string notr="true">background: transparent;
 color: #fff;
@@ -700,6 +850,11 @@ border: none</string>
                                    <verstretch>0</verstretch>
                                   </sizepolicy>
                                  </property>
+                                 <property name="font">
+                                  <font>
+                                   <pointsize>11</pointsize>
+                                  </font>
+                                 </property>
                                  <property name="styleSheet">
                                   <string notr="true">background: transparent;
 color: #A3E635;
@@ -712,6 +867,11 @@ border: none</string>
                                </item>
                                <item>
                                 <widget class="QLabel" name="red50_lbl">
+                                 <property name="font">
+                                  <font>
+                                   <pointsize>11</pointsize>
+                                  </font>
+                                 </property>
                                  <property name="styleSheet">
                                   <string notr="true">background: transparent;
 color: #FCA5A5;
@@ -768,37 +928,52 @@ border: none</string>
                           <layout class="QVBoxLayout" name="verticalLayout_12">
                            <item>
                             <widget class="QLabel" name="total_leads_qty_lbl">
+                             <property name="font">
+                              <font>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
                              <property name="styleSheet">
                               <string notr="true">background: transparent;
 color: #fff;
 border: none</string>
                              </property>
                              <property name="text">
-                              <string>100</string>
+                              <string>0</string>
                              </property>
                             </widget>
                            </item>
                            <item>
                             <widget class="QLabel" name="leads_50_up_lbl">
+                             <property name="font">
+                              <font>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
                              <property name="styleSheet">
                               <string notr="true">background: transparent;
 color: #fff;
 border: none</string>
                              </property>
                              <property name="text">
-                              <string>100</string>
+                              <string>0</string>
                              </property>
                             </widget>
                            </item>
                            <item>
                             <widget class="QLabel" name="leads_50_down_lbl">
+                             <property name="font">
+                              <font>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
                              <property name="styleSheet">
                               <string notr="true">background: transparent;
 color: #fff;
 border: none</string>
                              </property>
                              <property name="text">
-                              <string>100</string>
+                              <string>0</string>
                              </property>
                             </widget>
                            </item>
@@ -821,10 +996,11 @@ border: none</string>
     alternate-background-color: rgb(235, 235, 235);
     gridline-color: rgb(200, 200, 200);
     color: black;
-    font: 10pt &quot;Segoe UI&quot;;
+    font: 11pt &quot;Segoe UI&quot;;
     selection-background-color: rgb(100, 149, 237);  /* Light blue selection */
     selection-color: white;
     border: 1px solid rgb(200, 200, 200);
+	text-align: center;
 }
 
 QTableWidget::item {
@@ -834,9 +1010,7 @@ QTableWidget::item {
 QHeaderView::section {
     background-color: rgb(240, 240, 240);
     color: black;
-    padding: 6px;
-    border: 1px solid rgb(200, 200, 200);
-    font-weight: bold;
+ 	font: 11pt &quot;Segoe UI&quot;;
 }
 
 QTableCornerButton::section {
@@ -845,11 +1019,12 @@ QTableCornerButton::section {
 }
 </string>
                   </property>
-                  <column>
-                   <property name="text">
-                    <string>Lead List</string>
-                   </property>
-                  </column>
+                  <property name="selectionMode">
+                   <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
+                  </property>
+                  <property name="selectionBehavior">
+                   <enum>QAbstractItemView::SelectionBehavior::SelectItems</enum>
+                  </property>
                  </widget>
                 </item>
                </layout>
@@ -885,8 +1060,8 @@ border-radius: 20px;</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>406</width>
-                   <height>332</height>
+                   <width>458</width>
+                   <height>354</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_21">
@@ -918,27 +1093,43 @@ border: none</string>
                           <property name="text">
                            <string>Campaign Timeline</string>
                           </property>
+                          <property name="alignment">
+                           <set>Qt::AlignmentFlag::AlignCenter</set>
+                          </property>
                          </widget>
                         </item>
-                       </layout>
-                      </item>
-                      <item>
-                       <widget class="QPushButton" name="promote_to_prospect_btn">
-                        <property name="font">
-                         <font>
-                          <family>Segoe UI</family>
-                          <pointsize>-1</pointsize>
-                          <italic>false</italic>
-                          <bold>true</bold>
-                         </font>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true">QPushButton {
+                        <item>
+                         <spacer name="horizontalSpacer_7">
+                          <property name="orientation">
+                           <enum>Qt::Orientation::Horizontal</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>40</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="promote_to_prospect_btn">
+                          <property name="font">
+                           <font>
+                            <family>Segoe UI</family>
+                            <pointsize>-1</pointsize>
+                            <italic>false</italic>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QPushButton {
     background-color: #1E1E1E; /* Darker background for the button */
     border: 1px solid #16D4FF; /* Blue border */
     color: #16D4FF; /* Blue text */
     border-radius: 10px; /* Rounded corners */
-    padding: 8px 16px; /* Padding to give some space */
     text-align: center; /* Center the text */
     font-size: 14px; /* Adjust font size */
     font-weight: bold; /* Bold text */
@@ -956,24 +1147,26 @@ QPushButton:pressed {
     border-color: #1E90FF; /* Keep the blue border color when pressed */
 }
 </string>
-                        </property>
-                        <property name="text">
-                         <string>Promote to Prospect</string>
-                        </property>
-                        <property name="icon">
-                         <iconset resource="../qrc/icons.qrc">
-                          <normaloff>:/Resources/arrow_blue.png</normaloff>:/Resources/arrow_blue.png</iconset>
-                        </property>
-                        <property name="iconSize">
-                         <size>
-                          <width>30</width>
-                          <height>30</height>
-                         </size>
-                        </property>
-                        <property name="flat">
-                         <bool>true</bool>
-                        </property>
-                       </widget>
+                          </property>
+                          <property name="text">
+                           <string>Promote to Prospect</string>
+                          </property>
+                          <property name="icon">
+                           <iconset resource="../qrc/icons.qrc">
+                            <normaloff>:/Resources/arrow_blue.png</normaloff>:/Resources/arrow_blue.png</iconset>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>30</width>
+                            <height>30</height>
+                           </size>
+                          </property>
+                          <property name="flat">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </item>
                      </layout>
                     </item>
@@ -981,6 +1174,14 @@ QPushButton:pressed {
                   </item>
                   <item>
                    <widget class="Line" name="line_4">
+                    <property name="styleSheet">
+                     <string notr="true">
+    background-color: white;
+    max-height: 1px;
+    min-height: 1px;
+    border: none;
+</string>
+                    </property>
                     <property name="frameShadow">
                      <enum>QFrame::Shadow::Sunken</enum>
                     </property>
@@ -990,7 +1191,7 @@ QPushButton:pressed {
                    </widget>
                   </item>
                   <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_14">
+                   <layout class="QHBoxLayout" name="horizontalLayout_6">
                     <item>
                      <widget class="QFrame" name="timeline_frame">
                       <property name="styleSheet">
@@ -1005,6 +1206,11 @@ QPushButton:pressed {
                       <layout class="QHBoxLayout" name="horizontalLayout_15">
                        <item>
                         <widget class="QLabel" name="timeline_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>10</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1055,11 +1261,241 @@ border: none</string>
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_22">
               <item>
+               <layout class="QVBoxLayout" name="verticalLayout_8">
+                <item>
+                 <widget class="QFrame" name="frame_3">
+                  <property name="styleSheet">
+                   <string notr="true">border: 2px solid rgb(226, 226, 226);
+border-radius: 15px;</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_9">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_10">
+                     <item>
+                      <widget class="QLabel" name="leadinfohead_lbl">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>11</pointsize>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background: transparent;
+color: #fff;
+border: none</string>
+                       </property>
+                       <property name="text">
+                        <string>Lead Information</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignmentFlag::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <widget class="Line" name="line_2">
+                     <property name="styleSheet">
+                      <string notr="true">
+    background-color: white;
+    max-height: 1px;
+    min-height: 1px;
+    border: none;
+</string>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Shadow::Sunken</enum>
+                     </property>
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_14">
+                       <item>
+                        <widget class="QLabel" name="leadsource_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background: transparent;
+color: #fff;
+border: none</string>
+                         </property>
+                         <property name="text">
+                          <string>Lead Source:</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="leadscore_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background: transparent;
+color: #fff;
+border: none</string>
+                         </property>
+                         <property name="text">
+                          <string>Lead Score:</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="engagement_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background: transparent;
+color: #fff;
+border: none</string>
+                         </property>
+                         <property name="text">
+                          <string>Engagement Score:</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="leadquality_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background: transparent;
+color: #fff;
+border: none</string>
+                         </property>
+                         <property name="text">
+                          <string>Lead Quality:</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_15">
+                       <item>
+                        <widget class="QLabel" name="lead_source_value_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background: transparent;
+color: #fff;
+border: none</string>
+                         </property>
+                         <property name="text">
+                          <string>N/A</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="score_value_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background: transparent;
+color: #fff;
+border: none</string>
+                         </property>
+                         <property name="text">
+                          <string>0</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="engagement_value_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background: transparent;
+color: #fff;
+border: none</string>
+                         </property>
+                         <property name="text">
+                          <string>0</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="quality_value_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background: transparent;
+color: #fff;
+border: none</string>
+                         </property>
+                         <property name="text">
+                          <string>0</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <spacer name="verticalSpacer_6">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
                <layout class="QVBoxLayout" name="verticalLayout_16">
                 <item>
                  <widget class="QFrame" name="frame_4">
                   <property name="styleSheet">
-                   <string notr="true">border: 1px solid rgb(226, 226, 226);
+                   <string notr="true">border: 2px solid rgb(226, 226, 226);
 border-radius: 15px;</string>
                   </property>
                   <property name="frameShape">
@@ -1081,7 +1517,7 @@ border-radius: 15px;</string>
                        </property>
                        <property name="font">
                         <font>
-                         <pointsize>10</pointsize>
+                         <pointsize>11</pointsize>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1102,6 +1538,14 @@ border: none</string>
                    </item>
                    <item>
                     <widget class="Line" name="line_3">
+                     <property name="styleSheet">
+                      <string notr="true">
+    background-color: white;
+    max-height: 1px;
+    min-height: 1px;
+    border: none;
+</string>
+                     </property>
                      <property name="frameShadow">
                       <enum>QFrame::Shadow::Sunken</enum>
                      </property>
@@ -1116,6 +1560,11 @@ border: none</string>
                       <layout class="QVBoxLayout" name="verticalLayout_18">
                        <item>
                         <widget class="QLabel" name="accname_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1128,6 +1577,11 @@ border: none</string>
                        </item>
                        <item>
                         <widget class="QLabel" name="compname_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1140,6 +1594,11 @@ border: none</string>
                        </item>
                        <item>
                         <widget class="QLabel" name="comprole_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1152,6 +1611,11 @@ border: none</string>
                        </item>
                        <item>
                         <widget class="QLabel" name="emailadd_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
@@ -1180,61 +1644,86 @@ border: none</string>
                       <layout class="QVBoxLayout" name="verticalLayout_19">
                        <item>
                         <widget class="QLabel" name="name_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
 border: none</string>
                          </property>
                          <property name="text">
-                          <string>Ken Antonico</string>
+                          <string>N/A</string>
                          </property>
                         </widget>
                        </item>
                        <item>
                         <widget class="QLabel" name="company_lbl_2">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
 border: none</string>
                          </property>
                          <property name="text">
-                          <string>Hudson Homenick</string>
+                          <string>N/A</string>
                          </property>
                         </widget>
                        </item>
                        <item>
                         <widget class="QLabel" name="job_title_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
 border: none</string>
                          </property>
                          <property name="text">
-                          <string>Programmer</string>
+                          <string>N/A</string>
                          </property>
                         </widget>
                        </item>
                        <item>
                         <widget class="QLabel" name="email_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
 border: none</string>
                          </property>
                          <property name="text">
-                          <string>antonico@gmail.com</string>
+                          <string>N/A</string>
                          </property>
                         </widget>
                        </item>
                        <item>
                         <widget class="QLabel" name="number_lbl">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background: transparent;
 color: #fff;
 border: none</string>
                          </property>
                          <property name="text">
-                          <string>09876543211</string>
+                          <string>N/A</string>
                          </property>
                         </widget>
                        </item>
@@ -1242,148 +1731,27 @@ border: none</string>
                      </item>
                     </layout>
                    </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_8">
-                <item>
-                 <widget class="QFrame" name="frame_3">
-                  <property name="styleSheet">
-                   <string notr="true">border: 1px solid rgb(226, 226, 226);
-border-radius: 15px;</string>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::Shape::StyledPanel</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Shadow::Raised</enum>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_9">
                    <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_10">
+                    <layout class="QHBoxLayout" name="horizontalLayout">
                      <item>
-                      <widget class="QLabel" name="leadinfohead_lbl">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
+                      <widget class="QLabel" name="full_info_lbl">
                        <property name="font">
                         <font>
-                         <pointsize>10</pointsize>
-                         <bold>true</bold>
+                         <pointsize>11</pointsize>
                         </font>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background: transparent;
-color: #fff;
+color: #16D4FF;
 border: none</string>
                        </property>
                        <property name="text">
-                        <string>Lead Information</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignmentFlag::AlignCenter</set>
+                        <string>View Full Contact Info</string>
                        </property>
                       </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <widget class="Line" name="line_2">
-                     <property name="frameShadow">
-                      <enum>QFrame::Shadow::Sunken</enum>
-                     </property>
-                     <property name="orientation">
-                      <enum>Qt::Orientation::Horizontal</enum>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_4">
-                     <item>
-                      <layout class="QVBoxLayout" name="verticalLayout_14">
-                       <item>
-                        <widget class="QLabel" name="leadscore_lbl">
-                         <property name="styleSheet">
-                          <string notr="true">background: transparent;
-color: #fff;
-border: none</string>
-                         </property>
-                         <property name="text">
-                          <string>Lead Score:</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="engagement_lbl">
-                         <property name="styleSheet">
-                          <string notr="true">background: transparent;
-color: #fff;
-border: none</string>
-                         </property>
-                         <property name="text">
-                          <string>Engagement Score:</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="leadquality_lbl">
-                         <property name="styleSheet">
-                          <string notr="true">background: transparent;
-color: #fff;
-border: none</string>
-                         </property>
-                         <property name="text">
-                          <string>Lead Quality:</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </item>
-                     <item>
-                      <layout class="QVBoxLayout" name="verticalLayout_15">
-                       <item>
-                        <widget class="QLabel" name="score_value_lbl">
-                         <property name="styleSheet">
-                          <string notr="true">background: transparent;
-color: #fff;
-border: none</string>
-                         </property>
-                         <property name="text">
-                          <string>56</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="engagement_value_lbl">
-                         <property name="styleSheet">
-                          <string notr="true">background: transparent;
-color: #fff;
-border: none</string>
-                         </property>
-                         <property name="text">
-                          <string>1</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="quality_lbl">
-                         <property name="styleSheet">
-                          <string notr="true">background: transparent;
-color: #fff;
-border: none</string>
-                         </property>
-                         <property name="text">
-                          <string>1/10</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
                      </item>
                     </layout>
                    </item>
@@ -1395,6 +1763,19 @@ border: none</string>
              </layout>
             </item>
            </layout>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </widget>

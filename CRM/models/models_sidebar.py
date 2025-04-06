@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QWidget, QSizePolicy, QPushButton
+from PySide6.QtWidgets import QWidget, QSizePolicy
 from PySide6.QtCore import Signal
 from views.py.ui_sidebar import Ui_sidebar
 
@@ -28,7 +28,7 @@ class SidebarForm(QWidget):
             button.setStyleSheet(self.get_default_style())  # Set default style
             button.clicked.connect(lambda checked, name=name: self.set_active_button(name))
 
-        self.set_active_button("Contacts")  # Set "Contacts" as active by default
+        self.set_active_button("Leads")  # Set "Leads" as active by default
 
     def get_default_style(self):
         """ Default (inactive) button style: black background, no border, white text """

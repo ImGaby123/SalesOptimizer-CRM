@@ -50,7 +50,7 @@ background-color: rgb(255, 255, 255);
         <x>0</x>
         <y>0</y>
         <width>1094</width>
-        <height>1186</height>
+        <height>1187</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -1749,19 +1749,34 @@ font: 900 12pt &quot;Segoe UI&quot;;
               <property name="font">
                <font>
                 <family>Segoe UI</family>
-                <pointsize>15</pointsize>
+                <pointsize>10</pointsize>
                 <italic>false</italic>
-                <fontweight>Black</fontweight>
+                <bold>false</bold>
                </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton {
-    border: none;          /* Removes the button border */
-    background: transparent; /* Makes it blend with the background */
-    color: white;          /* Matches QLabel text color */
-    text-align: left;      /* Aligns text like a QLabel (optional) */
-    padding: 0px;          /* Removes extra spacing */
-font: 900 15pt &quot;Segoe UI&quot;;
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+    text-align: center;
+	padding-left: 20px;
+    padding-right: 20px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);  /* Darker gray on hover */
+    color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+    background-color: rgb(180, 180, 180);  /* Darker gray on press */
 }
 </string>
               </property>
@@ -1802,9 +1817,9 @@ font: 900 15pt &quot;Segoe UI&quot;;
               <property name="font">
                <font>
                 <family>Segoe UI</family>
-                <pointsize>15</pointsize>
+                <pointsize>10</pointsize>
                 <italic>false</italic>
-                <fontweight>Black</fontweight>
+                <bold>false</bold>
                </font>
               </property>
               <property name="cursor">
@@ -1812,12 +1827,24 @@ font: 900 15pt &quot;Segoe UI&quot;;
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton {
-    border: none;          /* Removes the button border */
-    background: transparent; /* Makes it blend with the background */
-    color: white;          /* Matches QLabel text color */
-    text-align: left;      /* Aligns text like a QLabel (optional) */
-    padding: 0px;          /* Removes extra spacing */
-font: 900 15pt &quot;Segoe UI&quot;;
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+    text-align: center;
+	padding-left: 20px;
+    padding-right: 20px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);  /* Darker gray on hover */
+    color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+    background-color: rgb(180, 180, 180);  /* Darker gray on press */
 }
 </string>
               </property>

@@ -64,6 +64,9 @@ color: White</string>
      </item>
      <item>
       <widget class="QComboBox" name="theme_combo">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">QComboBox {
     background-color: #262626;

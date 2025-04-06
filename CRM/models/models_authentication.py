@@ -12,7 +12,6 @@ from .models_sidebar import SidebarForm
 from .models_contacts_landing import ContactsLanding
 from .models_leads_landing import LeadsLanding
 from .models_settings import Settings
-from .models_leads_profile import LeadsProfile
 
 # Setup database connection path (persistent connection in this example)
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -159,15 +158,15 @@ class MainWindow(QMainWindow):
         self.left_subwin.setStyleSheet("QMdiSubWindow { background-color: black; }")
         self.right_subwin.setStyleSheet("QMdiSubWindow { background-color: black; }")
 
-        # Load "Contacts" by default when sidebar is loaded
-        self.load_form("Contacts")  # Ensure this is called after sidebar setup
+        # Load "Leads" by default when sidebar is loaded
+        self.load_form("Leads")  # Ensure this is called after sidebar setup
 
     def load_form(self, form_name):
         form_map = {
             "Dashboard": None,
             "Contacts": ContactsLanding,
             "Leads": LeadsLanding,
-            "Account": LeadsProfile,
+            "Account": None,
             "Settings": Settings,
             "Logout": None
         }

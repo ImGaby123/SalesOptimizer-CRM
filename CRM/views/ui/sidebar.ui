@@ -62,6 +62,9 @@
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="layoutDirection">
        <enum>Qt::LayoutDirection::LeftToRight</enum>
       </property>
@@ -114,6 +117,9 @@ QPushButton:disabled {
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
     background-color: rgb(30, 30, 30);  /* Dark grey background */
@@ -162,6 +168,9 @@ QPushButton:disabled {
        <font>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -212,6 +221,9 @@ QPushButton:disabled {
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
     background-color: rgb(30, 30, 30);  /* Dark grey background */
@@ -260,6 +272,9 @@ QPushButton:disabled {
        <font>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -337,6 +352,9 @@ QPushButton:disabled {
        <font>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
