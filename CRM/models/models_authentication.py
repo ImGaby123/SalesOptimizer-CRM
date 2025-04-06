@@ -12,9 +12,7 @@ from .models_sidebar import SidebarForm
 from .models_contacts_landing import ContactsLanding
 from .models_leads_landing import LeadsLanding
 from .models_settings import Settings
-from views.py.ui_leads_profile import Ui_leads_profile
-from views.py.ui_contacts1 import Ui_contacts1
-from views.py.ui_contacts4 import Ui_contacts4
+from .models_leads_profile import LeadsProfile
 
 # Setup database connection path (persistent connection in this example)
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -169,7 +167,7 @@ class MainWindow(QMainWindow):
             "Dashboard": None,
             "Contacts": ContactsLanding,
             "Leads": LeadsLanding,
-            "Account": Ui_leads_profile,
+            "Account": LeadsProfile,
             "Settings": Settings,
             "Logout": None
         }
