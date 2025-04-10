@@ -20,7 +20,10 @@
    <string>Add Contact</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">background-color: transparent;
+background-color: rgb(255, 255, 255);
+
+</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_11">
    <item row="0" column="0">
@@ -32,7 +35,8 @@
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: transparent;
+</string>
      </property>
      <property name="widgetResizable">
       <bool>true</bool>
@@ -46,7 +50,7 @@
         <x>0</x>
         <y>0</y>
         <width>1094</width>
-        <height>1042</height>
+        <height>1187</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -90,8 +94,8 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">
-background-color: rgb(255, 255, 255);</string>
+          <string notr="true">background-color: transparent;
+</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::Shape::StyledPanel</enum>
@@ -140,6 +144,16 @@ background-color: rgb(255, 255, 255);</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
                </widget>
               </item>
               <item row="10" column="0">
@@ -151,7 +165,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>Job Title (Optional):</string>
@@ -177,6 +191,16 @@ background-color: rgb(255, 255, 255);</string>
                   <width>16777215</width>
                   <height>16777215</height>
                  </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
                 </property>
                </widget>
               </item>
@@ -207,7 +231,7 @@ background-color: rgb(255, 255, 255);</string>
                    </sizepolicy>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(98, 98, 98);</string>
+                   <string notr="true">color: #FAFAFA;</string>
                   </property>
                   <property name="text">
                    <string>Company :</string>
@@ -236,6 +260,16 @@ background-color: rgb(255, 255, 255);</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string>QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
                </widget>
               </item>
               <item row="1" column="0">
@@ -258,6 +292,16 @@ background-color: rgb(255, 255, 255);</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
                </widget>
               </item>
               <item row="8" column="0">
@@ -269,7 +313,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>Industry (Optional):</string>
@@ -285,7 +329,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>Company Website (Optional):</string>
@@ -311,6 +355,16 @@ background-color: rgb(255, 255, 255);</string>
                   <width>16777215</width>
                   <height>16777215</height>
                  </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
                 </property>
                </widget>
               </item>
@@ -357,7 +411,7 @@ background-color: rgb(255, 255, 255);</string>
                    </sizepolicy>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(98, 98, 98);</string>
+                   <string notr="true">color: #FAFAFA;</string>
                   </property>
                   <property name="text">
                    <string>Company Email :</string>
@@ -390,6 +444,16 @@ background-color: rgb(255, 255, 255);</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
                </widget>
               </item>
               <item row="8" column="1">
@@ -412,6 +476,16 @@ background-color: rgb(255, 255, 255);</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
                </widget>
               </item>
               <item row="9" column="1">
@@ -423,7 +497,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>Gender (Optional):</string>
@@ -450,6 +524,16 @@ background-color: rgb(255, 255, 255);</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
                </widget>
               </item>
               <item row="10" column="1">
@@ -461,7 +545,24 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true"/>
+                 <string notr="true">QComboBox {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #262626;
+    color: white;
+    border-radius: 10px;
+}</string>
                 </property>
                 <property name="currentIndex">
                  <number>-1</number>
@@ -529,7 +630,7 @@ background-color: rgb(255, 255, 255);</string>
                    </sizepolicy>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(98, 98, 98);</string>
+                   <string notr="true">color: #FAFAFA;</string>
                   </property>
                   <property name="text">
                    <string>First Name :</string>
@@ -557,6 +658,16 @@ background-color: rgb(255, 255, 255);</string>
                   <width>16777215</width>
                   <height>16777215</height>
                  </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
                 </property>
                </widget>
               </item>
@@ -587,7 +698,7 @@ background-color: rgb(255, 255, 255);</string>
                    </sizepolicy>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(98, 98, 98);</string>
+                   <string notr="true">color: #FAFAFA;</string>
                   </property>
                   <property name="text">
                    <string>Last Name :</string>
@@ -623,7 +734,7 @@ background-color: rgb(255, 255, 255);</string>
                    </sizepolicy>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(98, 98, 98);</string>
+                   <string notr="true">color: #FAFAFA;</string>
                   </property>
                   <property name="text">
                    <string>Email :</string>
@@ -659,7 +770,7 @@ background-color: rgb(255, 255, 255);</string>
                    </sizepolicy>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(98, 98, 98);</string>
+                   <string notr="true">color: #FAFAFA;</string>
                   </property>
                   <property name="text">
                    <string>Phone Number :</string>
@@ -689,7 +800,14 @@ background-color: rgb(255, 255, 255);</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(235, 235, 235);</string>
+               <string notr="true">QWidget {
+    background-color: #171717;
+    border-top: 2px solid #ffffff;   /* Change color/width as needed */
+    border-bottom: 2px solid #ffffff;
+    border-left: none;
+    border-right: none;
+}
+</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_4">
                <item row="0" column="0">
@@ -702,12 +820,18 @@ background-color: rgb(255, 255, 255);</string>
                  </property>
                  <property name="font">
                   <font>
-                   <pointsize>10</pointsize>
-                   <bold>true</bold>
+                   <family>Segoe UI</family>
+                   <pointsize>12</pointsize>
+                   <italic>false</italic>
+                   <fontweight>Black</fontweight>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">QLabel {
+    border: none;
+    color: white;
+font: 900 12pt &quot;Segoe UI&quot;;
+}</string>
                  </property>
                  <property name="text">
                   <string>Company Address </string>
@@ -724,7 +848,18 @@ background-color: rgb(255, 255, 255);</string>
             <item row="0" column="2">
              <layout class="QGridLayout" name="gridLayout_27">
               <item row="5" column="0">
-               <widget class="QLineEdit" name="company_street_line"/>
+               <widget class="QLineEdit" name="company_street_line">
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
+               </widget>
               </item>
               <item row="4" column="1">
                <spacer name="horizontalSpacer_17">
@@ -751,7 +886,24 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true"/>
+                 <string notr="true">QComboBox {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #262626;
+    color: white;
+    border-radius: 10px;
+}</string>
                 </property>
                 <property name="currentIndex">
                  <number>-1</number>
@@ -785,7 +937,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>Zip/Postal Code (Optional):</string>
@@ -801,7 +953,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>Street (Optional):</string>
@@ -828,6 +980,16 @@ background-color: rgb(255, 255, 255);</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
                </widget>
               </item>
               <item row="9" column="0">
@@ -839,7 +1001,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>Address Type (Optional):</string>
@@ -891,7 +1053,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>Country (Optional) :</string>
@@ -918,6 +1080,16 @@ background-color: rgb(255, 255, 255);</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
                </widget>
               </item>
               <item row="3" column="1">
@@ -940,6 +1112,16 @@ background-color: rgb(255, 255, 255);</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
                </widget>
               </item>
               <item row="2" column="1">
@@ -951,7 +1133,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>State/Province (Optional):</string>
@@ -967,7 +1149,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>City (Optional):</string>
@@ -981,6 +1163,16 @@ background-color: rgb(255, 255, 255);</string>
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
                 </property>
                </widget>
               </item>
@@ -1008,8 +1200,13 @@ background-color: rgb(255, 255, 255);</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(235, 235, 235);
-
+               <string notr="true">QWidget {
+    background-color: #171717;
+    border-top: 2px solid #ffffff;   /* Change color/width as needed */
+    border-bottom: 2px solid #ffffff;
+    border-left: none;
+    border-right: none;
+}
 </string>
               </property>
               <layout class="QGridLayout" name="gridLayout_5">
@@ -1023,12 +1220,18 @@ background-color: rgb(255, 255, 255);</string>
                  </property>
                  <property name="font">
                   <font>
-                   <pointsize>10</pointsize>
-                   <bold>true</bold>
+                   <family>Segoe UI</family>
+                   <pointsize>12</pointsize>
+                   <italic>false</italic>
+                   <fontweight>Black</fontweight>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">QLabel {
+    border: none;
+    color: white;
+font: 900 12pt &quot;Segoe UI&quot;;
+}</string>
                  </property>
                  <property name="text">
                   <string>Contact Information</string>
@@ -1055,7 +1258,7 @@ background-color: rgb(255, 255, 255);</string>
                    </sizepolicy>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(98, 98, 98);</string>
+                   <string notr="true">color: #FAFAFA;</string>
                   </property>
                   <property name="text">
                    <string>Lead Source (Optional):</string>
@@ -1083,6 +1286,16 @@ background-color: rgb(255, 255, 255);</string>
                   <width>16777215</width>
                   <height>16777215</height>
                  </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
                 </property>
                </widget>
               </item>
@@ -1175,7 +1388,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(255, 255, 255);</string>
+                 <string notr="true">color: rgb(0, 0, 0);</string>
                 </property>
                 <property name="text">
                  <string>Street (Optional):</string>
@@ -1191,7 +1404,18 @@ background-color: rgb(255, 255, 255);</string>
             <item row="0" column="2">
              <layout class="QGridLayout" name="gridLayout_23">
               <item row="5" column="0">
-               <widget class="QLineEdit" name="street_line"/>
+               <widget class="QLineEdit" name="street_line">
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
+               </widget>
               </item>
               <item row="4" column="0">
                <widget class="QLabel" name="StreetLabel_4">
@@ -1202,7 +1426,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>Street (Optional):</string>
@@ -1245,6 +1469,16 @@ background-color: rgb(255, 255, 255);</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
                </widget>
               </item>
               <item row="7" column="0">
@@ -1256,7 +1490,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>Zip/Postal Code (Optional):</string>
@@ -1299,7 +1533,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>Country (Optional) :</string>
@@ -1326,6 +1560,16 @@ background-color: rgb(255, 255, 255);</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
                </widget>
               </item>
               <item row="3" column="1">
@@ -1348,6 +1592,16 @@ background-color: rgb(255, 255, 255);</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
                </widget>
               </item>
               <item row="2" column="1">
@@ -1359,7 +1613,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>State/Province (Optional):</string>
@@ -1375,7 +1629,7 @@ background-color: rgb(255, 255, 255);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(98, 98, 98);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
                  <string>City (Optional):</string>
@@ -1389,6 +1643,16 @@ background-color: rgb(255, 255, 255);</string>
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
                 </property>
                </widget>
               </item>
@@ -1429,7 +1693,14 @@ background-color: rgb(255, 255, 255);</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(235, 235, 235);</string>
+               <string notr="true">QWidget {
+    background-color: #171717;
+    border-top: 2px solid #ffffff;   /* Change color/width as needed */
+    border-bottom: 2px solid #ffffff;
+    border-left: none;
+    border-right: none;
+}
+</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_17">
                <item row="0" column="0">
@@ -1442,12 +1713,18 @@ background-color: rgb(255, 255, 255);</string>
                  </property>
                  <property name="font">
                   <font>
-                   <pointsize>10</pointsize>
-                   <bold>true</bold>
+                   <family>Segoe UI</family>
+                   <pointsize>12</pointsize>
+                   <italic>false</italic>
+                   <fontweight>Black</fontweight>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">QLabel {
+    border: none;
+    color: white;
+font: 900 12pt &quot;Segoe UI&quot;;
+}</string>
                  </property>
                  <property name="text">
                   <string>Contact Address </string>
@@ -1471,18 +1748,37 @@ background-color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
-                <pointsize>12</pointsize>
-                <bold>true</bold>
+                <family>Segoe UI</family>
+                <pointsize>10</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton {
-    border: none;          /* Removes the button border */
-    background: transparent; /* Makes it blend with the background */
-    color: black;          /* Matches QLabel text color */
-    text-align: left;      /* Aligns text like a QLabel (optional) */
-    padding: 0px;          /* Removes extra spacing */
-}</string>
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+    text-align: center;
+	padding-left: 20px;
+    padding-right: 20px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);  /* Darker gray on hover */
+    color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+    background-color: rgb(180, 180, 180);  /* Darker gray on press */
+}
+</string>
               </property>
               <property name="text">
                <string>&lt; Back to Contacts</string>
@@ -1520,7 +1816,8 @@ background-color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
-                <pointsize>9</pointsize>
+                <family>Segoe UI</family>
+                <pointsize>10</pointsize>
                 <italic>false</italic>
                 <bold>false</bold>
                </font>
@@ -1530,6 +1827,24 @@ background-color: rgb(255, 255, 255);</string>
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+    text-align: center;
+	padding-left: 20px;
+    padding-right: 20px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);  /* Darker gray on hover */
+    color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+    background-color: rgb(180, 180, 180);  /* Darker gray on press */
 }
 </string>
               </property>
@@ -1560,7 +1875,14 @@ background-color: rgb(255, 255, 255);</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(235, 235, 235);
+               <string notr="true">QWidget {
+    background-color: #171717;
+    border-top: 2px solid #ffffff;   /* Change color/width as needed */
+    border-bottom: 2px solid #ffffff;
+    border-left: none;
+    border-right: none;
+}
+background-color: rgb(235, 235, 235);
 
 </string>
               </property>
@@ -1575,12 +1897,18 @@ background-color: rgb(255, 255, 255);</string>
                  </property>
                  <property name="font">
                   <font>
-                   <pointsize>10</pointsize>
-                   <bold>true</bold>
+                   <family>Segoe UI</family>
+                   <pointsize>12</pointsize>
+                   <italic>false</italic>
+                   <fontweight>Black</fontweight>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">QLabel {
+    border: none;
+    color: white;
+font: 900 12pt &quot;Segoe UI&quot;;
+}</string>
                  </property>
                  <property name="text">
                   <string>Lead Information</string>

@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QApplication, QComboBox, QFram
     QProgressBar, QPushButton, QRadioButton, QScrollArea,
     QSizePolicy, QSpacerItem, QTableWidget, QTableWidgetItem,
     QVBoxLayout, QWidget)
-import views.py.icons_rc
+import rc_icons
 
 class Ui_leads_profile(object):
     def setupUi(self, leads_profile):

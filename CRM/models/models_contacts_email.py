@@ -32,8 +32,8 @@ class ContactsEmail(QDialog):
 
         main_rect = self.parent().geometry()
         self.move(
-            main_rect.x() + main_rect.width() - self.width() - 12,
-            main_rect.y() + main_rect.height() - self.height() - 65,
+            main_rect.x() + main_rect.width() - self.width() - 40,
+            main_rect.y() + main_rect.height() - self.height() - 95,
         )
 
     def send_email(self):

@@ -47,6 +47,12 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: transparent;
 color: White</string>
@@ -58,9 +64,37 @@ color: White</string>
      </item>
      <item>
       <widget class="QComboBox" name="theme_combo">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
-        <string notr="true">background-color: transparent;
-color: White</string>
+        <string notr="true">QComboBox {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #262626;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Down Arrow (Icon) */
+QComboBox::down-arrow {
+    image: url(:/Resources/dropdown_white.svg);
+    width: 30px;
+    height: 30px;
+    margin-right: 15px; /* Space from the left */
+}
+</string>
        </property>
        <property name="placeholderText">
         <string/>
@@ -68,11 +102,6 @@ color: White</string>
        <item>
         <property name="text">
          <string>Dark</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Light</string>
         </property>
        </item>
       </widget>

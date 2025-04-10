@@ -1,11 +1,10 @@
 from PySide6.QtWidgets import (
     QWidget, QTableWidgetItem, QHBoxLayout, QPushButton, QLabel, QSizePolicy,
-    QCheckBox, QHeaderView, QLineEdit, QMessageBox, QApplication, QMenu
+    QCheckBox, QHeaderView, QLineEdit, QMessageBox, QMenu
 )
 from PySide6.QtCore import Qt, QEvent
 from PySide6.QtGui import QIcon, QAction
 from models.models_contacts_view import ContactsView
-from models.models_contacts_update import ContactsUpdate
 from views.py.ui_leads_landing import Ui_leads_landing
 from datas.db_connection import DB_Connection
 
@@ -40,7 +39,7 @@ class LeadsLanding(QWidget):
         self.ui.leads_tbl.horizontalHeader().setStyleSheet("font-weight: 800;")
 
         # ✅ Search Icon
-        search_icon = QIcon(":/Resources/search.svg")
+        search_icon = QIcon(":/Resources/search_white.svg")
         self.ui.search_line.addAction(search_icon, QLineEdit.LeadingPosition)
 
     def sort_leads(self):
@@ -310,9 +309,9 @@ class LeadsLanding(QWidget):
         """Displays a menu with 'View', 'Edit', and 'Add to Leads' options for a lead."""
         menu = QMenu(self)
 
-        # ✅ More Details Action
-        # more_details_action = QAction("More Details", self)
-        # more_details_action.triggered.connect(lambda: self.add_to_leads(row))
+        # ✅ Lead Profile Action
+        lead_profile_action = QAction("Lead Profile", self)
+        lead_profile_action.triggered.connect(lambda: self.view_lead_profile(row))
 
         # ✅ View Lead Action
         view_action = QAction("View Lead Details", self)
@@ -329,6 +328,7 @@ class LeadsLanding(QWidget):
             QMenu::item:selected { background-color: #f0f0f0; }
         """)
 
+        menu.addAction(lead_profile_action)
         menu.addAction(view_action)
         menu.addAction(add_as_prospect_action)
 
@@ -384,3 +384,30 @@ class LeadsLanding(QWidget):
             # Optionally refresh leads list or perform any other actions
         else:
             QMessageBox.critical(self, "Error", "Failed to update lead status to Prospecting.")
+
+    ################################
+    # View Lead Profile functions
+    ################################
+    def view_lead_profile(self, row):
+        """Loads the lead's profile (detailed view) into the MDI area."""
+        from models.models_authentication import MDIManager  # ✅ Lazy import
+        from models.models_leads_profile import LeadsProfile  # ✅ Your target view
+
+        lead_id_item = self.ui.leads_tbl.item(row, 0)
+        if not lead_id_item:
+            print("❌ No lead ID found for this row.")
+            return
+
+        lead_id = lead_id_item.text().strip()
+
+        query = "SELECT contact_id FROM leads WHERE lead_id = %s"
+        contact_data = self.db_conn.fetch_one(query, (lead_id,))
+
+        if not contact_data:
+            print("❌ No contact found for this lead.")
+            return
+
+        contact_id = contact_data["contact_id"]
+
+        MDIManager.load_into_mdi(lambda: LeadsProfile(contact_id))
+
