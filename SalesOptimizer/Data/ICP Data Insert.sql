@@ -6,7 +6,6 @@ INSERT INTO `crm`.`icp` (attribute, weight) VALUES("Demographics", 0.14);
 INSERT INTO `crm`.`icp` (attribute, weight) VALUES("Profession", 0.28);
 INSERT INTO `crm`.`icp` (attribute, weight) VALUES("Industry", 0.25);
 INSERT INTO `crm`.`icp` (attribute, weight) VALUES("Age", 0.32);
-select * from `crm`.`icp` ORDER BY attribute_id ASC;
 INSERT INTO `crm`.`icp_rules` (icp_attribute_id, attribute_value, attribute_score) VALUES(1, "QC", 10);
 INSERT INTO `crm`.`icp_rules` (icp_attribute_id, attribute_value, attribute_score) VALUES(1, "MANILA", 8);
 INSERT INTO `crm`.`icp_rules` (icp_attribute_id, attribute_value, attribute_score) VALUES(1, "ANY", 5);
@@ -20,5 +19,4 @@ INSERT INTO `crm`.`icp_rules` (icp_attribute_id, attribute_value, attribute_scor
 INSERT INTO `crm`.`icp_rules` (icp_attribute_id, attribute_value, attribute_score) VALUES(4, "25 <= X >= 30", 10);
 INSERT INTO `crm`.`icp_rules` (icp_attribute_id, attribute_value, attribute_score) VALUES(4, "31 <= X >= 35", 8);
 INSERT INTO `crm`.`icp_rules` (icp_attribute_id, attribute_value, attribute_score) VALUES(4, "ANY", 5);
-select * from `crm`.`icp_rules` ORDER BY icp_attribute_id ASC, attribute_score DESC;
 SET SQL_SAFE_UPDATES = 1;
