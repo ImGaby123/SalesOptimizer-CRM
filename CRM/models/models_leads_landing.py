@@ -317,10 +317,6 @@ class LeadsLanding(QWidget):
         view_action = QAction("View Lead Details", self)
         view_action.triggered.connect(lambda: self.view_lead(row))
 
-        # ✅ Add as Prospect Action
-        add_as_prospect_action = QAction("Add as Prospect", self)
-        add_as_prospect_action.triggered.connect(lambda: self.add_as_prospect(row))
-
         # ✅ Apply hover effects
         menu.setStyleSheet("""
             QMenu { background-color: white; border: 1px solid #ccc; }
@@ -330,60 +326,10 @@ class LeadsLanding(QWidget):
 
         menu.addAction(lead_profile_action)
         menu.addAction(view_action)
-        menu.addAction(add_as_prospect_action)
 
         # ✅ Get cursor position and show menu
         cursor_pos = button.mapToGlobal(button.rect().bottomLeft())
         menu.exec(cursor_pos)
-
-    ################################
-    # Add as Prospect functions
-    ################################
-
-    def add_as_prospect(self, row):
-        """Handles adding a lead as a prospect by updating the lead_status to 'Prospecting'."""
-        # Get the lead_id of the selected row
-        lead_id_item = self.ui.leads_tbl.item(row, 0)  # First column (ID) contains lead_id
-        if not lead_id_item:
-            print("❌ No lead ID found for this row.")
-            return
-
-        lead_id = lead_id_item.text().strip()
-
-        # Check if the lead is already a prospect or has a different status
-        check_query = "SELECT lead_status FROM leads WHERE lead_id = %s"
-        existing_lead = self.db_conn.fetch_one(check_query, (lead_id,))
-
-        if existing_lead:
-            if existing_lead["lead_status"] == "Prospecting":
-                # If the lead is already a prospect, show a message box
-                QMessageBox.warning(self, "Already a Prospect", "This lead is already marked as Prospecting!")
-                return
-
-        # Show confirmation dialog
-        confirmation = QMessageBox.question(
-            self,
-            "Add as Prospect",
-            "Are you sure you want to mark this lead as Prospecting?",
-            QMessageBox.Yes | QMessageBox.No,
-            QMessageBox.No
-        )
-
-        if confirmation == QMessageBox.Yes:
-            # Proceed to update the lead's status to 'Prospecting'
-            self.update_lead_status_to_prospecting(lead_id)
-
-    def update_lead_status_to_prospecting(self, lead_id):
-        """Updates the lead_status of a lead to 'Prospecting'."""
-        # Update the lead's status in the database
-        update_query = "UPDATE leads SET lead_status = 'Prospecting' WHERE lead_id = %s"
-        success = self.db_conn.execute_query(update_query, (lead_id,))
-
-        if success:
-            QMessageBox.information(self, "Success", "Lead has been successfully marked as Prospecting.")
-            # Optionally refresh leads list or perform any other actions
-        else:
-            QMessageBox.critical(self, "Error", "Failed to update lead status to Prospecting.")
 
     ################################
     # View Lead Profile functions
