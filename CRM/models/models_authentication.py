@@ -9,6 +9,7 @@ from PySide6.QtCore import Qt
 
 from views.py.ui_authenticationsystem import Ui_authenticationsystem
 from .models_sidebar import SidebarForm
+from .models_dashboard_landing import Dashboard
 from .models_contacts_landing import ContactsLanding
 from .models_leads_landing import LeadsLanding
 from .models_settings import Settings
@@ -163,10 +164,9 @@ class MainWindow(QMainWindow):
 
     def load_form(self, form_name):
         form_map = {
-            "Dashboard": None,
+            "Dashboard": Dashboard,
             "Contacts": ContactsLanding,
             "Leads": LeadsLanding,
-            "Account": None,
             "Settings": Settings,
             "Logout": None
         }
