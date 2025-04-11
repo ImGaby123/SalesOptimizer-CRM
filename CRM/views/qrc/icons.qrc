@@ -7,7 +7,6 @@
         <file>Resources/close.svg</file>
         <file>Resources/delete.svg</file>
         <file>Resources/down.svg</file>
-        <file>Resources/edit.svg</file>
         <file>Resources/email.svg</file>
         <file>Resources/image.svg</file>
         <file>Resources/italic.svg</file>
@@ -30,6 +29,8 @@
         <file>Resources/box_down.png</file>
         <file>Resources/box_up.png</file>
         <file>Resources/arrow_blue.png</file>
+        <file>Resources/add_campaign.png</file>
+        <file>Resources/edit.svg</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
 </RCC>
