@@ -1,11 +1,11 @@
 import os
 import subprocess
-import time
 
-def is_modified(source_path, target_path, tolerance=1.0):
+def is_modified(source_path, target_path):
+    """Checks if the source file is newer than the target file."""
     if not os.path.exists(target_path):
-        return True
-    return (os.path.getmtime(source_path) - os.path.getmtime(target_path)) > tolerance
+        return True  # Convert if the target file does not exist
+    return os.path.getmtime(source_path) > os.path.getmtime(target_path)
 
 def convert_ui_to_py(ui_folder, py_folder, converted_files, skipped_files):
     """ Converts only modified .ui files to .py files """

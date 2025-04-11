@@ -18,7 +18,6 @@ class SidebarForm(QWidget):
             "Dashboard": self.ui.dashboard_btn,
             "Contacts": self.ui.contacts_btn,
             "Leads": self.ui.leads_btn,
-            "Account": self.ui.account_btn,
             "Settings": self.ui.settings_btn,
             "Logout": self.ui.logout_btn
         }
