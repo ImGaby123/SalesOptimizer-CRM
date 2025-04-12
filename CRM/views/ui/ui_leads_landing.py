@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
     QHeaderView, QLabel, QLineEdit, QPushButton,
     QSizePolicy, QSpacerItem, QTableWidget, QTableWidgetItem,
     QWidget)
-import views.py.icons_rc
+import rc_icons
 
 class Ui_leads_landing(object):
     def setupUi(self, leads_landing):

@@ -19,13 +19,13 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QHeaderView, QLabel, QProgressBar, QPushButton,
     QRadioButton, QScrollArea, QSizePolicy, QSpacerItem,
     QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
-import views.py.icons_rc
+import rc_icons
 
 class Ui_leads_profile(object):
     def setupUi(self, leads_profile):
         if not leads_profile.objectName():
             leads_profile.setObjectName(u"leads_profile")
-        leads_profile.resize(1101, 975)
+        leads_profile.resize(1101, 973)
         leads_profile.setStyleSheet(u"background-color: rgb(0, 0, 0);")
         self.gridLayout = QGridLayout(leads_profile)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -746,7 +746,7 @@ class Ui_leads_profile(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 307, 543))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 400, 541))
         self.scrollAreaWidgetContents.setStyleSheet(u"border: 2px solid #737373;\n"
 "background-color: #171717;\n"
 "border-radius: 10px;")
@@ -1220,7 +1220,7 @@ class Ui_leads_profile(object):
         self.details_lbl.setObjectName(u"details_lbl")
         self.details_lbl.setFont(font3)
         self.details_lbl.setStyleSheet(u"background: transparent;\n"
-"\n"
+"color: #fff;\n"
 "border: none")
 
         self.horizontalLayout_23.addWidget(self.details_lbl)

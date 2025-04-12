@@ -39,6 +39,9 @@
         "models/models_leads_profile.py",
         "views/ui/dashboard_landing.ui",
         "views/py/ui_dashboard_landing.py",
-        "models/models_dashboard_landing.py"
+        "models/models_dashboard_landing.py",
+        "views/ui/add_opportunity.ui",
+        "models/models_add_opportunity.py",
+        "views/py/ui_add_opportunity.py"
     ]
 }

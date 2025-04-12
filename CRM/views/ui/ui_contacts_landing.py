@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'leads_landing.ui'
+## Form generated from reading UI file 'contacts_landing.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -19,15 +19,15 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
     QHeaderView, QLabel, QLineEdit, QPushButton,
     QSizePolicy, QSpacerItem, QTableWidget, QTableWidgetItem,
     QWidget)
-import views.py.icons_rc
+import rc_icons
 
-class Ui_leads_landing(object):
-    def setupUi(self, leads_landing):
-        if not leads_landing.objectName():
-            leads_landing.setObjectName(u"leads_landing")
-        leads_landing.resize(1201, 680)
-        leads_landing.setStyleSheet(u"")
-        self.gridLayout_3 = QGridLayout(leads_landing)
+class Ui_contacts_landing(object):
+    def setupUi(self, contacts_landing):
+        if not contacts_landing.objectName():
+            contacts_landing.setObjectName(u"contacts_landing")
+        contacts_landing.resize(1201, 680)
+        contacts_landing.setStyleSheet(u"")
+        self.gridLayout_3 = QGridLayout(contacts_landing)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -35,10 +35,10 @@ class Ui_leads_landing(object):
 
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.leads_tbl = QTableWidget(leads_landing)
-        self.leads_tbl.setObjectName(u"leads_tbl")
-        self.leads_tbl.setMouseTracking(False)
-        self.leads_tbl.setStyleSheet(u"QTableWidget {\n"
+        self.contacts_tbl = QTableWidget(contacts_landing)
+        self.contacts_tbl.setObjectName(u"contacts_tbl")
+        self.contacts_tbl.setMouseTracking(False)
+        self.contacts_tbl.setStyleSheet(u"QTableWidget {\n"
 "    background-color: rgb(255, 255, 255);\n"
 "    alternate-background-color: rgb(235, 235, 235);\n"
 "    gridline-color: rgb(200, 200, 200);\n"
@@ -66,12 +66,12 @@ class Ui_leads_landing(object):
 "    border: 1px solid rgb(200, 200, 200);\n"
 "}\n"
 "")
-        self.leads_tbl.setAlternatingRowColors(True)
-        self.leads_tbl.horizontalHeader().setCascadingSectionResizes(False)
-        self.leads_tbl.horizontalHeader().setDefaultSectionSize(200)
-        self.leads_tbl.horizontalHeader().setStretchLastSection(True)
+        self.contacts_tbl.setAlternatingRowColors(True)
+        self.contacts_tbl.horizontalHeader().setCascadingSectionResizes(False)
+        self.contacts_tbl.horizontalHeader().setDefaultSectionSize(200)
+        self.contacts_tbl.horizontalHeader().setStretchLastSection(True)
 
-        self.gridLayout.addWidget(self.leads_tbl, 10, 0, 1, 1)
+        self.gridLayout.addWidget(self.contacts_tbl, 10, 0, 1, 1)
 
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
@@ -80,7 +80,7 @@ class Ui_leads_landing(object):
 
         self.horizontalLayout_23 = QHBoxLayout()
         self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
-        self.sort_combo = QComboBox(leads_landing)
+        self.sort_combo = QComboBox(contacts_landing)
         self.sort_combo.addItem("")
         self.sort_combo.addItem("")
         self.sort_combo.addItem("")
@@ -125,46 +125,11 @@ class Ui_leads_landing(object):
 
         self.horizontalLayout_23.addWidget(self.sort_combo)
 
-        self.set_icp_btn = QPushButton(leads_landing)
-        self.set_icp_btn.setObjectName(u"set_icp_btn")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.set_icp_btn.sizePolicy().hasHeightForWidth())
-        self.set_icp_btn.setSizePolicy(sizePolicy1)
-        self.set_icp_btn.setMinimumSize(QSize(0, 0))
-        self.set_icp_btn.setMaximumSize(QSize(16777215, 16777215))
-        self.set_icp_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.set_icp_btn.setStyleSheet(u"QPushButton {\n"
-"    background-color: #262626;\n"
-"    border: 1px solid #737373;\n"
-"    color: white;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px;\n"
-"    font: 10pt \"Segoe UI\";\n"
-"    text-align: center;\n"
-"	padding-left: 20px;\n"
-"    padding-right: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(200, 200, 200);  /* Darker gray on hover */\n"
-"    color: rgb(0, 0, 0);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(180, 180, 180);  /* Darker gray on press */\n"
-"}\n"
-"")
-        self.set_icp_btn.setFlat(False)
-
-        self.horizontalLayout_23.addWidget(self.set_icp_btn)
-
         self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_23.addItem(self.horizontalSpacer_4)
 
-        self.selecteditems_lbl = QLabel(leads_landing)
+        self.selecteditems_lbl = QLabel(contacts_landing)
         self.selecteditems_lbl.setObjectName(u"selecteditems_lbl")
         self.selecteditems_lbl.setEnabled(True)
         font = QFont()
@@ -181,7 +146,7 @@ class Ui_leads_landing(object):
 
         self.horizontalLayout_22 = QHBoxLayout()
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.search_line = QLineEdit(leads_landing)
+        self.search_line = QLineEdit(contacts_landing)
         self.search_line.setObjectName(u"search_line")
         sizePolicy.setHeightForWidth(self.search_line.sizePolicy().hasHeightForWidth())
         self.search_line.setSizePolicy(sizePolicy)
@@ -213,7 +178,25 @@ class Ui_leads_landing(object):
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setSpacing(0)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.delete_btn = QPushButton(leads_landing)
+        self.add_btn = QPushButton(contacts_landing)
+        self.add_btn.setObjectName(u"add_btn")
+        self.add_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.add_btn.setStyleSheet(u"QPushButton{\n"
+"	background: transparent;\n"
+"	border: none;	\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background: rgba(100, 100, 100, 0.2); /* Light gray with transparency */\n"
+"}")
+        icon = QIcon()
+        icon.addFile(u":/Resources/plus (1).svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.add_btn.setIcon(icon)
+        self.add_btn.setIconSize(QSize(30, 30))
+
+        self.horizontalLayout_6.addWidget(self.add_btn)
+
+        self.delete_btn = QPushButton(contacts_landing)
         self.delete_btn.setObjectName(u"delete_btn")
         self.delete_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.delete_btn.setStyleSheet(u"QPushButton{\n"
@@ -224,9 +207,9 @@ class Ui_leads_landing(object):
 "QPushButton:hover {\n"
 "    background: rgba(100, 100, 100, 0.2); /* Light gray with transparency */\n"
 "}")
-        icon = QIcon()
-        icon.addFile(u":/Resources/delete.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.delete_btn.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(u":/Resources/delete.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.delete_btn.setIcon(icon1)
         self.delete_btn.setIconSize(QSize(30, 30))
 
         self.horizontalLayout_6.addWidget(self.delete_btn)
@@ -249,21 +232,21 @@ class Ui_leads_landing(object):
 
         self.gridLayout.addItem(self.horizontalSpacer_5, 7, 0, 1, 1)
 
-        self.leads_txt = QLabel(leads_landing)
-        self.leads_txt.setObjectName(u"leads_txt")
-        sizePolicy.setHeightForWidth(self.leads_txt.sizePolicy().hasHeightForWidth())
-        self.leads_txt.setSizePolicy(sizePolicy)
-        self.leads_txt.setMinimumSize(QSize(0, 0))
+        self.contacts_txt = QLabel(contacts_landing)
+        self.contacts_txt.setObjectName(u"contacts_txt")
+        sizePolicy.setHeightForWidth(self.contacts_txt.sizePolicy().hasHeightForWidth())
+        self.contacts_txt.setSizePolicy(sizePolicy)
+        self.contacts_txt.setMinimumSize(QSize(0, 0))
         font1 = QFont()
         font1.setFamilies([u"Segoe UI"])
         font1.setPointSize(18)
         font1.setBold(True)
         font1.setItalic(False)
-        self.leads_txt.setFont(font1)
-        self.leads_txt.setStyleSheet(u"background: transparent;\n"
+        self.contacts_txt.setFont(font1)
+        self.contacts_txt.setStyleSheet(u"background: transparent;\n"
 "color: #fff;")
 
-        self.gridLayout.addWidget(self.leads_txt, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.contacts_txt, 1, 0, 1, 1)
 
         self.horizontalSpacer_3 = QSpacerItem(40, 10, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
@@ -281,28 +264,34 @@ class Ui_leads_landing(object):
         self.gridLayout_3.addItem(self.verticalSpacer_2, 0, 2, 1, 1)
 
 
-        self.retranslateUi(leads_landing)
+        self.retranslateUi(contacts_landing)
 
-        QMetaObject.connectSlotsByName(leads_landing)
+        QMetaObject.connectSlotsByName(contacts_landing)
     # setupUi
 
-    def retranslateUi(self, leads_landing):
-        leads_landing.setWindowTitle(QCoreApplication.translate("leads_landing", u"Leads", None))
-        self.sort_combo.setItemText(0, QCoreApplication.translate("leads_landing", u"Recently Added", None))
-        self.sort_combo.setItemText(1, QCoreApplication.translate("leads_landing", u"Oldest", None))
-        self.sort_combo.setItemText(2, QCoreApplication.translate("leads_landing", u"Alphabetical", None))
+    def retranslateUi(self, contacts_landing):
+        contacts_landing.setWindowTitle(QCoreApplication.translate("contacts_landing", u"Contacts", None))
+        self.sort_combo.setItemText(0, QCoreApplication.translate("contacts_landing", u"Recently Added", None))
+        self.sort_combo.setItemText(1, QCoreApplication.translate("contacts_landing", u"Oldest", None))
+        self.sort_combo.setItemText(2, QCoreApplication.translate("contacts_landing", u"Alphabetical", None))
 
-        self.sort_combo.setPlaceholderText(QCoreApplication.translate("leads_landing", u"All Leads", None))
-        self.set_icp_btn.setText(QCoreApplication.translate("leads_landing", u"Setup ICP", None))
-        self.selecteditems_lbl.setText(QCoreApplication.translate("leads_landing", u"Selected n Item", None))
-        self.search_line.setPlaceholderText(QCoreApplication.translate("leads_landing", u"Search Leads by name, email, or company", None))
+        self.sort_combo.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"All Contacts", None))
+        self.selecteditems_lbl.setText(QCoreApplication.translate("contacts_landing", u"TextLabel", None))
+        self.search_line.setPlaceholderText(QCoreApplication.translate("contacts_landing", u"Search contacts by name, email, or company", None))
 #if QT_CONFIG(tooltip)
-        self.delete_btn.setToolTip(QCoreApplication.translate("leads_landing", u"Delete Contacts", None))
+        self.add_btn.setToolTip(QCoreApplication.translate("contacts_landing", u"Add Contact", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(whatsthis)
-        self.delete_btn.setWhatsThis(QCoreApplication.translate("leads_landing", u"delete contact", None))
+        self.add_btn.setWhatsThis(QCoreApplication.translate("contacts_landing", u"add contact", None))
+#endif // QT_CONFIG(whatsthis)
+        self.add_btn.setText("")
+#if QT_CONFIG(tooltip)
+        self.delete_btn.setToolTip(QCoreApplication.translate("contacts_landing", u"Delete Contacts", None))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(whatsthis)
+        self.delete_btn.setWhatsThis(QCoreApplication.translate("contacts_landing", u"delete contact", None))
 #endif // QT_CONFIG(whatsthis)
         self.delete_btn.setText("")
-        self.leads_txt.setText(QCoreApplication.translate("leads_landing", u"Leads", None))
+        self.contacts_txt.setText(QCoreApplication.translate("contacts_landing", u"Contacts", None))
     # retranslateUi
 

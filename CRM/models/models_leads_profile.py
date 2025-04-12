@@ -23,6 +23,10 @@ class LeadsProfile(QWidget):
         # Code for going back to leads_landing
         self.ui.back_btn.clicked.connect(self.go_back)
 
+        # ✅ Connect add opportunity button
+        self.ui.add_btn.clicked.connect(self.add_opportunity)
+
+
     def go_back(self):
         """Returns to the ContactsLanding form."""
         from models.models_authentication import MDIManager  # Lazy import to prevent circular imports
@@ -59,6 +63,11 @@ class LeadsProfile(QWidget):
             self.ui.company_lbl.setText(contact_data['company_name'])
             self.ui.company_lbl_2.setText(contact_data['company_name'])
             self.ui.lead_source_value_lbl.setText(contact_data['source_name'] if contact_data['source_name'] else "N/A")
+
+    def add_opportunity(self):
+        from models.models_add_opportunity import AddOpportunity  # adjust if class name differs
+        dialog = AddOpportunity(self.contact_id, self)  # pass contact_id if needed
+        dialog.exec()  # or dialog.show() if it's not modal
 
     # def lead_status_indicator(self):
     #     """Updates the progress bar and radio buttons based on the lead status."""

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1101</width>
-    <height>973</height>
+    <height>975</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1135,8 +1135,8 @@ border: none</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>400</width>
-                   <height>541</height>
+                   <width>307</width>
+                   <height>543</height>
                   </rect>
                  </property>
                  <property name="styleSheet">
@@ -1917,7 +1917,7 @@ border: none</string>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background: transparent;
-color: #fff;
+
 border: none</string>
                        </property>
                        <property name="text">

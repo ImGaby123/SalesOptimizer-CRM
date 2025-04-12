@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QSizePolicy, QSpacerItem,
     QVBoxLayout, QWidget)
-import views.py.icons_rc
+import rc_icons
 
 class Ui_dashboard(object):
     def setupUi(self, dashboard):
