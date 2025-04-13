@@ -15,9 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
-    QSpinBox, QStackedWidget, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
+    QHeaderView, QLabel, QLineEdit, QPushButton,
+    QSizePolicy, QSpacerItem, QSpinBox, QStackedWidget,
+    QTableView, QVBoxLayout, QWidget)
 
 class Ui_icp_step2(object):
     def setupUi(self, icp_step2):
@@ -77,6 +78,11 @@ class Ui_icp_step2(object):
 
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.attributes_tblview = QTableView(icp_step2)
+        self.attributes_tblview.setObjectName(u"attributes_tblview")
+
+        self.gridLayout_2.addWidget(self.attributes_tblview, 0, 0, 1, 1)
+
         self.stackedWidget = QStackedWidget(icp_step2)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.city1_page = QWidget()
@@ -635,58 +641,11 @@ class Ui_icp_step2(object):
 
         self.stackedWidget.addWidget(self.industry6_page)
 
-        self.gridLayout_2.addWidget(self.stackedWidget, 0, 2, 1, 1)
-
-        self.verticalLayout_2 = QVBoxLayout()
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.city_btn = QPushButton(icp_step2)
-        self.city_btn.setObjectName(u"city_btn")
-        sizePolicy1.setHeightForWidth(self.city_btn.sizePolicy().hasHeightForWidth())
-        self.city_btn.setSizePolicy(sizePolicy1)
-
-        self.verticalLayout_2.addWidget(self.city_btn)
-
-        self.religion_btn = QPushButton(icp_step2)
-        self.religion_btn.setObjectName(u"religion_btn")
-        sizePolicy1.setHeightForWidth(self.religion_btn.sizePolicy().hasHeightForWidth())
-        self.religion_btn.setSizePolicy(sizePolicy1)
-
-        self.verticalLayout_2.addWidget(self.religion_btn)
-
-        self.country_btn = QPushButton(icp_step2)
-        self.country_btn.setObjectName(u"country_btn")
-        sizePolicy1.setHeightForWidth(self.country_btn.sizePolicy().hasHeightForWidth())
-        self.country_btn.setSizePolicy(sizePolicy1)
-
-        self.verticalLayout_2.addWidget(self.country_btn)
-
-        self.profession_btn = QPushButton(icp_step2)
-        self.profession_btn.setObjectName(u"profession_btn")
-        sizePolicy1.setHeightForWidth(self.profession_btn.sizePolicy().hasHeightForWidth())
-        self.profession_btn.setSizePolicy(sizePolicy1)
-
-        self.verticalLayout_2.addWidget(self.profession_btn)
-
-        self.age_btn = QPushButton(icp_step2)
-        self.age_btn.setObjectName(u"age_btn")
-        sizePolicy1.setHeightForWidth(self.age_btn.sizePolicy().hasHeightForWidth())
-        self.age_btn.setSizePolicy(sizePolicy1)
-
-        self.verticalLayout_2.addWidget(self.age_btn)
-
-        self.industry_btn = QPushButton(icp_step2)
-        self.industry_btn.setObjectName(u"industry_btn")
-        sizePolicy1.setHeightForWidth(self.industry_btn.sizePolicy().hasHeightForWidth())
-        self.industry_btn.setSizePolicy(sizePolicy1)
-
-        self.verticalLayout_2.addWidget(self.industry_btn)
-
-
-        self.gridLayout_2.addLayout(self.verticalLayout_2, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.stackedWidget, 0, 1, 1, 1)
 
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_2.addItem(self.horizontalSpacer, 0, 3, 1, 1)
+        self.gridLayout_2.addItem(self.horizontalSpacer, 0, 2, 1, 1)
 
 
         self.gridLayout_9.addLayout(self.gridLayout_2, 1, 0, 1, 1)
@@ -694,6 +653,20 @@ class Ui_icp_step2(object):
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.gridLayout_9.addItem(self.verticalSpacer, 2, 0, 1, 1)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_2)
+
+        self.step2_save_btn = QPushButton(icp_step2)
+        self.step2_save_btn.setObjectName(u"step2_save_btn")
+
+        self.horizontalLayout.addWidget(self.step2_save_btn)
+
+
+        self.gridLayout_9.addLayout(self.horizontalLayout, 3, 0, 1, 1)
 
         QWidget.setTabOrder(self.city_combo, self.city_line)
         QWidget.setTabOrder(self.city_line, self.no1_spin)
@@ -834,11 +807,6 @@ class Ui_icp_step2(object):
         self.industry_combo.setCurrentText(QCoreApplication.translate("icp_step2", u"Contains", None))
         self.industry_line.setText("")
         self.score_industry3_lbl.setText(QCoreApplication.translate("icp_step2", u"Score=", None))
-        self.city_btn.setText(QCoreApplication.translate("icp_step2", u"City", None))
-        self.religion_btn.setText(QCoreApplication.translate("icp_step2", u"Religion", None))
-        self.country_btn.setText(QCoreApplication.translate("icp_step2", u"Country", None))
-        self.profession_btn.setText(QCoreApplication.translate("icp_step2", u"Profession", None))
-        self.age_btn.setText(QCoreApplication.translate("icp_step2", u"Age", None))
-        self.industry_btn.setText(QCoreApplication.translate("icp_step2", u"Industry", None))
+        self.step2_save_btn.setText(QCoreApplication.translate("icp_step2", u"Save", None))
     # retranslateUi
 
