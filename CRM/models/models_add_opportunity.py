@@ -47,24 +47,6 @@ class AddOpportunity(QDialog):
             self.drag_position = event.globalPosition().toPoint()
             event.accept()
 
-    def show_light_messagebox(self, icon, title, text):
-        msg = QMessageBox(self)
-        msg.setIcon(icon)
-        msg.setWindowTitle(title)
-        msg.setText(text)
-        msg.setStyleSheet("""
-            QMessageBox {
-                color: white;
-            }
-            QPushButton {
-                background-color: #white;
-            }
-            QPushButton:hover {
-                background-color: #white;
-            }
-        """)
-        return msg.exec()
-
     def add_opportunity(self):
         # Get values
         title = self.ui.title_line.text().strip()
@@ -75,14 +57,14 @@ class AddOpportunity(QDialog):
 
         # Validate required field
         if not title:
-            self.show_light_messagebox(QMessageBox.Warning, "Validation Error", "Opportunity title is required.")
+            QMessageBox.warning(self, "Validation Error", "Opportunity title is required.")
             return
 
         # Optional: Convert cost to decimal
         try:
             cost = float(cost_text) if cost_text else None
         except ValueError:
-            self.show_light_messagebox(QMessageBox.Warning, "Validation Error", "Invalid opportunity cost.")
+            QMessageBox.warning(self, "Validation Error", "Invalid opportunity cost.")
             return
 
         # Confirm insertion

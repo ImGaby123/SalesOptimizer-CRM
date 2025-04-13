@@ -275,24 +275,19 @@ border: none</string>
                 <widget class="QProgressBar" name="lead_status_bar">
                  <property name="styleSheet">
                   <string notr="true">QProgressBar {
-    background-color: #2e2e2e;
-    border: 1px solid #737373;
-    border-radius: 30px;
+    background-color: #E5E5E5;
+    border: 1px solid #000;
     text-align: center;
-    color: white;
-    font: 10pt &quot;Segoe UI&quot;;
     height: 20px;
 }
 
 QProgressBar::chunk {
     background-color: #A3E635;  /* Green chunk color */
-    border-radius: 80px;  /* Match the outer radius */
-    margin: 1px;
 }
 </string>
                  </property>
                  <property name="value">
-                  <number>47</number>
+                  <number>0</number>
                  </property>
                  <property name="format">
                   <string/>
