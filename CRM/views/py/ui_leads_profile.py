@@ -178,9 +178,9 @@ class Ui_leads_profile(object):
 
         self.verticalLayout_29.addWidget(self.salespipe_lbl)
 
-        self.lead_status_bar = QProgressBar(self.frame_6)
-        self.lead_status_bar.setObjectName(u"lead_status_bar")
-        self.lead_status_bar.setStyleSheet(u"QProgressBar {\n"
+        self.opportunity_status_bar = QProgressBar(self.frame_6)
+        self.opportunity_status_bar.setObjectName(u"opportunity_status_bar")
+        self.opportunity_status_bar.setStyleSheet(u"QProgressBar {\n"
 "    background-color: #E5E5E5;\n"
 "    border: 1px solid #000;\n"
 "    text-align: center;\n"
@@ -191,9 +191,9 @@ class Ui_leads_profile(object):
 "    background-color: #A3E635;  /* Green chunk color */\n"
 "}\n"
 "")
-        self.lead_status_bar.setValue(0)
+        self.opportunity_status_bar.setValue(0)
 
-        self.verticalLayout_29.addWidget(self.lead_status_bar)
+        self.verticalLayout_29.addWidget(self.opportunity_status_bar)
 
         self.horizontalLayout_8 = QHBoxLayout()
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
@@ -226,13 +226,13 @@ class Ui_leads_profile(object):
 
         self.horizontalLayout_8.addWidget(self.prospecting_radio, 0, Qt.AlignmentFlag.AlignRight)
 
-        self.qualifications_radio = QRadioButton(self.frame_6)
-        self.qualifications_radio.setObjectName(u"qualifications_radio")
-        self.qualifications_radio.setEnabled(True)
-        self.qualifications_radio.setFont(font3)
-        self.qualifications_radio.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.qualifications_radio.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
-        self.qualifications_radio.setStyleSheet(u"QRadioButton {\n"
+        self.qualification_radio = QRadioButton(self.frame_6)
+        self.qualification_radio.setObjectName(u"qualification_radio")
+        self.qualification_radio.setEnabled(True)
+        self.qualification_radio.setFont(font3)
+        self.qualification_radio.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.qualification_radio.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
+        self.qualification_radio.setStyleSheet(u"QRadioButton {\n"
 "    background: transparent;\n"
 "    color: #fff;\n"
 "	border: none;\n"
@@ -250,11 +250,11 @@ class Ui_leads_profile(object):
 "    background-color: white; \n"
 "}\n"
 "")
-        self.qualifications_radio.setCheckable(True)
-        self.qualifications_radio.setChecked(False)
-        self.qualifications_radio.setAutoExclusive(False)
+        self.qualification_radio.setCheckable(True)
+        self.qualification_radio.setChecked(False)
+        self.qualification_radio.setAutoExclusive(False)
 
-        self.horizontalLayout_8.addWidget(self.qualifications_radio, 0, Qt.AlignmentFlag.AlignRight)
+        self.horizontalLayout_8.addWidget(self.qualification_radio, 0, Qt.AlignmentFlag.AlignRight)
 
         self.negotiating_radio = QRadioButton(self.frame_6)
         self.negotiating_radio.setObjectName(u"negotiating_radio")
@@ -286,13 +286,13 @@ class Ui_leads_profile(object):
 
         self.horizontalLayout_8.addWidget(self.negotiating_radio, 0, Qt.AlignmentFlag.AlignRight)
 
-        self.contacting_radio = QRadioButton(self.frame_6)
-        self.contacting_radio.setObjectName(u"contacting_radio")
-        self.contacting_radio.setEnabled(True)
-        self.contacting_radio.setFont(font3)
-        self.contacting_radio.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.contacting_radio.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
-        self.contacting_radio.setStyleSheet(u"QRadioButton {\n"
+        self.approval_radio = QRadioButton(self.frame_6)
+        self.approval_radio.setObjectName(u"approval_radio")
+        self.approval_radio.setEnabled(True)
+        self.approval_radio.setFont(font3)
+        self.approval_radio.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.approval_radio.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
+        self.approval_radio.setStyleSheet(u"QRadioButton {\n"
 "    background: transparent;\n"
 "    color: #fff;\n"
 "	border: none;\n"
@@ -310,11 +310,11 @@ class Ui_leads_profile(object):
 "    background-color: white; \n"
 "}\n"
 "")
-        self.contacting_radio.setCheckable(True)
-        self.contacting_radio.setChecked(False)
-        self.contacting_radio.setAutoExclusive(False)
+        self.approval_radio.setCheckable(True)
+        self.approval_radio.setChecked(False)
+        self.approval_radio.setAutoExclusive(False)
 
-        self.horizontalLayout_8.addWidget(self.contacting_radio, 0, Qt.AlignmentFlag.AlignRight)
+        self.horizontalLayout_8.addWidget(self.approval_radio, 0, Qt.AlignmentFlag.AlignRight)
 
         self.loss_radio = QRadioButton(self.frame_6)
         self.loss_radio.setObjectName(u"loss_radio")
@@ -1096,15 +1096,15 @@ class Ui_leads_profile(object):
 
         self.horizontalLayout_11.addWidget(self.edit_btn)
 
-        self.promote_to_prospect_btn = QPushButton(self.frame_4)
-        self.promote_to_prospect_btn.setObjectName(u"promote_to_prospect_btn")
+        self.delete_btn = QPushButton(self.frame_4)
+        self.delete_btn.setObjectName(u"delete_btn")
         font8 = QFont()
         font8.setFamilies([u"Segoe UI"])
         font8.setBold(True)
         font8.setItalic(False)
-        self.promote_to_prospect_btn.setFont(font8)
-        self.promote_to_prospect_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.promote_to_prospect_btn.setStyleSheet(u"QPushButton {\n"
+        self.delete_btn.setFont(font8)
+        self.delete_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.delete_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #262626;\n"
 "    border: 1px solid #737373;\n"
 "	color: rgb(255, 93, 78);\n"
@@ -1127,11 +1127,11 @@ class Ui_leads_profile(object):
 "")
         icon3 = QIcon()
         icon3.addFile(u":/Resources/delete.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.promote_to_prospect_btn.setIcon(icon3)
-        self.promote_to_prospect_btn.setIconSize(QSize(25, 25))
-        self.promote_to_prospect_btn.setFlat(True)
+        self.delete_btn.setIcon(icon3)
+        self.delete_btn.setIconSize(QSize(25, 25))
+        self.delete_btn.setFlat(True)
 
-        self.horizontalLayout_11.addWidget(self.promote_to_prospect_btn)
+        self.horizontalLayout_11.addWidget(self.delete_btn)
 
 
         self.verticalLayout_17.addLayout(self.horizontalLayout_11)
@@ -1302,11 +1302,11 @@ class Ui_leads_profile(object):
         self.name_lbl_2.setText(QCoreApplication.translate("leads_profile", u"Name:", None))
         self.company_lbl.setText(QCoreApplication.translate("leads_profile", u"Company Name", None))
         self.salespipe_lbl.setText(QCoreApplication.translate("leads_profile", u"Sales Pipeline", None))
-        self.lead_status_bar.setFormat("")
+        self.opportunity_status_bar.setFormat("")
         self.prospecting_radio.setText(QCoreApplication.translate("leads_profile", u"Prospecting", None))
-        self.qualifications_radio.setText(QCoreApplication.translate("leads_profile", u"Qualifications", None))
+        self.qualification_radio.setText(QCoreApplication.translate("leads_profile", u"Qualification", None))
         self.negotiating_radio.setText(QCoreApplication.translate("leads_profile", u"Negotiating", None))
-        self.contacting_radio.setText(QCoreApplication.translate("leads_profile", u"Approval", None))
+        self.approval_radio.setText(QCoreApplication.translate("leads_profile", u"Approval", None))
         self.loss_radio.setText(QCoreApplication.translate("leads_profile", u"Closed Loss", None))
         self.won_radio.setText(QCoreApplication.translate("leads_profile", u"Closed Won", None))
         self.totalleadhead_lbl.setText(QCoreApplication.translate("leads_profile", u"Opportunities", None))
@@ -1353,9 +1353,9 @@ class Ui_leads_profile(object):
         self.contactinfohead_lbl.setText(QCoreApplication.translate("leads_profile", u"Opportunities Information", None))
         self.edit_btn.setText(QCoreApplication.translate("leads_profile", u"Edit", None))
 #if QT_CONFIG(tooltip)
-        self.promote_to_prospect_btn.setToolTip("")
+        self.delete_btn.setToolTip("")
 #endif // QT_CONFIG(tooltip)
-        self.promote_to_prospect_btn.setText(QCoreApplication.translate("leads_profile", u"Delete", None))
+        self.delete_btn.setText(QCoreApplication.translate("leads_profile", u"Delete", None))
         self.compname_lbl.setText(QCoreApplication.translate("leads_profile", u"Title:", None))
         self.opp_cost_lbl.setText(QCoreApplication.translate("leads_profile", u"Cost:", None))
         self.comprole_lbl.setText(QCoreApplication.translate("leads_profile", u"Date Created:", None))
