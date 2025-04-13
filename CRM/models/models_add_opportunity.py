@@ -3,7 +3,6 @@ from PySide6.QtCore import Qt, QDate
 from views.py.ui_add_opportunity import Ui_add_opportunity
 from datas.db_connection import DB_Connection
 
-
 class AddOpportunity(QDialog):
     def __init__(self, contact_id=None, parent=None):
         super().__init__(parent)
@@ -24,7 +23,7 @@ class AddOpportunity(QDialog):
         # Make window draggable
         self.drag_position = None
 
-        #Get Current Date
+        # Get Current Date
         self.ui.date_edit.setDate(QDate.currentDate())
 
         # Cancel button closes window
@@ -48,7 +47,7 @@ class AddOpportunity(QDialog):
             event.accept()
 
     def add_opportunity(self):
-        # Get values
+        # Get values from the form
         title = self.ui.title_line.text().strip()
         cost_text = self.ui.cost_line.text()
         cost_text = cost_text.replace(",", "").replace("$", "")
@@ -110,5 +109,11 @@ class AddOpportunity(QDialog):
             self.db.execute_query(insert_query, values)
             QMessageBox.information(self, "Success", "Opportunity added successfully.")
             self.accept()  # Close dialog
+
+            # Reload the LeadsProfile after successful addition
+            from models.models_authentication import MDIManager
+            from models.models_leads_profile import LeadsProfile
+            MDIManager.load_into_mdi(lambda: LeadsProfile(self.contact_id))  # Reload LeadsProfile to show new opportunity
+
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Failed to add opportunity:\n{e}")
