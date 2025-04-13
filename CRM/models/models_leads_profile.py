@@ -21,6 +21,7 @@ class LeadsProfile(QWidget):
         # Connect buttons to their handlers
         self.ui.add_btn.clicked.connect(self.add_opportunity)
         self.ui.edit_btn.clicked.connect(self.edit_opportunity)
+        self.ui.delete_btn.clicked.connect(self.delete_opportunity)
 
         # View Full Contact Info
         self.ui.full_info_lbl.mousePressEvent = lambda event: self.view_contact_info()
@@ -84,6 +85,55 @@ class LeadsProfile(QWidget):
         from models.models_edit_opportunity import EditOpportunity
         dialog = EditOpportunity(self.contact_id, opportunity_id, self)
         dialog.exec()
+
+    def delete_opportunity(self):
+        """Deletes the selected opportunity from the database and resets opportunity details."""
+        # Get selected row
+        selected_row = self.ui.opportunities_tbl.currentRow()
+
+        if selected_row == -1:
+            QMessageBox.warning(self, "No Selection", "Please select an opportunity first!")
+            return
+
+        # Get opportunity_id from the first column (hidden)
+        opportunity_id_item = self.ui.opportunities_tbl.item(selected_row, 0)
+        if not opportunity_id_item:
+            QMessageBox.warning(self, "Error", "Unable to find the opportunity ID.")
+            return
+
+        opportunity_id = opportunity_id_item.text()
+
+        # Confirm deletion with the user
+        confirm = QMessageBox.question(
+            self, "Confirm Deletion", f"Are you sure you want to delete opportunity {opportunity_id}?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+
+        if confirm == QMessageBox.No:
+            return
+
+        # Execute deletion query
+        delete_query = "DELETE FROM opportunity WHERE opportunity_id = %s"
+
+        try:
+            self.db_conn.execute_query(delete_query, (opportunity_id,))
+            QMessageBox.information(self, "Success", "Opportunity deleted successfully.")
+
+            # Refresh the table to reflect the changes
+            self.opportunities_table()
+
+            # Reset opportunity details labels to default state (clear or placeholder)
+            self.reset_opportunity_details()
+
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to delete opportunity:\n{e}")
+
+    def reset_opportunity_details(self):
+        """Resets the opportunity details to default/empty state."""
+        self.ui.opportunity_title_lbl.setText("N/A")
+        self.ui.opportunity_cost_lbl.setText("0.00")
+        self.ui.opportunity_date_lbl.setText("N/A")
+        self.ui.opportunity_details_lbl.setText("N/A")
 
     def opportunities_table(self):
         """Populates the opportunities table with opportunity titles linked to this contact."""
