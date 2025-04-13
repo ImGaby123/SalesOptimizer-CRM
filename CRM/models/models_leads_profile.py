@@ -23,6 +23,11 @@ class LeadsProfile(QWidget):
         self.ui.edit_btn.clicked.connect(self.edit_opportunity)
         self.ui.delete_btn.clicked.connect(self.delete_opportunity)
 
+        # Clickable Radiobuttons
+        self.ui.qualification_radio.clicked.connect(lambda: self.set_opportunity_status("Qualification"))
+        self.ui.negotiating_radio.clicked.connect(lambda: self.set_opportunity_status("Negotiating"))
+        self.ui.approval_radio.clicked.connect(lambda: self.set_opportunity_status("Approval"))
+
         # View Full Contact Info
         self.ui.full_info_lbl.mousePressEvent = lambda event: self.view_contact_info()
 
@@ -185,6 +190,163 @@ class LeadsProfile(QWidget):
             self.ui.opportunity_date_lbl.setText(data["date"].strftime("%Y-%m-%d") if data["date"] else "N/A")
             self.ui.opportunity_details_lbl.setText(data["opportunity_details"] or "N/A")
 
+        # NEW: Reflect the status for the selected opportunity
+        self.opportunity_status_indicator(opportunity_id)
+
+    def opportunity_status_indicator(self, opportunity_id):
+        """Updates progress bar and radio buttons based on the selected opportunity's status."""
+        query = "SELECT opportunity_status FROM opportunity WHERE opportunity_id = %s"
+        data = self.db_conn.fetch_one(query, (opportunity_id,))
+
+        if not data:
+            return
+
+        status = data["opportunity_status"]
+
+        # Map status to progress bar value
+        status_to_value = {
+            "Prospecting": 11,
+            "Qualification": 27,
+            "Negotiating": 43,
+            "Approval": 58,
+            "Closed Loss": 77,
+            "Closed Won": 100,
+        }
+
+        progress_value = status_to_value.get(status, 0)
+        self.ui.opportunity_status_bar.setValue(progress_value)
+
+        # Reset all radio buttons first
+        self.ui.prospecting_radio.setChecked(False)
+        self.ui.qualification_radio.setChecked(False)
+        self.ui.negotiating_radio.setChecked(False)
+        self.ui.approval_radio.setChecked(False)
+        self.ui.loss_radio.setChecked(False)
+        self.ui.won_radio.setChecked(False)
+
+        # Update radio button check states according to progression
+        if status in ["Prospecting", "Qualification", "Negotiating", "Approval", "Closed Loss", "Closed Won"]:
+            self.ui.prospecting_radio.setChecked(True)
+        if status in ["Qualification", "Negotiating", "Approval", "Closed Loss", "Closed Won"]:
+            self.ui.qualification_radio.setChecked(True)
+        if status in ["Negotiating", "Approval", "Closed Loss", "Closed Won"]:
+            self.ui.negotiating_radio.setChecked(True)
+        if status in ["Approval", "Closed Loss", "Closed Won"]:
+            self.ui.approval_radio.setChecked(True)
+        if status == "Closed Loss":
+            self.ui.loss_radio.setChecked(True)
+        if status == "Closed Won":
+            self.ui.won_radio.setChecked(True)
+
+        # === Dynamic Style Overrides ===
+        if status == "Closed Loss":
+            # Change to red style
+            self.ui.opportunity_status_bar.setStyleSheet("""
+                QProgressBar {
+                    background-color: #E5E5E5;
+                    border: 1px solid #000;
+                    border-radius: 10px;
+                    text-align: center;
+                    height: 20px;
+                }
+                QProgressBar::chunk {
+                    background-color: rgb(255, 93, 78);
+                    border-radius: 10px;
+                }
+            """)
+
+            # Override just the red indicator for loss
+            self.ui.loss_radio.setStyleSheet("""
+                QRadioButton {
+                    background: transparent;
+                    color: #fff;
+                    border: none;
+                }
+
+                QRadioButton::indicator:checked {
+                    background-color: rgb(255, 93, 78);
+                    border-color: #A3E635;
+                }
+
+                QRadioButton::indicator {
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 8px;
+                    background-color: white;
+                }
+            """)
+        else:
+            # Reapply default green styles for progress bar and loss radio
+            self.ui.opportunity_status_bar.setStyleSheet("""
+                QProgressBar {
+                    background-color: #E5E5E5;
+                    border: 1px solid #000;
+                    border-radius: 10px;
+                    text-align: center;
+                    height: 20px;
+                }
+                QProgressBar::chunk {
+                    background-color: #A3E635;
+                    border-radius: 10px;
+                }
+            """)
+
+            self.ui.loss_radio.setStyleSheet("""
+                QRadioButton {
+                    background: transparent;
+                    color: #fff;
+                    border: none;
+                }
+
+                QRadioButton::indicator {
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 8px;
+                    background-color: white;
+                }
+
+                QRadioButton::indicator:checked {
+                    background-color: #A3E635;
+                    border-color: #A3E635;
+                }
+            """)
+
+    def set_opportunity_status(self, target_status):
+        """Triggered when radio is clicked to confirm and update opportunity status."""
+
+        # Get selected opportunity
+        selected_row = self.ui.opportunities_tbl.currentRow()
+        if selected_row == -1:
+            QMessageBox.warning(self, "No Selection", "Please select an opportunity first!")
+            return
+
+        opportunity_id = self.ui.opportunities_tbl.item(selected_row, 0).text()
+
+        # Confirm action
+        confirm = QMessageBox.question(
+            self,
+            "Confirm Status Change",
+            f"Are you sure you want to set opportunity status to '{target_status}'?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+
+        if confirm == QMessageBox.No:
+            return
+
+        # Update database
+        update_query = """
+            UPDATE opportunity
+            SET opportunity_status = %s
+            WHERE opportunity_id = %s
+        """
+        try:
+            self.db_conn.execute_query(update_query, (target_status, opportunity_id))
+            QMessageBox.information(self, "Success", "Opportunity status updated successfully.")
+
+            # Refresh status indicators
+            self.opportunity_status_indicator(opportunity_id)
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to update status:\n{e}")
 
     # def lead_status_indicator(self):
     #     """Updates the progress bar and radio buttons based on the lead status."""
