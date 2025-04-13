@@ -42,6 +42,9 @@
         "models/models_dashboard_landing.py",
         "views/ui/add_opportunity.ui",
         "models/models_add_opportunity.py",
-        "views/py/ui_add_opportunity.py"
+        "views/py/ui_add_opportunity.py",
+        "views/ui/edit_opportunity.ui",
+        "models/models_edit_opportunity.py",
+        "views/py/ui_edit_opportunity.py"
     ]
 }

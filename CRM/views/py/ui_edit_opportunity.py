@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'add_opportunity.ui'
+## Form generated from reading UI file 'edit_opportunity.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -20,17 +20,17 @@ from PySide6.QtWidgets import (QApplication, QDateEdit, QDateTimeEdit, QDialog,
     QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
     QTextEdit, QVBoxLayout, QWidget)
 
-class Ui_add_opportunity(object):
-    def setupUi(self, add_opportunity):
-        if not add_opportunity.objectName():
-            add_opportunity.setObjectName(u"add_opportunity")
-        add_opportunity.resize(528, 481)
-        add_opportunity.setStyleSheet(u"border-radius: 10px;\n"
+class Ui_edit_opportunity(object):
+    def setupUi(self, edit_opportunity):
+        if not edit_opportunity.objectName():
+            edit_opportunity.setObjectName(u"edit_opportunity")
+        edit_opportunity.resize(528, 481)
+        edit_opportunity.setStyleSheet(u"border-radius: 10px;\n"
 "background-color: #171717;\n"
 "color: white;")
-        self.gridLayout = QGridLayout(add_opportunity)
+        self.gridLayout = QGridLayout(edit_opportunity)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.main_frame = QFrame(add_opportunity)
+        self.main_frame = QFrame(edit_opportunity)
         self.main_frame.setObjectName(u"main_frame")
         self.main_frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.main_frame.setFrameShadow(QFrame.Shadow.Raised)
@@ -341,15 +341,15 @@ class Ui_add_opportunity(object):
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer_4)
 
-        self.add_btn = QPushButton(self.main_frame)
-        self.add_btn.setObjectName(u"add_btn")
+        self.save_btn = QPushButton(self.main_frame)
+        self.save_btn.setObjectName(u"save_btn")
         font3 = QFont()
         font3.setFamilies([u"Segoe UI"])
         font3.setPointSize(10)
         font3.setBold(True)
         font3.setItalic(False)
-        self.add_btn.setFont(font3)
-        self.add_btn.setStyleSheet(u"QPushButton {\n"
+        self.save_btn.setFont(font3)
+        self.save_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #E5E5E5;\n"
 "	color: rgb(0, 0, 0);\n"
 "    border: 1px solid #737373;\n"
@@ -369,7 +369,7 @@ class Ui_add_opportunity(object):
 "}\n"
 "")
 
-        self.horizontalLayout_4.addWidget(self.add_btn)
+        self.horizontalLayout_4.addWidget(self.save_btn)
 
         self.horizontalSpacer_7 = QSpacerItem(0, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
@@ -411,20 +411,20 @@ class Ui_add_opportunity(object):
         self.gridLayout.addWidget(self.main_frame, 0, 0, 1, 1)
 
 
-        self.retranslateUi(add_opportunity)
+        self.retranslateUi(edit_opportunity)
 
-        QMetaObject.connectSlotsByName(add_opportunity)
+        QMetaObject.connectSlotsByName(edit_opportunity)
     # setupUi
 
-    def retranslateUi(self, add_opportunity):
-        add_opportunity.setWindowTitle(QCoreApplication.translate("add_opportunity", u"add_opportunity", None))
-        self.label.setText(QCoreApplication.translate("add_opportunity", u"Add Opportunity", None))
-        self.label_2.setText(QCoreApplication.translate("add_opportunity", u"Title:", None))
-        self.label_3.setText(QCoreApplication.translate("add_opportunity", u"Date:", None))
-        self.date_edit.setDisplayFormat(QCoreApplication.translate("add_opportunity", u"yyyy/MM/dd", None))
-        self.label_4.setText(QCoreApplication.translate("add_opportunity", u"Cost:", None))
-        self.label_5.setText(QCoreApplication.translate("add_opportunity", u"Details:", None))
-        self.add_btn.setText(QCoreApplication.translate("add_opportunity", u"Add", None))
-        self.cancel_btn.setText(QCoreApplication.translate("add_opportunity", u"Cancel", None))
+    def retranslateUi(self, edit_opportunity):
+        edit_opportunity.setWindowTitle(QCoreApplication.translate("edit_opportunity", u"edit_opportunity", None))
+        self.label.setText(QCoreApplication.translate("edit_opportunity", u"Edit Opportunity", None))
+        self.label_2.setText(QCoreApplication.translate("edit_opportunity", u"Title:", None))
+        self.label_3.setText(QCoreApplication.translate("edit_opportunity", u"Date:", None))
+        self.date_edit.setDisplayFormat(QCoreApplication.translate("edit_opportunity", u"yyyy/MM/dd", None))
+        self.label_4.setText(QCoreApplication.translate("edit_opportunity", u"Cost:", None))
+        self.label_5.setText(QCoreApplication.translate("edit_opportunity", u"Details:", None))
+        self.save_btn.setText(QCoreApplication.translate("edit_opportunity", u"Save", None))
+        self.cancel_btn.setText(QCoreApplication.translate("edit_opportunity", u"Cancel", None))
     # retranslateUi
 

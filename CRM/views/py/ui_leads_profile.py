@@ -26,7 +26,8 @@ class Ui_leads_profile(object):
         if not leads_profile.objectName():
             leads_profile.setObjectName(u"leads_profile")
         leads_profile.resize(1101, 975)
-        leads_profile.setStyleSheet(u"background-color: rgb(0, 0, 0);")
+        leads_profile.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
+"color: rgb(255, 255, 255);")
         self.gridLayout = QGridLayout(leads_profile)
         self.gridLayout.setObjectName(u"gridLayout")
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
@@ -500,6 +501,7 @@ class Ui_leads_profile(object):
 "    border: 1px solid rgb(200, 200, 200);\n"
 "}\n"
 "")
+        self.opportunities_tbl.horizontalHeader().setVisible(False)
 
         self.horizontalLayout_3.addWidget(self.opportunities_tbl)
 
