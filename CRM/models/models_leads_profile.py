@@ -1,7 +1,8 @@
-from PySide6.QtWidgets import QWidget, QTableWidgetItem, QAbstractItemView, QHeaderView
+from PySide6.QtWidgets import QWidget, QTableWidgetItem, QAbstractItemView, QHeaderView, QMessageBox
 from PySide6.QtCore import Qt
 from views.py.ui_leads_profile import Ui_leads_profile
 from datas.db_connection import DB_Connection
+
 
 class LeadsProfile(QWidget):
     def __init__(self, contact_id):
@@ -10,13 +11,16 @@ class LeadsProfile(QWidget):
         self.ui = Ui_leads_profile()
         self.ui.setupUi(self)
 
-        # ✅ Initialize database connection
+        # Initialize database connection
         self.db_conn = DB_Connection()
 
-        # Load contact info, opportunities_table, & opp_statusbar
+        # Load contact info and opportunities table
         self.contact_info()
         self.opportunities_table()
-        # self.lead_status_indicator()
+
+        # Connect buttons to their handlers
+        self.ui.add_btn.clicked.connect(self.add_opportunity)
+        self.ui.edit_btn.clicked.connect(self.edit_opportunity)
 
         # View Full Contact Info
         self.ui.full_info_lbl.mousePressEvent = lambda event: self.view_contact_info()
@@ -24,25 +28,21 @@ class LeadsProfile(QWidget):
         # Code for going back to leads_landing
         self.ui.back_btn.clicked.connect(self.go_back)
 
-        # ✅ Connect add opportunity button
-        self.ui.add_btn.clicked.connect(self.add_opportunity)
-
-
     def go_back(self):
         """Returns to the ContactsLanding form."""
-        from models.models_authentication import MDIManager  # Lazy import to prevent circular imports
+        from models.models_authentication import MDIManager
         from models.models_leads_landing import LeadsLanding
         MDIManager.load_into_mdi(LeadsLanding)
 
     def view_contact_info(self):
+        """Load full contact info in the MDI."""
         from models.models_authentication import MDIManager
         from models.models_contacts_view import ContactsView  # Adjust this import as needed
 
-        contact_id = self.contact_id
-        if not contact_id:
+        if not self.contact_id:
             return
 
-        MDIManager.load_into_mdi(lambda: ContactsView(contact_id))
+        MDIManager.load_into_mdi(lambda: ContactsView(self.contact_id))
 
     def contact_info(self):
         """Loads contact information into the respective labels."""
@@ -66,9 +66,24 @@ class LeadsProfile(QWidget):
             self.ui.lead_source_value_lbl.setText(contact_data['source_name'] if contact_data['source_name'] else "N/A")
 
     def add_opportunity(self):
-        from models.models_add_opportunity import AddOpportunity  # adjust if class name differs
-        dialog = AddOpportunity(self.contact_id, self)  # pass contact_id if needed
-        dialog.exec()  # or dialog.show() if it's not modal
+        """Open AddOpportunity dialog."""
+        from models.models_add_opportunity import AddOpportunity
+        dialog = AddOpportunity(self.contact_id, self)
+        dialog.exec()
+
+    def edit_opportunity(self):
+        """Open EditOpportunity dialog for the selected opportunity."""
+        selected_row = self.ui.opportunities_tbl.currentRow()
+
+        if selected_row == -1:
+            QMessageBox.warning(self, "No Selection", "Please select an opportunity first!")
+            return
+
+        opportunity_id = self.ui.opportunities_tbl.item(selected_row, 0).text()
+
+        from models.models_edit_opportunity import EditOpportunity
+        dialog = EditOpportunity(self.contact_id, opportunity_id, self)
+        dialog.exec()
 
     def opportunities_table(self):
         """Populates the opportunities table with opportunity titles linked to this contact."""
@@ -119,6 +134,7 @@ class LeadsProfile(QWidget):
             self.ui.opportunity_cost_lbl.setText(f"{data['opportunity_cost']:.2f}" if data["opportunity_cost"] else "0.00")
             self.ui.opportunity_date_lbl.setText(data["date"].strftime("%Y-%m-%d") if data["date"] else "N/A")
             self.ui.opportunity_details_lbl.setText(data["opportunity_details"] or "N/A")
+
 
     # def lead_status_indicator(self):
     #     """Updates the progress bar and radio buttons based on the lead status."""
