@@ -13,8 +13,9 @@ class LeadsProfile(QWidget):
         # ✅ Initialize database connection
         self.db_conn = DB_Connection()
 
-        # Load contact info and lead total & status
+        # Load contact info, opportunities_table, & opp_statusbar
         self.contact_info()
+        self.opportunities_table()
         # self.lead_status_indicator()
 
         # View Full Contact Info
@@ -68,6 +69,56 @@ class LeadsProfile(QWidget):
         from models.models_add_opportunity import AddOpportunity  # adjust if class name differs
         dialog = AddOpportunity(self.contact_id, self)  # pass contact_id if needed
         dialog.exec()  # or dialog.show() if it's not modal
+
+    def opportunities_table(self):
+        """Populates the opportunities table with opportunity titles linked to this contact."""
+        self.ui.opportunities_tbl.setRowCount(0)  # Clear existing rows
+        self.ui.opportunities_tbl.setColumnCount(2)
+        self.ui.opportunities_tbl.setHorizontalHeaderLabels(["ID", "Opportunity Title"])
+        self.ui.opportunities_tbl.setColumnHidden(0, True)  # Hide the ID column
+
+        query = """
+            SELECT opportunity_id, opportunity_title
+            FROM opportunity
+            WHERE contact_id = %s
+            ORDER BY created_at DESC
+        """
+        results = self.db_conn.fetch_all(query, (self.contact_id,))
+
+        for row_idx, row_data in enumerate(results):
+            self.ui.opportunities_tbl.insertRow(row_idx)
+            self.ui.opportunities_tbl.setItem(row_idx, 0, QTableWidgetItem(str(row_data["opportunity_id"])))
+            self.ui.opportunities_tbl.setItem(row_idx, 1, QTableWidgetItem(row_data["opportunity_title"]))
+
+        # Table Appearance
+        table = self.ui.opportunities_tbl
+        table.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        table.setSelectionBehavior(QAbstractItemView.SelectRows)
+        table.horizontalHeader().setSectionResizeMode(1, QHeaderView.Stretch)
+        table.verticalHeader().setVisible(False)
+
+        # Connect click signal
+        table.cellClicked.connect(self.load_opportunity_details)
+
+    def load_opportunity_details(self, row, column):
+        """Loads opportunity details into labels when a row is clicked."""
+        opportunity_id_item = self.ui.opportunities_tbl.item(row, 0)
+        if not opportunity_id_item:
+            return
+
+        opportunity_id = opportunity_id_item.text()
+
+        query = """
+            SELECT opportunity_title, opportunity_cost, date, opportunity_details
+            FROM opportunity
+            WHERE opportunity_id = %s
+        """
+        data = self.db_conn.fetch_one(query, (opportunity_id,))
+        if data:
+            self.ui.opportunity_title_lbl.setText(data["opportunity_title"] or "N/A")
+            self.ui.opportunity_cost_lbl.setText(f"{data['opportunity_cost']:.2f}" if data["opportunity_cost"] else "0.00")
+            self.ui.opportunity_date_lbl.setText(data["date"].strftime("%Y-%m-%d") if data["date"] else "N/A")
+            self.ui.opportunity_details_lbl.setText(data["opportunity_details"] or "N/A")
 
     # def lead_status_indicator(self):
     #     """Updates the progress bar and radio buttons based on the lead status."""
