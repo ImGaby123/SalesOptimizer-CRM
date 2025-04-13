@@ -447,31 +447,6 @@ class Ui_leads_profile(object):
 
         self.horizontalLayout_5.addWidget(self.add_btn)
 
-        self.edit_btn = QPushButton(self.frame_2)
-        self.edit_btn.setObjectName(u"edit_btn")
-        self.edit_btn.setStyleSheet(u"QPushButton {\n"
-"    border: none;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #3A3A3A; /* Dark gray background on hover */\n"
-"    color: #FFFFFF; /* White text on hover */\n"
-"    border-color: #1E90FF; /* Slightly lighter blue border on hover */\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #5A5A5A; /* Darker gray background on press */\n"
-"    color: #FFFFFF; /* White text on press */\n"
-"    border-color: #1E90FF; /* Keep the blue border color when pressed */\n"
-"}\n"
-"")
-        icon1 = QIcon()
-        icon1.addFile(u":/Resources/edit.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.edit_btn.setIcon(icon1)
-        self.edit_btn.setIconSize(QSize(25, 25))
-
-        self.horizontalLayout_5.addWidget(self.edit_btn)
-
 
         self.verticalLayout_5.addLayout(self.horizontalLayout_5)
 
@@ -746,7 +721,7 @@ class Ui_leads_profile(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 307, 543))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 297, 543))
         self.scrollAreaWidgetContents.setStyleSheet(u"border: 2px solid #737373;\n"
 "background-color: #171717;\n"
 "border-radius: 10px;")
@@ -816,9 +791,9 @@ class Ui_leads_profile(object):
 "    color: #22C55E;\n"
 "}\n"
 "")
-        icon2 = QIcon()
-        icon2.addFile(u":/Resources/add_campaign.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.add_campaign_btn.setIcon(icon2)
+        icon1 = QIcon()
+        icon1.addFile(u":/Resources/add_campaign.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.add_campaign_btn.setIcon(icon1)
         self.add_campaign_btn.setIconSize(QSize(25, 25))
 
         self.horizontalLayout_13.addWidget(self.add_campaign_btn)
@@ -1102,6 +1077,31 @@ class Ui_leads_profile(object):
 
         self.horizontalLayout_11.addWidget(self.contactinfohead_lbl)
 
+        self.edit_btn = QPushButton(self.frame_4)
+        self.edit_btn.setObjectName(u"edit_btn")
+        self.edit_btn.setStyleSheet(u"QPushButton {\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #3A3A3A; /* Dark gray background on hover */\n"
+"    color: #FFFFFF; /* White text on hover */\n"
+"    border-color: #1E90FF; /* Slightly lighter blue border on hover */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #5A5A5A; /* Darker gray background on press */\n"
+"    color: #FFFFFF; /* White text on press */\n"
+"    border-color: #1E90FF; /* Keep the blue border color when pressed */\n"
+"}\n"
+"")
+        icon2 = QIcon()
+        icon2.addFile(u":/Resources/edit.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.edit_btn.setIcon(icon2)
+        self.edit_btn.setIconSize(QSize(25, 25))
+
+        self.horizontalLayout_11.addWidget(self.edit_btn)
+
         self.promote_to_prospect_btn = QPushButton(self.frame_4)
         self.promote_to_prospect_btn.setObjectName(u"promote_to_prospect_btn")
         font7 = QFont()
@@ -1302,7 +1302,6 @@ class Ui_leads_profile(object):
         self.add_btn.setToolTip("")
 #endif // QT_CONFIG(tooltip)
         self.add_btn.setText("")
-        self.edit_btn.setText("")
         self.leadinfohead_lbl_3.setText(QCoreApplication.translate("leads_profile", u"All Opportunities Cost", None))
 #if QT_CONFIG(tooltip)
         self.pending_btn.setToolTip("")
@@ -1341,6 +1340,7 @@ class Ui_leads_profile(object):
         self.engagement_value_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
         self.quality_value_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
         self.contactinfohead_lbl.setText(QCoreApplication.translate("leads_profile", u"Opportunities Information", None))
+        self.edit_btn.setText("")
 #if QT_CONFIG(tooltip)
         self.promote_to_prospect_btn.setToolTip("")
 #endif // QT_CONFIG(tooltip)

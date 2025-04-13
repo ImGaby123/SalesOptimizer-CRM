@@ -693,41 +693,6 @@ QPushButton:pressed {
                        </property>
                       </widget>
                      </item>
-                     <item>
-                      <widget class="QPushButton" name="edit_btn">
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton {
-    border: none;
-}
-
-QPushButton:hover {
-    background-color: #3A3A3A; /* Dark gray background on hover */
-    color: #FFFFFF; /* White text on hover */
-    border-color: #1E90FF; /* Slightly lighter blue border on hover */
-}
-
-QPushButton:pressed {
-    background-color: #5A5A5A; /* Darker gray background on press */
-    color: #FFFFFF; /* White text on press */
-    border-color: #1E90FF; /* Keep the blue border color when pressed */
-}
-</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="../qrc/icons.qrc">
-                         <normaloff>:/Resources/edit.svg</normaloff>:/Resources/edit.svg</iconset>
-                       </property>
-                       <property name="iconSize">
-                        <size>
-                         <width>25</width>
-                         <height>25</height>
-                        </size>
-                       </property>
-                      </widget>
-                     </item>
                     </layout>
                    </item>
                    <item>
@@ -1135,7 +1100,7 @@ border: none</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>307</width>
+                   <width>297</width>
                    <height>543</height>
                   </rect>
                  </property>
@@ -1722,6 +1687,41 @@ border: none</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignmentFlag::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="edit_btn">
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton {
+    border: none;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A; /* Dark gray background on hover */
+    color: #FFFFFF; /* White text on hover */
+    border-color: #1E90FF; /* Slightly lighter blue border on hover */
+}
+
+QPushButton:pressed {
+    background-color: #5A5A5A; /* Darker gray background on press */
+    color: #FFFFFF; /* White text on press */
+    border-color: #1E90FF; /* Keep the blue border color when pressed */
+}
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="../qrc/icons.qrc">
+                         <normaloff>:/Resources/edit.svg</normaloff>:/Resources/edit.svg</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>25</width>
+                         <height>25</height>
+                        </size>
                        </property>
                       </widget>
                      </item>
