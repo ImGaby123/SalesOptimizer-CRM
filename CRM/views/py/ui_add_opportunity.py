@@ -24,9 +24,10 @@ class Ui_add_opportunity(object):
     def setupUi(self, add_opportunity):
         if not add_opportunity.objectName():
             add_opportunity.setObjectName(u"add_opportunity")
-        add_opportunity.resize(590, 513)
+        add_opportunity.resize(528, 481)
         add_opportunity.setStyleSheet(u"border-radius: 10px;\n"
-"background-color: #171717;")
+"background-color: #171717;\n"
+"color: white;")
         self.gridLayout = QGridLayout(add_opportunity)
         self.gridLayout.setObjectName(u"gridLayout")
         self.main_frame = QFrame(add_opportunity)
@@ -70,7 +71,7 @@ class Ui_add_opportunity(object):
         self.label_2 = QLabel(self.main_frame)
         self.label_2.setObjectName(u"label_2")
         font1 = QFont()
-        font1.setPointSize(12)
+        font1.setPointSize(11)
         font1.setBold(False)
         self.label_2.setFont(font1)
         self.label_2.setStyleSheet(u"color: rgb(255, 255, 255);")
@@ -78,9 +79,9 @@ class Ui_add_opportunity(object):
 
         self.horizontalLayout_2.addWidget(self.label_2)
 
-        self.horizontalSpacer_13 = QSpacerItem(10, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_11 = QSpacerItem(10, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout_2.addItem(self.horizontalSpacer_13)
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_11)
 
         self.title_line = QLineEdit(self.main_frame)
         self.title_line.setObjectName(u"title_line")
@@ -89,16 +90,17 @@ class Ui_add_opportunity(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.title_line.sizePolicy().hasHeightForWidth())
         self.title_line.setSizePolicy(sizePolicy)
-        self.title_line.setMinimumSize(QSize(245, 0))
+        self.title_line.setMinimumSize(QSize(200, 0))
         self.title_line.setMaximumSize(QSize(16777215, 16777215))
         font2 = QFont()
         font2.setFamilies([u"Segoe UI"])
-        font2.setPointSize(11)
+        font2.setPointSize(9)
         font2.setBold(False)
         font2.setItalic(False)
         self.title_line.setFont(font2)
         self.title_line.setStyleSheet(u"QLineEdit {\n"
 "    background-color: #E5E5E5;\n"
+"	color: rgb(0, 0, 0);\n"
 "    border: 1px solid #737373;\n"
 "    border-radius: 5px;\n"
 "	padding: 5px;\n"
@@ -106,9 +108,9 @@ class Ui_add_opportunity(object):
 
         self.horizontalLayout_2.addWidget(self.title_line)
 
-        self.horizontalSpacer_11 = QSpacerItem(25, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout_2.addItem(self.horizontalSpacer_11)
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_10)
 
         self.label_3 = QLabel(self.main_frame)
         self.label_3.setObjectName(u"label_3")
@@ -125,18 +127,16 @@ class Ui_add_opportunity(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.date_edit.sizePolicy().hasHeightForWidth())
         self.date_edit.setSizePolicy(sizePolicy1)
-        self.date_edit.setMaximumSize(QSize(190, 16777215))
-        font3 = QFont()
-        font3.setPointSize(11)
-        font3.setBold(False)
-        font3.setItalic(False)
-        self.date_edit.setFont(font3)
-        self.date_edit.setStyleSheet(u"QDateEdit {\n"
-"    background-color: #FFFFFF;    /* White background */\n"
-"    color: black;                 /* Black text */\n"
-"    border: 1px solid #BFBFBF;    /* Light gray border */\n"
+        self.date_edit.setMinimumSize(QSize(110, 0))
+        self.date_edit.setMaximumSize(QSize(16777215, 16777215))
+        self.date_edit.setFont(font2)
+        self.date_edit.setStyleSheet(u"/* QDateEdit main field */\n"
+"QDateEdit {\n"
+"    color: #171717;\n"
+"    background-color: #E5E5E5;\n"
+"    border: 1px solid #171717;\n"
 "    border-radius: 5px;\n"
-"    padding: 5px 25px 5px 10px;   /* Extra padding for the drop-down icon */\n"
+"    padding: 4px;\n"
 "}\n"
 "\n"
 "/* Drop-down area */\n"
@@ -147,86 +147,94 @@ class Ui_add_opportunity(object):
 "    background-color: transparent;\n"
 "}\n"
 "\n"
-"/* Calendar icon (set the path to your calendar icon) */\n"
+"/* Calendar icon */\n"
 "QDateEdit::down-arrow {\n"
-"    image: url(:/Resources/calendar.png);  /* Replace with your own icon */\n"
+"    image: url(:/Resources/calendar.png);  /* use a dark icon on E5E5E5 background */\n"
 "    width: 16px;\n"
 "    height: 16px;\n"
 "    margin-right: 14px;\n"
 "}\n"
 "\n"
-"/* Hover effect */\n"
+"/* Hover */\n"
 "QDateEdit:hover {\n"
-"    background-color: #F0F0F0;     /* Light gray background on hover */\n"
-"    color: black;\n"
-"    border: 1px solid #16D4FF;      /* Border turns blue when hovered */\n"
+"    background-color: #E5E5E5;\n"
+"    color: #171717;\n"
+"    border: 1px solid #171717;\n"
 "}\n"
 "\n"
-"/* Focus effect (when clicked)"
-                        " */\n"
+"/* Focus */\n"
 "QDateEdit:focus {\n"
-"    border: 1px solid #16D4FF;      /* Blue border when focused */\n"
-"    background-color: #F9F9F9;      /* Slightly lighter background */\n"
+"    border: 1px solid #171717;\n"
+"    background-color: #DADADA;\n"
+"    color: #171717;\n"
 "}\n"
 "\n"
-"/* Calendar popup container (QCalendarWidget) */\n"
+"/* Calendar popup */\n"
 "QCalendarWidget {\n"
-"    background-color: #FFFFFF;\n"
-"    color: #000000;\n"
-"    border: 1px solid #BFBFBF;\n"
+"    background-color: #E5E5E5;\n"
+"    color: #171717;\n"
+"    bord"
+                        "er: 1px solid #171717;\n"
 "    border-radius: 6px;\n"
 "    font: 10pt \"Segoe UI\";\n"
 "}\n"
 "\n"
-"/* Header navigation bar (month/year buttons & arrows) */\n"
+"/* Header navigation bar */\n"
 "QCalendarWidget QWidget#qt_calendar_navigationbar {\n"
-"    background-color: #F0F0F0;\n"
+"    background-color: #DADADA;\n"
 "}\n"
 "\n"
 "QCalendarWidget QToolButton {\n"
-"    background-color: #E5E5E5;\n"
-"    color: #000000;\n"
+"    background-color: #CCCCCC;\n"
+"    color: #171717;\n"
 "    border: none;\n"
 "    font-weight: bold;\n"
 "    padding: 5px;\n"
 "}\n"
 "\n"
 "QCalendarWidget QToolButton:hover {\n"
-"    background-color: #DADADA;\n"
+"    background-color: #BFBFBF;\n"
 "}\n"
 "\n"
-"/* Remove down arrow on month/year combo (optional) */\n"
+"/* Remove dropdown arrow from tool buttons */\n"
 "QCalendarWidget QToolButton::menu-indicator {\n"
 "    image: none;\n"
 "}\n"
 "\n"
-"/* Weekday labels (Mon-Sun) */\n"
-""
-                        "QCalendarWidget QHeaderView {\n"
-"    background-color: #F5F5F5;\n"
+"/* Weekday headers */\n"
+"QCalendarWidget QHeaderView {\n"
+"    background-color: #DADADA;\n"
 "}\n"
 "\n"
 "QCalendarWidget QHeaderView::section {\n"
-"    color: #555555;\n"
-"    background-color: #F5F5F5;\n"
+"    color: #171717;\n"
+"    background-color: #DADADA;\n"
 "    border: none;\n"
 "    padding: 5px;\n"
 "}\n"
 "\n"
-"/* Day numbers */\n"
+"/* Days view */\n"
 "QCalendarWidget QAbstractItemView {\n"
-"    background-color: #FFFFFF;\n"
-"    color: #000000;\n"
-"    selection-background-color: #16D4FF;  /* Highlighted date */\n"
-"    selection-color: #000000;\n"
-"    gridline-color: #D0D0D0;\n"
+"    background-color: #E5E5E5;\n"
+"    color: #171717;\n"
+"    selection-bac"
+                        "kground-color: #171717;  /* Black highlight for selected */\n"
+"    selection-color: #E5E5E5;             /* Light text on dark selection */\n"
+"    gridline-color: #BFBFBF;\n"
 "}\n"
 "\n"
-"/* Today highlight */\n"
+"/* Today cell */\n"
 "QCalendarWidget QWidget#qt_calendar_today {\n"
-"    border: 1px solid #16D4FF;\n"
-"    background-color: #F0F0F0;\n"
+"    border: 1px solid #171717;\n"
+"    background-color: #DADADA;\n"
 "    border-radius: 4px;\n"
+"}\n"
+"\n"
+"/* Month/year dropdown */\n"
+"QCalendarWidget QMenu {\n"
+"    background-color: #E5E5E5;\n"
+"    color: #171717;\n"
+"    border: 1px solid #171717;\n"
 "}\n"
 "")
         self.date_edit.setMinimumDate(QDate(2025, 1, 1))
@@ -254,19 +262,20 @@ class Ui_add_opportunity(object):
 
         self.horizontalLayout_3.addWidget(self.label_4)
 
-        self.horizontalSpacer_14 = QSpacerItem(10, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_13 = QSpacerItem(10, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout_3.addItem(self.horizontalSpacer_14)
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_13)
 
         self.cost_line = QLineEdit(self.main_frame)
         self.cost_line.setObjectName(u"cost_line")
         sizePolicy.setHeightForWidth(self.cost_line.sizePolicy().hasHeightForWidth())
         self.cost_line.setSizePolicy(sizePolicy)
-        self.cost_line.setMinimumSize(QSize(245, 0))
+        self.cost_line.setMinimumSize(QSize(200, 0))
         self.cost_line.setMaximumSize(QSize(16777215, 16777215))
         self.cost_line.setFont(font2)
         self.cost_line.setStyleSheet(u"QLineEdit {\n"
 "    background-color: #E5E5E5;\n"
+"	color: rgb(0, 0, 0);\n"
 "    border: 1px solid #737373;\n"
 "    border-radius: 5px;\n"
 "	padding: 5px;\n"
@@ -303,6 +312,7 @@ class Ui_add_opportunity(object):
         self.details_text.setObjectName(u"details_text")
         self.details_text.setFont(font2)
         self.details_text.setStyleSheet(u"QTextEdit {\n"
+"	color: rgb(0, 0, 0);\n"
 "    background-color: #E5E5E5;\n"
 "    border: 1px solid #737373;\n"
 "    border-radius: 5px;\n"
@@ -333,14 +343,15 @@ class Ui_add_opportunity(object):
 
         self.add_btn = QPushButton(self.main_frame)
         self.add_btn.setObjectName(u"add_btn")
-        font4 = QFont()
-        font4.setFamilies([u"Segoe UI"])
-        font4.setPointSize(11)
-        font4.setBold(True)
-        font4.setItalic(False)
-        self.add_btn.setFont(font4)
+        font3 = QFont()
+        font3.setFamilies([u"Segoe UI"])
+        font3.setPointSize(10)
+        font3.setBold(True)
+        font3.setItalic(False)
+        self.add_btn.setFont(font3)
         self.add_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #E5E5E5;\n"
+"	color: rgb(0, 0, 0);\n"
 "    border: 1px solid #737373;\n"
 "    border-radius: 5px;\n"
 "    padding: 5px;\n"
@@ -366,9 +377,10 @@ class Ui_add_opportunity(object):
 
         self.cancel_btn = QPushButton(self.main_frame)
         self.cancel_btn.setObjectName(u"cancel_btn")
-        self.cancel_btn.setFont(font4)
+        self.cancel_btn.setFont(font3)
         self.cancel_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #E5E5E5;\n"
+"	color: rgb(0, 0, 0);\n"
 "    border: 1px solid #737373;\n"
 "    border-radius: 5px;\n"
 "    padding: 5px;\n"

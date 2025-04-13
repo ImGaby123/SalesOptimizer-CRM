@@ -1,6 +1,8 @@
-from PySide6.QtWidgets import QDialog
-from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QDialog, QMessageBox
+from PySide6.QtCore import Qt, QDate
 from views.py.ui_add_opportunity import Ui_add_opportunity
+from datas.db_connection import DB_Connection
+
 
 class AddOpportunity(QDialog):
     def __init__(self, contact_id=None, parent=None):
@@ -9,24 +11,30 @@ class AddOpportunity(QDialog):
         self.ui = Ui_add_opportunity()
         self.ui.setupUi(self)
 
-        # Window Settings
-        self.setWindowFlags(Qt.FramelessWindowHint | Qt.Dialog)
-        self.setAttribute(Qt.WA_TranslucentBackground)  # Needed for rounded corners if using stylesheet
-        self.setWindowFlags(self.windowFlags() | self.windowFlags() | self.windowFlags().WindowStaysOnTopHint)
+        # Window settings
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.Dialog | Qt.WindowStaysOnTopHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
 
-        #Make dialog draggable since there's no windows
-        def mousePressEvent(self, event):
-            if event.button() == Qt.LeftButton:
-                self.drag_position = event.globalPosition().toPoint()
-                event.accept()
-
-        #Stylesheet
+        # Rounded corners
         self.ui.main_frame.setStyleSheet("""
             background-color: #171717;
             border-radius: 10px;
         """)
 
+        # Make window draggable
+        self.drag_position = None
+
+        #Get Current Date
+        self.ui.date_edit.setDate(QDate.currentDate())
+
+        # Cancel button closes window
         self.ui.cancel_btn.clicked.connect(self.close)
+
+        # Add button triggers opportunity insert
+        self.ui.add_btn.clicked.connect(self.add_opportunity)
+
+        # Database connection
+        self.db = DB_Connection()
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -34,8 +42,91 @@ class AddOpportunity(QDialog):
             event.accept()
 
     def mouseMoveEvent(self, event):
-        if event.buttons() == Qt.LeftButton:
+        if event.buttons() == Qt.LeftButton and self.drag_position:
             self.move(self.pos() + event.globalPosition().toPoint() - self.drag_position)
             self.drag_position = event.globalPosition().toPoint()
             event.accept()
 
+    def show_light_messagebox(self, icon, title, text):
+        msg = QMessageBox(self)
+        msg.setIcon(icon)
+        msg.setWindowTitle(title)
+        msg.setText(text)
+        msg.setStyleSheet("""
+            QMessageBox {
+                color: white;
+            }
+            QPushButton {
+                background-color: #white;
+            }
+            QPushButton:hover {
+                background-color: #white;
+            }
+        """)
+        return msg.exec()
+
+    def add_opportunity(self):
+        # Get values
+        title = self.ui.title_line.text().strip()
+        cost_text = self.ui.cost_line.text()
+        cost_text = cost_text.replace(",", "").replace("$", "")
+        details = self.ui.details_text.toPlainText().strip()
+        date = self.ui.date_edit.text()  # Assumes format YYYY/MM/DD
+
+        # Validate required field
+        if not title:
+            self.show_light_messagebox(QMessageBox.Warning, "Validation Error", "Opportunity title is required.")
+            return
+
+        # Optional: Convert cost to decimal
+        try:
+            cost = float(cost_text) if cost_text else None
+        except ValueError:
+            self.show_light_messagebox(QMessageBox.Warning, "Validation Error", "Invalid opportunity cost.")
+            return
+
+        # Confirm insertion
+        confirm = QMessageBox.question(
+            self, "Confirm", "Are you sure you want to add this opportunity?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+
+        if confirm == QMessageBox.No:
+            return
+
+        # Fetch lead_id and company_id
+        lead_query = "SELECT lead_id, company_id FROM leads WHERE contact_id = %s"
+        lead_data = self.db.fetch_one(lead_query, (self.contact_id,))
+        if not lead_data:
+            QMessageBox.critical(self, "Error", "Unable to find matching lead for this contact.")
+            return
+
+        lead_id = lead_data["lead_id"]
+        company_id = lead_data["company_id"]
+
+        # Insert query
+        insert_query = """
+            INSERT INTO opportunity (
+                company_id, contact_id, lead_id,
+                opportunity_title, opportunity_cost,
+                opportunity_details, date
+            )
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+        """
+        values = (
+            company_id,
+            self.contact_id,
+            lead_id,
+            title,
+            cost,
+            details,
+            date
+        )
+
+        # Execute insert
+        try:
+            self.db.execute_query(insert_query, values)
+            QMessageBox.information(self, "Success", "Opportunity added successfully.")
+            self.accept()  # Close dialog
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to add opportunity:\n{e}")

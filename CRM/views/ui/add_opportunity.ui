@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>590</width>
-    <height>513</height>
+    <width>528</width>
+    <height>481</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">border-radius: 10px;
-background-color: #171717;</string>
+background-color: #171717;
+color: white;</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -100,7 +101,7 @@ background-color: #171717;</string>
            <widget class="QLabel" name="label_2">
             <property name="font">
              <font>
-              <pointsize>12</pointsize>
+              <pointsize>11</pointsize>
               <bold>false</bold>
              </font>
             </property>
@@ -116,7 +117,7 @@ background-color: #171717;</string>
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_13">
+           <spacer name="horizontalSpacer_11">
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
             </property>
@@ -141,7 +142,7 @@ background-color: #171717;</string>
             </property>
             <property name="minimumSize">
              <size>
-              <width>245</width>
+              <width>200</width>
               <height>0</height>
              </size>
             </property>
@@ -154,7 +155,7 @@ background-color: #171717;</string>
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>11</pointsize>
+              <pointsize>9</pointsize>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -162,6 +163,7 @@ background-color: #171717;</string>
             <property name="styleSheet">
              <string notr="true">QLineEdit {
     background-color: #E5E5E5;
+	color: rgb(0, 0, 0);
     border: 1px solid #737373;
     border-radius: 5px;
 	padding: 5px;
@@ -170,16 +172,13 @@ background-color: #171717;</string>
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_11">
+           <spacer name="horizontalSpacer_10">
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
             </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Policy::Preferred</enum>
-            </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>25</width>
+              <width>40</width>
               <height>20</height>
              </size>
             </property>
@@ -189,7 +188,7 @@ background-color: #171717;</string>
            <widget class="QLabel" name="label_3">
             <property name="font">
              <font>
-              <pointsize>12</pointsize>
+              <pointsize>11</pointsize>
               <bold>false</bold>
              </font>
             </property>
@@ -212,26 +211,34 @@ background-color: #171717;</string>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
-              <width>190</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>11</pointsize>
+              <family>Segoe UI</family>
+              <pointsize>9</pointsize>
               <italic>false</italic>
               <bold>false</bold>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QDateEdit {
-    background-color: #FFFFFF;    /* White background */
-    color: black;                 /* Black text */
-    border: 1px solid #BFBFBF;    /* Light gray border */
+             <string notr="true">/* QDateEdit main field */
+QDateEdit {
+    color: #171717;
+    background-color: #E5E5E5;
+    border: 1px solid #171717;
     border-radius: 5px;
-    padding: 5px 25px 5px 10px;   /* Extra padding for the drop-down icon */
+    padding: 4px;
 }
 
 /* Drop-down area */
@@ -242,84 +249,92 @@ QDateEdit::drop-down {
     background-color: transparent;
 }
 
-/* Calendar icon (set the path to your calendar icon) */
+/* Calendar icon */
 QDateEdit::down-arrow {
-    image: url(:/Resources/calendar.png);  /* Replace with your own icon */
+    image: url(:/Resources/calendar.png);  /* use a dark icon on E5E5E5 background */
     width: 16px;
     height: 16px;
     margin-right: 14px;
 }
 
-/* Hover effect */
+/* Hover */
 QDateEdit:hover {
-    background-color: #F0F0F0;     /* Light gray background on hover */
-    color: black;
-    border: 1px solid #16D4FF;      /* Border turns blue when hovered */
+    background-color: #E5E5E5;
+    color: #171717;
+    border: 1px solid #171717;
 }
 
-/* Focus effect (when clicked) */
+/* Focus */
 QDateEdit:focus {
-    border: 1px solid #16D4FF;      /* Blue border when focused */
-    background-color: #F9F9F9;      /* Slightly lighter background */
+    border: 1px solid #171717;
+    background-color: #DADADA;
+    color: #171717;
 }
 
-/* Calendar popup container (QCalendarWidget) */
+/* Calendar popup */
 QCalendarWidget {
-    background-color: #FFFFFF;
-    color: #000000;
-    border: 1px solid #BFBFBF;
+    background-color: #E5E5E5;
+    color: #171717;
+    border: 1px solid #171717;
     border-radius: 6px;
     font: 10pt &quot;Segoe UI&quot;;
 }
 
-/* Header navigation bar (month/year buttons &amp; arrows) */
+/* Header navigation bar */
 QCalendarWidget QWidget#qt_calendar_navigationbar {
-    background-color: #F0F0F0;
+    background-color: #DADADA;
 }
 
 QCalendarWidget QToolButton {
-    background-color: #E5E5E5;
-    color: #000000;
+    background-color: #CCCCCC;
+    color: #171717;
     border: none;
     font-weight: bold;
     padding: 5px;
 }
 
 QCalendarWidget QToolButton:hover {
-    background-color: #DADADA;
+    background-color: #BFBFBF;
 }
 
-/* Remove down arrow on month/year combo (optional) */
+/* Remove dropdown arrow from tool buttons */
 QCalendarWidget QToolButton::menu-indicator {
     image: none;
 }
 
-/* Weekday labels (Mon-Sun) */
+/* Weekday headers */
 QCalendarWidget QHeaderView {
-    background-color: #F5F5F5;
+    background-color: #DADADA;
 }
 
 QCalendarWidget QHeaderView::section {
-    color: #555555;
-    background-color: #F5F5F5;
+    color: #171717;
+    background-color: #DADADA;
     border: none;
     padding: 5px;
 }
 
-/* Day numbers */
+/* Days view */
 QCalendarWidget QAbstractItemView {
-    background-color: #FFFFFF;
-    color: #000000;
-    selection-background-color: #16D4FF;  /* Highlighted date */
-    selection-color: #000000;
-    gridline-color: #D0D0D0;
+    background-color: #E5E5E5;
+    color: #171717;
+    selection-background-color: #171717;  /* Black highlight for selected */
+    selection-color: #E5E5E5;             /* Light text on dark selection */
+    gridline-color: #BFBFBF;
 }
 
-/* Today highlight */
+/* Today cell */
 QCalendarWidget QWidget#qt_calendar_today {
-    border: 1px solid #16D4FF;
-    background-color: #F0F0F0;
+    border: 1px solid #171717;
+    background-color: #DADADA;
     border-radius: 4px;
+}
+
+/* Month/year dropdown */
+QCalendarWidget QMenu {
+    background-color: #E5E5E5;
+    color: #171717;
+    border: 1px solid #171717;
 }
 </string>
             </property>
@@ -371,7 +386,7 @@ QCalendarWidget QWidget#qt_calendar_today {
             </property>
             <property name="font">
              <font>
-              <pointsize>12</pointsize>
+              <pointsize>11</pointsize>
               <bold>false</bold>
              </font>
             </property>
@@ -387,7 +402,7 @@ QCalendarWidget QWidget#qt_calendar_today {
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_14">
+           <spacer name="horizontalSpacer_13">
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
             </property>
@@ -412,7 +427,7 @@ QCalendarWidget QWidget#qt_calendar_today {
             </property>
             <property name="minimumSize">
              <size>
-              <width>245</width>
+              <width>200</width>
               <height>0</height>
              </size>
             </property>
@@ -425,7 +440,7 @@ QCalendarWidget QWidget#qt_calendar_today {
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>11</pointsize>
+              <pointsize>9</pointsize>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -433,6 +448,7 @@ QCalendarWidget QWidget#qt_calendar_today {
             <property name="styleSheet">
              <string notr="true">QLineEdit {
     background-color: #E5E5E5;
+	color: rgb(0, 0, 0);
     border: 1px solid #737373;
     border-radius: 5px;
 	padding: 5px;
@@ -477,7 +493,7 @@ QCalendarWidget QWidget#qt_calendar_today {
            <widget class="QLabel" name="label_5">
             <property name="font">
              <font>
-              <pointsize>12</pointsize>
+              <pointsize>11</pointsize>
               <bold>false</bold>
              </font>
             </property>
@@ -513,13 +529,14 @@ QCalendarWidget QWidget#qt_calendar_today {
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>11</pointsize>
+              <pointsize>9</pointsize>
               <italic>false</italic>
               <bold>false</bold>
              </font>
             </property>
             <property name="styleSheet">
              <string notr="true">QTextEdit {
+	color: rgb(0, 0, 0);
     background-color: #E5E5E5;
     border: 1px solid #737373;
     border-radius: 5px;
@@ -584,7 +601,7 @@ QCalendarWidget QWidget#qt_calendar_today {
           <property name="font">
            <font>
             <family>Segoe UI</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
             <italic>false</italic>
             <bold>true</bold>
            </font>
@@ -592,6 +609,7 @@ QCalendarWidget QWidget#qt_calendar_today {
           <property name="styleSheet">
            <string notr="true">QPushButton {
     background-color: #E5E5E5;
+	color: rgb(0, 0, 0);
     border: 1px solid #737373;
     border-radius: 5px;
     padding: 5px;
@@ -635,7 +653,7 @@ QPushButton:pressed {
           <property name="font">
            <font>
             <family>Segoe UI</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
             <italic>false</italic>
             <bold>true</bold>
            </font>
@@ -643,6 +661,7 @@ QPushButton:pressed {
           <property name="styleSheet">
            <string notr="true">QPushButton {
     background-color: #E5E5E5;
+	color: rgb(0, 0, 0);
     border: 1px solid #737373;
     border-radius: 5px;
     padding: 5px;
