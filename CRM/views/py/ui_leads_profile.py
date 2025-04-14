@@ -180,17 +180,36 @@ class Ui_leads_profile(object):
 
         self.opportunity_status_bar = QProgressBar(self.frame_6)
         self.opportunity_status_bar.setObjectName(u"opportunity_status_bar")
-        self.opportunity_status_bar.setStyleSheet(u"QProgressBar {\n"
-"    background-color: #E5E5E5;\n"
-"    border: 1px solid #000;\n"
-"    text-align: center;\n"
-"    height: 20px;\n"
-"}\n"
+        self.opportunity_status_bar.setStyleSheet(u"                QProgressBar {\n"
+"                    background-color: #E5E5E5;\n"
+"                    border: 1px solid #000;\n"
+"                    border-radius: 10px;\n"
+"                    text-align: center;\n"
+"                    height: 20px;\n"
+"                }\n"
+"                QProgressBar::chunk {\n"
+"                    background-color: #A3E635;\n"
+"                    border-radius: 10px;\n"
+"                }\n"
 "\n"
-"QProgressBar::chunk {\n"
-"    background-color: #A3E635;  /* Green chunk color */\n"
-"}\n"
-"")
+"		                QRadioButton {\n"
+"                    background: transparent;\n"
+"                    color: #fff;\n"
+"                    border: none;\n"
+"                }\n"
+"\n"
+"                QRadioButton::indicator {\n"
+"                    width: 16px;\n"
+"                    height: 16px;\n"
+"                    border-radius: 8px;\n"
+"                    background-color: white;\n"
+"                }\n"
+"\n"
+"                QRadioButton::indicator:checked {\n"
+"                    background-color: #A3E635;\n"
+"                    border-color: #A3E635;\n"
+""
+                        "                }")
         self.opportunity_status_bar.setValue(0)
 
         self.verticalLayout_29.addWidget(self.opportunity_status_bar)

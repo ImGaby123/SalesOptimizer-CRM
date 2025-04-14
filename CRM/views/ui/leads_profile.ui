@@ -262,17 +262,35 @@ border: none</string>
                <item>
                 <widget class="QProgressBar" name="opportunity_status_bar">
                  <property name="styleSheet">
-                  <string notr="true">QProgressBar {
-    background-color: #E5E5E5;
-    border: 1px solid #000;
-    text-align: center;
-    height: 20px;
-}
+                  <string notr="true">                QProgressBar {
+                    background-color: #E5E5E5;
+                    border: 1px solid #000;
+                    border-radius: 10px;
+                    text-align: center;
+                    height: 20px;
+                }
+                QProgressBar::chunk {
+                    background-color: #A3E635;
+                    border-radius: 10px;
+                }
 
-QProgressBar::chunk {
-    background-color: #A3E635;  /* Green chunk color */
-}
-</string>
+		                QRadioButton {
+                    background: transparent;
+                    color: #fff;
+                    border: none;
+                }
+
+                QRadioButton::indicator {
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 8px;
+                    background-color: white;
+                }
+
+                QRadioButton::indicator:checked {
+                    background-color: #A3E635;
+                    border-color: #A3E635;
+                }</string>
                  </property>
                  <property name="value">
                   <number>0</number>
