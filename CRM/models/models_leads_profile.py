@@ -20,6 +20,10 @@ class LeadsProfile(QWidget):
 
         #opportunity cost display
         self.all_opportunity_cost()
+        self.ui.won_btn.clicked.connect(lambda: self.buttons_opportunity_cost("Closed Won"))
+        self.ui.loss_btn.clicked.connect(lambda: self.buttons_opportunity_cost("Closed Loss"))
+        self.ui.won_btn.setEnabled(False)
+        self.ui.loss_btn.setEnabled(False)
 
         # Connect buttons to their handlers
         self.ui.add_btn.clicked.connect(self.add_opportunity)
@@ -52,6 +56,11 @@ class LeadsProfile(QWidget):
             return
 
         MDIManager.load_into_mdi(lambda: ContactsView(self.contact_id))
+
+    def reload_profile(self):
+        """Reload the entire profile view."""
+        from models.models_authentication import MDIManager
+        MDIManager.load_into_mdi(lambda: LeadsProfile(self.contact_id))
 
     def contact_info(self):
         """Loads contact information into the respective labels."""
@@ -182,7 +191,7 @@ class LeadsProfile(QWidget):
         opportunity_id = opportunity_id_item.text()
 
         query = """
-            SELECT opportunity_title, opportunity_cost, date, opportunity_details
+            SELECT opportunity_title, opportunity_cost, date, opportunity_details, opportunity_status
             FROM opportunity
             WHERE opportunity_id = %s
         """
@@ -196,6 +205,7 @@ class LeadsProfile(QWidget):
         # NEW: Reflect the status for the selected opportunity
         self.opportunity_status_indicator(opportunity_id)
         self.selected_opportunity_cost()
+        self.toggle_opportunity_cost_buttons(data["opportunity_status"])
 
     def opportunity_status_indicator(self, opportunity_id):
         """Updates progress bar and radio buttons based on the selected opportunity's status."""
@@ -418,4 +428,48 @@ class LeadsProfile(QWidget):
         elif status == "Closed Loss":
             self.ui.loss_lbl.setText(f"₱{cost:,.2f}")
 
+    # ===============================================
+    # OPPORTUNITY COST BUTTONS FUNCTIONS
+    # ===============================================
+    def toggle_opportunity_cost_buttons(self, status):
+        if status == "Closed Won":
+            self.ui.won_btn.setEnabled(False)
+            self.ui.loss_btn.setEnabled(True)
+        elif status == "Closed Loss":
+            self.ui.won_btn.setEnabled(True)
+            self.ui.loss_btn.setEnabled(False)
+        else:
+            self.ui.won_btn.setEnabled(True)
+            self.ui.loss_btn.setEnabled(True)
 
+    def buttons_opportunity_cost(self, to_status):
+        """Handles setting opportunity as Closed Won or Closed Loss based on button click."""
+
+        selected_row = self.ui.opportunities_tbl.currentRow()
+        if selected_row == -1:
+            QMessageBox.warning(self, "No Selection", "Please select an opportunity first.")
+            return
+
+        opportunity_id = self.ui.opportunities_tbl.item(selected_row, 0).text()
+
+        # Human-readable label
+        label = "Closed Won" if to_status == "Closed Won" else "Closed Loss"
+
+        confirm = QMessageBox.question(
+            self,
+            f"Confirm {label}",
+            f"Are you sure you want to set this opportunity to {label}?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+
+        if confirm == QMessageBox.Yes:
+            try:
+                query = "UPDATE opportunity SET opportunity_status = %s WHERE opportunity_id = %s"
+                self.db_conn.execute_query(query, (to_status, opportunity_id))
+                QMessageBox.information(self, "Success", f"Opportunity set to {label}.")
+                self.opportunity_status_indicator(opportunity_id)
+                self.selected_opportunity_cost()
+                self.toggle_opportunity_cost_buttons(to_status)
+
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"Failed to update status:\n{e}")
