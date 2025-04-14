@@ -568,6 +568,7 @@ class Ui_leads_profile(object):
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
         self.pending_btn = QPushButton(self.frame_5)
         self.pending_btn.setObjectName(u"pending_btn")
+        self.pending_btn.setEnabled(False)
         font5 = QFont()
         font5.setFamilies([u"Segoe UI"])
         font5.setPointSize(10)

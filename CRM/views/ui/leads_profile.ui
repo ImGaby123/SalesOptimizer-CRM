@@ -846,6 +846,9 @@ border: none</string>
                         <layout class="QVBoxLayout" name="verticalLayout_26">
                          <item>
                           <widget class="QPushButton" name="pending_btn">
+                           <property name="enabled">
+                            <bool>false</bool>
+                           </property>
                            <property name="font">
                             <font>
                              <family>Segoe UI</family>

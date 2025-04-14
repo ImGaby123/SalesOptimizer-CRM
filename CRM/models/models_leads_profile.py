@@ -18,6 +18,9 @@ class LeadsProfile(QWidget):
         self.contact_info()
         self.opportunities_table()
 
+        #opportunity cost display
+        self.all_opportunity_cost()
+
         # Connect buttons to their handlers
         self.ui.add_btn.clicked.connect(self.add_opportunity)
         self.ui.edit_btn.clicked.connect(self.edit_opportunity)
@@ -192,6 +195,7 @@ class LeadsProfile(QWidget):
 
         # NEW: Reflect the status for the selected opportunity
         self.opportunity_status_indicator(opportunity_id)
+        self.selected_opportunity_cost()
 
     def opportunity_status_indicator(self, opportunity_id):
         """Updates progress bar and radio buttons based on the selected opportunity's status."""
@@ -348,76 +352,70 @@ class LeadsProfile(QWidget):
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Failed to update status:\n{e}")
 
-    # def lead_status_indicator(self):
-    #     """Updates the progress bar and radio buttons based on the lead status."""
-    #     query = """
-    #         SELECT l.lead_status
-    #         FROM leads l
-    #         WHERE l.contact_id = %s
-    #     """
-    #     lead_data = self.db_conn.fetch_one(query, (self.contact_id,))
+    def all_opportunity_cost(self):
+        """Sum opportunity_costs by status for this contact_id and display in labels."""
+        query = """
+            SELECT opportunity_status, SUM(opportunity_cost) AS total_cost
+            FROM opportunity
+            WHERE contact_id = %s
+            GROUP BY opportunity_status
+        """
+        results = self.db_conn.fetch_all(query, (self.contact_id,))
 
-    #     if lead_data:
-    #         lead_status = lead_data['lead_status']
+        # Defaults
+        pending_total = 0.0
+        won_total = 0.0
+        loss_total = 0.0
 
-    #         # Set progress bar value based on lead_status
-    #         progress_mapping = {
-    #             'Lead': 5,
-    #             'Prospecting': 22,
-    #             'Qualifications': 39,
-    #             'Contacting': 53,
-    #             'Negotiating': 68,
-    #             'Closed Lost': 83,
-    #             'Closed Won': 100
-    #         }
+        for row in results:
+            status = row["opportunity_status"]
+            cost = float(row["total_cost"] or 0.0)
 
-    #         progress_value = progress_mapping.get(lead_status, 0)
-    #         self.ui.lead_status_bar.setValue(progress_value)  # Correct progress bar name
+            if status in ("Prospecting", "Qualification", "Negotiating", "Approval"):
+                pending_total += cost
+            elif status == "Closed Won":
+                won_total += cost
+            elif status == "Closed Loss":
+                loss_total += cost
 
-    #         # Set the radio buttons based on the lead status
-    #         # Reset all radio buttons first
-    #         self.ui.lead_radio.setChecked(False)
-    #         self.ui.prospecting_radio.setChecked(False)
-    #         self.ui.qualifications_radio.setChecked(False)
-    #         self.ui.contacting_radio.setChecked(False)
-    #         self.ui.negotiating_radio.setChecked(False)
-    #         self.ui.loss_radio.setChecked(False)
-    #         self.ui.won_radio.setChecked(False)
+        self.ui.pending_lbl.setText(f"₱{pending_total:,.2f}")
+        self.ui.won_lbl.setText(f"₱{won_total:,.2f}")
+        self.ui.loss_lbl.setText(f"₱{loss_total:,.2f}")
 
-    #         # Set the radio buttons according to the lead's status
-    #         if lead_status == 'Lead':
-    #             self.ui.lead_radio.setChecked(True)
-    #         if lead_status == 'Prospecting':
-    #             self.ui.lead_radio.setChecked(True)
-    #             self.ui.prospecting_radio.setChecked(True)
-    #         if lead_status == 'Qualifications':
-    #             self.ui.lead_radio.setChecked(True)
-    #             self.ui.prospecting_radio.setChecked(True)
-    #             self.ui.qualifications_radio.setChecked(True)
-    #         if lead_status == 'Contacting':
-    #             self.ui.lead_radio.setChecked(True)
-    #             self.ui.prospecting_radio.setChecked(True)
-    #             self.ui.qualifications_radio.setChecked(True)
-    #             self.ui.contacting_radio.setChecked(True)
-    #         if lead_status == 'Negotiating':
-    #             self.ui.lead_radio.setChecked(True)
-    #             self.ui.prospecting_radio.setChecked(True)
-    #             self.ui.qualifications_radio.setChecked(True)
-    #             self.ui.contacting_radio.setChecked(True)
-    #             self.ui.negotiating_radio.setChecked(True)
-    #         if lead_status == 'Closed Lost':
-    #             self.ui.lead_radio.setChecked(True)
-    #             self.ui.prospecting_radio.setChecked(True)
-    #             self.ui.qualifications_radio.setChecked(True)
-    #             self.ui.contacting_radio.setChecked(True)
-    #             self.ui.negotiating_radio.setChecked(True)
-    #             self.ui.loss_radio.setChecked(True)
-    #         if lead_status == 'Closed Won':
-    #             self.ui.lead_radio.setChecked(True)
-    #             self.ui.prospecting_radio.setChecked(True)
-    #             self.ui.qualifications_radio.setChecked(True)
-    #             self.ui.contacting_radio.setChecked(True)
-    #             self.ui.negotiating_radio.setChecked(True)
-    #             self.ui.loss_radio.setChecked(True)
-    #             self.ui.won_radio.setChecked(True)
+    def selected_opportunity_cost(self):
+        """Displays the cost of the selected opportunity into its corresponding label."""
+        selected_row = self.ui.opportunities_tbl.currentRow()
+        if selected_row == -1:
+            return  # No selection
+
+        opportunity_id_item = self.ui.opportunities_tbl.item(selected_row, 0)
+        if not opportunity_id_item:
+            return
+
+        opportunity_id = opportunity_id_item.text()
+
+        query = """
+            SELECT opportunity_cost, opportunity_status
+            FROM opportunity
+            WHERE opportunity_id = %s
+        """
+        data = self.db_conn.fetch_one(query, (opportunity_id,))
+        if not data:
+            return
+
+        cost = data["opportunity_cost"] or 0.0
+        status = data["opportunity_status"]
+
+        # Reset all to zero display first
+        self.ui.pending_lbl.setText("₱0.00")
+        self.ui.won_lbl.setText("₱0.00")
+        self.ui.loss_lbl.setText("₱0.00")
+
+        if status in ("Prospecting", "Qualification", "Negotiating", "Approval"):
+            self.ui.pending_lbl.setText(f"₱{cost:,.2f}")
+        elif status == "Closed Won":
+            self.ui.won_lbl.setText(f"₱{cost:,.2f}")
+        elif status == "Closed Loss":
+            self.ui.loss_lbl.setText(f"₱{cost:,.2f}")
+
 
