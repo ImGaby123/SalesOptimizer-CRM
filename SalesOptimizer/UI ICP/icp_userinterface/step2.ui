@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>icp_step2</class>
+ <widget class="QWidget" name="icp_step2">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>750</width>
+    <height>510</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>ICP Step 2</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_9">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="define_lbl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Define Lead Attribute Rules</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="step2_lbl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Create Lead Quality Criteria, Step 2 of 2	</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="guide1_lbl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Provide scores to the relevant attribute values. You may  choose Has other value to assign scores to values out of the attribute's complete</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="guide2_lbl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>list. Also you may choose Rest all to assign score all to remaining attribute values not define in the rule.</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QTableView" name="attributes_tblview"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QStackedWidget" name="stackedWidget">
+       <property name="currentIndex">
+        <number>4</number>
+       </property>
+       <widget class="QWidget" name="city1_page">
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="5" column="2">
+          <widget class="QLineEdit" name="city_line">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="4">
+          <widget class="QSpinBox" name="no1_spin"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="when_city1_lbl">
+           <property name="text">
+            <string>When City</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLabel" name="othervalue_lbl">
+           <property name="text">
+            <string>Has Other Value</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="when_city3_lbl">
+           <property name="text">
+            <string>When City</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="set_attribute_lbl">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Set Attribute Scores</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLabel" name="score_city3_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="contains_lbl">
+           <property name="text">
+            <string>Contains</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Quezon City</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLabel" name="score_city1_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="when_city2_lbl">
+           <property name="text">
+            <string>When City</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QComboBox" name="city_combo">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+           <property name="currentText">
+            <string>Contains</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Contains</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Has Other Values</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QLabel" name="city1_lbl">
+           <property name="text">
+            <string>10</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLabel" name="score_city2_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="4">
+          <widget class="QLabel" name="city2_lbl">
+           <property name="text">
+            <string>5</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="religion2_page">
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <widget class="QLabel" name="religion_set_attribute_lbl">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Set Attribute Scores</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="when_religion1_lbl">
+           <property name="text">
+            <string>When Country</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="religion_contains_lbl">
+           <property name="text">
+            <string>Contains</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="religion_random_lbl">
+           <property name="text">
+            <string>Philippines</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLabel" name="score_religion1_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QLabel" name="religion1_lbl">
+           <property name="text">
+            <string>10</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="when_religion2_lbl">
+           <property name="text">
+            <string>When Country</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="religion_other_lbl">
+           <property name="text">
+            <string>Has Oher Values</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLabel" name="score_religion2_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="QLabel" name="religion2_lbl">
+           <property name="text">
+            <string>8</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="when_religion3_lbl">
+           <property name="text">
+            <string>When Country</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QComboBox" name="religion_combo">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+           <property name="currentText">
+            <string>Contains</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Contains</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Has Other Values</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLineEdit" name="religion_line">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLabel" name="score_religion3_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="4">
+          <widget class="QSpinBox" name="religion_spin"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="country3_page">
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="0" column="0">
+          <widget class="QLabel" name="country_set_attribute_lbl">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Set Attribute Scores</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="when_country1_lbl">
+           <property name="text">
+            <string>When Religion</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="country_contains_lbl">
+           <property name="text">
+            <string>Contains</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="country_random_lbl">
+           <property name="text">
+            <string>Have religion</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLabel" name="score_country1_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QLabel" name="country1_lbl">
+           <property name="text">
+            <string>10</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="when_country2_lbl">
+           <property name="text">
+            <string>When Religion</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="country_other_lbl">
+           <property name="text">
+            <string>None</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLabel" name="score_country2_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="QLabel" name="country2_lbl">
+           <property name="text">
+            <string>5</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="when_country3_lbl">
+           <property name="text">
+            <string>When Religion</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QComboBox" name="country_combo">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+           <property name="currentText">
+            <string>Contains</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Contains</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLineEdit" name="country_line">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLabel" name="score_country3_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="4">
+          <widget class="QSpinBox" name="country_spin"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="profession4_page">
+        <layout class="QGridLayout" name="gridLayout_6">
+         <item row="0" column="0">
+          <widget class="QLabel" name="profession_set_attribute_lbl">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Set Attribute Scores</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="when_profession1_lbl">
+           <property name="text">
+            <string>When Profession</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="profession_contains_lbl">
+           <property name="text">
+            <string>Contains</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="profession_random_lbl">
+           <property name="text">
+            <string>Computer Related</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLabel" name="score_profession1_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QLabel" name="profession1_lbl">
+           <property name="text">
+            <string>20</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="when_profession2_lbl">
+           <property name="text">
+            <string>When Profession</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="profession_other_lbl">
+           <property name="text">
+            <string>Has Other Value</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLabel" name="score_profession2_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="QLabel" name="profession2_lbl">
+           <property name="text">
+            <string>15</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="when_profession3_lbl">
+           <property name="text">
+            <string>When Profession</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QComboBox" name="profession_combo">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+           <property name="currentText">
+            <string>Contains</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Contains</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Has Other Value</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLineEdit" name="profession_line">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLabel" name="score_profession3_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="4">
+          <widget class="QSpinBox" name="profession_spin"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="age5_page">
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="3" column="4">
+          <widget class="QLabel" name="age3_lbl">
+           <property name="text">
+            <string>6</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="QLabel" name="age2_lbl">
+           <property name="text">
+            <string>8</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="between_lbl">
+           <property name="text">
+            <string>Between</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="when_age4_lbl">
+           <property name="text">
+            <string>When Age</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="age_set_lbl">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Set Attribute Scores</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="QLabel" name="score_age4_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="4">
+          <widget class="QSpinBox" name="age_spin"/>
+         </item>
+         <item row="4" column="1">
+          <widget class="QComboBox" name="age_combo">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+           <property name="currentText">
+            <string>Between</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Between</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Is Greater Than</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Is Less Than</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLabel" name="less_lbl">
+           <property name="text">
+            <string>Less Than</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="when_age2_lbl">
+           <property name="text">
+            <string>When Age</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLineEdit" name="age_line"/>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLabel" name="score_age1_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="when_age3_lbl">
+           <property name="text">
+            <string>When Age</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="second_lbl">
+           <property name="text">
+            <string>45</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="greater_lbl">
+           <property name="text">
+            <string>Greater Than</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QLabel" name="age1_lbl">
+           <property name="text">
+            <string>10</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="when_age1_lbl">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>When Age</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLabel" name="score_age2_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="third_lbl">
+           <property name="text">
+            <string>20</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLabel" name="score_age3_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="first_lbl">
+           <property name="text">
+            <string>20 &amp; 45</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="industry6_page">
+        <layout class="QGridLayout" name="gridLayout_7">
+         <item row="0" column="0">
+          <widget class="QLabel" name="industry_set_attribute_lbl">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Set Attribute Scores</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="when_industry1_lbl">
+           <property name="text">
+            <string>When Industry</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="industry_contains_lbl">
+           <property name="text">
+            <string>Contains</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="industry_random_lbl">
+           <property name="text">
+            <string>IT Field</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLabel" name="score_industry1_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QLabel" name="industry1_lbl">
+           <property name="text">
+            <string>15</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="when_industry2_lbl">
+           <property name="text">
+            <string>When Industry</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="industry_other_lbl">
+           <property name="text">
+            <string>Has Other Value</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLabel" name="score_industry2_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="QLabel" name="industry2_lbl">
+           <property name="text">
+            <string>12</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="when_religion3_lbl_2">
+           <property name="text">
+            <string>When Industry</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QComboBox" name="industry_combo">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+           <property name="currentText">
+            <string>Contains</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Contains</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Has Other Value</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLineEdit" name="industry_line">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLabel" name="score_industry3_lbl">
+           <property name="text">
+            <string>Score=</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="4">
+          <widget class="QSpinBox" name="industry_spin"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="step2_save_btn">
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>city_combo</tabstop>
+  <tabstop>city_line</tabstop>
+  <tabstop>no1_spin</tabstop>
+  <tabstop>country_combo</tabstop>
+  <tabstop>country_line</tabstop>
+  <tabstop>country_spin</tabstop>
+  <tabstop>religion_combo</tabstop>
+  <tabstop>religion_line</tabstop>
+  <tabstop>religion_spin</tabstop>
+  <tabstop>profession_combo</tabstop>
+  <tabstop>profession_line</tabstop>
+  <tabstop>profession_spin</tabstop>
+  <tabstop>age_combo</tabstop>
+  <tabstop>age_line</tabstop>
+  <tabstop>age_spin</tabstop>
+  <tabstop>industry_combo</tabstop>
+  <tabstop>industry_line</tabstop>
+  <tabstop>industry_spin</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
