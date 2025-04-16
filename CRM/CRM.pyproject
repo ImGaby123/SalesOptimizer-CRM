@@ -46,6 +46,8 @@
         "views/ui/edit_opportunity.ui",
         "models/models_edit_opportunity.py",
         "views/py/ui_edit_opportunity.py",
+        "views/ui/edit_campaign.ui",
+        "models/models_add_campaign.py",
         "views/ui/add_campaign.ui",
         "views/ui/edit_campaign.ui"
     ]

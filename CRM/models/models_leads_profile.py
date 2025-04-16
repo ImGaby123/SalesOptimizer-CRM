@@ -23,6 +23,8 @@ class LeadsProfile(QWidget):
         self.ui.edit_btn.clicked.connect(self.edit_opportunity)
         self.ui.delete_btn.clicked.connect(self.delete_opportunity)
 
+        self.ui.add_campaign_btn.clicked.connect(self.add_campaign)
+
         self.ui.qualification_radio.clicked.connect(lambda: self.set_opportunity_status("Qualification"))
         self.ui.negotiating_radio.clicked.connect(lambda: self.set_opportunity_status("Negotiating"))
         self.ui.approval_radio.clicked.connect(lambda: self.set_opportunity_status("Approval"))
@@ -430,5 +432,13 @@ class LeadsProfile(QWidget):
                 self.toggle_opportunity_cost_buttons(to_status)
             except Exception as e:
                 QMessageBox.critical(self, "Error", f"Failed to update status:\n{e}")
+
+    # ------------------------
+    # Opportunities Management
+    # ------------------------
+    def add_campaign(self):
+        from models.models_add_campaign import AddCampaign
+        dialog = AddCampaign(self.contact_id, self)
+        dialog.exec()
 
 
