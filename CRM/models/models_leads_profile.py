@@ -47,14 +47,6 @@ class LeadsProfile(QWidget):
 
         MDIManager.load_into_mdi(lambda: ContactsView(self.contact_id))
 
-    def reload_profile(self):
-        from models.models_authentication import MDIManager
-        MDIManager.load_into_mdi(lambda: LeadsProfile(self.contact_id))
-
-    def setup_button(self, button, callback, enabled=False):
-        button.clicked.connect(callback)
-        button.setEnabled(enabled)
-
     # ------------------------
     # Contact Information
     # ------------------------
@@ -237,14 +229,19 @@ class LeadsProfile(QWidget):
         progress_value = status_to_value.get(status, 0)
         self.ui.opportunity_status_bar.setValue(progress_value)
 
-        # Reset and update radios
-        self.ui.prospecting_radio.setChecked(False)
-        self.ui.qualification_radio.setChecked(False)
-        self.ui.negotiating_radio.setChecked(False)
-        self.ui.approval_radio.setChecked(False)
-        self.ui.loss_radio.setChecked(False)
-        self.ui.won_radio.setChecked(False)
+        # Reset radio buttons
+        radios = [
+            self.ui.prospecting_radio,
+            self.ui.qualification_radio,
+            self.ui.negotiating_radio,
+            self.ui.approval_radio,
+            self.ui.loss_radio,
+            self.ui.won_radio,
+        ]
+        for radio in radios:
+            radio.setChecked(False)
 
+        # Check appropriate radios based on status
         if status in ["Prospecting", "Qualification", "Negotiating", "Approval", "Closed Loss", "Closed Won"]:
             self.ui.prospecting_radio.setChecked(True)
         if status in ["Qualification", "Negotiating", "Approval", "Closed Loss", "Closed Won"]:
@@ -258,77 +255,91 @@ class LeadsProfile(QWidget):
         if status == "Closed Won":
             self.ui.won_radio.setChecked(True)
 
+        # Styles
+        red_progress_style = """
+            QProgressBar {
+                background-color: #E5E5E5;
+                border: 1px solid #000;
+                border-radius: 10px;
+                text-align: center;
+                height: 20px;
+            }
+            QProgressBar::chunk {
+                background-color: rgb(255, 93, 78);
+                border-radius: 10px;
+            }
+        """
+
+        green_progress_style = """
+            QProgressBar {
+                background-color: #E5E5E5;
+                border: 1px solid #000;
+                border-radius: 10px;
+                text-align: center;
+                height: 20px;
+            }
+            QProgressBar::chunk {
+                background-color: #A3E635;
+                border-radius: 10px;
+            }
+        """
+
+        red_radio_style = """
+            QRadioButton {
+                background: transparent;
+                color: #fff;
+                border: none;
+            }
+            QRadioButton::indicator {
+                width: 16px;
+                height: 16px;
+                border-radius: 8px;
+                background-color: white;
+            }
+            QRadioButton::indicator:checked {
+                background-color: rgb(255, 93, 78);
+                border-color: #A3E635;
+            }
+        """
+
+        green_radio_style = """
+            QRadioButton {
+                background: transparent;
+                color: #fff;
+                border: none;
+            }
+            QRadioButton::indicator {
+                width: 16px;
+                height: 16px;
+                border-radius: 8px;
+                background-color: white;
+            }
+            QRadioButton::indicator:checked {
+                background-color: #A3E635;
+                border-color: #A3E635;
+            }
+        """
+
         if status == "Closed Loss":
-            # Change to red style
-            self.ui.opportunity_status_bar.setStyleSheet("""
-                QProgressBar {
-                    background-color: #E5E5E5;
-                    border: 1px solid #000;
-                    border-radius: 10px;
-                    text-align: center;
-                    height: 20px;
-                }
-                QProgressBar::chunk {
-                    background-color: rgb(255, 93, 78);
-                    border-radius: 10px;
-                }
-            """)
-
-            # Override just the red indicator for loss
-            self.ui.loss_radio.setStyleSheet("""
-                QRadioButton {
-                    background: transparent;
-                    color: #fff;
-                    border: none;
-                }
-
-                QRadioButton::indicator:checked {
-                    background-color: rgb(255, 93, 78);
-                    border-color: #A3E635;
-                }
-
-                QRadioButton::indicator {
-                    width: 16px;
-                    height: 16px;
-                    border-radius: 8px;
-                    background-color: white;
-                }
-            """)
+            self.ui.opportunity_status_bar.setStyleSheet(red_progress_style)
+            for radio in [
+                self.ui.prospecting_radio,
+                self.ui.qualification_radio,
+                self.ui.negotiating_radio,
+                self.ui.approval_radio,
+                self.ui.loss_radio,
+            ]:
+                radio.setStyleSheet(red_radio_style)
         else:
-            # Reapply default green styles for progress bar and loss radio
-            self.ui.opportunity_status_bar.setStyleSheet("""
-                QProgressBar {
-                    background-color: #E5E5E5;
-                    border: 1px solid #000;
-                    border-radius: 10px;
-                    text-align: center;
-                    height: 20px;
-                }
-                QProgressBar::chunk {
-                    background-color: #A3E635;
-                    border-radius: 10px;
-                }
-            """)
-
-            self.ui.loss_radio.setStyleSheet("""
-                QRadioButton {
-                    background: transparent;
-                    color: #fff;
-                    border: none;
-                }
-
-                QRadioButton::indicator {
-                    width: 16px;
-                    height: 16px;
-                    border-radius: 8px;
-                    background-color: white;
-                }
-
-                QRadioButton::indicator:checked {
-                    background-color: #A3E635;
-                    border-color: #A3E635;
-                }
-            """)
+            self.ui.opportunity_status_bar.setStyleSheet(green_progress_style)
+            for radio in [
+                self.ui.prospecting_radio,
+                self.ui.qualification_radio,
+                self.ui.negotiating_radio,
+                self.ui.approval_radio,
+                self.ui.loss_radio,
+            ]:
+                radio.setStyleSheet(green_radio_style)
 
     def all_opportunity_cost(self):
         query = """
