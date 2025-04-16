@@ -122,6 +122,7 @@ class LeadsProfile(QWidget):
         data = self.db_conn.fetch_one(query, (opportunity_id,))
         if data:
             self.ui.opportunity_title_lbl.setText(data["opportunity_title"] or "N/A")
+            self.ui.leadinfohead_lbl_3.setText(data["opportunity_title"] or "N/A")
             self.ui.opportunity_cost_lbl.setText(f"{data['opportunity_cost']:.2f}" if data["opportunity_cost"] else "0.00")
             self.ui.opportunity_date_lbl.setText(data["date"].strftime("%Y-%m-%d") if data["date"] else "N/A")
             self.ui.opportunity_details_lbl.setText(data["opportunity_details"] or "N/A")
