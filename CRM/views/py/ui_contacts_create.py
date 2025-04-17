@@ -716,11 +716,11 @@ class Ui_contacts_create(object):
 
         self.gridLayout_28.addWidget(self.company_state_line, 3, 1, 1, 1)
 
-        self.company_city_combo_2 = QComboBox(self.frame_4)
-        self.company_city_combo_2.setObjectName(u"company_city_combo_2")
-        sizePolicy1.setHeightForWidth(self.company_city_combo_2.sizePolicy().hasHeightForWidth())
-        self.company_city_combo_2.setSizePolicy(sizePolicy1)
-        self.company_city_combo_2.setStyleSheet(u"QComboBox {\n"
+        self.company_country_combo = QComboBox(self.frame_4)
+        self.company_country_combo.setObjectName(u"company_country_combo")
+        sizePolicy1.setHeightForWidth(self.company_country_combo.sizePolicy().hasHeightForWidth())
+        self.company_country_combo.setSizePolicy(sizePolicy1)
+        self.company_country_combo.setStyleSheet(u"QComboBox {\n"
 "    background-color: #262626;\n"
 "    border: 1px solid #737373;\n"
 "    color: white;\n"
@@ -739,7 +739,7 @@ class Ui_contacts_create(object):
 "    border-radius: 10px;\n"
 "}")
 
-        self.gridLayout_28.addWidget(self.company_city_combo_2, 1, 1, 1, 1)
+        self.gridLayout_28.addWidget(self.company_country_combo, 1, 1, 1, 1)
 
 
         self.gridLayout_22.addLayout(self.gridLayout_28, 0, 0, 1, 1)
@@ -833,7 +833,7 @@ class Ui_contacts_create(object):
         self.gridLayout_24.setObjectName(u"gridLayout_24")
         self.yrs_in_industry_line = QLineEdit(self.frame_4)
         self.yrs_in_industry_line.setObjectName(u"yrs_in_industry_line")
-        self.yrs_in_industry_line.setEnabled(False)
+        self.yrs_in_industry_line.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.yrs_in_industry_line.sizePolicy().hasHeightForWidth())
         self.yrs_in_industry_line.setSizePolicy(sizePolicy1)
         self.yrs_in_industry_line.setMinimumSize(QSize(0, 0))
@@ -1235,7 +1235,7 @@ class Ui_contacts_create(object):
         self.gender_combo.setCurrentIndex(-1)
         self.address_type_combo.setCurrentIndex(-1)
         self.company_city_combo.setCurrentIndex(-1)
-        self.company_city_combo_2.setCurrentIndex(-1)
+        self.company_country_combo.setCurrentIndex(-1)
         self.city_combo.setCurrentIndex(-1)
         self.country_combo.setCurrentIndex(-1)
 
@@ -1334,7 +1334,7 @@ class Ui_contacts_create(object):
         self.company_city_combo.setPlaceholderText(QCoreApplication.translate("contacts_create", u"Select City", None))
         self.State_ProvinceLabel_7.setText(QCoreApplication.translate("contacts_create", u"State/Province (Optional):", None))
         self.CityLabel_7.setText(QCoreApplication.translate("contacts_create", u"City (Optional, Select Country First):", None))
-        self.company_city_combo_2.setPlaceholderText(QCoreApplication.translate("contacts_create", u"Select Country", None))
+        self.company_country_combo.setPlaceholderText(QCoreApplication.translate("contacts_create", u"Select Country", None))
         self.AdditionalInformation_15.setText(QCoreApplication.translate("contacts_create", u"Contact Information", None))
         self.source_name_label.setText(QCoreApplication.translate("contacts_create", u"Lead Source (Optional):", None))
         self.yrsIndustryLabel.setText(QCoreApplication.translate("contacts_create", u"Years in the Industry (Optional):", None))
