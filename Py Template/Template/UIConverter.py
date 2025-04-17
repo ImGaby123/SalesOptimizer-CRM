@@ -25,9 +25,9 @@ def convert_qrc_to_py(qrc_folder, py_folder):
 
 def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    ui_folder = os.path.join(base_dir, "Views", "ui")
-    qrc_folder = os.path.join(base_dir, "Views", "qrc")
-    py_folder = os.path.join(base_dir, "Views", "py")
+    ui_folder = os.path.join(base_dir, "views", "ui")
+    qrc_folder = os.path.join(base_dir, "views", "qss")
+    py_folder = os.path.join(base_dir, "views", "py")
 
     if not os.path.exists(py_folder):
         os.makedirs(py_folder)

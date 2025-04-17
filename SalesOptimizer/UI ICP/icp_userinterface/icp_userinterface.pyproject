@@ -1,0 +1,11 @@
+{
+    "files": [
+        "widget.py",
+        "step1.ui",
+        "step2.ui",
+        "ui_step1.py",
+        "ui_step2.py",
+        "engagement_scoring.ui",
+        "ui_engagement_scoring.py"
+    ]
+}

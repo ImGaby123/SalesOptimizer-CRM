@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'sidebar.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+## Created by: Qt User Interface Compiler version 6.9.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -23,15 +23,26 @@ class Ui_sidebar(object):
         if not sidebar.objectName():
             sidebar.setObjectName(u"sidebar")
         sidebar.resize(172, 702)
-        sidebar.setStyleSheet(u"background-color: rgb(255, 255, 255);")
-        self.verticalLayoutWidget = QWidget(sidebar)
-        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(0, 0, 171, 701))
-        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setSpacing(0)
+        sidebar.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"\n"
+"\n"
+"QPushButton {\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    border: 1px solid rgb(0, 0, 0);\n"
+"    padding: 5px;\n"
+"    color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(0, 0, 0);\n"
+"    border: 1px solid rgb(255, 255, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"}")
+        self.verticalLayout_2 = QVBoxLayout(sidebar)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.home_btn = QPushButton(self.verticalLayoutWidget)
+        self.home_btn = QPushButton(sidebar)
         self.home_btn.setObjectName(u"home_btn")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -41,7 +52,8 @@ class Ui_sidebar(object):
         self.home_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: rgb(255, 255, 255);\n"
 "    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
+"    border-radius: 10px;   /* Rounded edges */\n"
+"    padding: 6px 12px;     /* Balanced spacing */\n"
 "    color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
@@ -49,19 +61,27 @@ class Ui_sidebar(object):
 "    background-color: rgb(0, 0, 0);\n"
 "    border: 1px solid rgb(255, 255, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"}")
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(30, 30, 30);  /* Slight press effect */\n"
+"    border: 1px solid rgb(255, 255, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"")
         self.home_btn.setFlat(True)
 
         self.verticalLayout.addWidget(self.home_btn)
 
-        self.pipeline_btn = QPushButton(self.verticalLayoutWidget)
-        self.pipeline_btn.setObjectName(u"pipeline_btn")
-        sizePolicy.setHeightForWidth(self.pipeline_btn.sizePolicy().hasHeightForWidth())
-        self.pipeline_btn.setSizePolicy(sizePolicy)
-        self.pipeline_btn.setStyleSheet(u"QPushButton {\n"
+        self.item1_btn = QPushButton(sidebar)
+        self.item1_btn.setObjectName(u"item1_btn")
+        sizePolicy.setHeightForWidth(self.item1_btn.sizePolicy().hasHeightForWidth())
+        self.item1_btn.setSizePolicy(sizePolicy)
+        self.item1_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: rgb(255, 255, 255);\n"
 "    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
+"    border-radius: 10px;   /* Rounded edges */\n"
+"    padding: 6px 12px;     /* Balanced spacing */\n"
 "    color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
@@ -69,19 +89,25 @@ class Ui_sidebar(object):
 "    background-color: rgb(0, 0, 0);\n"
 "    border: 1px solid rgb(255, 255, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"}")
-        self.pipeline_btn.setFlat(True)
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(30, 30, 30);  /* Slight press effect */\n"
+"    border: 1px solid rgb(255, 255, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"")
+        self.item1_btn.setFlat(True)
 
-        self.verticalLayout.addWidget(self.pipeline_btn)
+        self.verticalLayout.addWidget(self.item1_btn)
 
-        self.funnel_btn = QPushButton(self.verticalLayoutWidget)
-        self.funnel_btn.setObjectName(u"funnel_btn")
-        sizePolicy.setHeightForWidth(self.funnel_btn.sizePolicy().hasHeightForWidth())
-        self.funnel_btn.setSizePolicy(sizePolicy)
-        self.funnel_btn.setStyleSheet(u"QPushButton {\n"
+        self.item2_btn = QPushButton(sidebar)
+        self.item2_btn.setObjectName(u"item2_btn")
+        self.item2_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: rgb(255, 255, 255);\n"
 "    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
+"    border-radius: 10px;   /* Rounded edges */\n"
+"    padding: 6px 12px;     /* Balanced spacing */\n"
 "    color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
@@ -89,56 +115,30 @@ class Ui_sidebar(object):
 "    background-color: rgb(0, 0, 0);\n"
 "    border: 1px solid rgb(255, 255, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"}")
-        self.funnel_btn.setFlat(True)
-
-        self.verticalLayout.addWidget(self.funnel_btn)
-
-        self.leads_btn = QPushButton(self.verticalLayoutWidget)
-        self.leads_btn.setObjectName(u"leads_btn")
-        sizePolicy.setHeightForWidth(self.leads_btn.sizePolicy().hasHeightForWidth())
-        self.leads_btn.setSizePolicy(sizePolicy)
-        self.leads_btn.setStyleSheet(u"QPushButton {\n"
-"    background-color: rgb(255, 255, 255);\n"
-"    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
-"    color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(0, 0, 0);\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(30, 30, 30);  /* Slight press effect */\n"
 "    border: 1px solid rgb(255, 255, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"}")
-        self.leads_btn.setFlat(True)
-
-        self.verticalLayout.addWidget(self.leads_btn)
-
-        self.contacts_btn = QPushButton(self.verticalLayoutWidget)
-        self.contacts_btn.setObjectName(u"contacts_btn")
-        sizePolicy.setHeightForWidth(self.contacts_btn.sizePolicy().hasHeightForWidth())
-        self.contacts_btn.setSizePolicy(sizePolicy)
-        self.contacts_btn.setStyleSheet(u"QPushButton {\n"
-"    background-color: rgb(255, 255, 255);\n"
-"    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
-"    color: rgb(0, 0, 0);\n"
 "}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(0, 0, 0);\n"
-"    border: 1px solid rgb(255, 255, 255);\n"
-"    color: rgb(255, 255, 255);\n"
-"}")
-        self.contacts_btn.setFlat(True)
+"")
 
-        self.verticalLayout.addWidget(self.contacts_btn)
+        self.verticalLayout.addWidget(self.item2_btn)
 
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer)
+        self.verticalLayout_3.addItem(self.verticalSpacer)
 
-        self.logout_btn = QPushButton(self.verticalLayoutWidget)
+
+        self.verticalLayout.addLayout(self.verticalLayout_3)
+
+
+        self.verticalLayout_2.addLayout(self.verticalLayout)
+
+        self.logout_btn = QPushButton(sidebar)
         self.logout_btn.setObjectName(u"logout_btn")
         sizePolicy.setHeightForWidth(self.logout_btn.sizePolicy().hasHeightForWidth())
         self.logout_btn.setSizePolicy(sizePolicy)
@@ -146,19 +146,28 @@ class Ui_sidebar(object):
         self.logout_btn.setMaximumSize(QSize(16777215, 16777215))
         self.logout_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: rgb(255, 255, 255);\n"
-"    border: 1px solid rgb(0, 0, 0);\n"
-"    padding: 5px;\n"
-"    color: rgb(0, 0, 0);\n"
+"    border: 2px solid rgb(200, 0, 0);    \n"
+"    border-radius: 10px;                  \n"
+"    padding: 6px 12px;                 \n"
+"    color: rgb(200, 0, 0);                \n"
+"    font-weight: bold;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(0, 0, 0);\n"
-"    border: 1px solid rgb(255, 255, 255);\n"
+"    background-color: rgb(200, 0, 0);\n"
+"    border: 2px solid rgb(255, 255, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"}")
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(150, 0, 0);\n"
+"    border: 2px solid rgb(255, 255, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"")
         self.logout_btn.setFlat(True)
 
-        self.verticalLayout.addWidget(self.logout_btn)
+        self.verticalLayout_2.addWidget(self.logout_btn)
 
 
         self.retranslateUi(sidebar)
@@ -169,10 +178,8 @@ class Ui_sidebar(object):
     def retranslateUi(self, sidebar):
         sidebar.setWindowTitle(QCoreApplication.translate("sidebar", u"Form", None))
         self.home_btn.setText(QCoreApplication.translate("sidebar", u"Home", None))
-        self.pipeline_btn.setText(QCoreApplication.translate("sidebar", u"Pipeline", None))
-        self.funnel_btn.setText(QCoreApplication.translate("sidebar", u"Funnel", None))
-        self.leads_btn.setText(QCoreApplication.translate("sidebar", u"Leads", None))
-        self.contacts_btn.setText(QCoreApplication.translate("sidebar", u"Contacts", None))
+        self.item1_btn.setText(QCoreApplication.translate("sidebar", u"Item", None))
+        self.item2_btn.setText(QCoreApplication.translate("sidebar", u"PushButton", None))
         self.logout_btn.setText(QCoreApplication.translate("sidebar", u"Logout", None))
     # retranslateUi
 

@@ -1,13 +1,19 @@
 import sys
 import os
 from PySide6.QtWidgets import QApplication, QMessageBox
-from models.models_authentication import AuthenticationSystem
+from models.models_mainwindow import MainWindow
 
 # Initialize the application
 app = QApplication(sys.argv)
 
 # Load and apply QSS stylesheet
 qss_file = "views/qss/style.qss"
+
+
+#self.main_window = MainWindow()
+#self.main_window.show()
+#self.accept()
+
 
 if not os.path.exists(qss_file):
     error_msg = f"QSS file '{qss_file}' not found. The application will run without styles."
@@ -18,7 +24,7 @@ else:
 
 # Create and show the main window
 try:
-    window = AuthenticationSystem()  # Ensure this is a subclass of QMainWindow
+    window = MainWindow()  # Ensure this is a subclass of QMainWindow
     window.show()
 except Exception as e:
     QMessageBox.critical(None, "Application Error", f"Failed to start application:\n{e}")

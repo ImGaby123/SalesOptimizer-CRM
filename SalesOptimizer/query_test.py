@@ -9,12 +9,12 @@ cursor1 = conn.cursor()
 cursor2 = conn.cursor()
 
 # Attributes
-cursor1.execute("select * from icp ORDER BY icp_id ASC;")
+cursor1.execute("select * from icp ORDER BY attribute_id ASC;")
 attributes = cursor1.fetchall()
 
 # Rules
 cursor2.execute("select * from icp_rules " \
-                "ORDER BY icp_icp_id ASC," \
+                "ORDER BY icp_attribute_id ASC," \
                 "attribute_score DESC;")
 rules = cursor2.fetchall()
 
