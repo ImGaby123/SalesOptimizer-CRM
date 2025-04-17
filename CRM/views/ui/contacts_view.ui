@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Contact Details</string>
+   <string>View Contact</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: transparent;
@@ -48,7 +48,7 @@ background-color: rgb(255, 255, 255);
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>-342</y>
         <width>1094</width>
         <height>1187</height>
        </rect>
@@ -124,8 +124,76 @@ background-color: rgb(255, 255, 255);
             </item>
             <item row="0" column="2">
              <layout class="QGridLayout" name="gridLayout_9">
-              <item row="11" column="0">
-               <widget class="QLineEdit" name="title_line">
+              <item row="2" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <item>
+                 <widget class="QLabel" name="FirstNameLabel_11">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: red;</string>
+                  </property>
+                  <property name="text">
+                   <string>*</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="CompanyLabel_5">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: #FAFAFA;</string>
+                  </property>
+                  <property name="text">
+                   <string>Company Email :</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="CompanyLabel_6">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #FAFAFA;</string>
+                </property>
+                <property name="text">
+                 <string>Company Website (Optional):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="0">
+               <widget class="QLabel" name="CompanyLabel_7">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #FAFAFA;</string>
+                </property>
+                <property name="text">
+                 <string>Industry (Optional):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLineEdit" name="company_website_line">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
@@ -175,41 +243,6 @@ background-color: rgb(255, 255, 255);
                 </property>
                </widget>
               </item>
-              <item row="7" column="0">
-               <widget class="QLineEdit" name="company_website_line">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QLineEdit {
-    background-color: #262626;
-    border: 1px solid #737373;
-    color: white;
-	border-radius: 10px;
-	padding: 5px;
-	font: 10pt &quot;Segoe UI&quot;;
-}</string>
-                </property>
-               </widget>
-              </item>
               <item row="0" column="0">
                <layout class="QHBoxLayout" name="horizontalLayout_8">
                 <item>
@@ -246,110 +279,8 @@ background-color: rgb(255, 255, 255);
                 </item>
                </layout>
               </item>
-              <item row="9" column="0">
-               <widget class="QLineEdit" name="company_industry_line">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string>QLineEdit {
-    background-color: #262626;
-    border: 1px solid #737373;
-    color: white;
-	border-radius: 10px;
-	padding: 5px;
-	font: 10pt &quot;Segoe UI&quot;;
-}</string>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="0">
                <widget class="QLineEdit" name="company_line">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QLineEdit {
-    background-color: #262626;
-    border: 1px solid #737373;
-    color: white;
-	border-radius: 10px;
-	padding: 5px;
-	font: 10pt &quot;Segoe UI&quot;;
-}</string>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="0">
-               <widget class="QLabel" name="CompanyLabel_7">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: #FAFAFA;</string>
-                </property>
-                <property name="text">
-                 <string>Industry (Optional):</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="QLabel" name="CompanyLabel_6">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: #FAFAFA;</string>
-                </property>
-                <property name="text">
-                 <string>Company Website (Optional):</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0">
-               <widget class="QLineEdit" name="company_email_line">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
@@ -399,41 +330,373 @@ background-color: rgb(255, 255, 255);
                 </property>
                </spacer>
               </item>
-              <item row="2" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_9">
+              <item row="4" column="0">
+               <widget class="QLineEdit" name="company_email_line">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
+                </property>
+               </widget>
+              </item>
+              <item row="11" column="0">
+               <widget class="QComboBox" name="title_combo">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #262626;
+    color: white;
+    border-radius: 10px;
+}</string>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <property name="placeholderText">
+                 <string>Select Title/Role</string>
+                </property>
                 <item>
-                 <widget class="QLabel" name="FirstNameLabel_11">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">color: red;</string>
-                  </property>
-                  <property name="text">
-                   <string>*</string>
-                  </property>
-                 </widget>
+                 <property name="text">
+                  <string>CEO (Chief Executive Officer)</string>
+                 </property>
                 </item>
                 <item>
-                 <widget class="QLabel" name="CompanyLabel_5">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">color: #FAFAFA;</string>
-                  </property>
-                  <property name="text">
-                   <string>Company Email :</string>
-                  </property>
-                 </widget>
+                 <property name="text">
+                  <string>COO (Chief Operating Officer)</string>
+                 </property>
                 </item>
-               </layout>
+                <item>
+                 <property name="text">
+                  <string>CFO (Chief Financial Officer)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CTO (Chief Technology Officer)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CMO (Chief Marketing Officer)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CIO (Chief Information Officer)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CHRO (Chief Human Resources Officer)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Managing Director</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>General Manager</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Operations Manager</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Marketing Manager</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Sales Manager</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Finance Manager</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>HR Manager</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Product Manager</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>IT Manager</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Software Engineer</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Sales Representative</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Marketing Specialist</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Business Analyst</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Customer Support Agent</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Accountant</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Recruiter</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Data Analyst</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Designer (UI/UX, Graphic, etc.)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Technician</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Founder / Co-Founder</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Consultant</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Intern</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Assistant / Executive Assistant</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="9" column="0">
+               <widget class="QComboBox" name="company_industry_combo">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #262626;
+    color: white;
+    border-radius: 10px;
+}</string>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <property name="placeholderText">
+                 <string>Select an Industry</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Agriculture</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Automotive</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Construction</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Consumer Goods</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Education</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Energy &amp; Utilities</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Financial Services</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Government</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Healthcare &amp; Life Sciences</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Hospitality</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Information Technology</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Legal Services</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Logistics &amp; Transportation</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Manufacturing</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Media &amp; Entertainment</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Nonprofit</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Professional Services</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Real Estate</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Retail &amp; E-Commerce</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Telecommunications</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Travel &amp; Tourism</string>
+                 </property>
+                </item>
+               </widget>
               </item>
              </layout>
             </item>
@@ -1067,22 +1330,6 @@ QComboBox QAbstractItemView {
             </item>
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridLayout_28">
-              <item row="0" column="0">
-               <spacer name="horizontalSpacer_19">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Policy::Preferred</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
               <item row="0" column="1">
                <widget class="QLabel" name="CountryLabel_7">
                 <property name="sizePolicy">
@@ -1099,8 +1346,8 @@ QComboBox QAbstractItemView {
                 </property>
                </widget>
               </item>
-              <item row="1" column="1">
-               <widget class="QLineEdit" name="company_country_line">
+              <item row="6" column="1">
+               <widget class="QComboBox" name="company_city_combo">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
@@ -1110,27 +1357,79 @@ QComboBox QAbstractItemView {
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
                 <property name="styleSheet">
-                 <string notr="true">QLineEdit {
+                 <string notr="true">QComboBox {
     background-color: #262626;
     border: 1px solid #737373;
     color: white;
-	border-radius: 10px;
-	padding: 5px;
-	font: 10pt &quot;Segoe UI&quot;;
+    border-radius: 10px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #262626;
+    color: white;
+    border-radius: 10px;
 }</string>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <property name="placeholderText">
+                 <string>Select City</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <spacer name="horizontalSpacer_19">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Preferred</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="State_ProvinceLabel_7">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #FAFAFA;</string>
+                </property>
+                <property name="text">
+                 <string>State/Province (Optional):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLabel" name="CityLabel_7">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #FAFAFA;</string>
+                </property>
+                <property name="text">
+                 <string>City (Optional, Select Country First):</string>
                 </property>
                </widget>
               </item>
@@ -1169,40 +1468,8 @@ QComboBox QAbstractItemView {
                 </property>
                </widget>
               </item>
-              <item row="2" column="1">
-               <widget class="QLabel" name="State_ProvinceLabel_7">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: #FAFAFA;</string>
-                </property>
-                <property name="text">
-                 <string>State/Province (Optional):</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1">
-               <widget class="QLabel" name="CityLabel_7">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: #FAFAFA;</string>
-                </property>
-                <property name="text">
-                 <string>City (Optional):</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="QLineEdit" name="company_city_line">
+              <item row="1" column="1">
+               <widget class="QComboBox" name="company_country_combo">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
@@ -1213,14 +1480,30 @@ QComboBox QAbstractItemView {
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">QLineEdit {
+                 <string notr="true">QComboBox {
     background-color: #262626;
     border: 1px solid #737373;
     color: white;
-	border-radius: 10px;
-	padding: 5px;
-	font: 10pt &quot;Segoe UI&quot;;
+    border-radius: 10px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #262626;
+    color: white;
+    border-radius: 10px;
 }</string>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <property name="placeholderText">
+                 <string>Select Country</string>
                 </property>
                </widget>
               </item>
@@ -1387,7 +1670,7 @@ font: 900 12pt &quot;Segoe UI&quot;;
             <item row="0" column="2">
              <layout class="QGridLayout" name="gridLayout_24">
               <item row="6" column="0">
-               <widget class="QLineEdit" name="zip_line_2">
+               <widget class="QLineEdit" name="yrs_in_industry_line">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
@@ -1410,7 +1693,14 @@ font: 900 12pt &quot;Segoe UI&quot;;
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: none;</string>
+                 <string notr="true">QLineEdit {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+	border-radius: 10px;
+	padding: 5px;
+	font: 10pt &quot;Segoe UI&quot;;
+}</string>
                 </property>
                </widget>
               </item>
@@ -1431,7 +1721,7 @@ font: 900 12pt &quot;Segoe UI&quot;;
                </spacer>
               </item>
               <item row="4" column="0">
-               <widget class="QLabel" name="StreetLabel_5">
+               <widget class="QLabel" name="yrsIndustryLabel">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1439,10 +1729,10 @@ font: 900 12pt &quot;Segoe UI&quot;;
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(0, 0, 0);</string>
+                 <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
-                 <string>Street (Optional):</string>
+                 <string>Years in the Industry (Optional):</string>
                 </property>
                </widget>
               </item>
@@ -1565,6 +1855,45 @@ font: 900 12pt &quot;Segoe UI&quot;;
             </item>
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridLayout_3">
+              <item row="6" column="1">
+               <widget class="QComboBox" name="city_combo">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #262626;
+    color: white;
+    border-radius: 10px;
+}</string>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <property name="placeholderText">
+                 <string>Select City</string>
+                </property>
+               </widget>
+              </item>
               <item row="0" column="0">
                <spacer name="horizontalSpacer_6">
                 <property name="orientation">
@@ -1580,57 +1909,6 @@ font: 900 12pt &quot;Segoe UI&quot;;
                  </size>
                 </property>
                </spacer>
-              </item>
-              <item row="0" column="1">
-               <widget class="QLabel" name="CountryLabel_4">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: #FAFAFA;</string>
-                </property>
-                <property name="text">
-                 <string>Country (Optional) :</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QLineEdit" name="country_line">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QLineEdit {
-    background-color: #262626;
-    border: 1px solid #737373;
-    color: white;
-	border-radius: 10px;
-	padding: 5px;
-	font: 10pt &quot;Segoe UI&quot;;
-}</string>
-                </property>
-               </widget>
               </item>
               <item row="3" column="1">
                <widget class="QLineEdit" name="state_line">
@@ -1667,8 +1945,47 @@ font: 900 12pt &quot;Segoe UI&quot;;
                 </property>
                </widget>
               </item>
-              <item row="2" column="1">
-               <widget class="QLabel" name="State_ProvinceLabel_4">
+              <item row="1" column="1">
+               <widget class="QComboBox" name="country_combo">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
+    background-color: #262626;
+    border: 1px solid #737373;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    font: 10pt &quot;Segoe UI&quot;;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #262626;
+    color: white;
+    border-radius: 10px;
+}</string>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <property name="placeholderText">
+                 <string>Select Country</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="CountryLabel_4">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1679,7 +1996,7 @@ font: 900 12pt &quot;Segoe UI&quot;;
                  <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
-                 <string>State/Province (Optional):</string>
+                 <string>Country (Optional) :</string>
                 </property>
                </widget>
               </item>
@@ -1695,15 +2012,12 @@ font: 900 12pt &quot;Segoe UI&quot;;
                  <string notr="true">color: #FAFAFA;</string>
                 </property>
                 <property name="text">
-                 <string>City (Optional):</string>
+                 <string>City (Optional, Select Country First):</string>
                 </property>
                </widget>
               </item>
-              <item row="6" column="1">
-               <widget class="QLineEdit" name="city_line">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
+              <item row="2" column="1">
+               <widget class="QLabel" name="State_ProvinceLabel_4">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1711,14 +2025,10 @@ font: 900 12pt &quot;Segoe UI&quot;;
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">QLineEdit {
-    background-color: #262626;
-    border: 1px solid #737373;
-    color: white;
-	border-radius: 10px;
-	padding: 5px;
-	font: 10pt &quot;Segoe UI&quot;;
-}</string>
+                 <string notr="true">color: #FAFAFA;</string>
+                </property>
+                <property name="text">
+                 <string>State/Province (Optional):</string>
                 </property>
                </widget>
               </item>
@@ -1819,6 +2129,9 @@ font: 900 12pt &quot;Segoe UI&quot;;
                 <italic>false</italic>
                 <bold>false</bold>
                </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton {
@@ -1951,23 +2264,17 @@ font: 900 12pt &quot;Segoe UI&quot;;
   <tabstop>company_line</tabstop>
   <tabstop>company_email_line</tabstop>
   <tabstop>company_website_line</tabstop>
-  <tabstop>company_industry_line</tabstop>
-  <tabstop>title_line</tabstop>
   <tabstop>source_name_line</tabstop>
-  <tabstop>country_line</tabstop>
   <tabstop>state_line</tabstop>
-  <tabstop>city_line</tabstop>
   <tabstop>street_line</tabstop>
   <tabstop>zip_line</tabstop>
-  <tabstop>company_country_line</tabstop>
   <tabstop>company_state_line</tabstop>
-  <tabstop>company_city_line</tabstop>
   <tabstop>company_street_line</tabstop>
   <tabstop>company_zip_line</tabstop>
   <tabstop>address_type_combo</tabstop>
   <tabstop>back_line</tabstop>
   <tabstop>scrollArea_4</tabstop>
-  <tabstop>zip_line_2</tabstop>
+  <tabstop>yrs_in_industry_line</tabstop>
  </tabstops>
  <resources/>
  <connections/>
