@@ -23,8 +23,6 @@
         "views/ui/contacts_email.ui",
         "views/py/ui_contacts_email.py",
         "models/models_contacts_email.py",
-        "views/ui/contacts_update.ui",
-        "views/ui/contacts_view.ui",
         "views/py/ui_contacts_update.py",
         "views/py/ui_contacts_view.py",
         "models/models_contacts_update.py",
@@ -49,6 +47,7 @@
         "views/ui/edit_campaign.ui",
         "models/models_add_campaign.py",
         "views/ui/add_campaign.ui",
-        "views/ui/edit_campaign.ui"
+        "views/ui/contacts_update.ui",
+        "views/ui/contacts_view.ui"
     ]
 }

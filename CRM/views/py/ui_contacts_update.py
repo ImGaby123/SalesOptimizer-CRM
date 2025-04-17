@@ -78,30 +78,45 @@ class Ui_contacts_update(object):
 
         self.gridLayout_9 = QGridLayout()
         self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.title_line = QLineEdit(self.frame_4)
-        self.title_line.setObjectName(u"title_line")
-        sizePolicy1.setHeightForWidth(self.title_line.sizePolicy().hasHeightForWidth())
-        self.title_line.setSizePolicy(sizePolicy1)
-        self.title_line.setMinimumSize(QSize(0, 0))
-        self.title_line.setMaximumSize(QSize(16777215, 16777215))
-        self.title_line.setStyleSheet(u"QLineEdit {\n"
-"    background-color: #262626;\n"
-"    border: 1px solid #737373;\n"
-"    color: white;\n"
-"	border-radius: 10px;\n"
-"	padding: 5px;\n"
-"	font: 10pt \"Segoe UI\";\n"
-"}")
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.FirstNameLabel_11 = QLabel(self.frame_4)
+        self.FirstNameLabel_11.setObjectName(u"FirstNameLabel_11")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.FirstNameLabel_11.sizePolicy().hasHeightForWidth())
+        self.FirstNameLabel_11.setSizePolicy(sizePolicy2)
+        self.FirstNameLabel_11.setStyleSheet(u"color: red;")
 
-        self.gridLayout_9.addWidget(self.title_line, 11, 0, 1, 1)
+        self.horizontalLayout_9.addWidget(self.FirstNameLabel_11)
 
-        self.TitleLabel_4 = QLabel(self.frame_4)
-        self.TitleLabel_4.setObjectName(u"TitleLabel_4")
-        sizePolicy1.setHeightForWidth(self.TitleLabel_4.sizePolicy().hasHeightForWidth())
-        self.TitleLabel_4.setSizePolicy(sizePolicy1)
-        self.TitleLabel_4.setStyleSheet(u"color: #FAFAFA;")
+        self.CompanyLabel_5 = QLabel(self.frame_4)
+        self.CompanyLabel_5.setObjectName(u"CompanyLabel_5")
+        sizePolicy1.setHeightForWidth(self.CompanyLabel_5.sizePolicy().hasHeightForWidth())
+        self.CompanyLabel_5.setSizePolicy(sizePolicy1)
+        self.CompanyLabel_5.setStyleSheet(u"color: #FAFAFA;")
 
-        self.gridLayout_9.addWidget(self.TitleLabel_4, 10, 0, 1, 1)
+        self.horizontalLayout_9.addWidget(self.CompanyLabel_5)
+
+
+        self.gridLayout_9.addLayout(self.horizontalLayout_9, 2, 0, 1, 1)
+
+        self.CompanyLabel_6 = QLabel(self.frame_4)
+        self.CompanyLabel_6.setObjectName(u"CompanyLabel_6")
+        sizePolicy1.setHeightForWidth(self.CompanyLabel_6.sizePolicy().hasHeightForWidth())
+        self.CompanyLabel_6.setSizePolicy(sizePolicy1)
+        self.CompanyLabel_6.setStyleSheet(u"color: #FAFAFA;")
+
+        self.gridLayout_9.addWidget(self.CompanyLabel_6, 6, 0, 1, 1)
+
+        self.CompanyLabel_7 = QLabel(self.frame_4)
+        self.CompanyLabel_7.setObjectName(u"CompanyLabel_7")
+        sizePolicy1.setHeightForWidth(self.CompanyLabel_7.sizePolicy().hasHeightForWidth())
+        self.CompanyLabel_7.setSizePolicy(sizePolicy1)
+        self.CompanyLabel_7.setStyleSheet(u"color: #FAFAFA;")
+
+        self.gridLayout_9.addWidget(self.CompanyLabel_7, 8, 0, 1, 1)
 
         self.company_website_line = QLineEdit(self.frame_4)
         self.company_website_line.setObjectName(u"company_website_line")
@@ -120,13 +135,18 @@ class Ui_contacts_update(object):
 
         self.gridLayout_9.addWidget(self.company_website_line, 7, 0, 1, 1)
 
+        self.TitleLabel_4 = QLabel(self.frame_4)
+        self.TitleLabel_4.setObjectName(u"TitleLabel_4")
+        sizePolicy1.setHeightForWidth(self.TitleLabel_4.sizePolicy().hasHeightForWidth())
+        self.TitleLabel_4.setSizePolicy(sizePolicy1)
+        self.TitleLabel_4.setStyleSheet(u"color: #FAFAFA;")
+
+        self.gridLayout_9.addWidget(self.TitleLabel_4, 10, 0, 1, 1)
+
         self.horizontalLayout_8 = QHBoxLayout()
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.FirstNameLabel_9 = QLabel(self.frame_4)
         self.FirstNameLabel_9.setObjectName(u"FirstNameLabel_9")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.FirstNameLabel_9.sizePolicy().hasHeightForWidth())
         self.FirstNameLabel_9.setSizePolicy(sizePolicy2)
         self.FirstNameLabel_9.setStyleSheet(u"color: red;")
@@ -143,15 +163,6 @@ class Ui_contacts_update(object):
 
 
         self.gridLayout_9.addLayout(self.horizontalLayout_8, 0, 0, 1, 1)
-
-        self.company_industry_line = QLineEdit(self.frame_4)
-        self.company_industry_line.setObjectName(u"company_industry_line")
-        sizePolicy1.setHeightForWidth(self.company_industry_line.sizePolicy().hasHeightForWidth())
-        self.company_industry_line.setSizePolicy(sizePolicy1)
-        self.company_industry_line.setMinimumSize(QSize(0, 0))
-        self.company_industry_line.setMaximumSize(QSize(16777215, 16777215))
-
-        self.gridLayout_9.addWidget(self.company_industry_line, 9, 0, 1, 1)
 
         self.company_line = QLineEdit(self.frame_4)
         self.company_line.setObjectName(u"company_line")
@@ -170,21 +181,9 @@ class Ui_contacts_update(object):
 
         self.gridLayout_9.addWidget(self.company_line, 1, 0, 1, 1)
 
-        self.CompanyLabel_7 = QLabel(self.frame_4)
-        self.CompanyLabel_7.setObjectName(u"CompanyLabel_7")
-        sizePolicy1.setHeightForWidth(self.CompanyLabel_7.sizePolicy().hasHeightForWidth())
-        self.CompanyLabel_7.setSizePolicy(sizePolicy1)
-        self.CompanyLabel_7.setStyleSheet(u"color: #FAFAFA;")
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_9.addWidget(self.CompanyLabel_7, 8, 0, 1, 1)
-
-        self.CompanyLabel_6 = QLabel(self.frame_4)
-        self.CompanyLabel_6.setObjectName(u"CompanyLabel_6")
-        sizePolicy1.setHeightForWidth(self.CompanyLabel_6.sizePolicy().hasHeightForWidth())
-        self.CompanyLabel_6.setSizePolicy(sizePolicy1)
-        self.CompanyLabel_6.setStyleSheet(u"color: #FAFAFA;")
-
-        self.gridLayout_9.addWidget(self.CompanyLabel_6, 6, 0, 1, 1)
+        self.gridLayout_9.addItem(self.horizontalSpacer_5, 6, 1, 1, 1)
 
         self.company_email_line = QLineEdit(self.frame_4)
         self.company_email_line.setObjectName(u"company_email_line")
@@ -203,30 +202,106 @@ class Ui_contacts_update(object):
 
         self.gridLayout_9.addWidget(self.company_email_line, 4, 0, 1, 1)
 
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.title_combo = QComboBox(self.frame_4)
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.addItem("")
+        self.title_combo.setObjectName(u"title_combo")
+        sizePolicy1.setHeightForWidth(self.title_combo.sizePolicy().hasHeightForWidth())
+        self.title_combo.setSizePolicy(sizePolicy1)
+        self.title_combo.setStyleSheet(u"QComboBox {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"    font: 10pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color: #262626;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
+"}")
 
-        self.gridLayout_9.addItem(self.horizontalSpacer_5, 6, 1, 1, 1)
+        self.gridLayout_9.addWidget(self.title_combo, 11, 0, 1, 1)
 
-        self.horizontalLayout_9 = QHBoxLayout()
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.FirstNameLabel_11 = QLabel(self.frame_4)
-        self.FirstNameLabel_11.setObjectName(u"FirstNameLabel_11")
-        sizePolicy2.setHeightForWidth(self.FirstNameLabel_11.sizePolicy().hasHeightForWidth())
-        self.FirstNameLabel_11.setSizePolicy(sizePolicy2)
-        self.FirstNameLabel_11.setStyleSheet(u"color: red;")
+        self.company_industry_combo = QComboBox(self.frame_4)
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.addItem("")
+        self.company_industry_combo.setObjectName(u"company_industry_combo")
+        sizePolicy1.setHeightForWidth(self.company_industry_combo.sizePolicy().hasHeightForWidth())
+        self.company_industry_combo.setSizePolicy(sizePolicy1)
+        self.company_industry_combo.setStyleSheet(u"QComboBox {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"    font: 10pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color: #262626;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
+"}")
 
-        self.horizontalLayout_9.addWidget(self.FirstNameLabel_11)
-
-        self.CompanyLabel_5 = QLabel(self.frame_4)
-        self.CompanyLabel_5.setObjectName(u"CompanyLabel_5")
-        sizePolicy1.setHeightForWidth(self.CompanyLabel_5.sizePolicy().hasHeightForWidth())
-        self.CompanyLabel_5.setSizePolicy(sizePolicy1)
-        self.CompanyLabel_5.setStyleSheet(u"color: #FAFAFA;")
-
-        self.horizontalLayout_9.addWidget(self.CompanyLabel_5)
-
-
-        self.gridLayout_9.addLayout(self.horizontalLayout_9, 2, 0, 1, 1)
+        self.gridLayout_9.addWidget(self.company_industry_combo, 9, 0, 1, 1)
 
 
         self.gridLayout_8.addLayout(self.gridLayout_9, 0, 2, 1, 1)
@@ -571,10 +646,6 @@ class Ui_contacts_update(object):
 
         self.gridLayout_28 = QGridLayout()
         self.gridLayout_28.setObjectName(u"gridLayout_28")
-        self.horizontalSpacer_19 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_28.addItem(self.horizontalSpacer_19, 0, 0, 1, 1)
-
         self.CountryLabel_7 = QLabel(self.frame_4)
         self.CountryLabel_7.setObjectName(u"CountryLabel_7")
         sizePolicy1.setHeightForWidth(self.CountryLabel_7.sizePolicy().hasHeightForWidth())
@@ -583,22 +654,50 @@ class Ui_contacts_update(object):
 
         self.gridLayout_28.addWidget(self.CountryLabel_7, 0, 1, 1, 1)
 
-        self.company_country_line = QLineEdit(self.frame_4)
-        self.company_country_line.setObjectName(u"company_country_line")
-        sizePolicy1.setHeightForWidth(self.company_country_line.sizePolicy().hasHeightForWidth())
-        self.company_country_line.setSizePolicy(sizePolicy1)
-        self.company_country_line.setMinimumSize(QSize(0, 0))
-        self.company_country_line.setMaximumSize(QSize(16777215, 16777215))
-        self.company_country_line.setStyleSheet(u"QLineEdit {\n"
+        self.company_city_combo = QComboBox(self.frame_4)
+        self.company_city_combo.setObjectName(u"company_city_combo")
+        sizePolicy1.setHeightForWidth(self.company_city_combo.sizePolicy().hasHeightForWidth())
+        self.company_city_combo.setSizePolicy(sizePolicy1)
+        self.company_city_combo.setStyleSheet(u"QComboBox {\n"
 "    background-color: #262626;\n"
 "    border: 1px solid #737373;\n"
 "    color: white;\n"
-"	border-radius: 10px;\n"
-"	padding: 5px;\n"
-"	font: 10pt \"Segoe UI\";\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"    font: 10pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color: #262626;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
 "}")
 
-        self.gridLayout_28.addWidget(self.company_country_line, 1, 1, 1, 1)
+        self.gridLayout_28.addWidget(self.company_city_combo, 6, 1, 1, 1)
+
+        self.horizontalSpacer_19 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_28.addItem(self.horizontalSpacer_19, 0, 0, 1, 1)
+
+        self.State_ProvinceLabel_7 = QLabel(self.frame_4)
+        self.State_ProvinceLabel_7.setObjectName(u"State_ProvinceLabel_7")
+        sizePolicy1.setHeightForWidth(self.State_ProvinceLabel_7.sizePolicy().hasHeightForWidth())
+        self.State_ProvinceLabel_7.setSizePolicy(sizePolicy1)
+        self.State_ProvinceLabel_7.setStyleSheet(u"color: #FAFAFA;")
+
+        self.gridLayout_28.addWidget(self.State_ProvinceLabel_7, 2, 1, 1, 1)
+
+        self.CityLabel_7 = QLabel(self.frame_4)
+        self.CityLabel_7.setObjectName(u"CityLabel_7")
+        sizePolicy1.setHeightForWidth(self.CityLabel_7.sizePolicy().hasHeightForWidth())
+        self.CityLabel_7.setSizePolicy(sizePolicy1)
+        self.CityLabel_7.setStyleSheet(u"color: #FAFAFA;")
+
+        self.gridLayout_28.addWidget(self.CityLabel_7, 5, 1, 1, 1)
 
         self.company_state_line = QLineEdit(self.frame_4)
         self.company_state_line.setObjectName(u"company_state_line")
@@ -617,36 +716,30 @@ class Ui_contacts_update(object):
 
         self.gridLayout_28.addWidget(self.company_state_line, 3, 1, 1, 1)
 
-        self.State_ProvinceLabel_7 = QLabel(self.frame_4)
-        self.State_ProvinceLabel_7.setObjectName(u"State_ProvinceLabel_7")
-        sizePolicy1.setHeightForWidth(self.State_ProvinceLabel_7.sizePolicy().hasHeightForWidth())
-        self.State_ProvinceLabel_7.setSizePolicy(sizePolicy1)
-        self.State_ProvinceLabel_7.setStyleSheet(u"color: #FAFAFA;")
-
-        self.gridLayout_28.addWidget(self.State_ProvinceLabel_7, 2, 1, 1, 1)
-
-        self.CityLabel_7 = QLabel(self.frame_4)
-        self.CityLabel_7.setObjectName(u"CityLabel_7")
-        sizePolicy1.setHeightForWidth(self.CityLabel_7.sizePolicy().hasHeightForWidth())
-        self.CityLabel_7.setSizePolicy(sizePolicy1)
-        self.CityLabel_7.setStyleSheet(u"color: #FAFAFA;")
-
-        self.gridLayout_28.addWidget(self.CityLabel_7, 5, 1, 1, 1)
-
-        self.company_city_line = QLineEdit(self.frame_4)
-        self.company_city_line.setObjectName(u"company_city_line")
-        sizePolicy1.setHeightForWidth(self.company_city_line.sizePolicy().hasHeightForWidth())
-        self.company_city_line.setSizePolicy(sizePolicy1)
-        self.company_city_line.setStyleSheet(u"QLineEdit {\n"
+        self.company_country_combo = QComboBox(self.frame_4)
+        self.company_country_combo.setObjectName(u"company_country_combo")
+        sizePolicy1.setHeightForWidth(self.company_country_combo.sizePolicy().hasHeightForWidth())
+        self.company_country_combo.setSizePolicy(sizePolicy1)
+        self.company_country_combo.setStyleSheet(u"QComboBox {\n"
 "    background-color: #262626;\n"
 "    border: 1px solid #737373;\n"
 "    color: white;\n"
-"	border-radius: 10px;\n"
-"	padding: 5px;\n"
-"	font: 10pt \"Segoe UI\";\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"    font: 10pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color: #262626;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
 "}")
 
-        self.gridLayout_28.addWidget(self.company_city_line, 6, 1, 1, 1)
+        self.gridLayout_28.addWidget(self.company_country_combo, 1, 1, 1, 1)
 
 
         self.gridLayout_22.addLayout(self.gridLayout_28, 0, 0, 1, 1)
@@ -738,28 +831,35 @@ class Ui_contacts_update(object):
 
         self.gridLayout_24 = QGridLayout()
         self.gridLayout_24.setObjectName(u"gridLayout_24")
-        self.zip_line_2 = QLineEdit(self.frame_4)
-        self.zip_line_2.setObjectName(u"zip_line_2")
-        self.zip_line_2.setEnabled(False)
-        sizePolicy1.setHeightForWidth(self.zip_line_2.sizePolicy().hasHeightForWidth())
-        self.zip_line_2.setSizePolicy(sizePolicy1)
-        self.zip_line_2.setMinimumSize(QSize(0, 0))
-        self.zip_line_2.setMaximumSize(QSize(16777215, 16777215))
-        self.zip_line_2.setStyleSheet(u"border: none;")
+        self.yrs_in_industry_line = QLineEdit(self.frame_4)
+        self.yrs_in_industry_line.setObjectName(u"yrs_in_industry_line")
+        self.yrs_in_industry_line.setEnabled(True)
+        sizePolicy1.setHeightForWidth(self.yrs_in_industry_line.sizePolicy().hasHeightForWidth())
+        self.yrs_in_industry_line.setSizePolicy(sizePolicy1)
+        self.yrs_in_industry_line.setMinimumSize(QSize(0, 0))
+        self.yrs_in_industry_line.setMaximumSize(QSize(16777215, 16777215))
+        self.yrs_in_industry_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: 10pt \"Segoe UI\";\n"
+"}")
 
-        self.gridLayout_24.addWidget(self.zip_line_2, 6, 0, 1, 1)
+        self.gridLayout_24.addWidget(self.yrs_in_industry_line, 6, 0, 1, 1)
 
         self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.gridLayout_24.addItem(self.horizontalSpacer_8, 4, 1, 1, 1)
 
-        self.StreetLabel_5 = QLabel(self.frame_4)
-        self.StreetLabel_5.setObjectName(u"StreetLabel_5")
-        sizePolicy1.setHeightForWidth(self.StreetLabel_5.sizePolicy().hasHeightForWidth())
-        self.StreetLabel_5.setSizePolicy(sizePolicy1)
-        self.StreetLabel_5.setStyleSheet(u"color: rgb(0, 0, 0);")
+        self.yrsIndustryLabel = QLabel(self.frame_4)
+        self.yrsIndustryLabel.setObjectName(u"yrsIndustryLabel")
+        sizePolicy1.setHeightForWidth(self.yrsIndustryLabel.sizePolicy().hasHeightForWidth())
+        self.yrsIndustryLabel.setSizePolicy(sizePolicy1)
+        self.yrsIndustryLabel.setStyleSheet(u"color: #FAFAFA;")
 
-        self.gridLayout_24.addWidget(self.StreetLabel_5, 4, 0, 1, 1)
+        self.gridLayout_24.addWidget(self.yrsIndustryLabel, 4, 0, 1, 1)
 
 
         self.gridLayout_19.addLayout(self.gridLayout_24, 0, 2, 1, 1)
@@ -836,34 +936,34 @@ class Ui_contacts_update(object):
 
         self.gridLayout_3 = QGridLayout()
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_3.addItem(self.horizontalSpacer_6, 0, 0, 1, 1)
-
-        self.CountryLabel_4 = QLabel(self.frame_4)
-        self.CountryLabel_4.setObjectName(u"CountryLabel_4")
-        sizePolicy1.setHeightForWidth(self.CountryLabel_4.sizePolicy().hasHeightForWidth())
-        self.CountryLabel_4.setSizePolicy(sizePolicy1)
-        self.CountryLabel_4.setStyleSheet(u"color: #FAFAFA;")
-
-        self.gridLayout_3.addWidget(self.CountryLabel_4, 0, 1, 1, 1)
-
-        self.country_line = QLineEdit(self.frame_4)
-        self.country_line.setObjectName(u"country_line")
-        sizePolicy1.setHeightForWidth(self.country_line.sizePolicy().hasHeightForWidth())
-        self.country_line.setSizePolicy(sizePolicy1)
-        self.country_line.setMinimumSize(QSize(0, 0))
-        self.country_line.setMaximumSize(QSize(16777215, 16777215))
-        self.country_line.setStyleSheet(u"QLineEdit {\n"
+        self.city_combo = QComboBox(self.frame_4)
+        self.city_combo.setObjectName(u"city_combo")
+        sizePolicy1.setHeightForWidth(self.city_combo.sizePolicy().hasHeightForWidth())
+        self.city_combo.setSizePolicy(sizePolicy1)
+        self.city_combo.setStyleSheet(u"QComboBox {\n"
 "    background-color: #262626;\n"
 "    border: 1px solid #737373;\n"
 "    color: white;\n"
-"	border-radius: 10px;\n"
-"	padding: 5px;\n"
-"	font: 10pt \"Segoe UI\";\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"    font: 10pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color: #262626;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
 "}")
 
-        self.gridLayout_3.addWidget(self.country_line, 1, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.city_combo, 6, 1, 1, 1)
+
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_3.addItem(self.horizontalSpacer_6, 0, 0, 1, 1)
 
         self.state_line = QLineEdit(self.frame_4)
         self.state_line.setObjectName(u"state_line")
@@ -882,13 +982,38 @@ class Ui_contacts_update(object):
 
         self.gridLayout_3.addWidget(self.state_line, 3, 1, 1, 1)
 
-        self.State_ProvinceLabel_4 = QLabel(self.frame_4)
-        self.State_ProvinceLabel_4.setObjectName(u"State_ProvinceLabel_4")
-        sizePolicy1.setHeightForWidth(self.State_ProvinceLabel_4.sizePolicy().hasHeightForWidth())
-        self.State_ProvinceLabel_4.setSizePolicy(sizePolicy1)
-        self.State_ProvinceLabel_4.setStyleSheet(u"color: #FAFAFA;")
+        self.country_combo = QComboBox(self.frame_4)
+        self.country_combo.setObjectName(u"country_combo")
+        sizePolicy1.setHeightForWidth(self.country_combo.sizePolicy().hasHeightForWidth())
+        self.country_combo.setSizePolicy(sizePolicy1)
+        self.country_combo.setStyleSheet(u"QComboBox {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"    font: 10pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color: #262626;\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
+"}")
 
-        self.gridLayout_3.addWidget(self.State_ProvinceLabel_4, 2, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.country_combo, 1, 1, 1, 1)
+
+        self.CountryLabel_4 = QLabel(self.frame_4)
+        self.CountryLabel_4.setObjectName(u"CountryLabel_4")
+        sizePolicy1.setHeightForWidth(self.CountryLabel_4.sizePolicy().hasHeightForWidth())
+        self.CountryLabel_4.setSizePolicy(sizePolicy1)
+        self.CountryLabel_4.setStyleSheet(u"color: #FAFAFA;")
+
+        self.gridLayout_3.addWidget(self.CountryLabel_4, 0, 1, 1, 1)
 
         self.CityLabel_4 = QLabel(self.frame_4)
         self.CityLabel_4.setObjectName(u"CityLabel_4")
@@ -898,20 +1023,13 @@ class Ui_contacts_update(object):
 
         self.gridLayout_3.addWidget(self.CityLabel_4, 5, 1, 1, 1)
 
-        self.city_line = QLineEdit(self.frame_4)
-        self.city_line.setObjectName(u"city_line")
-        sizePolicy1.setHeightForWidth(self.city_line.sizePolicy().hasHeightForWidth())
-        self.city_line.setSizePolicy(sizePolicy1)
-        self.city_line.setStyleSheet(u"QLineEdit {\n"
-"    background-color: #262626;\n"
-"    border: 1px solid #737373;\n"
-"    color: white;\n"
-"	border-radius: 10px;\n"
-"	padding: 5px;\n"
-"	font: 10pt \"Segoe UI\";\n"
-"}")
+        self.State_ProvinceLabel_4 = QLabel(self.frame_4)
+        self.State_ProvinceLabel_4.setObjectName(u"State_ProvinceLabel_4")
+        sizePolicy1.setHeightForWidth(self.State_ProvinceLabel_4.sizePolicy().hasHeightForWidth())
+        self.State_ProvinceLabel_4.setSizePolicy(sizePolicy1)
+        self.State_ProvinceLabel_4.setStyleSheet(u"color: #FAFAFA;")
 
-        self.gridLayout_3.addWidget(self.city_line, 6, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.State_ProvinceLabel_4, 2, 1, 1, 1)
 
 
         self.gridLayout_18.addLayout(self.gridLayout_3, 0, 0, 1, 1)
@@ -974,6 +1092,7 @@ class Ui_contacts_update(object):
         font1.setBold(False)
         font1.setItalic(False)
         self.back_line.setFont(font1)
+        self.back_line.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.back_line.setStyleSheet(u"QPushButton {\n"
 "    background-color: #262626;\n"
 "    border: 1px solid #737373;\n"
@@ -1096,29 +1215,29 @@ class Ui_contacts_update(object):
         QWidget.setTabOrder(self.gender_combo, self.company_line)
         QWidget.setTabOrder(self.company_line, self.company_email_line)
         QWidget.setTabOrder(self.company_email_line, self.company_website_line)
-        QWidget.setTabOrder(self.company_website_line, self.company_industry_line)
-        QWidget.setTabOrder(self.company_industry_line, self.title_line)
-        QWidget.setTabOrder(self.title_line, self.source_name_line)
-        QWidget.setTabOrder(self.source_name_line, self.country_line)
-        QWidget.setTabOrder(self.country_line, self.state_line)
-        QWidget.setTabOrder(self.state_line, self.city_line)
-        QWidget.setTabOrder(self.city_line, self.street_line)
+        QWidget.setTabOrder(self.company_website_line, self.source_name_line)
+        QWidget.setTabOrder(self.source_name_line, self.state_line)
+        QWidget.setTabOrder(self.state_line, self.street_line)
         QWidget.setTabOrder(self.street_line, self.zip_line)
-        QWidget.setTabOrder(self.zip_line, self.company_country_line)
-        QWidget.setTabOrder(self.company_country_line, self.company_state_line)
-        QWidget.setTabOrder(self.company_state_line, self.company_city_line)
-        QWidget.setTabOrder(self.company_city_line, self.company_street_line)
+        QWidget.setTabOrder(self.zip_line, self.company_state_line)
+        QWidget.setTabOrder(self.company_state_line, self.company_street_line)
         QWidget.setTabOrder(self.company_street_line, self.company_zip_line)
         QWidget.setTabOrder(self.company_zip_line, self.address_type_combo)
         QWidget.setTabOrder(self.address_type_combo, self.save_btn)
         QWidget.setTabOrder(self.save_btn, self.back_line)
         QWidget.setTabOrder(self.back_line, self.scrollArea_4)
-        QWidget.setTabOrder(self.scrollArea_4, self.zip_line_2)
+        QWidget.setTabOrder(self.scrollArea_4, self.yrs_in_industry_line)
 
         self.retranslateUi(contacts_update)
 
+        self.title_combo.setCurrentIndex(-1)
+        self.company_industry_combo.setCurrentIndex(-1)
         self.gender_combo.setCurrentIndex(-1)
         self.address_type_combo.setCurrentIndex(-1)
+        self.company_city_combo.setCurrentIndex(-1)
+        self.company_country_combo.setCurrentIndex(-1)
+        self.city_combo.setCurrentIndex(-1)
+        self.country_combo.setCurrentIndex(-1)
 
 
         QMetaObject.connectSlotsByName(contacts_update)
@@ -1126,21 +1245,68 @@ class Ui_contacts_update(object):
 
     def retranslateUi(self, contacts_update):
         contacts_update.setWindowTitle(QCoreApplication.translate("contacts_update", u"Edit Contact", None))
+        self.FirstNameLabel_11.setText(QCoreApplication.translate("contacts_update", u"*", None))
+        self.CompanyLabel_5.setText(QCoreApplication.translate("contacts_update", u"Company Email :", None))
+        self.CompanyLabel_6.setText(QCoreApplication.translate("contacts_update", u"Company Website (Optional):", None))
+        self.CompanyLabel_7.setText(QCoreApplication.translate("contacts_update", u"Industry (Optional):", None))
         self.TitleLabel_4.setText(QCoreApplication.translate("contacts_update", u"Job Title (Optional):", None))
         self.FirstNameLabel_9.setText(QCoreApplication.translate("contacts_update", u"*", None))
         self.CompanyLabel.setText(QCoreApplication.translate("contacts_update", u"Company :", None))
-        self.company_industry_line.setStyleSheet(QCoreApplication.translate("contacts_update", u"QLineEdit {\n"
-"    background-color: #262626;\n"
-"    border: 1px solid #737373;\n"
-"    color: white;\n"
-"	border-radius: 10px;\n"
-"	padding: 5px;\n"
-"	font: 10pt \"Segoe UI\";\n"
-"}", None))
-        self.CompanyLabel_7.setText(QCoreApplication.translate("contacts_update", u"Industry (Optional):", None))
-        self.CompanyLabel_6.setText(QCoreApplication.translate("contacts_update", u"Company Website (Optional):", None))
-        self.FirstNameLabel_11.setText(QCoreApplication.translate("contacts_update", u"*", None))
-        self.CompanyLabel_5.setText(QCoreApplication.translate("contacts_update", u"Company Email :", None))
+        self.title_combo.setItemText(0, QCoreApplication.translate("contacts_update", u"CEO (Chief Executive Officer)", None))
+        self.title_combo.setItemText(1, QCoreApplication.translate("contacts_update", u"COO (Chief Operating Officer)", None))
+        self.title_combo.setItemText(2, QCoreApplication.translate("contacts_update", u"CFO (Chief Financial Officer)", None))
+        self.title_combo.setItemText(3, QCoreApplication.translate("contacts_update", u"CTO (Chief Technology Officer)", None))
+        self.title_combo.setItemText(4, QCoreApplication.translate("contacts_update", u"CMO (Chief Marketing Officer)", None))
+        self.title_combo.setItemText(5, QCoreApplication.translate("contacts_update", u"CIO (Chief Information Officer)", None))
+        self.title_combo.setItemText(6, QCoreApplication.translate("contacts_update", u"CHRO (Chief Human Resources Officer)", None))
+        self.title_combo.setItemText(7, QCoreApplication.translate("contacts_update", u"Managing Director", None))
+        self.title_combo.setItemText(8, QCoreApplication.translate("contacts_update", u"General Manager", None))
+        self.title_combo.setItemText(9, QCoreApplication.translate("contacts_update", u"Operations Manager", None))
+        self.title_combo.setItemText(10, QCoreApplication.translate("contacts_update", u"Marketing Manager", None))
+        self.title_combo.setItemText(11, QCoreApplication.translate("contacts_update", u"Sales Manager", None))
+        self.title_combo.setItemText(12, QCoreApplication.translate("contacts_update", u"Finance Manager", None))
+        self.title_combo.setItemText(13, QCoreApplication.translate("contacts_update", u"HR Manager", None))
+        self.title_combo.setItemText(14, QCoreApplication.translate("contacts_update", u"Product Manager", None))
+        self.title_combo.setItemText(15, QCoreApplication.translate("contacts_update", u"IT Manager", None))
+        self.title_combo.setItemText(16, QCoreApplication.translate("contacts_update", u"Software Engineer", None))
+        self.title_combo.setItemText(17, QCoreApplication.translate("contacts_update", u"Sales Representative", None))
+        self.title_combo.setItemText(18, QCoreApplication.translate("contacts_update", u"Marketing Specialist", None))
+        self.title_combo.setItemText(19, QCoreApplication.translate("contacts_update", u"Business Analyst", None))
+        self.title_combo.setItemText(20, QCoreApplication.translate("contacts_update", u"Customer Support Agent", None))
+        self.title_combo.setItemText(21, QCoreApplication.translate("contacts_update", u"Accountant", None))
+        self.title_combo.setItemText(22, QCoreApplication.translate("contacts_update", u"Recruiter", None))
+        self.title_combo.setItemText(23, QCoreApplication.translate("contacts_update", u"Data Analyst", None))
+        self.title_combo.setItemText(24, QCoreApplication.translate("contacts_update", u"Designer (UI/UX, Graphic, etc.)", None))
+        self.title_combo.setItemText(25, QCoreApplication.translate("contacts_update", u"Technician", None))
+        self.title_combo.setItemText(26, QCoreApplication.translate("contacts_update", u"Founder / Co-Founder", None))
+        self.title_combo.setItemText(27, QCoreApplication.translate("contacts_update", u"Consultant", None))
+        self.title_combo.setItemText(28, QCoreApplication.translate("contacts_update", u"Intern", None))
+        self.title_combo.setItemText(29, QCoreApplication.translate("contacts_update", u"Assistant / Executive Assistant", None))
+
+        self.title_combo.setPlaceholderText(QCoreApplication.translate("contacts_update", u"Select Title/Role", None))
+        self.company_industry_combo.setItemText(0, QCoreApplication.translate("contacts_update", u"Agriculture", None))
+        self.company_industry_combo.setItemText(1, QCoreApplication.translate("contacts_update", u"Automotive", None))
+        self.company_industry_combo.setItemText(2, QCoreApplication.translate("contacts_update", u"Construction", None))
+        self.company_industry_combo.setItemText(3, QCoreApplication.translate("contacts_update", u"Consumer Goods", None))
+        self.company_industry_combo.setItemText(4, QCoreApplication.translate("contacts_update", u"Education", None))
+        self.company_industry_combo.setItemText(5, QCoreApplication.translate("contacts_update", u"Energy & Utilities", None))
+        self.company_industry_combo.setItemText(6, QCoreApplication.translate("contacts_update", u"Financial Services", None))
+        self.company_industry_combo.setItemText(7, QCoreApplication.translate("contacts_update", u"Government", None))
+        self.company_industry_combo.setItemText(8, QCoreApplication.translate("contacts_update", u"Healthcare & Life Sciences", None))
+        self.company_industry_combo.setItemText(9, QCoreApplication.translate("contacts_update", u"Hospitality", None))
+        self.company_industry_combo.setItemText(10, QCoreApplication.translate("contacts_update", u"Information Technology", None))
+        self.company_industry_combo.setItemText(11, QCoreApplication.translate("contacts_update", u"Legal Services", None))
+        self.company_industry_combo.setItemText(12, QCoreApplication.translate("contacts_update", u"Logistics & Transportation", None))
+        self.company_industry_combo.setItemText(13, QCoreApplication.translate("contacts_update", u"Manufacturing", None))
+        self.company_industry_combo.setItemText(14, QCoreApplication.translate("contacts_update", u"Media & Entertainment", None))
+        self.company_industry_combo.setItemText(15, QCoreApplication.translate("contacts_update", u"Nonprofit", None))
+        self.company_industry_combo.setItemText(16, QCoreApplication.translate("contacts_update", u"Professional Services", None))
+        self.company_industry_combo.setItemText(17, QCoreApplication.translate("contacts_update", u"Real Estate", None))
+        self.company_industry_combo.setItemText(18, QCoreApplication.translate("contacts_update", u"Retail & E-Commerce", None))
+        self.company_industry_combo.setItemText(19, QCoreApplication.translate("contacts_update", u"Telecommunications", None))
+        self.company_industry_combo.setItemText(20, QCoreApplication.translate("contacts_update", u"Travel & Tourism", None))
+
+        self.company_industry_combo.setPlaceholderText(QCoreApplication.translate("contacts_update", u"Select an Industry", None))
         self.GenderLabel_4.setText(QCoreApplication.translate("contacts_update", u"Gender (Optional):", None))
         self.gender_combo.setItemText(0, QCoreApplication.translate("contacts_update", u"Male", None))
         self.gender_combo.setItemText(1, QCoreApplication.translate("contacts_update", u"Female", None))
@@ -1165,16 +1331,20 @@ class Ui_contacts_update(object):
         self.StreetLabel_7.setText(QCoreApplication.translate("contacts_update", u"Street (Optional):", None))
         self.ZipPostalCodeLabel_8.setText(QCoreApplication.translate("contacts_update", u"Address Type (Optional):", None))
         self.CountryLabel_7.setText(QCoreApplication.translate("contacts_update", u"Country (Optional) :", None))
+        self.company_city_combo.setPlaceholderText(QCoreApplication.translate("contacts_update", u"Select City", None))
         self.State_ProvinceLabel_7.setText(QCoreApplication.translate("contacts_update", u"State/Province (Optional):", None))
-        self.CityLabel_7.setText(QCoreApplication.translate("contacts_update", u"City (Optional):", None))
+        self.CityLabel_7.setText(QCoreApplication.translate("contacts_update", u"City (Optional, Select Country First):", None))
+        self.company_country_combo.setPlaceholderText(QCoreApplication.translate("contacts_update", u"Select Country", None))
         self.AdditionalInformation_15.setText(QCoreApplication.translate("contacts_update", u"Contact Information", None))
         self.source_name_label.setText(QCoreApplication.translate("contacts_update", u"Lead Source (Optional):", None))
-        self.StreetLabel_5.setText(QCoreApplication.translate("contacts_update", u"Street (Optional):", None))
+        self.yrsIndustryLabel.setText(QCoreApplication.translate("contacts_update", u"Years in the Industry (Optional):", None))
         self.StreetLabel_4.setText(QCoreApplication.translate("contacts_update", u"Street (Optional):", None))
         self.ZipPostalCodeLabel_4.setText(QCoreApplication.translate("contacts_update", u"Zip/Postal Code (Optional):", None))
+        self.city_combo.setPlaceholderText(QCoreApplication.translate("contacts_update", u"Select City", None))
+        self.country_combo.setPlaceholderText(QCoreApplication.translate("contacts_update", u"Select Country", None))
         self.CountryLabel_4.setText(QCoreApplication.translate("contacts_update", u"Country (Optional) :", None))
+        self.CityLabel_4.setText(QCoreApplication.translate("contacts_update", u"City (Optional, Select Country First):", None))
         self.State_ProvinceLabel_4.setText(QCoreApplication.translate("contacts_update", u"State/Province (Optional):", None))
-        self.CityLabel_4.setText(QCoreApplication.translate("contacts_update", u"City (Optional):", None))
         self.AdditionalInformation_20.setText(QCoreApplication.translate("contacts_update", u"Contact Address ", None))
         self.back_line.setText(QCoreApplication.translate("contacts_update", u"< Back to Contacts", None))
         self.save_btn.setText(QCoreApplication.translate("contacts_update", u"Confirm", None))
