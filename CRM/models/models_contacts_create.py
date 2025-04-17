@@ -184,8 +184,6 @@ class ContactsCreate(QWidget):
             VALUES (%s, %s, %s, %s, %s, %s, %s)
         """, (company_id, address_type, company_street, company_city, company_state, company_zip_code, company_country))
 
-        company_address_id = self.db_conn.fetch_one("SELECT LAST_INSERT_ID() AS company_address_id")["company_address_id"]
-
         self.db_conn.execute_query("""
             INSERT INTO contact (first_name, last_name, email, phone_number, gender, job_title, company_id)
             VALUES (%s, %s, %s, %s, %s, %s, %s)
