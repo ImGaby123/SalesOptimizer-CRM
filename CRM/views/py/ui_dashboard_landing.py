@@ -24,8 +24,8 @@ class Ui_dashboard(object):
     def setupUi(self, dashboard):
         if not dashboard.objectName():
             dashboard.setObjectName(u"dashboard")
-        dashboard.resize(1101, 862)
-        dashboard.setStyleSheet(u"background-color: rgb(0, 0, 0);")
+        dashboard.resize(1201, 680)
+        dashboard.setStyleSheet(u"background-color: transparent;")
         self.gridLayout = QGridLayout(dashboard)
         self.gridLayout.setObjectName(u"gridLayout")
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
@@ -70,7 +70,7 @@ class Ui_dashboard(object):
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_17)
 
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_5 = QSpacerItem(40, 10, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.verticalLayout_3.addItem(self.horizontalSpacer_5)
 

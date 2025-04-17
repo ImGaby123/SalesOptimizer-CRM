@@ -31,6 +31,7 @@
         <file>Resources/arrow_blue.png</file>
         <file>Resources/add_campaign.png</file>
         <file>Resources/edit.svg</file>
+        <file>Resources/calendar.png</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
 </RCC>

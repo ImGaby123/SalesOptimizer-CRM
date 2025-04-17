@@ -25,14 +25,11 @@ class Ui_leads_profile(object):
     def setupUi(self, leads_profile):
         if not leads_profile.objectName():
             leads_profile.setObjectName(u"leads_profile")
-        leads_profile.resize(1101, 973)
-        leads_profile.setStyleSheet(u"background-color: rgb(0, 0, 0);")
+        leads_profile.resize(1101, 975)
+        leads_profile.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
+"color: rgb(255, 255, 255);")
         self.gridLayout = QGridLayout(leads_profile)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_2, 0, 1, 1, 1)
-
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.gridLayout.addItem(self.verticalSpacer, 1, 0, 1, 1)
@@ -181,27 +178,41 @@ class Ui_leads_profile(object):
 
         self.verticalLayout_29.addWidget(self.salespipe_lbl)
 
-        self.lead_status_bar = QProgressBar(self.frame_6)
-        self.lead_status_bar.setObjectName(u"lead_status_bar")
-        self.lead_status_bar.setStyleSheet(u"QProgressBar {\n"
-"    background-color: #2e2e2e;\n"
-"    border: 1px solid #737373;\n"
-"    border-radius: 30px;\n"
-"    text-align: center;\n"
-"    color: white;\n"
-"    font: 10pt \"Segoe UI\";\n"
-"    height: 20px;\n"
-"}\n"
+        self.opportunity_status_bar = QProgressBar(self.frame_6)
+        self.opportunity_status_bar.setObjectName(u"opportunity_status_bar")
+        self.opportunity_status_bar.setStyleSheet(u"                QProgressBar {\n"
+"                    background-color: #E5E5E5;\n"
+"                    border: 1px solid #000;\n"
+"                    border-radius: 10px;\n"
+"                    text-align: center;\n"
+"                    height: 20px;\n"
+"                }\n"
+"                QProgressBar::chunk {\n"
+"                    background-color: #A3E635;\n"
+"                    border-radius: 10px;\n"
+"                }\n"
 "\n"
-"QProgressBar::chunk {\n"
-"    background-color: #A3E635;  /* Green chunk color */\n"
-"    border-radius: 80px;  /* Match the outer radius */\n"
-"    margin: 1px;\n"
-"}\n"
-"")
-        self.lead_status_bar.setValue(47)
+"		                QRadioButton {\n"
+"                    background: transparent;\n"
+"                    color: #fff;\n"
+"                    border: none;\n"
+"                }\n"
+"\n"
+"                QRadioButton::indicator {\n"
+"                    width: 16px;\n"
+"                    height: 16px;\n"
+"                    border-radius: 8px;\n"
+"                    background-color: white;\n"
+"                }\n"
+"\n"
+"                QRadioButton::indicator:checked {\n"
+"                    background-color: #A3E635;\n"
+"                    border-color: #A3E635;\n"
+""
+                        "                }")
+        self.opportunity_status_bar.setValue(0)
 
-        self.verticalLayout_29.addWidget(self.lead_status_bar)
+        self.verticalLayout_29.addWidget(self.opportunity_status_bar)
 
         self.horizontalLayout_8 = QHBoxLayout()
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
@@ -234,13 +245,13 @@ class Ui_leads_profile(object):
 
         self.horizontalLayout_8.addWidget(self.prospecting_radio, 0, Qt.AlignmentFlag.AlignRight)
 
-        self.qualifications_radio = QRadioButton(self.frame_6)
-        self.qualifications_radio.setObjectName(u"qualifications_radio")
-        self.qualifications_radio.setEnabled(True)
-        self.qualifications_radio.setFont(font3)
-        self.qualifications_radio.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.qualifications_radio.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
-        self.qualifications_radio.setStyleSheet(u"QRadioButton {\n"
+        self.qualification_radio = QRadioButton(self.frame_6)
+        self.qualification_radio.setObjectName(u"qualification_radio")
+        self.qualification_radio.setEnabled(True)
+        self.qualification_radio.setFont(font3)
+        self.qualification_radio.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.qualification_radio.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
+        self.qualification_radio.setStyleSheet(u"QRadioButton {\n"
 "    background: transparent;\n"
 "    color: #fff;\n"
 "	border: none;\n"
@@ -258,11 +269,11 @@ class Ui_leads_profile(object):
 "    background-color: white; \n"
 "}\n"
 "")
-        self.qualifications_radio.setCheckable(True)
-        self.qualifications_radio.setChecked(False)
-        self.qualifications_radio.setAutoExclusive(False)
+        self.qualification_radio.setCheckable(True)
+        self.qualification_radio.setChecked(False)
+        self.qualification_radio.setAutoExclusive(False)
 
-        self.horizontalLayout_8.addWidget(self.qualifications_radio, 0, Qt.AlignmentFlag.AlignRight)
+        self.horizontalLayout_8.addWidget(self.qualification_radio, 0, Qt.AlignmentFlag.AlignRight)
 
         self.negotiating_radio = QRadioButton(self.frame_6)
         self.negotiating_radio.setObjectName(u"negotiating_radio")
@@ -294,13 +305,13 @@ class Ui_leads_profile(object):
 
         self.horizontalLayout_8.addWidget(self.negotiating_radio, 0, Qt.AlignmentFlag.AlignRight)
 
-        self.contacting_radio = QRadioButton(self.frame_6)
-        self.contacting_radio.setObjectName(u"contacting_radio")
-        self.contacting_radio.setEnabled(True)
-        self.contacting_radio.setFont(font3)
-        self.contacting_radio.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.contacting_radio.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
-        self.contacting_radio.setStyleSheet(u"QRadioButton {\n"
+        self.approval_radio = QRadioButton(self.frame_6)
+        self.approval_radio.setObjectName(u"approval_radio")
+        self.approval_radio.setEnabled(True)
+        self.approval_radio.setFont(font3)
+        self.approval_radio.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.approval_radio.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
+        self.approval_radio.setStyleSheet(u"QRadioButton {\n"
 "    background: transparent;\n"
 "    color: #fff;\n"
 "	border: none;\n"
@@ -318,11 +329,11 @@ class Ui_leads_profile(object):
 "    background-color: white; \n"
 "}\n"
 "")
-        self.contacting_radio.setCheckable(True)
-        self.contacting_radio.setChecked(False)
-        self.contacting_radio.setAutoExclusive(False)
+        self.approval_radio.setCheckable(True)
+        self.approval_radio.setChecked(False)
+        self.approval_radio.setAutoExclusive(False)
 
-        self.horizontalLayout_8.addWidget(self.contacting_radio, 0, Qt.AlignmentFlag.AlignRight)
+        self.horizontalLayout_8.addWidget(self.approval_radio, 0, Qt.AlignmentFlag.AlignRight)
 
         self.loss_radio = QRadioButton(self.frame_6)
         self.loss_radio.setObjectName(u"loss_radio")
@@ -424,20 +435,30 @@ class Ui_leads_profile(object):
 
         self.add_btn = QPushButton(self.frame_2)
         self.add_btn.setObjectName(u"add_btn")
+        font4 = QFont()
+        font4.setPointSize(9)
+        font4.setBold(True)
+        self.add_btn.setFont(font4)
+        self.add_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.add_btn.setStyleSheet(u"QPushButton {\n"
-"    border: none;\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"    color: #22C55E;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    text-align: center;\n"
+"	padding-left: 20px;\n"
+"    padding-right: 20px;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #3A3A3A; /* Dark gray background on hover */\n"
-"    color: #FFFFFF; /* White text on hover */\n"
-"    border-color: #1E90FF; /* Slightly lighter blue border on hover */\n"
+"	background-color: #393939;\n"
+"    color: #22C55E;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #5A5A5A; /* Darker gray background on press */\n"
-"    color: #FFFFFF; /* White text on press */\n"
-"    border-color: #1E90FF; /* Keep the blue border color when pressed */\n"
+"    background-color: #262626;\n"
+"    color: #22C55E;\n"
 "}\n"
 "")
         icon = QIcon()
@@ -446,31 +467,6 @@ class Ui_leads_profile(object):
         self.add_btn.setIconSize(QSize(25, 25))
 
         self.horizontalLayout_5.addWidget(self.add_btn)
-
-        self.edit_btn = QPushButton(self.frame_2)
-        self.edit_btn.setObjectName(u"edit_btn")
-        self.edit_btn.setStyleSheet(u"QPushButton {\n"
-"    border: none;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #3A3A3A; /* Dark gray background on hover */\n"
-"    color: #FFFFFF; /* White text on hover */\n"
-"    border-color: #1E90FF; /* Slightly lighter blue border on hover */\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #5A5A5A; /* Darker gray background on press */\n"
-"    color: #FFFFFF; /* White text on press */\n"
-"    border-color: #1E90FF; /* Keep the blue border color when pressed */\n"
-"}\n"
-"")
-        icon1 = QIcon()
-        icon1.addFile(u":/Resources/edit.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.edit_btn.setIcon(icon1)
-        self.edit_btn.setIconSize(QSize(25, 25))
-
-        self.horizontalLayout_5.addWidget(self.edit_btn)
 
 
         self.verticalLayout_5.addLayout(self.horizontalLayout_5)
@@ -501,11 +497,10 @@ class Ui_leads_profile(object):
 "    alternate-background-color: rgb(235, 235, 235);\n"
 "    gridline-color: rgb(200, 200, 200);\n"
 "    color: black;\n"
-"    font: 11pt \"Segoe UI\";\n"
+"    font: 10pt \"Segoe UI\";\n"
 "    selection-background-color: rgb(100, 149, 237);  /* Light blue selection */\n"
 "    selection-color: white;\n"
 "    border: 1px solid rgb(200, 200, 200);\n"
-"	text-align: center;\n"
 "}\n"
 "\n"
 "QTableWidget::item {\n"
@@ -515,7 +510,9 @@ class Ui_leads_profile(object):
 "QHeaderView::section {\n"
 "    background-color: rgb(240, 240, 240);\n"
 "    color: black;\n"
-" 	font: 11pt \"Segoe UI\";\n"
+"    padding: 6px;\n"
+"    border: 1px solid rgb(200, 200, 200);\n"
+"    font-weight: bold;\n"
 "}\n"
 "\n"
 "QTableCornerButton::section {\n"
@@ -523,6 +520,7 @@ class Ui_leads_profile(object):
 "    border: 1px solid rgb(200, 200, 200);\n"
 "}\n"
 "")
+        self.opportunities_tbl.horizontalHeader().setVisible(False)
 
         self.horizontalLayout_3.addWidget(self.opportunities_tbl)
 
@@ -589,12 +587,13 @@ class Ui_leads_profile(object):
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
         self.pending_btn = QPushButton(self.frame_5)
         self.pending_btn.setObjectName(u"pending_btn")
-        font4 = QFont()
-        font4.setFamilies([u"Segoe UI"])
-        font4.setPointSize(10)
-        font4.setBold(True)
-        font4.setItalic(False)
-        self.pending_btn.setFont(font4)
+        self.pending_btn.setEnabled(False)
+        font5 = QFont()
+        font5.setFamilies([u"Segoe UI"])
+        font5.setPointSize(10)
+        font5.setBold(True)
+        font5.setItalic(False)
+        self.pending_btn.setFont(font5)
         self.pending_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pending_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #262626;\n"
@@ -608,20 +607,20 @@ class Ui_leads_profile(object):
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(200, 200, 200);  /* Darker gray on hover */\n"
-"    color: rgb(0, 0, 0);\n"
+"	background-color: #393939;\n"
+"    color: #FFF;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: rgb(180, 180, 180);  /* Darker gray on press */\n"
-"}\n"
-"")
+"    background-color: #262626;\n"
+"    color: #FFF;\n"
+"}")
 
         self.verticalLayout_26.addWidget(self.pending_btn)
 
         self.won_btn = QPushButton(self.frame_5)
         self.won_btn.setObjectName(u"won_btn")
-        self.won_btn.setFont(font4)
+        self.won_btn.setFont(font5)
         self.won_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.won_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #262626;\n"
@@ -635,21 +634,20 @@ class Ui_leads_profile(object):
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(200, 200, 200);  /* Darker gray on hover */\n"
+"	background-color: #393939;\n"
 "    color: #22C55E;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: rgb(180, 180, 180);  /* Darker gray on press */\n"
+"    background-color: #262626;\n"
 "    color: #22C55E;\n"
-"}\n"
-"")
+"}")
 
         self.verticalLayout_26.addWidget(self.won_btn)
 
         self.loss_btn = QPushButton(self.frame_5)
         self.loss_btn.setObjectName(u"loss_btn")
-        self.loss_btn.setFont(font4)
+        self.loss_btn.setFont(font5)
         self.loss_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.loss_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #262626;\n"
@@ -663,15 +661,14 @@ class Ui_leads_profile(object):
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(200, 200, 200);  /* Darker gray on hover */\n"
+"	background-color: #393939;\n"
 "    color: #E11D48;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: rgb(180, 180, 180);  /* Darker gray on press */\n"
+"    background-color: #262626;\n"
 "    color: #E11D48;\n"
-"}\n"
-"")
+"}")
 
         self.verticalLayout_26.addWidget(self.loss_btn)
 
@@ -746,7 +743,7 @@ class Ui_leads_profile(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 400, 541))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 227, 505))
         self.scrollAreaWidgetContents.setStyleSheet(u"border: 2px solid #737373;\n"
 "background-color: #171717;\n"
 "border-radius: 10px;")
@@ -792,9 +789,9 @@ class Ui_leads_profile(object):
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
         self.add_campaign_btn = QPushButton(self.scrollAreaWidgetContents)
         self.add_campaign_btn.setObjectName(u"add_campaign_btn")
-        font5 = QFont()
-        font5.setBold(True)
-        self.add_campaign_btn.setFont(font5)
+        font6 = QFont()
+        font6.setBold(True)
+        self.add_campaign_btn.setFont(font6)
         self.add_campaign_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #262626;\n"
 "    border: 1px solid #737373;\n"
@@ -807,18 +804,17 @@ class Ui_leads_profile(object):
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(200, 200, 200);  /* Darker gray on hover */\n"
+"	background-color: #393939;\n"
 "    color: #22C55E;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: rgb(180, 180, 180);  /* Darker gray on press */\n"
+"    background-color: #262626;\n"
 "    color: #22C55E;\n"
-"}\n"
-"")
-        icon2 = QIcon()
-        icon2.addFile(u":/Resources/add_campaign.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.add_campaign_btn.setIcon(icon2)
+"}")
+        icon1 = QIcon()
+        icon1.addFile(u":/Resources/add_campaign.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.add_campaign_btn.setIcon(icon1)
         self.add_campaign_btn.setIconSize(QSize(25, 25))
 
         self.horizontalLayout_13.addWidget(self.add_campaign_btn)
@@ -856,9 +852,9 @@ class Ui_leads_profile(object):
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
         self.timeline_lbl = QLabel(self.timeline_frame)
         self.timeline_lbl.setObjectName(u"timeline_lbl")
-        font6 = QFont()
-        font6.setPointSize(10)
-        self.timeline_lbl.setFont(font6)
+        font7 = QFont()
+        font7.setPointSize(10)
+        self.timeline_lbl.setFont(font7)
         self.timeline_lbl.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.timeline_lbl.setStyleSheet(u"background: transparent;\n"
 "color: #fff;\n"
@@ -989,15 +985,6 @@ class Ui_leads_profile(object):
 
         self.verticalLayout_14.addWidget(self.leadquality_lbl)
 
-        self.leadquality_lbl_2 = QLabel(self.frame_3)
-        self.leadquality_lbl_2.setObjectName(u"leadquality_lbl_2")
-        self.leadquality_lbl_2.setFont(font3)
-        self.leadquality_lbl_2.setStyleSheet(u"background: transparent;\n"
-"color: #fff;\n"
-"border: none")
-
-        self.verticalLayout_14.addWidget(self.leadquality_lbl_2)
-
 
         self.horizontalLayout_4.addLayout(self.verticalLayout_14)
 
@@ -1057,10 +1044,6 @@ class Ui_leads_profile(object):
 
         self.verticalLayout_15.addWidget(self.quality_value_lbl)
 
-        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.verticalLayout_15.addItem(self.horizontalSpacer_7)
-
 
         self.horizontalLayout_4.addLayout(self.verticalLayout_15)
 
@@ -1102,37 +1085,73 @@ class Ui_leads_profile(object):
 
         self.horizontalLayout_11.addWidget(self.contactinfohead_lbl)
 
-        self.promote_to_prospect_btn = QPushButton(self.frame_4)
-        self.promote_to_prospect_btn.setObjectName(u"promote_to_prospect_btn")
-        font7 = QFont()
-        font7.setFamilies([u"Segoe UI"])
-        font7.setBold(True)
-        font7.setItalic(False)
-        self.promote_to_prospect_btn.setFont(font7)
-        self.promote_to_prospect_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.promote_to_prospect_btn.setStyleSheet(u"QPushButton {\n"
-"    border: none;\n"
+        self.edit_btn = QPushButton(self.frame_4)
+        self.edit_btn.setObjectName(u"edit_btn")
+        self.edit_btn.setFont(font6)
+        self.edit_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.edit_btn.setStyleSheet(u"QPushButton {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"	color: rgb(239, 207, 27);\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    text-align: center;\n"
+"	padding-left: 20px;\n"
+"    padding-right: 20px;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #3A3A3A; /* Dark gray background on hover */\n"
-"    color: #FFFFFF; /* White text on hover */\n"
-"    border-color: #1E90FF; /* Slightly lighter blue border on hover */\n"
+"	background-color: #393939;\n"
+"	color: rgb(239, 207, 27);\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #5A5A5A; /* Darker gray background on press */\n"
-"    color: #FFFFFF; /* White text on press */\n"
-"    border-color: #1E90FF; /* Keep the blue border color when pressed */\n"
+"    background-color: #262626;\n"
+"	color: rgb(239, 207, 27);\n"
+"}")
+        icon2 = QIcon()
+        icon2.addFile(u":/Resources/edit.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.edit_btn.setIcon(icon2)
+        self.edit_btn.setIconSize(QSize(25, 25))
+
+        self.horizontalLayout_11.addWidget(self.edit_btn)
+
+        self.delete_btn = QPushButton(self.frame_4)
+        self.delete_btn.setObjectName(u"delete_btn")
+        font8 = QFont()
+        font8.setFamilies([u"Segoe UI"])
+        font8.setBold(True)
+        font8.setItalic(False)
+        self.delete_btn.setFont(font8)
+        self.delete_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.delete_btn.setStyleSheet(u"QPushButton {\n"
+"    background-color: #262626;\n"
+"    border: 1px solid #737373;\n"
+"	color: rgb(255, 93, 78);\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    text-align: center;\n"
+"	padding-left: 20px;\n"
+"    padding-right: 20px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: #393939;\n"
+"    color: #E11D48;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #262626;\n"
+"    color: #E11D48;\n"
 "}\n"
 "")
         icon3 = QIcon()
         icon3.addFile(u":/Resources/delete.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.promote_to_prospect_btn.setIcon(icon3)
-        self.promote_to_prospect_btn.setIconSize(QSize(25, 25))
-        self.promote_to_prospect_btn.setFlat(True)
+        self.delete_btn.setIcon(icon3)
+        self.delete_btn.setIconSize(QSize(25, 25))
+        self.delete_btn.setFlat(True)
 
-        self.horizontalLayout_11.addWidget(self.promote_to_prospect_btn)
+        self.horizontalLayout_11.addWidget(self.delete_btn)
 
 
         self.verticalLayout_17.addLayout(self.horizontalLayout_11)
@@ -1162,6 +1181,15 @@ class Ui_leads_profile(object):
 "border: none")
 
         self.verticalLayout_18.addWidget(self.compname_lbl)
+
+        self.opp_cost_lbl = QLabel(self.frame_4)
+        self.opp_cost_lbl.setObjectName(u"opp_cost_lbl")
+        self.opp_cost_lbl.setFont(font3)
+        self.opp_cost_lbl.setStyleSheet(u"background: transparent;\n"
+"color: #fff;\n"
+"border: none")
+
+        self.verticalLayout_18.addWidget(self.opp_cost_lbl)
 
         self.comprole_lbl = QLabel(self.frame_4)
         self.comprole_lbl.setObjectName(u"comprole_lbl")
@@ -1195,38 +1223,38 @@ class Ui_leads_profile(object):
 
         self.verticalLayout_19.addWidget(self.opportunity_title_lbl)
 
-        self.job_title_lbl = QLabel(self.frame_4)
-        self.job_title_lbl.setObjectName(u"job_title_lbl")
-        self.job_title_lbl.setFont(font3)
-        self.job_title_lbl.setStyleSheet(u"background: transparent;\n"
+        self.opportunity_cost_lbl = QLabel(self.frame_4)
+        self.opportunity_cost_lbl.setObjectName(u"opportunity_cost_lbl")
+        self.opportunity_cost_lbl.setFont(font3)
+        self.opportunity_cost_lbl.setStyleSheet(u"background: transparent;\n"
 "color: #fff;\n"
 "border: none")
 
-        self.verticalLayout_19.addWidget(self.job_title_lbl)
+        self.verticalLayout_19.addWidget(self.opportunity_cost_lbl)
 
-        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.opportunity_date_lbl = QLabel(self.frame_4)
+        self.opportunity_date_lbl.setObjectName(u"opportunity_date_lbl")
+        self.opportunity_date_lbl.setFont(font3)
+        self.opportunity_date_lbl.setStyleSheet(u"background: transparent;\n"
+"color: #fff;\n"
+"border: none")
 
-        self.verticalLayout_19.addItem(self.horizontalSpacer_8)
+        self.verticalLayout_19.addWidget(self.opportunity_date_lbl)
+
+        self.opportunity_details_lbl = QLabel(self.frame_4)
+        self.opportunity_details_lbl.setObjectName(u"opportunity_details_lbl")
+        self.opportunity_details_lbl.setFont(font3)
+        self.opportunity_details_lbl.setStyleSheet(u"background: transparent;\n"
+"color: #fff;\n"
+"border: none")
+
+        self.verticalLayout_19.addWidget(self.opportunity_details_lbl)
 
 
         self.horizontalLayout_12.addLayout(self.verticalLayout_19)
 
 
         self.verticalLayout_17.addLayout(self.horizontalLayout_12)
-
-        self.horizontalLayout_23 = QHBoxLayout()
-        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
-        self.details_lbl = QLabel(self.frame_4)
-        self.details_lbl.setObjectName(u"details_lbl")
-        self.details_lbl.setFont(font3)
-        self.details_lbl.setStyleSheet(u"background: transparent;\n"
-"color: #fff;\n"
-"border: none")
-
-        self.horizontalLayout_23.addWidget(self.details_lbl)
-
-
-        self.verticalLayout_17.addLayout(self.horizontalLayout_23)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -1268,13 +1296,17 @@ class Ui_leads_profile(object):
 
         self.gridLayout.addLayout(self.verticalLayout_23, 1, 1, 1, 1)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer_2, 1, 2, 1, 1)
-
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_3, 2, 1, 1, 1)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_2, 0, 1, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_2, 1, 2, 1, 1)
 
 
         self.retranslateUi(leads_profile)
@@ -1290,19 +1322,18 @@ class Ui_leads_profile(object):
         self.name_lbl_2.setText(QCoreApplication.translate("leads_profile", u"Name:", None))
         self.company_lbl.setText(QCoreApplication.translate("leads_profile", u"Company Name", None))
         self.salespipe_lbl.setText(QCoreApplication.translate("leads_profile", u"Sales Pipeline", None))
-        self.lead_status_bar.setFormat("")
+        self.opportunity_status_bar.setFormat("")
         self.prospecting_radio.setText(QCoreApplication.translate("leads_profile", u"Prospecting", None))
-        self.qualifications_radio.setText(QCoreApplication.translate("leads_profile", u"Qualifications", None))
+        self.qualification_radio.setText(QCoreApplication.translate("leads_profile", u"Qualification", None))
         self.negotiating_radio.setText(QCoreApplication.translate("leads_profile", u"Negotiating", None))
-        self.contacting_radio.setText(QCoreApplication.translate("leads_profile", u"Approval", None))
+        self.approval_radio.setText(QCoreApplication.translate("leads_profile", u"Approval", None))
         self.loss_radio.setText(QCoreApplication.translate("leads_profile", u"Closed Loss", None))
         self.won_radio.setText(QCoreApplication.translate("leads_profile", u"Closed Won", None))
         self.totalleadhead_lbl.setText(QCoreApplication.translate("leads_profile", u"Opportunities", None))
 #if QT_CONFIG(tooltip)
         self.add_btn.setToolTip("")
 #endif // QT_CONFIG(tooltip)
-        self.add_btn.setText("")
-        self.edit_btn.setText("")
+        self.add_btn.setText(QCoreApplication.translate("leads_profile", u"Add", None))
         self.leadinfohead_lbl_3.setText(QCoreApplication.translate("leads_profile", u"All Opportunities Cost", None))
 #if QT_CONFIG(tooltip)
         self.pending_btn.setToolTip("")
@@ -1333,7 +1364,6 @@ class Ui_leads_profile(object):
         self.leadscore_lbl.setText(QCoreApplication.translate("leads_profile", u"Lead Score:", None))
         self.engagement_lbl.setText(QCoreApplication.translate("leads_profile", u"Engagement:", None))
         self.leadquality_lbl.setText(QCoreApplication.translate("leads_profile", u"Lead Quality:", None))
-        self.leadquality_lbl_2.setText("")
         self.name_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
         self.email_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
         self.lead_source_value_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
@@ -1341,16 +1371,19 @@ class Ui_leads_profile(object):
         self.engagement_value_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
         self.quality_value_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
         self.contactinfohead_lbl.setText(QCoreApplication.translate("leads_profile", u"Opportunities Information", None))
+        self.edit_btn.setText(QCoreApplication.translate("leads_profile", u"Edit", None))
 #if QT_CONFIG(tooltip)
-        self.promote_to_prospect_btn.setToolTip("")
+        self.delete_btn.setToolTip("")
 #endif // QT_CONFIG(tooltip)
-        self.promote_to_prospect_btn.setText("")
+        self.delete_btn.setText(QCoreApplication.translate("leads_profile", u"Delete", None))
         self.compname_lbl.setText(QCoreApplication.translate("leads_profile", u"Title:", None))
+        self.opp_cost_lbl.setText(QCoreApplication.translate("leads_profile", u"Cost:", None))
         self.comprole_lbl.setText(QCoreApplication.translate("leads_profile", u"Date Created:", None))
         self.contnum_lbl.setText(QCoreApplication.translate("leads_profile", u"Details:", None))
         self.opportunity_title_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
-        self.job_title_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
-        self.details_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
+        self.opportunity_cost_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
+        self.opportunity_date_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
+        self.opportunity_details_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
         self.full_info_lbl.setText(QCoreApplication.translate("leads_profile", u"View Full Contact Info", None))
     # retranslateUi
 

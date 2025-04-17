@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1101</width>
-    <height>862</height>
+    <width>1201</width>
+    <height>680</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dashboard</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(0, 0, 0);</string>
+   <string notr="true">background-color: transparent;</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="1">
@@ -93,10 +93,13 @@ border: none;</string>
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
             </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Preferred</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
-              <height>20</height>
+              <height>10</height>
              </size>
             </property>
            </spacer>

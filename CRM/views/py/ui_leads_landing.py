@@ -241,7 +241,7 @@ class Ui_leads_landing(object):
 
         self.gridLayout.addItem(self.horizontalSpacer_2, 0, 0, 1, 1)
 
-        self.horizontalSpacer_6 = QSpacerItem(40, 5, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_6 = QSpacerItem(40, 10, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_6, 2, 0, 1, 1)
 
@@ -265,7 +265,7 @@ class Ui_leads_landing(object):
 
         self.gridLayout.addWidget(self.leads_txt, 1, 0, 1, 1)
 
-        self.horizontalSpacer_3 = QSpacerItem(40, 5, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(40, 10, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_3, 4, 0, 1, 1)
 
