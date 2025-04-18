@@ -24,6 +24,8 @@ class LeadsProfile(QWidget):
         self.ui.delete_btn.clicked.connect(self.delete_opportunity)
 
         self.ui.add_campaign_btn.clicked.connect(self.add_campaign)
+        self.ui.edit_campaign_btn.clicked.connect(self.edit_campaign)
+        self.ui.delete_campaign_btn.clicked.connect(self.delete_campaign)
 
         self.ui.qualification_radio.clicked.connect(lambda: self.set_opportunity_status("Qualification"))
         self.ui.negotiating_radio.clicked.connect(lambda: self.set_opportunity_status("Negotiating"))
@@ -69,7 +71,6 @@ class LeadsProfile(QWidget):
             self.ui.name_lbl_2.setText(name)
             self.ui.email_lbl.setText(contact_data['email'])
             self.ui.company_lbl.setText(contact_data['company_name'])
-            self.ui.company_lbl_2.setText(contact_data['company_name'])
             self.ui.lead_source_value_lbl.setText(contact_data['source_name'] if contact_data['source_name'] else "N/A")
 
     # ------------------------
@@ -117,6 +118,7 @@ class LeadsProfile(QWidget):
         if data:
             self.ui.opportunity_title_lbl.setText(data["opportunity_title"] or "N/A")
             self.ui.leadinfohead_lbl_3.setText(data["opportunity_title"] or "N/A")
+            self.ui.opportunity_name.setText(data["opportunity_title"] or "N/A")
             self.ui.opportunity_cost_lbl.setText(f"{data['opportunity_cost']:.2f}" if data["opportunity_cost"] else "0.00")
             self.ui.opportunity_date_lbl.setText(data["date"].strftime("%Y-%m-%d") if data["date"] else "N/A")
             self.ui.opportunity_details_lbl.setText(data["opportunity_details"] or "N/A")
@@ -124,6 +126,7 @@ class LeadsProfile(QWidget):
         self.opportunity_status_indicator(opportunity_id)
         self.selected_opportunity_cost()
         self.toggle_opportunity_cost_buttons(data["opportunity_status"])
+        self.campaign_tbl(opportunity_id)
 
     def add_opportunity(self):
         from models.models_add_opportunity import AddOpportunity
@@ -434,11 +437,103 @@ class LeadsProfile(QWidget):
                 QMessageBox.critical(self, "Error", f"Failed to update status:\n{e}")
 
     # ------------------------
-    # Opportunities Management
+    # Campaign Management
     # ------------------------
+    def campaign_tbl(self, opportunity_id):
+        query = """
+            SELECT
+                ct.campaign_id,
+                o.opportunity_title AS Opportunity,
+                ct.action AS Action,
+                ct.type AS Type,
+                DATE_FORMAT(ct.campaign_date, '%Y-%m-%d') AS Date,  -- Format date to 'yyyy-mm-dd'
+                ct.campaign_details AS Details
+            FROM campaign_timeline ct
+            JOIN opportunity o ON o.opportunity_id = ct.opportunity_id
+            WHERE ct.opportunity_id = %s
+            ORDER BY ct.campaign_date DESC
+        """
+        results = self.db_conn.fetch_all(query, (opportunity_id,))
+        if results is None:
+            QMessageBox.warning(self, "Error", "Failed to load campaigns.")
+            return
+
+        self.ui.campaign_tbl.setRowCount(len(results))
+        self.ui.campaign_tbl.setColumnCount(5)
+        self.ui.campaign_tbl.setHorizontalHeaderLabels(["Opportunity", "Action", "Type", "Date Created", "Details"])
+        self.ui.campaign_tbl.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.ui.campaign_tbl.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.ui.campaign_tbl.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.ui.campaign_tbl.verticalHeader().setVisible(False)  # ✅ remove 1.. row numbers
+        self.ui.campaign_tbl.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.ui.campaign_tbl.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+
+        for row, campaign in enumerate(results):
+            self.ui.campaign_tbl.setItem(row, 0, QTableWidgetItem(campaign["Opportunity"]))
+            self.ui.campaign_tbl.setItem(row, 1, QTableWidgetItem(campaign["Action"]))
+            self.ui.campaign_tbl.setItem(row, 2, QTableWidgetItem(campaign["Type"]))
+            self.ui.campaign_tbl.setItem(row, 3, QTableWidgetItem(campaign["Date"]))  # Now in 'yyyy-mm-dd'
+            self.ui.campaign_tbl.setItem(row, 4, QTableWidgetItem(campaign["Details"]))
+
+            # Optional: Store campaign_id as hidden metadata
+            self.ui.campaign_tbl.item(row, 0).setData(Qt.UserRole, campaign["campaign_id"])
+
+    def get_selected_campaign_id(self):
+        row = self.ui.campaign_tbl.currentRow()
+        if row == -1:
+            QMessageBox.warning(self, "No Selection", "Select a Campaign First!")
+            return None
+
+        item = self.ui.campaign_tbl.item(row, 0)
+        return item.data(Qt.UserRole)
+
     def add_campaign(self):
+        opportunity_id = self.get_selected_opportunity_id()
+        if not opportunity_id:
+            return  # Stop if no selection
+
         from models.models_add_campaign import AddCampaign
-        dialog = AddCampaign(self.contact_id, self)
+        dialog = AddCampaign(self.contact_id, opportunity_id, self)
         dialog.exec()
+
+    def edit_campaign(self):
+        campaign_id = self.get_selected_campaign_id()
+        opportunity_id = self.get_selected_opportunity_id()
+
+        if not campaign_id or not opportunity_id:
+            return
+
+        from models.models_edit_campaign import EditCampaign
+        dialog = EditCampaign(self.contact_id, opportunity_id, campaign_id, self)
+        dialog.exec()
+
+        # Reload campaigns after edit
+        self.campaign_tbl(opportunity_id)
+
+    def delete_campaign(self):
+        campaign_id = self.get_selected_campaign_id()
+        opportunity_id = self.get_selected_opportunity_id()
+
+        if not campaign_id or not opportunity_id:
+            return
+
+        confirm = QMessageBox.question(
+            self,
+            "Delete Confirmation",
+            "Are you sure you want to delete this Campaign?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+
+        if confirm == QMessageBox.Yes:
+            from datas.db_connection import DB_Connection
+            db = DB_Connection()
+            query = "DELETE FROM campaign_timeline WHERE campaign_id = %s"
+            if db.execute_query(query, (campaign_id,)):
+                QMessageBox.information(self, "Deleted", "Campaign deleted successfully.")
+                self.campaign_tbl(opportunity_id)
+            else:
+                QMessageBox.critical(self, "Error", "Failed to delete campaign.")
+
+
 
 
