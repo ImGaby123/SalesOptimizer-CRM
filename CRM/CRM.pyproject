@@ -48,6 +48,7 @@
         "views/ui/add_campaign.ui",
         "views/ui/contacts_update.ui",
         "views/ui/contacts_view.ui",
-        "views/ui/edit_campaign.ui"
+        "views/ui/edit_campaign.ui",
+        "models/models_edit_campaign.py"
     ]
 }

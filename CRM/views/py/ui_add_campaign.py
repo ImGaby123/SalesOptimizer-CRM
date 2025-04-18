@@ -24,7 +24,7 @@ class Ui_add_campaign(object):
     def setupUi(self, add_campaign):
         if not add_campaign.objectName():
             add_campaign.setObjectName(u"add_campaign")
-        add_campaign.resize(603, 509)
+        add_campaign.resize(500, 400)
         add_campaign.setStyleSheet(u"border-radius: 10px;\n"
 "background-color: #171717;\n"
 "color: white;")

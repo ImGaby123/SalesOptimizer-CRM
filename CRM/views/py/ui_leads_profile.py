@@ -15,10 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
-    QHeaderView, QLabel, QProgressBar, QPushButton,
-    QRadioButton, QScrollArea, QSizePolicy, QSpacerItem,
-    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFrame, QGridLayout,
+    QHBoxLayout, QHeaderView, QLabel, QProgressBar,
+    QPushButton, QRadioButton, QScrollArea, QSizePolicy,
+    QSpacerItem, QTableWidget, QTableWidgetItem, QVBoxLayout,
+    QWidget)
 import views.py.icons_rc
 
 class Ui_leads_profile(object):
@@ -769,15 +770,15 @@ class Ui_leads_profile(object):
 
         self.verticalLayout.addWidget(self.campaignhead_lbl)
 
-        self.company_lbl_2 = QLabel(self.scrollAreaWidgetContents)
-        self.company_lbl_2.setObjectName(u"company_lbl_2")
-        self.company_lbl_2.setFont(font3)
-        self.company_lbl_2.setStyleSheet(u"background: transparent;\n"
+        self.opportunity_name = QLabel(self.scrollAreaWidgetContents)
+        self.opportunity_name.setObjectName(u"opportunity_name")
+        self.opportunity_name.setFont(font3)
+        self.opportunity_name.setStyleSheet(u"background: transparent;\n"
 "color: #fff;\n"
 "border: none")
-        self.company_lbl_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.opportunity_name.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.verticalLayout.addWidget(self.company_lbl_2)
+        self.verticalLayout.addWidget(self.opportunity_name)
 
 
         self.horizontalLayout_19.addLayout(self.verticalLayout)
@@ -823,10 +824,10 @@ class Ui_leads_profile(object):
 
         self.horizontalLayout_13.addWidget(self.add_campaign_btn)
 
-        self.delete_campaign_btn = QPushButton(self.scrollAreaWidgetContents)
-        self.delete_campaign_btn.setObjectName(u"delete_campaign_btn")
-        self.delete_campaign_btn.setFont(font6)
-        self.delete_campaign_btn.setStyleSheet(u"QPushButton {\n"
+        self.edit_campaign_btn = QPushButton(self.scrollAreaWidgetContents)
+        self.edit_campaign_btn.setObjectName(u"edit_campaign_btn")
+        self.edit_campaign_btn.setFont(font6)
+        self.edit_campaign_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #262626;\n"
 "    border: 1px solid #737373;\n"
 "	color: rgb(239, 207, 27);\n"
@@ -846,15 +847,15 @@ class Ui_leads_profile(object):
 "    background-color: #262626;\n"
 "	color: rgb(239, 207, 27);\n"
 "}")
-        self.delete_campaign_btn.setIcon(icon1)
-        self.delete_campaign_btn.setIconSize(QSize(25, 25))
+        self.edit_campaign_btn.setIcon(icon1)
+        self.edit_campaign_btn.setIconSize(QSize(25, 25))
 
-        self.horizontalLayout_13.addWidget(self.delete_campaign_btn)
+        self.horizontalLayout_13.addWidget(self.edit_campaign_btn)
 
-        self.edit_campaign_btn = QPushButton(self.scrollAreaWidgetContents)
-        self.edit_campaign_btn.setObjectName(u"edit_campaign_btn")
-        self.edit_campaign_btn.setFont(font6)
-        self.edit_campaign_btn.setStyleSheet(u"QPushButton {\n"
+        self.delete_campaign_btn = QPushButton(self.scrollAreaWidgetContents)
+        self.delete_campaign_btn.setObjectName(u"delete_campaign_btn")
+        self.delete_campaign_btn.setFont(font6)
+        self.delete_campaign_btn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #262626;\n"
 "    border: 1px solid #737373;\n"
 "	color: rgb(255, 93, 78);\n"
@@ -875,10 +876,10 @@ class Ui_leads_profile(object):
 "    color: #E11D48;\n"
 "}\n"
 "")
-        self.edit_campaign_btn.setIcon(icon1)
-        self.edit_campaign_btn.setIconSize(QSize(25, 25))
+        self.delete_campaign_btn.setIcon(icon1)
+        self.delete_campaign_btn.setIconSize(QSize(25, 25))
 
-        self.horizontalLayout_13.addWidget(self.edit_campaign_btn)
+        self.horizontalLayout_13.addWidget(self.delete_campaign_btn)
 
 
         self.horizontalLayout_25.addLayout(self.horizontalLayout_13)
@@ -902,16 +903,7 @@ class Ui_leads_profile(object):
 
         self.verticalLayout_21.addWidget(self.line_4)
 
-        self.horizontalLayout_6 = QHBoxLayout()
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.timeline_frame = QFrame(self.scrollAreaWidgetContents)
-        self.timeline_frame.setObjectName(u"timeline_frame")
-        self.timeline_frame.setStyleSheet(u"border-radius: 10px;")
-        self.timeline_frame.setFrameShape(QFrame.Shape.StyledPanel)
-        self.timeline_frame.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_15 = QHBoxLayout(self.timeline_frame)
-        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
-        self.campaign_tbl = QTableWidget(self.timeline_frame)
+        self.campaign_tbl = QTableWidget(self.scrollAreaWidgetContents)
         self.campaign_tbl.setObjectName(u"campaign_tbl")
         self.campaign_tbl.setStyleSheet(u"QTableWidget {\n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -941,12 +933,12 @@ class Ui_leads_profile(object):
 "    border: 1px solid rgb(200, 200, 200);\n"
 "}\n"
 "")
+        self.campaign_tbl.setHorizontalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
 
-        self.horizontalLayout_15.addWidget(self.campaign_tbl)
+        self.verticalLayout_21.addWidget(self.campaign_tbl)
 
-
-        self.horizontalLayout_6.addWidget(self.timeline_frame)
-
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
 
         self.verticalLayout_21.addLayout(self.horizontalLayout_6)
 
@@ -1424,19 +1416,19 @@ class Ui_leads_profile(object):
         self.won_lbl.setText(QCoreApplication.translate("leads_profile", u"-", None))
         self.loss_lbl.setText(QCoreApplication.translate("leads_profile", u"-", None))
         self.campaignhead_lbl.setText(QCoreApplication.translate("leads_profile", u"Campaign Timeline", None))
-        self.company_lbl_2.setText(QCoreApplication.translate("leads_profile", u"Company Name", None))
+        self.opportunity_name.setText(QCoreApplication.translate("leads_profile", u"Opportunity Name", None))
 #if QT_CONFIG(tooltip)
         self.add_campaign_btn.setToolTip("")
 #endif // QT_CONFIG(tooltip)
         self.add_campaign_btn.setText(QCoreApplication.translate("leads_profile", u"Add", None))
 #if QT_CONFIG(tooltip)
-        self.delete_campaign_btn.setToolTip("")
-#endif // QT_CONFIG(tooltip)
-        self.delete_campaign_btn.setText(QCoreApplication.translate("leads_profile", u"Edit", None))
-#if QT_CONFIG(tooltip)
         self.edit_campaign_btn.setToolTip("")
 #endif // QT_CONFIG(tooltip)
-        self.edit_campaign_btn.setText(QCoreApplication.translate("leads_profile", u"Delete", None))
+        self.edit_campaign_btn.setText(QCoreApplication.translate("leads_profile", u"Edit", None))
+#if QT_CONFIG(tooltip)
+        self.delete_campaign_btn.setToolTip("")
+#endif // QT_CONFIG(tooltip)
+        self.delete_campaign_btn.setText(QCoreApplication.translate("leads_profile", u"Delete", None))
         self.leadinfohead_lbl.setText(QCoreApplication.translate("leads_profile", u"Lead Information", None))
         self.accname_lbl.setText(QCoreApplication.translate("leads_profile", u"Name:", None))
         self.emailadd_lbl.setText(QCoreApplication.translate("leads_profile", u"Email:", None))
