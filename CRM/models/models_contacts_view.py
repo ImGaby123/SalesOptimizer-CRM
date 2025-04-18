@@ -33,9 +33,15 @@ class ContactsView(QWidget):
 
         self.db_conn = DB_Connection()  # Database connection
         self.contact_id = contact_id  # Contact ID to update
-
+        self.ui.back_line.clicked.connect(self.go_back)
         self.setup_country_city_combos()
         self.load_contact_details()
+
+    def go_back(self):
+        """Returns to the ContactsLanding form."""
+        from models.models_authentication import MDIManager  # Lazy import to prevent circular imports
+        from models.models_contacts_landing import ContactsLanding
+        MDIManager.load_into_mdi(ContactsLanding)  # Loads the ContactsLanding form
 
     def set_combo_value(self, combo: QComboBox, value: str, fallback_options=None):
         """Safely sets a value in a combo box, adding it if it's not already present."""

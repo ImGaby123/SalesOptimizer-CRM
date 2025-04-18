@@ -27,7 +27,7 @@ class Ui_leads_profile(object):
         if not leads_profile.objectName():
             leads_profile.setObjectName(u"leads_profile")
         leads_profile.resize(1101, 975)
-        leads_profile.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
+        leads_profile.setStyleSheet(u"background-color: transparent;\n"
 "color: rgb(255, 255, 255);")
         self.gridLayout = QGridLayout(leads_profile)
         self.gridLayout.setObjectName(u"gridLayout")

@@ -35,7 +35,6 @@
         "views/py/ui_settings.py",
         "views/py/ui_leads_profile.py",
         "models/models_leads_profile.py",
-        "views/ui/dashboard_landing.ui",
         "views/py/ui_dashboard_landing.py",
         "models/models_dashboard_landing.py",
         "views/ui/add_opportunity.ui",
@@ -49,6 +48,7 @@
         "views/ui/contacts_update.ui",
         "views/ui/contacts_view.ui",
         "views/ui/edit_campaign.ui",
-        "models/models_edit_campaign.py"
+        "models/models_edit_campaign.py",
+        "views/ui/dashboard_landing.ui"
     ]
 }
