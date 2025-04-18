@@ -183,29 +183,44 @@ color: white;</string>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_4">
             <item>
-             <widget class="QComboBox" name="opportunity_title_combo">
+             <widget class="QLineEdit" name="opportunity_title_line">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>9</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">QComboBox {
+               <string notr="true">QLineEdit {
     background-color: #E5E5E5;
-    color: #171717;
+	color: rgb(0, 0, 0);
     border: 1px solid #737373;
     border-radius: 5px;
-    padding: 5px;
-    font: 10pt &quot;Segoe UI&quot;;
-}
-
-QComboBox::drop-down {
-    border: none;
-}
-
-QComboBox QAbstractItemView {
-    background-color: #E5E5E5;
-    color: #171717;
-    border-radius: 10px;
+	padding: 5px;
 }</string>
-              </property>
-              <property name="placeholderText">
-               <string>Opportunity Title</string>
               </property>
              </widget>
             </item>
@@ -276,44 +291,17 @@ QComboBox QAbstractItemView {
     border-radius: 10px;
 }</string>
               </property>
+              <property name="placeholderText">
+               <string>Type of Campaign</string>
+              </property>
               <item>
                <property name="text">
-                <string>Email</string>
+                <string>CAMPAIGN</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>Social Media</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Referral</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Text Message</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Call</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Online Advertising </string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Webinar</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Other</string>
+                <string>CUSTOMER ENGAGEMENT</string>
                </property>
               </item>
              </widget>

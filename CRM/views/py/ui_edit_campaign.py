@@ -111,43 +111,38 @@ class Ui_edit_campaign(object):
 
         self.verticalLayout_4 = QVBoxLayout()
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.opportunity_title_combo = QComboBox(self.main_frame)
-        self.opportunity_title_combo.setObjectName(u"opportunity_title_combo")
-        self.opportunity_title_combo.setStyleSheet(u"QComboBox {\n"
-"    background-color: #E5E5E5;\n"
-"    color: #171717;\n"
-"    border: 1px solid #737373;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px;\n"
-"    font: 10pt \"Segoe UI\";\n"
-"}\n"
-"\n"
-"QComboBox::drop-down {\n"
-"    border: none;\n"
-"}\n"
-"\n"
-"QComboBox QAbstractItemView {\n"
-"    background-color: #E5E5E5;\n"
-"    color: #171717;\n"
-"    border-radius: 10px;\n"
-"}")
-
-        self.verticalLayout_4.addWidget(self.opportunity_title_combo)
-
-        self.action_line = QLineEdit(self.main_frame)
-        self.action_line.setObjectName(u"action_line")
+        self.opportunity_title_line = QLineEdit(self.main_frame)
+        self.opportunity_title_line.setObjectName(u"opportunity_title_line")
+        self.opportunity_title_line.setEnabled(False)
         sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.action_line.sizePolicy().hasHeightForWidth())
-        self.action_line.setSizePolicy(sizePolicy1)
-        self.action_line.setMinimumSize(QSize(200, 0))
-        self.action_line.setMaximumSize(QSize(16777215, 16777215))
+        sizePolicy1.setHeightForWidth(self.opportunity_title_line.sizePolicy().hasHeightForWidth())
+        self.opportunity_title_line.setSizePolicy(sizePolicy1)
+        self.opportunity_title_line.setMinimumSize(QSize(200, 0))
+        self.opportunity_title_line.setMaximumSize(QSize(16777215, 16777215))
         font2 = QFont()
         font2.setFamilies([u"Segoe UI"])
         font2.setPointSize(9)
         font2.setBold(False)
         font2.setItalic(False)
+        self.opportunity_title_line.setFont(font2)
+        self.opportunity_title_line.setStyleSheet(u"QLineEdit {\n"
+"    background-color: #E5E5E5;\n"
+"	color: rgb(0, 0, 0);\n"
+"    border: 1px solid #737373;\n"
+"    border-radius: 5px;\n"
+"	padding: 5px;\n"
+"}")
+
+        self.verticalLayout_4.addWidget(self.opportunity_title_line)
+
+        self.action_line = QLineEdit(self.main_frame)
+        self.action_line.setObjectName(u"action_line")
+        sizePolicy1.setHeightForWidth(self.action_line.sizePolicy().hasHeightForWidth())
+        self.action_line.setSizePolicy(sizePolicy1)
+        self.action_line.setMinimumSize(QSize(200, 0))
+        self.action_line.setMaximumSize(QSize(16777215, 16777215))
         self.action_line.setFont(font2)
         self.action_line.setStyleSheet(u"QLineEdit {\n"
 "    background-color: #E5E5E5;\n"
@@ -160,12 +155,6 @@ class Ui_edit_campaign(object):
         self.verticalLayout_4.addWidget(self.action_line)
 
         self.campaign_type_combo = QComboBox(self.main_frame)
-        self.campaign_type_combo.addItem("")
-        self.campaign_type_combo.addItem("")
-        self.campaign_type_combo.addItem("")
-        self.campaign_type_combo.addItem("")
-        self.campaign_type_combo.addItem("")
-        self.campaign_type_combo.addItem("")
         self.campaign_type_combo.addItem("")
         self.campaign_type_combo.addItem("")
         self.campaign_type_combo.setObjectName(u"campaign_type_combo")
@@ -478,16 +467,10 @@ class Ui_edit_campaign(object):
         self.opportunity_line.setText(QCoreApplication.translate("edit_campaign", u"Opportunity:", None))
         self.label_4.setText(QCoreApplication.translate("edit_campaign", u"Action:", None))
         self.label_6.setText(QCoreApplication.translate("edit_campaign", u"Type:", None))
-        self.opportunity_title_combo.setPlaceholderText(QCoreApplication.translate("edit_campaign", u"Opportunity Title", None))
-        self.campaign_type_combo.setItemText(0, QCoreApplication.translate("edit_campaign", u"Email", None))
-        self.campaign_type_combo.setItemText(1, QCoreApplication.translate("edit_campaign", u"Social Media", None))
-        self.campaign_type_combo.setItemText(2, QCoreApplication.translate("edit_campaign", u"Referral", None))
-        self.campaign_type_combo.setItemText(3, QCoreApplication.translate("edit_campaign", u"Text Message", None))
-        self.campaign_type_combo.setItemText(4, QCoreApplication.translate("edit_campaign", u"Call", None))
-        self.campaign_type_combo.setItemText(5, QCoreApplication.translate("edit_campaign", u"Online Advertising ", None))
-        self.campaign_type_combo.setItemText(6, QCoreApplication.translate("edit_campaign", u"Webinar", None))
-        self.campaign_type_combo.setItemText(7, QCoreApplication.translate("edit_campaign", u"Other", None))
+        self.campaign_type_combo.setItemText(0, QCoreApplication.translate("edit_campaign", u"CAMPAIGN", None))
+        self.campaign_type_combo.setItemText(1, QCoreApplication.translate("edit_campaign", u"CUSTOMER ENGAGEMENT", None))
 
+        self.campaign_type_combo.setPlaceholderText(QCoreApplication.translate("edit_campaign", u"Type of Campaign", None))
         self.label_3.setText(QCoreApplication.translate("edit_campaign", u"Date:", None))
         self.date_edit.setDisplayFormat(QCoreApplication.translate("edit_campaign", u"yyyy/MM/dd", None))
         self.label_5.setText(QCoreApplication.translate("edit_campaign", u"Details:", None))

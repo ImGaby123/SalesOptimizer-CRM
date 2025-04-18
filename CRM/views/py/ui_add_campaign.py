@@ -28,9 +28,10 @@ class Ui_add_campaign(object):
         add_campaign.setStyleSheet(u"border-radius: 10px;\n"
 "background-color: #171717;\n"
 "color: white;")
+        self.gridLayout = QGridLayout(add_campaign)
+        self.gridLayout.setObjectName(u"gridLayout")
         self.main_frame = QFrame(add_campaign)
         self.main_frame.setObjectName(u"main_frame")
-        self.main_frame.setGeometry(QRect(11, 11, 581, 487))
         self.main_frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.main_frame.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout_2 = QGridLayout(self.main_frame)
@@ -450,6 +451,9 @@ class Ui_add_campaign(object):
         self.horizontalSpacer_9 = QSpacerItem(483, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout_2.addItem(self.horizontalSpacer_9, 6, 1, 1, 1)
+
+
+        self.gridLayout.addWidget(self.main_frame, 0, 0, 1, 1)
 
 
         self.retranslateUi(add_campaign)
