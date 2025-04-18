@@ -1,4 +1,12 @@
-from db_connection import db_connection
+from DB.db_connection import db_connection
+
+
+"""
+WARNING!!!!!
+Do not Run this file unless needed
+
+"""
+
 
 # Connection
 db = db_connection()
