@@ -434,11 +434,14 @@ class LeadsProfile(QWidget):
                 QMessageBox.critical(self, "Error", f"Failed to update status:\n{e}")
 
     # ------------------------
-    # Opportunities Management
+    # Campaign Management
     # ------------------------
     def add_campaign(self):
-        from models.models_add_campaign import AddCampaign
-        dialog = AddCampaign(self.contact_id, self)
-        dialog.exec()
+        opportunity_id = self.get_selected_opportunity_id()
+        if not opportunity_id:
+            return  # Stop if no selection
 
+        from models.models_add_campaign import AddCampaign
+        dialog = AddCampaign(self.contact_id, opportunity_id, self)
+        dialog.exec()
 
