@@ -1,6 +1,5 @@
 import mysql.connector
 
-
 class db_connection:
     def __init__(self):
         self.conn = mysql.connector.connect(
@@ -10,7 +9,6 @@ class db_connection:
             database="crm", 
             port=3306
             )
-
 
 
 # For Debugging Purposes

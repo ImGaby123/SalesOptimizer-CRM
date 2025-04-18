@@ -3,7 +3,7 @@ DELETE FROM `crm`.`icp_rules`;
 DELETE FROM `crm`.`icp`;
 ALTER TABLE `crm`.`icp` AUTO_INCREMENT = 1;
 INSERT INTO `crm`.`icp` (attribute, weight) VALUES("Demographics", 0.14);
-INSERT INTO `crm`.`icp` (attribute, weight) VALUES("Profession", 0.28);
+INSERT INTO `crm`.`icp` (attribute, weight) VALUES("Profession", 0.29);
 INSERT INTO `crm`.`icp` (attribute, weight) VALUES("Industry", 0.25);
 INSERT INTO `crm`.`icp` (attribute, weight) VALUES("Age", 0.32);
 INSERT INTO `crm`.`icp_rules` (icp_attribute_id, attribute_value, attribute_score) VALUES(1, "QC", 10);
