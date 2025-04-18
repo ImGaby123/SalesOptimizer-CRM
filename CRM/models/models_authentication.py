@@ -156,11 +156,11 @@ class MainWindow(QMainWindow):
         self.right_subwin.closeEvent = self.handle_right_close
         self.left_subwin.closeEvent = self.handle_left_close
 
-        self.left_subwin.setStyleSheet("QMdiSubWindow { background-color: black; }")
-        self.right_subwin.setStyleSheet("QMdiSubWindow { background-color: black; }")
+        self.left_subwin.setStyleSheet("QMdiSubWindow { background-color: #171717; }")
+        self.right_subwin.setStyleSheet("QMdiSubWindow { background-color: #171717; }")
 
-        # Load "Leads" by default when sidebar is loaded
-        self.load_form("Leads")  # Ensure this is called after sidebar setup
+        # Load "Dashboard" by default when sidebar is loaded
+        self.load_form("Dashboard")  # Ensure this is called after sidebar setup
 
     def load_form(self, form_name):
         form_map = {

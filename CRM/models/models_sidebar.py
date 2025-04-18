@@ -27,13 +27,13 @@ class SidebarForm(QWidget):
             button.setStyleSheet(self.get_default_style())  # Set default style
             button.clicked.connect(lambda checked, name=name: self.set_active_button(name))
 
-        self.set_active_button("Leads")  # Set "Leads" as active by default
+        self.set_active_button("Dashboard")  # Set "Dashboard" as active by default
 
     def get_default_style(self):
         """ Default (inactive) button style: black background, no border, white text """
         return """
             QPushButton {
-                background-color: rgb(0, 0, 0);
+                background-color: #171717;
                 border: none;
                 padding: 8px;
                 color: rgb(220, 220, 220);
