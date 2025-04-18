@@ -24,7 +24,7 @@ class Ui_add_opportunity(object):
     def setupUi(self, add_opportunity):
         if not add_opportunity.objectName():
             add_opportunity.setObjectName(u"add_opportunity")
-        add_opportunity.resize(528, 481)
+        add_opportunity.resize(528, 400)
         add_opportunity.setStyleSheet(u"border-radius: 10px;\n"
 "background-color: #171717;\n"
 "color: white;")
