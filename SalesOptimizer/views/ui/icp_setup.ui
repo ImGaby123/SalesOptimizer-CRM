@@ -143,7 +143,7 @@
           <number>6</number>
          </property>
          <property name="columnCount">
-          <number>3</number>
+          <number>2</number>
          </property>
          <row/>
          <row/>
@@ -158,11 +158,6 @@
          </column>
          <column>
           <property name="text">
-           <string>Is Mandatory</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
            <string>Weightage(%)</string>
           </property>
          </column>
@@ -172,11 +167,6 @@
           </property>
          </item>
          <item row="0" column="1">
-          <property name="text">
-           <string>Yes</string>
-          </property>
-         </item>
-         <item row="0" column="2">
           <property name="text">
            <string>15</string>
           </property>
@@ -188,11 +178,6 @@
          </item>
          <item row="1" column="1">
           <property name="text">
-           <string>No</string>
-          </property>
-         </item>
-         <item row="1" column="2">
-          <property name="text">
            <string>15</string>
           </property>
          </item>
@@ -202,11 +187,6 @@
           </property>
          </item>
          <item row="2" column="1">
-          <property name="text">
-           <string>Yes</string>
-          </property>
-         </item>
-         <item row="2" column="2">
           <property name="text">
            <string>15</string>
           </property>
@@ -218,11 +198,6 @@
          </item>
          <item row="3" column="1">
           <property name="text">
-           <string>Yes</string>
-          </property>
-         </item>
-         <item row="3" column="2">
-          <property name="text">
            <string>20</string>
           </property>
          </item>
@@ -233,11 +208,6 @@
          </item>
          <item row="4" column="1">
           <property name="text">
-           <string>No</string>
-          </property>
-         </item>
-         <item row="4" column="2">
-          <property name="text">
            <string>15</string>
           </property>
          </item>
@@ -247,11 +217,6 @@
           </property>
          </item>
          <item row="5" column="1">
-          <property name="text">
-           <string>Yes</string>
-          </property>
-         </item>
-         <item row="5" column="2">
           <property name="text">
            <string>20</string>
           </property>
@@ -500,7 +465,7 @@ color: rgb(255, 255, 255);</string>
          <item row="1" column="2">
           <widget class="QStackedWidget" name="stackedWidget_3">
            <property name="currentIndex">
-            <number>3</number>
+            <number>5</number>
            </property>
            <widget class="QWidget" name="city_page_2">
             <layout class="QGridLayout" name="gridLayout_11">
@@ -730,15 +695,15 @@ color: rgb(255, 255, 255);</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="4">
-              <widget class="QSpinBox" name="industry_spin_2"/>
-             </item>
              <item row="0" column="0">
               <widget class="QLabel" name="when_religion3_lbl_4">
                <property name="text">
                 <string>When Industry</string>
                </property>
               </widget>
+             </item>
+             <item row="0" column="4">
+              <widget class="QSpinBox" name="industry_spin_2"/>
              </item>
              <item row="0" column="1">
               <widget class="QComboBox" name="industry_combo_2">

@@ -88,52 +88,38 @@ class Ui_icp_setup(object):
         self.verticalLayout_2.addItem(self.horizontalSpacer_8)
 
         self.attribute_tbl = QTableWidget(self.step1_page)
-        if (self.attribute_tbl.columnCount() < 3):
-            self.attribute_tbl.setColumnCount(3)
+        if (self.attribute_tbl.columnCount() < 2):
+            self.attribute_tbl.setColumnCount(2)
         __qtablewidgetitem = QTableWidgetItem()
         self.attribute_tbl.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         self.attribute_tbl.setHorizontalHeaderItem(1, __qtablewidgetitem1)
-        __qtablewidgetitem2 = QTableWidgetItem()
-        self.attribute_tbl.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         if (self.attribute_tbl.rowCount() < 6):
             self.attribute_tbl.setRowCount(6)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        self.attribute_tbl.setItem(0, 0, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
-        self.attribute_tbl.setItem(0, 0, __qtablewidgetitem3)
+        self.attribute_tbl.setItem(0, 1, __qtablewidgetitem3)
         __qtablewidgetitem4 = QTableWidgetItem()
-        self.attribute_tbl.setItem(0, 1, __qtablewidgetitem4)
+        self.attribute_tbl.setItem(1, 0, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
-        self.attribute_tbl.setItem(0, 2, __qtablewidgetitem5)
+        self.attribute_tbl.setItem(1, 1, __qtablewidgetitem5)
         __qtablewidgetitem6 = QTableWidgetItem()
-        self.attribute_tbl.setItem(1, 0, __qtablewidgetitem6)
+        self.attribute_tbl.setItem(2, 0, __qtablewidgetitem6)
         __qtablewidgetitem7 = QTableWidgetItem()
-        self.attribute_tbl.setItem(1, 1, __qtablewidgetitem7)
+        self.attribute_tbl.setItem(2, 1, __qtablewidgetitem7)
         __qtablewidgetitem8 = QTableWidgetItem()
-        self.attribute_tbl.setItem(1, 2, __qtablewidgetitem8)
+        self.attribute_tbl.setItem(3, 0, __qtablewidgetitem8)
         __qtablewidgetitem9 = QTableWidgetItem()
-        self.attribute_tbl.setItem(2, 0, __qtablewidgetitem9)
+        self.attribute_tbl.setItem(3, 1, __qtablewidgetitem9)
         __qtablewidgetitem10 = QTableWidgetItem()
-        self.attribute_tbl.setItem(2, 1, __qtablewidgetitem10)
+        self.attribute_tbl.setItem(4, 0, __qtablewidgetitem10)
         __qtablewidgetitem11 = QTableWidgetItem()
-        self.attribute_tbl.setItem(2, 2, __qtablewidgetitem11)
+        self.attribute_tbl.setItem(4, 1, __qtablewidgetitem11)
         __qtablewidgetitem12 = QTableWidgetItem()
-        self.attribute_tbl.setItem(3, 0, __qtablewidgetitem12)
+        self.attribute_tbl.setItem(5, 0, __qtablewidgetitem12)
         __qtablewidgetitem13 = QTableWidgetItem()
-        self.attribute_tbl.setItem(3, 1, __qtablewidgetitem13)
-        __qtablewidgetitem14 = QTableWidgetItem()
-        self.attribute_tbl.setItem(3, 2, __qtablewidgetitem14)
-        __qtablewidgetitem15 = QTableWidgetItem()
-        self.attribute_tbl.setItem(4, 0, __qtablewidgetitem15)
-        __qtablewidgetitem16 = QTableWidgetItem()
-        self.attribute_tbl.setItem(4, 1, __qtablewidgetitem16)
-        __qtablewidgetitem17 = QTableWidgetItem()
-        self.attribute_tbl.setItem(4, 2, __qtablewidgetitem17)
-        __qtablewidgetitem18 = QTableWidgetItem()
-        self.attribute_tbl.setItem(5, 0, __qtablewidgetitem18)
-        __qtablewidgetitem19 = QTableWidgetItem()
-        self.attribute_tbl.setItem(5, 1, __qtablewidgetitem19)
-        __qtablewidgetitem20 = QTableWidgetItem()
-        self.attribute_tbl.setItem(5, 2, __qtablewidgetitem20)
+        self.attribute_tbl.setItem(5, 1, __qtablewidgetitem13)
         self.attribute_tbl.setObjectName(u"attribute_tbl")
         self.attribute_tbl.setEnabled(True)
         sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
@@ -148,7 +134,7 @@ class Ui_icp_setup(object):
         self.attribute_tbl.setWordWrap(True)
         self.attribute_tbl.setCornerButtonEnabled(True)
         self.attribute_tbl.setRowCount(6)
-        self.attribute_tbl.setColumnCount(3)
+        self.attribute_tbl.setColumnCount(2)
 
         self.verticalLayout_2.addWidget(self.attribute_tbl)
 
@@ -448,15 +434,15 @@ class Ui_icp_setup(object):
 
         self.gridLayout_16.addWidget(self.industry_line_2, 0, 2, 1, 1)
 
-        self.industry_spin_2 = QSpinBox(self.industry_page_2)
-        self.industry_spin_2.setObjectName(u"industry_spin_2")
-
-        self.gridLayout_16.addWidget(self.industry_spin_2, 0, 4, 1, 1)
-
         self.when_religion3_lbl_4 = QLabel(self.industry_page_2)
         self.when_religion3_lbl_4.setObjectName(u"when_religion3_lbl_4")
 
         self.gridLayout_16.addWidget(self.when_religion3_lbl_4, 0, 0, 1, 1)
+
+        self.industry_spin_2 = QSpinBox(self.industry_page_2)
+        self.industry_spin_2.setObjectName(u"industry_spin_2")
+
+        self.gridLayout_16.addWidget(self.industry_spin_2, 0, 4, 1, 1)
 
         self.industry_combo_2 = QComboBox(self.industry_page_2)
         self.industry_combo_2.addItem("")
@@ -514,7 +500,7 @@ class Ui_icp_setup(object):
         self.retranslateUi(icp_setup)
 
         self.stackedWidget.setCurrentIndex(1)
-        self.stackedWidget_3.setCurrentIndex(3)
+        self.stackedWidget_3.setCurrentIndex(5)
 
 
         QMetaObject.connectSlotsByName(icp_setup)
@@ -529,48 +515,34 @@ class Ui_icp_setup(object):
         ___qtablewidgetitem = self.attribute_tbl.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("icp_setup", u"Attribute", None));
         ___qtablewidgetitem1 = self.attribute_tbl.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("icp_setup", u"Is Mandatory", None));
-        ___qtablewidgetitem2 = self.attribute_tbl.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("icp_setup", u"Weightage(%)", None));
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("icp_setup", u"Weightage(%)", None));
 
         __sortingEnabled = self.attribute_tbl.isSortingEnabled()
         self.attribute_tbl.setSortingEnabled(False)
-        ___qtablewidgetitem3 = self.attribute_tbl.item(0, 0)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("icp_setup", u"City", None));
-        ___qtablewidgetitem4 = self.attribute_tbl.item(0, 1)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("icp_setup", u"Yes", None));
-        ___qtablewidgetitem5 = self.attribute_tbl.item(0, 2)
+        ___qtablewidgetitem2 = self.attribute_tbl.item(0, 0)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("icp_setup", u"City", None));
+        ___qtablewidgetitem3 = self.attribute_tbl.item(0, 1)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("icp_setup", u"15", None));
+        ___qtablewidgetitem4 = self.attribute_tbl.item(1, 0)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("icp_setup", u"Region", None));
+        ___qtablewidgetitem5 = self.attribute_tbl.item(1, 1)
         ___qtablewidgetitem5.setText(QCoreApplication.translate("icp_setup", u"15", None));
-        ___qtablewidgetitem6 = self.attribute_tbl.item(1, 0)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("icp_setup", u"Region", None));
-        ___qtablewidgetitem7 = self.attribute_tbl.item(1, 1)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("icp_setup", u"No", None));
-        ___qtablewidgetitem8 = self.attribute_tbl.item(1, 2)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("icp_setup", u"15", None));
-        ___qtablewidgetitem9 = self.attribute_tbl.item(2, 0)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("icp_setup", u"Country", None));
-        ___qtablewidgetitem10 = self.attribute_tbl.item(2, 1)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("icp_setup", u"Yes", None));
-        ___qtablewidgetitem11 = self.attribute_tbl.item(2, 2)
+        ___qtablewidgetitem6 = self.attribute_tbl.item(2, 0)
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("icp_setup", u"Country", None));
+        ___qtablewidgetitem7 = self.attribute_tbl.item(2, 1)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("icp_setup", u"15", None));
+        ___qtablewidgetitem8 = self.attribute_tbl.item(3, 0)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("icp_setup", u"Profession", None));
+        ___qtablewidgetitem9 = self.attribute_tbl.item(3, 1)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("icp_setup", u"20", None));
+        ___qtablewidgetitem10 = self.attribute_tbl.item(4, 0)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("icp_setup", u"Age", None));
+        ___qtablewidgetitem11 = self.attribute_tbl.item(4, 1)
         ___qtablewidgetitem11.setText(QCoreApplication.translate("icp_setup", u"15", None));
-        ___qtablewidgetitem12 = self.attribute_tbl.item(3, 0)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("icp_setup", u"Profession", None));
-        ___qtablewidgetitem13 = self.attribute_tbl.item(3, 1)
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("icp_setup", u"Yes", None));
-        ___qtablewidgetitem14 = self.attribute_tbl.item(3, 2)
-        ___qtablewidgetitem14.setText(QCoreApplication.translate("icp_setup", u"20", None));
-        ___qtablewidgetitem15 = self.attribute_tbl.item(4, 0)
-        ___qtablewidgetitem15.setText(QCoreApplication.translate("icp_setup", u"Age", None));
-        ___qtablewidgetitem16 = self.attribute_tbl.item(4, 1)
-        ___qtablewidgetitem16.setText(QCoreApplication.translate("icp_setup", u"No", None));
-        ___qtablewidgetitem17 = self.attribute_tbl.item(4, 2)
-        ___qtablewidgetitem17.setText(QCoreApplication.translate("icp_setup", u"15", None));
-        ___qtablewidgetitem18 = self.attribute_tbl.item(5, 0)
-        ___qtablewidgetitem18.setText(QCoreApplication.translate("icp_setup", u"Industry", None));
-        ___qtablewidgetitem19 = self.attribute_tbl.item(5, 1)
-        ___qtablewidgetitem19.setText(QCoreApplication.translate("icp_setup", u"Yes", None));
-        ___qtablewidgetitem20 = self.attribute_tbl.item(5, 2)
-        ___qtablewidgetitem20.setText(QCoreApplication.translate("icp_setup", u"20", None));
+        ___qtablewidgetitem12 = self.attribute_tbl.item(5, 0)
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("icp_setup", u"Industry", None));
+        ___qtablewidgetitem13 = self.attribute_tbl.item(5, 1)
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("icp_setup", u"20", None));
         self.attribute_tbl.setSortingEnabled(__sortingEnabled)
 
         self.add_combo.setPlaceholderText(QCoreApplication.translate("icp_setup", u"-- Add Lead Attribute --", None))
