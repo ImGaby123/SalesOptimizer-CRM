@@ -10,7 +10,7 @@ for i in range(1):
     # Convert to all everything
     # Perfect Score : 1:'QC', 2: 'IT', 3: 'TECH', 4: "25 <= X >= 30"
     # 1. Assign Lead Instance
-    Lead_Instance = {1:'QC', 2: 'IT', 3: 'TECH', 4: "25 <= X >= 30"}
+    Lead_Instance = {1:'QC', 2: 'IT', 3: 'TECH', 4: "19"}
 
     # 2. Convert Each Attribute to its corresponding score
     Converted_AttributeValue = Dog_Score.lead_Score_Assignment(Lead_Instance)
