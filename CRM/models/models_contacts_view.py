@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QWidget, QMessageBox, QComboBox
 from PySide6.QtCore import QDate
-from views.py.ui_contacts_update import Ui_contacts_update
+from views.py.ui_contacts_view import Ui_contacts_view
 from datas.db_connection import DB_Connection
 import re
 
@@ -28,7 +28,7 @@ country_city_map = {
 class ContactsView(QWidget):
     def __init__(self, contact_id):
         super().__init__()
-        self.ui = Ui_contacts_update()  # Setup the UI components
+        self.ui = Ui_contacts_view()  # Setup the UI components
         self.ui.setupUi(self)
 
         self.db_conn = DB_Connection()  # Database connection

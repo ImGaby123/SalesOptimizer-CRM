@@ -9,7 +9,7 @@ class DB_Connection:
         self.password = password
         self.database = database
         self.port = port
-        self.conn = None  # Do not connect immediately
+        self.conn = None
         self.connect()
 
     def connect(self):
@@ -17,7 +17,6 @@ class DB_Connection:
         try:
             if self.conn and self.conn.is_connected():
                 return  # Already connected
-
             self.conn = mysql.connector.connect(
                 host=self.host,
                 user=self.user,
@@ -43,15 +42,17 @@ class DB_Connection:
             print("❌ No database connection.")
             return False
 
+        cursor = self.conn.cursor(dictionary=True)
         try:
-            cursor = self.conn.cursor(dictionary=True)
             cursor.execute(query, params)
-            self.conn.commit()  # Commit for INSERT/UPDATE/DELETE
-            cursor.close()
+            self.conn.commit()
             return True
         except Error as e:
             print(f"❌ Error executing query: {e}")
+            self.conn.rollback()
             return False
+        finally:
+            cursor.close()
 
     def fetch_one(self, query, params=None):
         """Fetch a single record safely."""
@@ -59,15 +60,16 @@ class DB_Connection:
         if not self.conn:
             return None
 
+        cursor = self.conn.cursor(dictionary=True, buffered=True)  # << buffered=True
         try:
-            cursor = self.conn.cursor(dictionary=True)
             cursor.execute(query, params)
-            result = cursor.fetchone()
-            cursor.close()
-            return result
+            return cursor.fetchone()
         except Error as e:
             print(f"❌ Error fetching data: {e}")
             return None
+        finally:
+            cursor.close()
+
 
     def fetch_all(self, query, params=None):
         """Fetch all records safely."""
@@ -75,15 +77,15 @@ class DB_Connection:
         if not self.conn:
             return None
 
+        cursor = self.conn.cursor(dictionary=True)
         try:
-            cursor = self.conn.cursor(dictionary=True)
             cursor.execute(query, params)
-            result = cursor.fetchall()
-            cursor.close()
-            return result
+            return cursor.fetchall()
         except Error as e:
             print(f"❌ Error fetching data: {e}")
             return None
+        finally:
+            cursor.close()
 
     def close_connection(self):
         """Manually close the database connection."""
