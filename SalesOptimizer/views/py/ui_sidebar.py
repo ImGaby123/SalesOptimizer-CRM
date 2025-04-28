@@ -22,7 +22,7 @@ class Ui_sidebar(object):
     def setupUi(self, sidebar):
         if not sidebar.objectName():
             sidebar.setObjectName(u"sidebar")
-        sidebar.resize(143, 702)
+        sidebar.resize(156, 702)
         sidebar.setStyleSheet(u"\n"
 "background-color: rgb(255, 255, 255);\n"
 "\n"
