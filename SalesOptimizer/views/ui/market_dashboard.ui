@@ -147,6 +147,19 @@ QLabel {
                   </item>
                  </layout>
                 </item>
+                <item>
+                 <spacer name="verticalSpacer_4">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                </layout>
               </widget>
              </item>
@@ -205,6 +218,19 @@ QLabel {
                   </item>
                  </layout>
                 </item>
+                <item>
+                 <spacer name="verticalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                </layout>
               </widget>
              </item>
@@ -262,6 +288,19 @@ QLabel {
                    </spacer>
                   </item>
                  </layout>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -323,6 +362,19 @@ QLabel {
                 </item>
                </layout>
               </item>
+              <item>
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
              </layout>
             </widget>
            </item>
@@ -380,7 +432,7 @@ QLabel {
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="salesForecasting_page">
+     <widget class="QWidget" name="page2_page">
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
@@ -391,7 +443,7 @@ QLabel {
         </rect>
        </property>
        <property name="text">
-        <string>Sales Forecasts and Statistics</string>
+        <string>Some Content Here</string>
        </property>
       </widget>
      </widget>
