@@ -1,6 +1,6 @@
 import pandas as pd
 from prophet import Prophet
-from matplotlib.lines import Line2D
+
 import matplotlib.pyplot as plt
 
 # 1. Data Frame

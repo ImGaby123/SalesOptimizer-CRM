@@ -124,3 +124,31 @@ class Lead_Data:
         cursor2.close()
 
         return OpportunitiesWon, OpportunitiesLoss
+    
+
+    def getSaleCost(self):
+                # cursor1
+        cursor1 = self.conn.cursor()
+        
+        query = """
+                    SELECT 
+                        DATE(updated_at) AS day,
+                        SUM(opportunity_cost) AS total_cost
+                    FROM 
+                        crm.opportunity
+                    WHERE 
+                        opportunity_status = 'Closed Loss'
+                    GROUP BY 
+                        DATE(updated_at)
+                    ORDER BY 
+                        day;
+                """
+         # Attributes
+        cursor1.execute(query)
+        attributes = cursor1.fetchall()
+        
+        # Close
+        cursor1.close()
+        
+        # Return Attributes
+        return attributes

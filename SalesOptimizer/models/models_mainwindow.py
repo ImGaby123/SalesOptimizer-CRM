@@ -8,7 +8,7 @@ from .models_sidebar import SidebarForm
 
 # Items Page
 from .models_market_dashboard import marketdashboard
-
+from .models_sales_dashboard import salesdashboard
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -84,7 +84,7 @@ class MainWindow(QMainWindow):
     def load_form(self, form_name):
         form_dict = {
             "Home": marketdashboard,
-            "Item1": None,
+            "Item1": salesdashboard,
             "Item2": None
         }
 
