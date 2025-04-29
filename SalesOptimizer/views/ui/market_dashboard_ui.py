@@ -24,7 +24,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(1073, 1168)
+        Form.resize(917, 1168)
         self.gridLayout_5 = QGridLayout(Form)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.stackedWidget = QStackedWidget(Form)
@@ -42,7 +42,7 @@ class Ui_Form(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1018, 1268))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 890, 1268))
         self.gridLayout_8 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.widget_7 = QWidget(self.scrollAreaWidgetContents)
@@ -75,7 +75,31 @@ class Ui_Form(object):
         self.LVT_gridLayout.setObjectName(u"LVT_gridLayout")
         self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.LVT_gridLayout.addItem(self.verticalSpacer_5, 0, 0, 1, 1)
+        self.LVT_gridLayout.addItem(self.verticalSpacer_5, 4, 0, 1, 1)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_4)
+
+        self.label_3 = QLabel(self.widget_8)
+        self.label_3.setObjectName(u"label_3")
+
+        self.horizontalLayout_4.addWidget(self.label_3)
+
+        self.leadOverTime_comboBox = QComboBox(self.widget_8)
+        self.leadOverTime_comboBox.addItem("")
+        self.leadOverTime_comboBox.addItem("")
+        self.leadOverTime_comboBox.addItem("")
+        self.leadOverTime_comboBox.addItem("")
+        self.leadOverTime_comboBox.setObjectName(u"leadOverTime_comboBox")
+        self.leadOverTime_comboBox.setSizeAdjustPolicy(QComboBox.AdjustToContents)
+
+        self.horizontalLayout_4.addWidget(self.leadOverTime_comboBox)
+
+
+        self.LVT_gridLayout.addLayout(self.horizontalLayout_4, 2, 0, 1, 1)
 
 
         self.gridLayout_9.addLayout(self.LVT_gridLayout, 0, 0, 1, 1)
@@ -170,14 +194,18 @@ class Ui_Form(object):
 
         self.horizontalLayout_3.addWidget(self.label_5)
 
-        self.comboBox_3 = QComboBox(self.widget_4)
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.setObjectName(u"comboBox_3")
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout_3.addWidget(self.comboBox_3)
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
+
+        self.RevenueOverLeadScore_comboBox = QComboBox(self.widget_4)
+        self.RevenueOverLeadScore_comboBox.addItem("")
+        self.RevenueOverLeadScore_comboBox.addItem("")
+        self.RevenueOverLeadScore_comboBox.addItem("")
+        self.RevenueOverLeadScore_comboBox.addItem("")
+        self.RevenueOverLeadScore_comboBox.setObjectName(u"RevenueOverLeadScore_comboBox")
+
+        self.horizontalLayout_3.addWidget(self.RevenueOverLeadScore_comboBox)
 
 
         self.SWVLS_gridLayout.addLayout(self.horizontalLayout_3, 0, 0, 1, 1)
@@ -221,32 +249,23 @@ class Ui_Form(object):
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.label_3 = QLabel(self.widget_3)
-        self.label_3.setObjectName(u"label_3")
-
-        self.horizontalLayout_2.addWidget(self.label_3)
-
-        self.comboBox = QComboBox(self.widget_3)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
-
-        self.horizontalLayout_2.addWidget(self.comboBox)
-
         self.label_4 = QLabel(self.widget_3)
         self.label_4.setObjectName(u"label_4")
 
         self.horizontalLayout_2.addWidget(self.label_4)
 
-        self.comboBox_2 = QComboBox(self.widget_3)
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.setObjectName(u"comboBox_2")
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout_2.addWidget(self.comboBox_2)
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_3)
+
+        self.opportunitiesPerLeadScore_comboBox = QComboBox(self.widget_3)
+        self.opportunitiesPerLeadScore_comboBox.addItem("")
+        self.opportunitiesPerLeadScore_comboBox.addItem("")
+        self.opportunitiesPerLeadScore_comboBox.addItem("")
+        self.opportunitiesPerLeadScore_comboBox.addItem("")
+        self.opportunitiesPerLeadScore_comboBox.setObjectName(u"opportunitiesPerLeadScore_comboBox")
+
+        self.horizontalLayout_2.addWidget(self.opportunitiesPerLeadScore_comboBox)
 
 
         self.TSVLS_gridLayout.addLayout(self.horizontalLayout_2, 0, 0, 1, 1)
@@ -347,23 +366,24 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        self.label_3.setText(QCoreApplication.translate("Form", u"Lead Over Time", None))
+        self.leadOverTime_comboBox.setItemText(0, QCoreApplication.translate("Form", u"Last 7 Days", None))
+        self.leadOverTime_comboBox.setItemText(1, QCoreApplication.translate("Form", u"Last 30 Days", None))
+        self.leadOverTime_comboBox.setItemText(2, QCoreApplication.translate("Form", u"Last 120 Days", None))
+        self.leadOverTime_comboBox.setItemText(3, QCoreApplication.translate("Form", u"Last Year", None))
+
         self.pushButton.setText(QCoreApplication.translate("Form", u"Setup ICP", None))
-        self.label_5.setText(QCoreApplication.translate("Form", u"Sales Amount (Won) Per Lead Score Range Last", None))
-        self.comboBox_3.setItemText(0, QCoreApplication.translate("Form", u"All time", None))
-        self.comboBox_3.setItemText(1, QCoreApplication.translate("Form", u"Last Month", None))
-        self.comboBox_3.setItemText(2, QCoreApplication.translate("Form", u"Last Quarter", None))
-        self.comboBox_3.setItemText(3, QCoreApplication.translate("Form", u"Last Year", None))
+        self.label_5.setText(QCoreApplication.translate("Form", u"Sales Amount (Won) Per Lead Score Range", None))
+        self.RevenueOverLeadScore_comboBox.setItemText(0, QCoreApplication.translate("Form", u"Last 7 Days", None))
+        self.RevenueOverLeadScore_comboBox.setItemText(1, QCoreApplication.translate("Form", u"Last 30 Days", None))
+        self.RevenueOverLeadScore_comboBox.setItemText(2, QCoreApplication.translate("Form", u"Last 120 Days", None))
+        self.RevenueOverLeadScore_comboBox.setItemText(3, QCoreApplication.translate("Form", u"Last Year", None))
 
-        self.label_3.setText(QCoreApplication.translate("Form", u"Opportunities", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("Form", u"Won", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("Form", u"Lost", None))
-        self.comboBox.setItemText(2, QCoreApplication.translate("Form", u"Pending", None))
-
-        self.label_4.setText(QCoreApplication.translate("Form", u"Per Lead Score Range Last", None))
-        self.comboBox_2.setItemText(0, QCoreApplication.translate("Form", u"All time", None))
-        self.comboBox_2.setItemText(1, QCoreApplication.translate("Form", u"Last Month", None))
-        self.comboBox_2.setItemText(2, QCoreApplication.translate("Form", u"Last Quarter", None))
-        self.comboBox_2.setItemText(3, QCoreApplication.translate("Form", u"Last Year", None))
+        self.label_4.setText(QCoreApplication.translate("Form", u"Opportunities Per Lead Score Range", None))
+        self.opportunitiesPerLeadScore_comboBox.setItemText(0, QCoreApplication.translate("Form", u"Last 7 Days", None))
+        self.opportunitiesPerLeadScore_comboBox.setItemText(1, QCoreApplication.translate("Form", u"Last 30 Days", None))
+        self.opportunitiesPerLeadScore_comboBox.setItemText(2, QCoreApplication.translate("Form", u"Last 120 Days", None))
+        self.opportunitiesPerLeadScore_comboBox.setItemText(3, QCoreApplication.translate("Form", u"Last Year", None))
 
         self.label_2.setText(QCoreApplication.translate("Form", u"Lead Score Statistics", None))
         self.label.setText(QCoreApplication.translate("Form", u"Some Content Here", None))

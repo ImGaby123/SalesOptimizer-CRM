@@ -1,10 +1,11 @@
 from views.py.ui_market_dashboard import Ui_Form
+from Data.Lead_Data import Lead_Data
 
 from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QLabel
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qtagg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
-import sys
+import sys, datetime
 
 #A. PVLS = Prospects vs Lead Score
 
@@ -15,30 +16,75 @@ class marketdashboard(QWidget, Ui_Form):
         super().__init__()
         self.setupUi(self)
         
-        self.loadFigureLeadsOverTime()
+
+
+        dog = Lead_Data()
+        self.ProspectsVsLeadScore = dog.getLeadCountPerScore()
+        self.LeadOverTime = dog.getLeadOverTimeData()
+        self.SalesWonCost = dog.getOpportunityWonCostOverLeadScore()
+        self.Opportunities = dog.getOpportunityStatusPerLeadScore()
+        print(self.Opportunities)
+
+        self.leadOverTime_comboBox.currentIndexChanged.connect(self.loadFigureLeadsOverTime)
+        self.RevenueOverLeadScore_comboBox.currentTextChanged.connect(self.loadFigureSalesWonVsLeadScore)
+
+        #self.loadFigureLeadsOverTime()
         self.loadFigureProspectsVsLeadScore()
         self.loadFigureConversionVsLeadScore()
-        self.loadFigureSalesWonVsLeadScore()
+        #self.loadFigureSalesWonVsLeadScore()
         self.loadFigureTotalScoreVsLeadScore()
 
-    def loadFigureLeadsOverTime(self):
+    def loadFigureLeadsOverTime(self, Days):
         # Create figure before using it
         fig = Figure()
         ax = fig.add_subplot()
 
-        # Example data for Lead vs Time (modify according to your real data)
-        lead = [11, 24, 31, 49, 45, 51, 50, 24, 125, 256]
-        time = [1, 2, 3, 4, 5,6,7,8,9,10]  # Replace this with actual time data
+        print("Days : ",Days)
+        day = 7
+
+        if Days == 0:
+            # A Week Ago
+            day = 7
+        elif Days == 1:
+            # A Month Ago
+            day = 30
+        elif Days == 2:
+            day = 120
+        elif Days == 3:
+            day = 365
+
+
+        # Get today's date
+        today = datetime.date.today()
+
+        # Get the date 7 days ago
+        n_days_ago = today - datetime.timedelta(days=day)
+
+        # Initialize the lead and time variables as empty lists
+        lead = []
+        time = []
+
+        # Loop through each tuple in the leadovertime list
+        for date, count in self.LeadOverTime:
+            if date >= n_days_ago:  # Check if the date is within the last 7 days
+                lead.append(count)  # Extract the lead count
+                time.append(date.strftime("%B %d, %Y"))
+
+        for i in reversed(range(self.LVT_gridLayout.count())):
+            widget = self.LVT_gridLayout.itemAt(i).widget()
+            if widget is not None:
+                widget.deleteLater()  # Remove and delete widget
+
 
         # Plot lead vs time data
         ax.plot(time, lead, marker='o', linestyle='-', color='b')
 
         # Set axis labels
-        ax.set_xlabel('Months')  # Label for lead
+        ax.set_xlabel('Date')  # Label for lead
         ax.set_ylabel('Number of Leads')  # Label for time
 
         # Set title
-        ax.set_title('Lead vs Time Conversion')
+        ax.set_title('Lead vs Time')
 
         # Create and add canvas
         canvas = FigureCanvas(fig)
@@ -48,12 +94,11 @@ class marketdashboard(QWidget, Ui_Form):
         canvas.draw()
 
         # Now tight layout after drawing
-        fig.tight_layout(pad=3.0)
+        fig.tight_layout()
 
         # Create and add toolbar
         toolbar = NavigationToolbar(canvas, self)
         self.LVT_gridLayout.addWidget(toolbar)
-
 
     
     def loadFigureConversionVsLeadScore(self):
@@ -81,18 +126,24 @@ class marketdashboard(QWidget, Ui_Form):
         toolbar = NavigationToolbar(canvas, self)
         self.CVLS_gridLayout.addWidget(toolbar)
 
-
+    # Check
     def loadFigureProspectsVsLeadScore(self):
         fig = Figure(figsize=(6, 4))  # only set size (w, h)
         ax = fig.add_subplot()
 
+        lead_data = self.ProspectsVsLeadScore
+
+        # Expand into flat list for histogram
+        data = []
+        for score, count in lead_data:
+            data.extend([score] * count)
+
+
         # Plot
-        # The amount of lead score = 10 in a data set
-        data = [1, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7, 8, 8, 9, 10, 10, 10, 10]
         bars = ax.hist(data, bins=10, rwidth=0.95)
 
         ax.set_xticks([1,2,3,4,5,6,7,8,9,10])
-        ax.set_title("Total Prospects Per Lead Score Range ")
+        ax.set_title("Current Number of Prospects in Lead Score")
         ax.set_xlabel('Lead Score')
         ax.set_ylabel('Number of Prospects')
 
@@ -103,6 +154,11 @@ class marketdashboard(QWidget, Ui_Form):
                 bar.set_facecolor('blue')
             else:
                 bar.set_facecolor('green')
+
+            # Add text label above each bar with the count
+            height = bar.get_height()  # Get the height of the bar (the count)
+            ax.text(bar.get_x() + bar.get_width() / 2, height, str(int(height)),
+            ha='center', va='bottom', fontsize=10, color='black')
 
         # Create and add canvas
         canvas = FigureCanvas(fig)
@@ -118,22 +174,37 @@ class marketdashboard(QWidget, Ui_Form):
         toolbar = NavigationToolbar(canvas, self)
         self.PVLS_gridLayout.addWidget(toolbar)
 
-    def loadFigureSalesWonVsLeadScore(self):
+    
+    def loadFigureSalesWonVsLeadScore(self, Days):
         fig = Figure(figsize=(6, 4))  # only set size (width, height)
         ax = fig.add_subplot()
+        
 
-        # Lead Scores (x-axis)
-        lead_scores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        print("Days : ",Days)
+        day = 7
 
-        # Sales Revenue (y-axis)
-        sales_revenue = [1000, 2500, 3000, 4500, 2000, 3500, 1500, 4000, 2200, 5000]  # <-- YOUR REAL DATA HERE
+        if Days == 0:
+            # A Week Ago
+            day = 7
+        elif Days == 1:
+            # A Month Ago
+            day = 30
+        elif Days == 2:
+            day = 120
+        elif Days == 3:
+            day = 365
+
+
+        data = self.SalesWonCost
+        Lead_Score = [score for score, _ in data]
+        Sales_Revenue = [cost for _, cost in data]
 
         # Plot bars manually
-        bars = ax.bar(lead_scores, sales_revenue, width=0.8)
+        bars = ax.bar(Lead_Score, Sales_Revenue, width=0.8)
 
-        ax.set_xticks(lead_scores)
+        ax.set_xticks(Lead_Score)
         ax.set_xlabel('Lead Score')
-        ax.set_ylabel('Sales Revenue')
+        ax.set_ylabel('Sales Revenue₱')
 
         # Alternate bar colors between blue and green
         for idx, bar in enumerate(bars):
@@ -141,6 +212,12 @@ class marketdashboard(QWidget, Ui_Form):
                 bar.set_facecolor('blue')
             else:
                 bar.set_facecolor('green')
+
+
+        for i in reversed(range(self.SWVLS_gridLayout.count())):
+            widget = self.SWVLS_gridLayout.itemAt(i).widget()
+            if widget is not None:
+                widget.deleteLater()  # Remove and delete widget
 
         # Create and add canvas
         canvas = FigureCanvas(fig)
@@ -156,17 +233,23 @@ class marketdashboard(QWidget, Ui_Form):
         toolbar = NavigationToolbar(canvas, self)
         self.SWVLS_gridLayout.addWidget(toolbar)
 
-        
+
     def loadFigureTotalScoreVsLeadScore(self):
         # Create figure before using it
         fig = Figure()
         ax = fig.add_subplot()
 
+        
+        # Separate the data
+        Owon, Oloss = self.Opportunities  # Owon and Oloss are both lists of (lead_score, count)
+
         # Sample data for Total Leads with three categories: Won, Lost, Pending Opportunities
         lead_score = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  # Example months
-        won = [1, 3, 2, 5, 6, 1, 3, 2, 5, 6]  # Won opportunities
-        lost = [0, 2, 4, 3, 1, 1, 3, 2, 5, 6]  # Lost opportunities
-        pending = [2, 1, 3, 2, 4, 1, 3, 2, 5, 6]  # Pending opportunities
+
+        # Initialize won and lost with just the counts
+        won = [count for _, count in Owon]
+        lost = [count for _, count in Oloss]
+        pending = [0,0,0,0,0,0,0,0,0,0]  # Pending opportunities
 
         # Create stacked bar chart by stacking Won, Lost, Pending on top of each other
         ax.bar(lead_score, won, label='Won', color='green')  # Bottom of the bar for Won
@@ -187,6 +270,25 @@ class marketdashboard(QWidget, Ui_Form):
         # Create and add toolbar
         toolbar = NavigationToolbar(canvas, self)
         self.TSVLS_gridLayout.addWidget(toolbar)
+
+
+        # Annotate values on bars
+        for i in range(len(lead_score)):
+            y_won = won[i]
+            y_lost = lost[i]
+            y_pending = pending[i]
+
+            x = lead_score[i]
+
+            if y_won > 0:
+                ax.text(x, y_won / 2, str(y_won), ha='center', va='center', color='white', fontsize=8)
+
+            if y_lost > 0:
+                ax.text(x, y_won + y_lost / 2, str(y_lost), ha='center', va='center', color='white', fontsize=8)
+
+            if y_pending > 0:
+                ax.text(x, y_won + y_lost + y_pending / 2, str(y_pending), ha='center', va='center', color='black', fontsize=8)
+
 
         # Draw the figure (important)
         canvas.draw()
