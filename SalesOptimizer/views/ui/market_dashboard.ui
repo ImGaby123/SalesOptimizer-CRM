@@ -538,7 +538,7 @@ QLabel {
           <item>
            <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>Lead Score Statistics</string>
+             <string>Lead Score Dashboard</string>
             </property>
            </widget>
           </item>

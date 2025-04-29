@@ -385,7 +385,7 @@ class Ui_Form(object):
         self.opportunitiesPerLeadScore_comboBox.setItemText(2, QCoreApplication.translate("Form", u"Last 120 Days", None))
         self.opportunitiesPerLeadScore_comboBox.setItemText(3, QCoreApplication.translate("Form", u"Last Year", None))
 
-        self.label_2.setText(QCoreApplication.translate("Form", u"Lead Score Statistics", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"Lead Score Dashboard", None))
         self.label.setText(QCoreApplication.translate("Form", u"Some Content Here", None))
     # retranslateUi
 
