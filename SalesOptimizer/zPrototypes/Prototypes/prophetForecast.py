@@ -1,5 +1,6 @@
 import pandas as pd
 from prophet import Prophet
+from matplotlib.lines import Line2D
 import matplotlib.pyplot as plt
 
 # 1. Data Frame
@@ -26,7 +27,7 @@ for fc in ax.collections:
     # Uncertainty Interval Color
     fc.set_facecolor('lightcoral')
 
-from matplotlib.lines import Line2D
+
 custom_lines = [
     Line2D([0], [0], color='blue', lw=2),          # Forecast line
     Line2D([0], [0], color='lightcoral', lw=10)    # Uncertainty Interval Interval 

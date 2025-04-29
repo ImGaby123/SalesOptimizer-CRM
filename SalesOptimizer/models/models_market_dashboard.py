@@ -223,6 +223,21 @@ class marketdashboard(QWidget, Ui_Form):
         canvas = FigureCanvas(fig)
         self.SWVLS_gridLayout.addWidget(canvas)
 
+
+
+        # Add text labels above each bar
+        for bar in bars:
+            height = bar.get_height()
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                height,
+                f"{height:,.0f}",
+                ha='center',
+                va='bottom',
+                fontsize=8,
+                color='black'
+            )
+
         # Draw figure (important)
         canvas.draw()
 
