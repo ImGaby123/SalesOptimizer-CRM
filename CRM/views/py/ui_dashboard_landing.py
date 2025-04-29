@@ -16,8 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
-    QHBoxLayout, QLabel, QSizePolicy, QSpacerItem,
-    QVBoxLayout, QWidget)
+    QHBoxLayout, QHeaderView, QLabel, QSizePolicy,
+    QSpacerItem, QTableWidget, QTableWidgetItem, QVBoxLayout,
+    QWidget)
 
 class Ui_dashboard(object):
     def setupUi(self, dashboard):
@@ -36,9 +37,9 @@ class Ui_dashboard(object):
         dashboard.setStyleSheet(u"background-color: rgb(0, 0, 0);")
         self.gridLayout = QGridLayout(dashboard)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.gridLayout.addItem(self.horizontalSpacer_2, 3, 1, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer, 1, 0, 1, 1)
 
         self.verticalLayout_9 = QVBoxLayout()
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
@@ -373,23 +374,82 @@ class Ui_dashboard(object):
         self.verticalLayout_9.addLayout(self.horizontalLayout_2)
 
 
-        self.gridLayout.addLayout(self.verticalLayout_9, 1, 1, 1, 1)
+        self.gridLayout.addLayout(self.verticalLayout_9, 1, 1, 1, 3)
 
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.gridLayout.addItem(self.verticalSpacer_3, 1, 2, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer, 1, 0, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer_3, 1, 4, 1, 1)
 
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer, 0, 1, 1, 1)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout.addItem(self.verticalSpacer_2, 2, 1, 1, 1)
+        self.gridLayout.addItem(self.horizontalSpacer_2, 4, 1, 1, 1)
+
+        self.verticalLayout_10 = QVBoxLayout()
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.label_9 = QLabel(dashboard)
+        self.label_9.setObjectName(u"label_9")
+        sizePolicy.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
+        self.label_9.setSizePolicy(sizePolicy)
+        self.label_9.setFont(font3)
+        self.label_9.setStyleSheet(u"background-color: transparent;\n"
+"color: White;\n"
+"border: none;")
+        self.label_9.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_10.addWidget(self.label_9)
+
+        self.line_5 = QFrame(dashboard)
+        self.line_5.setObjectName(u"line_5")
+        self.line_5.setStyleSheet(u"\n"
+"    background-color: white;\n"
+"    max-height: 1px;\n"
+"    min-height: 1px;\n"
+"    border: none;\n"
+"")
+        self.line_5.setFrameShape(QFrame.Shape.HLine)
+        self.line_5.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.verticalLayout_10.addWidget(self.line_5)
+
+        self.lead_tbl = QTableWidget(dashboard)
+        self.lead_tbl.setObjectName(u"lead_tbl")
+        self.lead_tbl.setStyleSheet(u"QTableWidget {\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    alternate-background-color: rgb(235, 235, 235);\n"
+"    gridline-color: rgb(200, 200, 200);\n"
+"    color: black;\n"
+"    font: 10pt \"Segoe UI\";\n"
+"    selection-background-color: rgb(100, 149, 237);  /* Light blue selection */\n"
+"    selection-color: white;\n"
+"    border: 1px solid rgb(200, 200, 200);\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: rgb(240, 240, 240);\n"
+"    color: black;\n"
+"    padding: 6px;\n"
+"    border: 1px solid rgb(200, 200, 200);\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QTableCornerButton::section {\n"
+"    background-color: rgb(240, 240, 240);\n"
+"    border: 1px solid rgb(200, 200, 200);\n"
+"}\n"
+"")
+
+        self.verticalLayout_10.addWidget(self.lead_tbl)
+
+
+        self.gridLayout.addLayout(self.verticalLayout_10, 3, 1, 1, 1)
 
 
         self.retranslateUi(dashboard)
@@ -415,5 +475,6 @@ class Ui_dashboard(object):
         self.won_lbl.setText(QCoreApplication.translate("dashboard", u"0", None))
         self.label_8.setText(QCoreApplication.translate("dashboard", u"Lost Opportunities", None))
         self.loss_lbl.setText(QCoreApplication.translate("dashboard", u"0", None))
+        self.label_9.setText(QCoreApplication.translate("dashboard", u"Lead Prioritization", None))
     # retranslateUi
 

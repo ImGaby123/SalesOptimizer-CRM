@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QWidget, QSizePolicy
+from PySide6.QtWidgets import QWidget, QSizePolicy, QTableWidgetItem, QHeaderView
 from PySide6.QtCore import QDate
 from views.py.ui_dashboard_landing import Ui_dashboard
 from datas.db_connection import DB_Connection
@@ -15,6 +15,9 @@ class Dashboard(QWidget):
 
         # Load initial data
         self.sort_details()
+        self.del_lead_priority_table()
+        header = self.ui.lead_tbl.horizontalHeader()
+        header.setSectionResizeMode(QHeaderView.Stretch)
 
         # Connect sort combo change
         self.ui.sort_combo.currentIndexChanged.connect(self.sort_details)
@@ -74,3 +77,34 @@ class Dashboard(QWidget):
             date_filter = None
 
         self.crm_details(date_filter)
+
+    def del_lead_priority_table(self):
+        """Populate lead_tbl with contact full name and lead_score, ordered by lead_score descending."""
+        query = """
+            SELECT
+                CONCAT(c.first_name, ' ', c.last_name) AS name,
+                l.lead_score
+            FROM leads l
+            JOIN contact c ON l.contact_id = c.contact_id
+            ORDER BY l.lead_score DESC
+        """
+        results = self.db.fetch_all(query)
+
+        table = self.ui.lead_tbl
+        table.setRowCount(0)  # Clear previous rows
+
+        if not results:
+            return
+
+        # Set headers explicitly to 'Leads' and 'Lead Score'
+        headers = ["Leads", "Lead Score"]
+        table.setColumnCount(len(headers))
+        table.setHorizontalHeaderLabels(headers)
+
+        # Fill the table with the data
+        for row_idx, row in enumerate(results):
+            table.insertRow(row_idx)
+            table.setItem(row_idx, 0, QTableWidgetItem(str(row["name"]) if row["name"] is not None else ""))
+            table.setItem(row_idx, 1, QTableWidgetItem(str(row["lead_score"]) if row["lead_score"] is not None else ""))
+
+
