@@ -127,11 +127,13 @@ class LeadsLanding(QWidget):
         if order_by == "created_at":
             order_by = f"l.{order_by}"
 
+        # Updated query to include lead_score
         query = f"""
             SELECT
                 l.lead_id,
                 CONCAT_WS(' ', c.first_name, c.last_name) AS name,
-                COALESCE(comp.company_name, '') AS company_name
+                COALESCE(comp.company_name, '') AS company_name,
+                l.lead_score  -- Include lead_score in the query
             FROM leads l
             LEFT JOIN contact c ON l.contact_id = c.contact_id
             LEFT JOIN company comp ON c.company_id = comp.company_id
@@ -143,11 +145,13 @@ class LeadsLanding(QWidget):
             print("❌ Failed to fetch leads.")
             return
 
+        # Define headers to include 'Lead Score'
         headers = ["Lead ID (Hidden)", "Name", "Company Name", "Engagement Score", "Lead Score"]
         self.ui.leads_tbl.setColumnCount(len(headers))
         self.ui.leads_tbl.setHorizontalHeaderLabels(headers)
         self.ui.leads_tbl.setRowCount(len(leads))
 
+        # Populate the table with the data
         for row_idx, lead in enumerate(leads):
             lead_id_item = QTableWidgetItem(str(lead["lead_id"]))
             lead_id_item.setFlags(Qt.ItemIsEnabled)  # Disable editing for Lead ID
@@ -156,9 +160,8 @@ class LeadsLanding(QWidget):
             self.ui.leads_tbl.setCellWidget(row_idx, 1, self.create_name_cell(lead["name"], row_idx))
             self.ui.leads_tbl.setItem(row_idx, 2, QTableWidgetItem(lead["company_name"]))
 
-            # Engagement Score and Lead Score are placeholders (empty for now)
-            self.ui.leads_tbl.setItem(row_idx, 3, QTableWidgetItem(""))
-            self.ui.leads_tbl.setItem(row_idx, 4, QTableWidgetItem(""))
+            # Add Lead Score to the last column
+            self.ui.leads_tbl.setItem(row_idx, 4, QTableWidgetItem(str(lead["lead_score"])))
 
         self.ui.leads_tbl.setColumnHidden(0, True)  # Hide the Lead ID column
         print(f"✅ Leads loaded successfully! Sorted by {order_by} ({'ASC' if ascending else 'DESC'})")

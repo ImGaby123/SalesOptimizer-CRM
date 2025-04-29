@@ -57,10 +57,11 @@ class LeadsProfile(QWidget):
     def contact_info(self):
         query = """
             SELECT c.first_name, c.last_name, c.phone_number, c.job_title, c.email,
-                   comp.company_name, ls.source_name
+                   comp.company_name, ls.source_name, l.lead_score
             FROM contact c
             JOIN company comp ON c.company_id = comp.company_id
-            LEFT JOIN lead_source ls ON c.contact_id = ls.source_id
+            LEFT JOIN leads l ON c.contact_id = l.contact_id
+            LEFT JOIN lead_source ls ON l.source_id = ls.source_id
             WHERE c.contact_id = %s
         """
         contact_data = self.db_conn.fetch_one(query, (self.contact_id,))
@@ -71,7 +72,28 @@ class LeadsProfile(QWidget):
             self.ui.name_lbl_2.setText(name)
             self.ui.email_lbl.setText(contact_data['email'])
             self.ui.company_lbl.setText(contact_data['company_name'])
-            self.ui.lead_source_value_lbl.setText(contact_data['source_name'] if contact_data['source_name'] else "N/A")
+
+            # Lead Source
+            source = contact_data['source_name'] if contact_data['source_name'] else "N/A"
+            self.ui.lead_source_value_lbl.setText(source)
+
+            lead_score = contact_data['lead_score']
+
+            # Set score value label
+            self.ui.score_value_lbl.setText(str(lead_score) if lead_score is not None else "N/A")
+
+            # Set quality based on score
+            if lead_score is None:
+                self.ui.quality_value_lbl.setText("N/A")
+            elif lead_score <= 3:
+                self.ui.quality_value_lbl.setText("Low")
+            elif 4 <= lead_score <= 6:
+                self.ui.quality_value_lbl.setText("Medium")
+            elif 7 <= lead_score <= 10:
+                self.ui.quality_value_lbl.setText("High")
+            else:
+                self.ui.quality_value_lbl.setText("Unknown")
+
 
     # ------------------------
     # Opportunities Management

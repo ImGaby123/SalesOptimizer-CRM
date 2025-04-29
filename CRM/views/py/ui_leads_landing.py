@@ -125,41 +125,6 @@ class Ui_leads_landing(object):
 
         self.horizontalLayout_23.addWidget(self.sort_combo)
 
-        self.set_icp_btn = QPushButton(leads_landing)
-        self.set_icp_btn.setObjectName(u"set_icp_btn")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.set_icp_btn.sizePolicy().hasHeightForWidth())
-        self.set_icp_btn.setSizePolicy(sizePolicy1)
-        self.set_icp_btn.setMinimumSize(QSize(0, 0))
-        self.set_icp_btn.setMaximumSize(QSize(16777215, 16777215))
-        self.set_icp_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.set_icp_btn.setStyleSheet(u"QPushButton {\n"
-"    background-color: #262626;\n"
-"    border: 1px solid #737373;\n"
-"    color: white;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px;\n"
-"    font: 10pt \"Segoe UI\";\n"
-"    text-align: center;\n"
-"	padding-left: 20px;\n"
-"    padding-right: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(200, 200, 200);  /* Darker gray on hover */\n"
-"    color: rgb(0, 0, 0);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(180, 180, 180);  /* Darker gray on press */\n"
-"}\n"
-"")
-        self.set_icp_btn.setFlat(False)
-
-        self.horizontalLayout_23.addWidget(self.set_icp_btn)
-
         self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_23.addItem(self.horizontalSpacer_4)
@@ -293,7 +258,6 @@ class Ui_leads_landing(object):
         self.sort_combo.setItemText(2, QCoreApplication.translate("leads_landing", u"Alphabetical", None))
 
         self.sort_combo.setPlaceholderText(QCoreApplication.translate("leads_landing", u"All Leads", None))
-        self.set_icp_btn.setText(QCoreApplication.translate("leads_landing", u"Setup ICP", None))
         self.selecteditems_lbl.setText(QCoreApplication.translate("leads_landing", u"Selected n Item", None))
         self.search_line.setPlaceholderText(QCoreApplication.translate("leads_landing", u"Search Leads by name, email, or company", None))
 #if QT_CONFIG(tooltip)
