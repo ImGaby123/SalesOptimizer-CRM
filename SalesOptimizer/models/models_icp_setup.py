@@ -1,4 +1,8 @@
 from PySide6.QtWidgets import QWidget, QComboBox, QSizePolicy, QTableWidgetItem, QHeaderView, QMessageBox, QTableWidget, QAbstractItemView
+from PySide6.QtWidgets import (
+    QScrollArea, QWidget, QVBoxLayout, QHBoxLayout,
+    QLabel, QLineEdit, QComboBox, QPushButton, QSpacerItem
+)
 from PySide6.QtCore import Qt
 from views.py.ui_icp_setup import Ui_icp_setup
 from DB.db_connection import db_connection
@@ -23,15 +27,17 @@ class icpsetup(QWidget):
 
         self.original_weights = {}
 
-        # Set up the table and combo
+        # Page 1 setup
         self.setup_table()
         self.populate_combo()
 
-        # Connect signals and slots
         self.ui.add_combo.currentIndexChanged.connect(self.add_attribute_to_table)
         self.ui.assign_checkbox.stateChanged.connect(self.assign_equal_weights)
         self.ui.define_btn.clicked.connect(self.save_weights)
         self.ui.attribute_tbl.cellChanged.connect(self.validate_weights)
+
+        # Page 2 setup
+        self.setup_second_page()
 
     def find_main_layout(self):
         """Automatically find and return the main layout from the UI."""
@@ -180,4 +186,175 @@ class icpsetup(QWidget):
             self.ui.stackedWidget.setCurrentIndex(1)
         except mysql.connector.Error as err:
             QMessageBox.critical(self, "Database Error", f"Failed to update weights: {err}")
+
+        # =============================================================================================
+    # SECOND PAGE METHODS
+    # =============================================================================================
+    def setup_second_page(self):
+        self.active_attribute_id = None
+        self.dynamic_entries = []
+
+        # Default score choices (replace with DB call or config if dynamic)
+        self.score_choices = [str(i) for i in range(1, 11)]  # Example: 1–10
+
+        # Setup scrollable area
+        self.scroll_container = QWidget()
+        self.scroll_layout = QVBoxLayout(self.scroll_container)
+        self.ui.scroll_area.setWidget(self.scroll_container)
+        self.ui.scroll_area.setWidgetResizable(True)
+
+        self.populate_attribute_table()
+        self.ui.attribute_tbl_2.cellClicked.connect(self.on_attribute_selected)
+        self.ui.add_btn.clicked.connect(self.add_rule_input_row)
+        self.ui.save_btn.clicked.connect(self.save_rules)
+
+
+    def populate_attribute_table(self):
+        self.cursor.execute("SELECT attribute_id, attribute FROM icp")
+        rows = self.cursor.fetchall()
+
+        self.ui.attribute_tbl_2.setRowCount(len(rows))
+        self.ui.attribute_tbl_2.setColumnCount(2)
+        self.ui.attribute_tbl_2.setHorizontalHeaderLabels(["ID", "Attribute"])
+
+        for row_index, row_data in enumerate(rows):
+            attr_id_item = QTableWidgetItem(str(row_data["attribute_id"]))
+            attr_item = QTableWidgetItem(row_data["attribute"])
+            self.ui.attribute_tbl_2.setItem(row_index, 0, attr_id_item)
+            self.ui.attribute_tbl_2.setItem(row_index, 1, attr_item)
+
+        self.ui.attribute_tbl_2.setColumnHidden(0, True)  # Hide ID column
+
+
+    def on_attribute_selected(self, row, _):
+        self.clear_rule_inputs()
+
+        table = self.ui.attribute_tbl_2
+        self.active_attribute_id = int(table.item(row, 0).text())
+        attribute_name = table.item(row, 1).text()
+        self.ui.when_lbl.setText(f"When {attribute_name} Contains")
+
+        self.cursor.execute("""
+            SELECT attribute_value, attribute_score
+            FROM icp_rules
+            WHERE icp_attribute_id = %s
+        """, (self.active_attribute_id,))
+
+        for rule in self.cursor.fetchall():
+            self.add_rule_input_row(rule["attribute_value"], rule["attribute_score"])
+
+
+    def clear_rule_inputs(self):
+        for widget in self.dynamic_entries:
+            widget.setParent(None)
+        self.dynamic_entries.clear()
+
+
+    def add_rule_input_row(self, value_text="", score_value=None):
+            row = QWidget()
+            layout = QHBoxLayout(row)
+
+            value_input = QLineEdit()
+            value_input.setPlaceholderText("Enter value")
+            if value_text:
+                value_input.setText(str(value_text))  # Only set text if a value is provided
+
+            score_label = QLabel("Score:")
+
+            score_combo = QComboBox()
+            score_combo.addItems(self.score_choices)
+
+            if score_value is not None:
+                index = score_combo.findText(str(score_value))
+                score_combo.setCurrentIndex(index if index >= 0 else 0)
+
+            layout.addWidget(value_input)
+            layout.addWidget(score_label)
+            layout.addWidget(score_combo)
+
+            self.scroll_layout.addWidget(row)
+
+            # Add an expanding vertical spacer after each row
+            spacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+            self.scroll_layout.addItem(spacer)
+
+            self.dynamic_entries.append(row)
+            row.inputs = (value_input, score_combo)
+
+    def add_rule_input_row(self, value_text="", score_value=None):
+        row = QWidget()
+        layout = QHBoxLayout(row)
+
+        value_input = QLineEdit()
+        value_input.setPlaceholderText("Enter value")
+        if value_text:
+            value_input.setText(str(value_text))  # Only set text if a value is provided
+
+        score_label = QLabel("Score:")
+
+        score_combo = QComboBox()
+        score_combo.addItems(self.score_choices)
+
+        if score_value is not None:
+            index = score_combo.findText(str(score_value))
+            score_combo.setCurrentIndex(index if index >= 0 else 0)
+
+        layout.addWidget(value_input)
+        layout.addWidget(score_label)
+        layout.addWidget(score_combo)
+
+        # Insert the row at the top of the layout (index 0)
+        self.scroll_layout.insertWidget(0, row)
+
+        # Add an expanding vertical spacer after each row
+        spacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.scroll_layout.insertItem(1, spacer)
+
+        self.dynamic_entries.append(row)
+        row.inputs = (value_input, score_combo)
+
+
+    def save_rules(self):
+        if not self.active_attribute_id:
+            QMessageBox.warning(self, "No Attribute", "Please select an attribute.")
+            return
+
+        # First, clear previous rules for the selected attribute
+        self.cursor.execute("DELETE FROM icp_rules WHERE icp_attribute_id = %s", (self.active_attribute_id,))
+
+        inserts = []
+        for widget in self.dynamic_entries:
+            value_input, score_combo = widget.inputs
+            value = value_input.text().strip()
+            if not value:
+                continue
+            score = int(score_combo.currentText())
+
+            # Check if the combination of value and score already exists
+            self.cursor.execute("""
+                SELECT 1 FROM icp_rules
+                WHERE icp_attribute_id = %s AND attribute_value = %s AND attribute_score = %s
+            """, (self.active_attribute_id, value, score))
+
+            # If a duplicate entry exists, skip this one
+            if self.cursor.fetchone():
+                continue  # Skip inserting this duplicate entry
+
+            inserts.append((self.active_attribute_id, value, score))
+
+        if inserts:
+            try:
+                # Try to insert the rules into the database
+                self.cursor.executemany("""
+                    INSERT INTO icp_rules (icp_attribute_id, attribute_value, attribute_score)
+                    VALUES (%s, %s, %s)
+                """, inserts)
+                self.conn.commit()
+                QMessageBox.information(self, "Saved", "Rules saved successfully.")
+            except mysql.connector.errors.IntegrityError as e:
+                # Handle duplicate entry error if something unexpected happens
+                QMessageBox.critical(self, "Error", f"Duplicate entry detected: {str(e)}. Please ensure the values are unique.")
+            except mysql.connector.Error as err:
+                # Handle other database errors
+                QMessageBox.critical(self, "Database Error", f"An error occurred: {err}")
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>949</width>
-    <height>526</height>
+    <height>467</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,11 +19,11 @@
   <property name="windowTitle">
    <string>ICP Setup</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_5">
-   <item>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="step1_page">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -361,300 +361,11 @@ color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <layout class="QGridLayout" name="gridLayout_10">
-         <item row="1" column="0">
-          <widget class="QTableView" name="attributes_tblview_2"/>
-         </item>
-         <item row="1" column="3">
-          <spacer name="horizontalSpacer_5">
-           <property name="orientation">
-            <enum>Qt::Orientation::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="1" column="2">
-          <widget class="QStackedWidget" name="stackedWidget_3">
-           <property name="currentIndex">
-            <number>1</number>
-           </property>
-           <widget class="QWidget" name="city_page_2">
-            <layout class="QGridLayout" name="gridLayout_11">
-             <item row="0" column="4">
-              <widget class="QSpinBox" name="no1_spin_2"/>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLineEdit" name="city_line_2">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="city_combo_2">
-               <property name="editable">
-                <bool>true</bool>
-               </property>
-               <property name="currentText">
-                <string>Contains</string>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Contains</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Has Other Values</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="0" column="3">
-              <widget class="QLabel" name="score_city3_lbl_2">
-               <property name="text">
-                <string>Score=</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="when_city3_lbl_2">
-               <property name="text">
-                <string>When City</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="religion_page_2">
-            <layout class="QGridLayout" name="gridLayout_12">
-             <item row="0" column="2">
-              <widget class="QLineEdit" name="religion_line_2">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="4">
-              <widget class="QSpinBox" name="religion_spin_2"/>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="religion_combo_2">
-               <property name="editable">
-                <bool>true</bool>
-               </property>
-               <property name="currentText">
-                <string>Contains</string>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Contains</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Has Other Values</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="0" column="3">
-              <widget class="QLabel" name="score_religion3_lbl_2">
-               <property name="text">
-                <string>Score=</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="when_religion3_lbl_3">
-               <property name="text">
-                <string>When Country</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="country_page_2">
-            <layout class="QGridLayout" name="gridLayout_13">
-             <item row="0" column="0">
-              <widget class="QLabel" name="when_country3_lbl_2">
-               <property name="text">
-                <string>When Religion</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="3">
-              <widget class="QLabel" name="score_country3_lbl_2">
-               <property name="text">
-                <string>Score=</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="4">
-              <widget class="QSpinBox" name="country_spin_2"/>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="country_combo_2">
-               <property name="editable">
-                <bool>true</bool>
-               </property>
-               <property name="currentText">
-                <string>Contains</string>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Contains</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLineEdit" name="country_line_2">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="profession_page_2">
-            <layout class="QGridLayout" name="gridLayout_14">
-             <item row="0" column="4">
-              <widget class="QSpinBox" name="profession_spin_2"/>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="when_profession3_lbl_2">
-               <property name="text">
-                <string>When Profession</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="3">
-              <widget class="QLabel" name="score_profession3_lbl_2">
-               <property name="text">
-                <string>Score=</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLineEdit" name="profession_line_2">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="profession_combo_2">
-               <property name="editable">
-                <bool>true</bool>
-               </property>
-               <property name="currentText">
-                <string>Contains</string>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Contains</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Has Other Value</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="age_page_2">
-            <layout class="QGridLayout" name="gridLayout_15">
-             <item row="0" column="1">
-              <widget class="QPushButton" name="pushButton">
-               <property name="text">
-                <string>PushButton</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QPushButton" name="pushButton_2">
-               <property name="text">
-                <string>PushButton</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_2">
-               <property name="text">
-                <string>TextLabel</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="industry_page_2">
-            <layout class="QGridLayout" name="gridLayout_16">
-             <item row="0" column="3">
-              <widget class="QLabel" name="score_industry3_lbl_2">
-               <property name="text">
-                <string>Score=</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLineEdit" name="industry_line_2">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="when_religion3_lbl_4">
-               <property name="text">
-                <string>When Industry</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="4">
-              <widget class="QSpinBox" name="industry_spin_2"/>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="industry_combo_2">
-               <property name="editable">
-                <bool>true</bool>
-               </property>
-               <property name="currentText">
-                <string>Contains</string>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Contains</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Has Other Value</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="age_set_lbl_2">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Set Attribute Scores</string>
-           </property>
+         <item row="2" column="0">
+          <widget class="QTableWidget" name="attribute_tbl_2">
+           <attribute name="horizontalHeaderStretchLastSection">
+            <bool>true</bool>
+           </attribute>
           </widget>
          </item>
          <item row="0" column="0">
@@ -670,17 +381,66 @@ color: rgb(255, 255, 255);</string>
            </property>
           </widget>
          </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="age_set_lbl_2">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Set Attribute Scores</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QPushButton" name="add_btn">
+             <property name="text">
+              <string>Add Category</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="when_lbl">
+             <property name="text">
+              <string>When Attribute Contains: </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QScrollArea" name="scroll_area">
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="scrollAreaWidgetContents">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>444</width>
+                <height>114</height>
+               </rect>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_5"/>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </item>
         </layout>
        </item>
        <item>
-        <spacer name="verticalSpacer_2">
+        <spacer name="horizontalSpacer_3">
          <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>729</width>
-           <height>136</height>
+           <width>40</width>
+           <height>20</height>
           </size>
          </property>
         </spacer>
@@ -701,7 +461,7 @@ color: rgb(255, 255, 255);</string>
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="step2_save_btn_2">
+          <widget class="QPushButton" name="save_btn">
            <property name="text">
             <string>Save</string>
            </property>
