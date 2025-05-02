@@ -292,7 +292,7 @@ class Ui_icp_setup(object):
 
         self.retranslateUi(icp_setup)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(icp_setup)

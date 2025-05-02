@@ -6,7 +6,7 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt
 from views.py.ui_icp_setup import Ui_icp_setup
 from DB.db_connection import db_connection
-import mysql.connector
+from DB.db_functions import db_functions
 
 class icpsetup(QWidget):
     def __init__(self):
@@ -21,9 +21,8 @@ class icpsetup(QWidget):
         self.setWindowTitle("ICP Setup")
         self.resize(800, 600)
 
-        # Initialize DB connection
-        self.conn = db_connection().conn
-        self.cursor = self.conn.cursor(dictionary=True)
+        # Initialize DB connection and functions
+        self.db = db_functions(db_connection())
 
         self.original_weights = {}
 
@@ -61,8 +60,7 @@ class icpsetup(QWidget):
 
     def populate_combo(self):
         """Populate the combo box with attribute names from the database."""
-        self.cursor.execute("SELECT attribute FROM icp")
-        attributes = [row["attribute"] for row in self.cursor.fetchall()]
+        attributes = self.db.get_attributes()
         self.ui.add_combo.clear()  # Clear previous entries
         self.ui.add_combo.addItem("-- Select Attribute --")  # Default item
         self.ui.add_combo.addItems(attributes)  # Add attributes from DB
@@ -80,14 +78,12 @@ class icpsetup(QWidget):
             if table.item(row, 1).text() == attribute:
                 return  # Attribute already exists, so we do not add it again
 
-        # Fetch attribute data (attribute_id and weight) from DB
-        self.cursor.execute("SELECT attribute_id, weight FROM icp WHERE attribute = %s", (attribute,))
-        row = self.cursor.fetchone()
-        if not row:
+        attribute_data = self.db.get_attribute_data(attribute)
+        if not attribute_data:
             return  # If no row is returned, return early
 
-        attribute_id = row["attribute_id"]
-        weight = row["weight"]
+        attribute_id = attribute_data["attribute_id"]
+        weight = attribute_data["weight"]
 
         # Add the attribute to the table
         row_index = table.rowCount()
@@ -121,7 +117,6 @@ class icpsetup(QWidget):
             item.setFlags(Qt.ItemIsSelectable | Qt.ItemIsEnabled)
             table.setItem(row, 2, item)
 
-        # Set the edit triggers correctly using QAbstractItemView constants
         if state == Qt.Checked:
             table.setEditTriggers(QAbstractItemView.NoEditTriggers)
         else:
@@ -158,46 +153,35 @@ class icpsetup(QWidget):
             attr_id = int(table.item(row, 0).text())
             new_weight = float(table.item(row, 2).text())
 
-            # Check if the new weight is different from the original weight
             if attr_id not in self.original_weights or round(new_weight, 4) != round(self.original_weights[attr_id], 4):
                 updates.append((new_weight, attr_id))
             else:
-                # If weight matches the original, we check if it's still correct
                 self.cursor.execute("SELECT weight FROM icp WHERE attribute_id = %s", (attr_id,))
                 db_weight = self.cursor.fetchone()
                 if db_weight and round(new_weight, 4) != round(db_weight["weight"], 4):
                     is_weight_correct = False
 
-        # If no updates are made and weights are already correct, proceed to the next page
         if not updates and is_weight_correct:
             QMessageBox.information(self, "No Changes", "Weights are already correct. Moving to the next page.")
             self.ui.stackedWidget.setCurrentIndex(1)
             return
 
-        # If there are updates, proceed to update the database
         if not updates:
             QMessageBox.information(self, "No Changes", "No weight changes to save.")
             return
 
         try:
-            self.cursor.executemany("UPDATE icp SET weight = %s WHERE attribute_id = %s", updates)
-            self.conn.commit()
+            self.db.update_weight(updates)
             QMessageBox.information(self, "Success", "Weights saved successfully.")
             self.ui.stackedWidget.setCurrentIndex(1)
-        except mysql.connector.Error as err:
+        except Exception as err:
             QMessageBox.critical(self, "Database Error", f"Failed to update weights: {err}")
 
-        # =============================================================================================
-    # SECOND PAGE METHODS
-    # =============================================================================================
     def setup_second_page(self):
         self.active_attribute_id = None
         self.dynamic_entries = []
+        self.score_choices = [str(i) for i in range(1, 11)]
 
-        # Default score choices (replace with DB call or config if dynamic)
-        self.score_choices = [str(i) for i in range(1, 11)]  # Example: 1–10
-
-        # Setup scrollable area
         self.scroll_container = QWidget()
         self.scroll_layout = QVBoxLayout(self.scroll_container)
         self.ui.scroll_area.setWidget(self.scroll_container)
@@ -208,11 +192,8 @@ class icpsetup(QWidget):
         self.ui.add_btn.clicked.connect(self.add_rule_input_row)
         self.ui.save_btn.clicked.connect(self.save_rules)
 
-
     def populate_attribute_table(self):
-        self.cursor.execute("SELECT attribute_id, attribute FROM icp")
-        rows = self.cursor.fetchall()
-
+        rows = self.db.get_all_attributes()
         self.ui.attribute_tbl_2.setRowCount(len(rows))
         self.ui.attribute_tbl_2.setColumnCount(2)
         self.ui.attribute_tbl_2.setHorizontalHeaderLabels(["ID", "Attribute"])
@@ -223,8 +204,7 @@ class icpsetup(QWidget):
             self.ui.attribute_tbl_2.setItem(row_index, 0, attr_id_item)
             self.ui.attribute_tbl_2.setItem(row_index, 1, attr_item)
 
-        self.ui.attribute_tbl_2.setColumnHidden(0, True)  # Hide ID column
-
+        self.ui.attribute_tbl_2.setColumnHidden(0, True)
 
     def on_attribute_selected(self, row, _):
         self.clear_rule_inputs()
@@ -234,52 +214,14 @@ class icpsetup(QWidget):
         attribute_name = table.item(row, 1).text()
         self.ui.when_lbl.setText(f"When {attribute_name} Contains")
 
-        self.cursor.execute("""
-            SELECT attribute_value, attribute_score
-            FROM icp_rules
-            WHERE icp_attribute_id = %s
-        """, (self.active_attribute_id,))
-
-        for rule in self.cursor.fetchall():
+        rules = self.db.get_icp_rules(self.active_attribute_id)
+        for rule in rules:
             self.add_rule_input_row(rule["attribute_value"], rule["attribute_score"])
-
 
     def clear_rule_inputs(self):
         for widget in self.dynamic_entries:
             widget.setParent(None)
         self.dynamic_entries.clear()
-
-
-    def add_rule_input_row(self, value_text="", score_value=None):
-            row = QWidget()
-            layout = QHBoxLayout(row)
-
-            value_input = QLineEdit()
-            value_input.setPlaceholderText("Enter value")
-            if value_text:
-                value_input.setText(str(value_text))  # Only set text if a value is provided
-
-            score_label = QLabel("Score:")
-
-            score_combo = QComboBox()
-            score_combo.addItems(self.score_choices)
-
-            if score_value is not None:
-                index = score_combo.findText(str(score_value))
-                score_combo.setCurrentIndex(index if index >= 0 else 0)
-
-            layout.addWidget(value_input)
-            layout.addWidget(score_label)
-            layout.addWidget(score_combo)
-
-            self.scroll_layout.addWidget(row)
-
-            # Add an expanding vertical spacer after each row
-            spacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-            self.scroll_layout.addItem(spacer)
-
-            self.dynamic_entries.append(row)
-            row.inputs = (value_input, score_combo)
 
     def add_rule_input_row(self, value_text="", score_value=None):
         row = QWidget()
@@ -288,10 +230,9 @@ class icpsetup(QWidget):
         value_input = QLineEdit()
         value_input.setPlaceholderText("Enter value")
         if value_text:
-            value_input.setText(str(value_text))  # Only set text if a value is provided
+            value_input.setText(str(value_text))
 
         score_label = QLabel("Score:")
-
         score_combo = QComboBox()
         score_combo.addItems(self.score_choices)
 
@@ -303,14 +244,12 @@ class icpsetup(QWidget):
         layout.addWidget(score_label)
         layout.addWidget(score_combo)
 
-        # Insert the row at the top of the layout (index 0)
+        # Insert the row at the top of the layout
         self.scroll_layout.insertWidget(0, row)
-
-        # Add an expanding vertical spacer after each row
         spacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         self.scroll_layout.insertItem(1, spacer)
 
-        self.dynamic_entries.append(row)
+        self.dynamic_entries.insert(0, row)
         row.inputs = (value_input, score_combo)
 
 
@@ -319,8 +258,7 @@ class icpsetup(QWidget):
             QMessageBox.warning(self, "No Attribute", "Please select an attribute.")
             return
 
-        # First, clear previous rules for the selected attribute
-        self.cursor.execute("DELETE FROM icp_rules WHERE icp_attribute_id = %s", (self.active_attribute_id,))
+        self.db.delete_rules(self.active_attribute_id)
 
         inserts = []
         for widget in self.dynamic_entries:
@@ -330,31 +268,19 @@ class icpsetup(QWidget):
                 continue
             score = int(score_combo.currentText())
 
-            # Check if the combination of value and score already exists
-            self.cursor.execute("""
-                SELECT 1 FROM icp_rules
-                WHERE icp_attribute_id = %s AND attribute_value = %s AND attribute_score = %s
-            """, (self.active_attribute_id, value, score))
-
-            # If a duplicate entry exists, skip this one
-            if self.cursor.fetchone():
-                continue  # Skip inserting this duplicate entry
+            # Check if the rule already exists before adding it
+            existing_rule = self.db.get_rule_by_value(self.active_attribute_id, value, score)
+            if existing_rule:
+                continue
 
             inserts.append((self.active_attribute_id, value, score))
 
         if inserts:
             try:
-                # Try to insert the rules into the database
-                self.cursor.executemany("""
-                    INSERT INTO icp_rules (icp_attribute_id, attribute_value, attribute_score)
-                    VALUES (%s, %s, %s)
-                """, inserts)
-                self.conn.commit()
+                self.db.insert_rules(inserts)
                 QMessageBox.information(self, "Saved", "Rules saved successfully.")
-            except mysql.connector.errors.IntegrityError as e:
-                # Handle duplicate entry error if something unexpected happens
-                QMessageBox.critical(self, "Error", f"Duplicate entry detected: {str(e)}. Please ensure the values are unique.")
-            except mysql.connector.Error as err:
-                # Handle other database errors
+            except Exception as err:
                 QMessageBox.critical(self, "Database Error", f"An error occurred: {err}")
+        else:
+            QMessageBox.information(self, "No Changes", "No new rules to save.")
 
