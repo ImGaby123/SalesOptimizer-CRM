@@ -748,7 +748,7 @@ class Ui_leads_profile(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 356, 505))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 356, 486))
         self.scrollAreaWidgetContents.setStyleSheet(u"border: 2px solid #737373;\n"
 "background-color: #171717;\n"
 "border-radius: 10px;")
@@ -1036,15 +1036,6 @@ class Ui_leads_profile(object):
 
         self.verticalLayout_14.addWidget(self.leadscore_lbl)
 
-        self.engagement_lbl = QLabel(self.frame_3)
-        self.engagement_lbl.setObjectName(u"engagement_lbl")
-        self.engagement_lbl.setFont(font3)
-        self.engagement_lbl.setStyleSheet(u"background: transparent;\n"
-"color: #fff;\n"
-"border: none")
-
-        self.verticalLayout_14.addWidget(self.engagement_lbl)
-
         self.leadquality_lbl = QLabel(self.frame_3)
         self.leadquality_lbl.setObjectName(u"leadquality_lbl")
         self.leadquality_lbl.setFont(font3)
@@ -1094,15 +1085,6 @@ class Ui_leads_profile(object):
 "border: none")
 
         self.verticalLayout_15.addWidget(self.score_value_lbl)
-
-        self.engagement_value_lbl = QLabel(self.frame_3)
-        self.engagement_value_lbl.setObjectName(u"engagement_value_lbl")
-        self.engagement_value_lbl.setFont(font3)
-        self.engagement_value_lbl.setStyleSheet(u"background: transparent;\n"
-"color: #fff;\n"
-"border: none")
-
-        self.verticalLayout_15.addWidget(self.engagement_value_lbl)
 
         self.quality_value_lbl = QLabel(self.frame_3)
         self.quality_value_lbl.setObjectName(u"quality_value_lbl")
@@ -1434,13 +1416,11 @@ class Ui_leads_profile(object):
         self.emailadd_lbl.setText(QCoreApplication.translate("leads_profile", u"Email:", None))
         self.leadsource_lbl.setText(QCoreApplication.translate("leads_profile", u"Lead Source:", None))
         self.leadscore_lbl.setText(QCoreApplication.translate("leads_profile", u"Lead Score:", None))
-        self.engagement_lbl.setText(QCoreApplication.translate("leads_profile", u"Engagement:", None))
         self.leadquality_lbl.setText(QCoreApplication.translate("leads_profile", u"Lead Quality:", None))
         self.name_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
         self.email_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
         self.lead_source_value_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
         self.score_value_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
-        self.engagement_value_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
         self.quality_value_lbl.setText(QCoreApplication.translate("leads_profile", u"N/A", None))
         self.contactinfohead_lbl.setText(QCoreApplication.translate("leads_profile", u"Opportunities Information", None))
         self.edit_btn.setText(QCoreApplication.translate("leads_profile", u"Edit", None))

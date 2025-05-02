@@ -145,8 +145,8 @@ class LeadsLanding(QWidget):
             print("❌ Failed to fetch leads.")
             return
 
-        # Define headers to include 'Lead Score'
-        headers = ["Lead ID (Hidden)", "Name", "Company Name", "Engagement Score", "Lead Score"]
+        # Define headers to include only the desired columns
+        headers = ["Lead ID (Hidden)", "Name", "Company Name", "Lead Score"]
         self.ui.leads_tbl.setColumnCount(len(headers))
         self.ui.leads_tbl.setHorizontalHeaderLabels(headers)
         self.ui.leads_tbl.setRowCount(len(leads))
@@ -154,14 +154,14 @@ class LeadsLanding(QWidget):
         # Populate the table with the data
         for row_idx, lead in enumerate(leads):
             lead_id_item = QTableWidgetItem(str(lead["lead_id"]))
-            lead_id_item.setFlags(Qt.ItemIsEnabled)  # Disable editing for Lead ID
+            lead_id_item.setFlags(Qt.ItemIsEnabled)
             self.ui.leads_tbl.setItem(row_idx, 0, lead_id_item)
 
             self.ui.leads_tbl.setCellWidget(row_idx, 1, self.create_name_cell(lead["name"], row_idx))
             self.ui.leads_tbl.setItem(row_idx, 2, QTableWidgetItem(lead["company_name"]))
 
-            # Add Lead Score to the last column
-            self.ui.leads_tbl.setItem(row_idx, 4, QTableWidgetItem(str(lead["lead_score"])))
+            # Move Lead Score to column 3
+            self.ui.leads_tbl.setItem(row_idx, 3, QTableWidgetItem(str(lead["lead_score"])))
 
         self.ui.leads_tbl.setColumnHidden(0, True)  # Hide the Lead ID column
         print(f"✅ Leads loaded successfully! Sorted by {order_by} ({'ASC' if ascending else 'DESC'})")
@@ -306,7 +306,7 @@ class LeadsLanding(QWidget):
         widget.setLayout(layout)
         widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
-        table.setCellWidget(row, 4, widget)  # ✅ Last column (Company)
+        table.setCellWidget(row, 3, widget)  # Lead Score column
 
     def show_lead_menu(self, row, button):
         """Displays a menu with 'View', 'Edit', and 'Add to Leads' options for a lead."""
