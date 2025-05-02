@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'sidebar.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.0
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -60,7 +60,7 @@ class Ui_sidebar(object):
 
         self.line = QFrame(sidebar)
         self.line.setObjectName(u"line")
-        self.line.setFrameShadow(QFrame.Sunken)
+        self.line.setFrameShadow(QFrame.Shadow.Sunken)
         self.line.setLineWidth(10)
         self.line.setMidLineWidth(0)
         self.line.setFrameShape(QFrame.Shape.HLine)
@@ -218,7 +218,7 @@ class Ui_sidebar(object):
         self.DashboardTitle.setText(QCoreApplication.translate("sidebar", u"Dashboards", None))
         self.home_btn.setText(QCoreApplication.translate("sidebar", u"Market", None))
         self.item1_btn.setText(QCoreApplication.translate("sidebar", u"Sales", None))
-        self.item2_btn.setText(QCoreApplication.translate("sidebar", u"Settings", None))
+        self.item2_btn.setText(QCoreApplication.translate("sidebar", u"ICP Setup", None))
         self.logout_btn.setText(QCoreApplication.translate("sidebar", u"Logout", None))
     # retranslateUi
 

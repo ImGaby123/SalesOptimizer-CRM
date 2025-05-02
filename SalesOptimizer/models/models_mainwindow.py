@@ -9,7 +9,7 @@ from .models_sidebar import SidebarForm
 # Items Page
 from .models_market_dashboard import marketdashboard
 from .models_sales_dashboard import salesdashboard
-
+from .models_icp_setup import icpsetup
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -84,9 +84,14 @@ class MainWindow(QMainWindow):
     def load_form(self, form_name):
         form_dict = {
             "Home": marketdashboard,
-            "Item1": salesdashboard,
-            "Item2": None
+            "Item1": salesdashboard
         }
+
+        if form_name == "Item2":
+            self.icp_popup = icpsetup()
+            self.icp_popup.setAttribute(Qt.WA_DeleteOnClose)
+            self.icp_popup.show()
+            return
 
         if form_name not in form_dict or form_dict[form_name] is None:
             QMessageBox.warning(self, "Invalid Action", f"No form assigned for {form_name}.")
@@ -102,6 +107,7 @@ class MainWindow(QMainWindow):
         new_widget = form_class() if issubclass(form_class, QWidget) else MainForm(form_class)
         target_subwin.setWidget(new_widget)
         target_subwin.show()
+
 
 # ----------------------------------------------------------------------------------
 

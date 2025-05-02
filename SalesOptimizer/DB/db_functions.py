@@ -1,14 +1,7 @@
-
-
-
 class db_functions:
 
     def __init__(self):
         pass
-
-
-
-
 
     def insertIntoTableW(self, name, id):
         data = ""

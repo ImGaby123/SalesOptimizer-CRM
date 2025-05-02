@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'icp_setup.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.0
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,17 +15,17 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCheckBox, QComboBox,
-    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
-    QSpinBox, QStackedWidget, QTableView, QTableWidget,
-    QTableWidgetItem, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QGridLayout,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
+    QPushButton, QSizePolicy, QSpacerItem, QSpinBox,
+    QStackedWidget, QTableView, QTableWidget, QTableWidgetItem,
+    QVBoxLayout, QWidget)
 
 class Ui_icp_setup(object):
     def setupUi(self, icp_setup):
         if not icp_setup.objectName():
             icp_setup.setObjectName(u"icp_setup")
-        icp_setup.resize(768, 526)
+        icp_setup.resize(949, 526)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -88,59 +88,18 @@ class Ui_icp_setup(object):
         self.verticalLayout_2.addItem(self.horizontalSpacer_8)
 
         self.attribute_tbl = QTableWidget(self.step1_page)
-        if (self.attribute_tbl.columnCount() < 2):
-            self.attribute_tbl.setColumnCount(2)
-        __qtablewidgetitem = QTableWidgetItem()
-        self.attribute_tbl.setHorizontalHeaderItem(0, __qtablewidgetitem)
-        __qtablewidgetitem1 = QTableWidgetItem()
-        self.attribute_tbl.setHorizontalHeaderItem(1, __qtablewidgetitem1)
-        if (self.attribute_tbl.rowCount() < 6):
-            self.attribute_tbl.setRowCount(6)
-        __qtablewidgetitem2 = QTableWidgetItem()
-        self.attribute_tbl.setItem(0, 0, __qtablewidgetitem2)
-        __qtablewidgetitem3 = QTableWidgetItem()
-        self.attribute_tbl.setItem(0, 1, __qtablewidgetitem3)
-        __qtablewidgetitem4 = QTableWidgetItem()
-        self.attribute_tbl.setItem(1, 0, __qtablewidgetitem4)
-        __qtablewidgetitem5 = QTableWidgetItem()
-        self.attribute_tbl.setItem(1, 1, __qtablewidgetitem5)
-        __qtablewidgetitem6 = QTableWidgetItem()
-        self.attribute_tbl.setItem(2, 0, __qtablewidgetitem6)
-        __qtablewidgetitem7 = QTableWidgetItem()
-        self.attribute_tbl.setItem(2, 1, __qtablewidgetitem7)
-        __qtablewidgetitem8 = QTableWidgetItem()
-        self.attribute_tbl.setItem(3, 0, __qtablewidgetitem8)
-        __qtablewidgetitem9 = QTableWidgetItem()
-        self.attribute_tbl.setItem(3, 1, __qtablewidgetitem9)
-        __qtablewidgetitem10 = QTableWidgetItem()
-        self.attribute_tbl.setItem(4, 0, __qtablewidgetitem10)
-        __qtablewidgetitem11 = QTableWidgetItem()
-        self.attribute_tbl.setItem(4, 1, __qtablewidgetitem11)
-        __qtablewidgetitem12 = QTableWidgetItem()
-        self.attribute_tbl.setItem(5, 0, __qtablewidgetitem12)
-        __qtablewidgetitem13 = QTableWidgetItem()
-        self.attribute_tbl.setItem(5, 1, __qtablewidgetitem13)
         self.attribute_tbl.setObjectName(u"attribute_tbl")
-        self.attribute_tbl.setEnabled(True)
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.attribute_tbl.sizePolicy().hasHeightForWidth())
-        self.attribute_tbl.setSizePolicy(sizePolicy2)
-        self.attribute_tbl.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.attribute_tbl.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.attribute_tbl.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.attribute_tbl.setGridStyle(Qt.SolidLine)
-        self.attribute_tbl.setWordWrap(True)
-        self.attribute_tbl.setCornerButtonEnabled(True)
-        self.attribute_tbl.setRowCount(6)
-        self.attribute_tbl.setColumnCount(2)
 
         self.verticalLayout_2.addWidget(self.attribute_tbl)
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.add_combo = QComboBox(self.step1_page)
+        self.add_combo.addItem("")
+        self.add_combo.addItem("")
+        self.add_combo.addItem("")
+        self.add_combo.addItem("")
+        self.add_combo.addItem("")
         self.add_combo.setObjectName(u"add_combo")
         sizePolicy1.setHeightForWidth(self.add_combo.sizePolicy().hasHeightForWidth())
         self.add_combo.setSizePolicy(sizePolicy1)
@@ -160,11 +119,11 @@ class Ui_icp_setup(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.total_attributes_lbl = QLabel(self.step1_page)
         self.total_attributes_lbl.setObjectName(u"total_attributes_lbl")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.total_attributes_lbl.sizePolicy().hasHeightForWidth())
-        self.total_attributes_lbl.setSizePolicy(sizePolicy3)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.total_attributes_lbl.sizePolicy().hasHeightForWidth())
+        self.total_attributes_lbl.setSizePolicy(sizePolicy2)
 
         self.horizontalLayout_2.addWidget(self.total_attributes_lbl)
 
@@ -174,8 +133,8 @@ class Ui_icp_setup(object):
 
         self.total_lbl = QLabel(self.step1_page)
         self.total_lbl.setObjectName(u"total_lbl")
-        sizePolicy3.setHeightForWidth(self.total_lbl.sizePolicy().hasHeightForWidth())
-        self.total_lbl.setSizePolicy(sizePolicy3)
+        sizePolicy2.setHeightForWidth(self.total_lbl.sizePolicy().hasHeightForWidth())
+        self.total_lbl.setSizePolicy(sizePolicy2)
         font2 = QFont()
         font2.setBold(True)
         self.total_lbl.setFont(font2)
@@ -200,8 +159,8 @@ class Ui_icp_setup(object):
 
         self.define_btn = QPushButton(self.step1_page)
         self.define_btn.setObjectName(u"define_btn")
-        sizePolicy3.setHeightForWidth(self.define_btn.sizePolicy().hasHeightForWidth())
-        self.define_btn.setSizePolicy(sizePolicy3)
+        sizePolicy2.setHeightForWidth(self.define_btn.sizePolicy().hasHeightForWidth())
+        self.define_btn.setSizePolicy(sizePolicy2)
         self.define_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.define_btn.setStyleSheet(u"background-color: blue;\n"
 "color: rgb(255, 255, 255);")
@@ -499,7 +458,7 @@ class Ui_icp_setup(object):
 
         self.retranslateUi(icp_setup)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
         self.stackedWidget_3.setCurrentIndex(1)
 
 
@@ -512,41 +471,14 @@ class Ui_icp_setup(object):
         self.instruction2_lbl.setText(QCoreApplication.translate("icp_setup", u"attribute and also indicate if it is mandatory for an attribute to have a value to calculate a quality score of a lead.", None))
         self.step1_lbl.setText(QCoreApplication.translate("icp_setup", u"Create Lead Quality Criteria, Step 1 of 2...	", None))
         self.instruction1_lbl.setText(QCoreApplication.translate("icp_setup", u"Choose attributes of lead which can potentially  define the quality of lead. You may choose to provide different weightage of each", None))
-        ___qtablewidgetitem = self.attribute_tbl.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("icp_setup", u"Attribute", None));
-        ___qtablewidgetitem1 = self.attribute_tbl.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("icp_setup", u"Weightage(%)", None));
-
-        __sortingEnabled = self.attribute_tbl.isSortingEnabled()
-        self.attribute_tbl.setSortingEnabled(False)
-        ___qtablewidgetitem2 = self.attribute_tbl.item(0, 0)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("icp_setup", u"City", None));
-        ___qtablewidgetitem3 = self.attribute_tbl.item(0, 1)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("icp_setup", u"15", None));
-        ___qtablewidgetitem4 = self.attribute_tbl.item(1, 0)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("icp_setup", u"Region", None));
-        ___qtablewidgetitem5 = self.attribute_tbl.item(1, 1)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("icp_setup", u"15", None));
-        ___qtablewidgetitem6 = self.attribute_tbl.item(2, 0)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("icp_setup", u"Country", None));
-        ___qtablewidgetitem7 = self.attribute_tbl.item(2, 1)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("icp_setup", u"15", None));
-        ___qtablewidgetitem8 = self.attribute_tbl.item(3, 0)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("icp_setup", u"Profession", None));
-        ___qtablewidgetitem9 = self.attribute_tbl.item(3, 1)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("icp_setup", u"20", None));
-        ___qtablewidgetitem10 = self.attribute_tbl.item(4, 0)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("icp_setup", u"Age", None));
-        ___qtablewidgetitem11 = self.attribute_tbl.item(4, 1)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("icp_setup", u"15", None));
-        ___qtablewidgetitem12 = self.attribute_tbl.item(5, 0)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("icp_setup", u"Industry", None));
-        ___qtablewidgetitem13 = self.attribute_tbl.item(5, 1)
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("icp_setup", u"20", None));
-        self.attribute_tbl.setSortingEnabled(__sortingEnabled)
+        self.add_combo.setItemText(0, QCoreApplication.translate("icp_setup", u"Country", None))
+        self.add_combo.setItemText(1, QCoreApplication.translate("icp_setup", u"City", None))
+        self.add_combo.setItemText(2, QCoreApplication.translate("icp_setup", u"Job Title", None))
+        self.add_combo.setItemText(3, QCoreApplication.translate("icp_setup", u"Industry", None))
+        self.add_combo.setItemText(4, QCoreApplication.translate("icp_setup", u"Years in Industry", None))
 
         self.add_combo.setPlaceholderText(QCoreApplication.translate("icp_setup", u"-- Add Lead Attribute --", None))
-        self.total_attributes_lbl.setText(QCoreApplication.translate("icp_setup", u"6 Attributes", None))
+        self.total_attributes_lbl.setText(QCoreApplication.translate("icp_setup", u"5 Attributes", None))
         self.total_lbl.setText(QCoreApplication.translate("icp_setup", u"100", None))
         self.assign_checkbox.setText(QCoreApplication.translate("icp_setup", u"Assign weightage equally across the attributes", None))
         self.define_btn.setText(QCoreApplication.translate("icp_setup", u"Define Attribute Score>", None))

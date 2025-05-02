@@ -23,7 +23,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="step1_page">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -362,7 +362,7 @@ color: rgb(255, 255, 255);</string>
        <item>
         <layout class="QGridLayout" name="gridLayout_10">
          <item row="1" column="0">
-          <widget class="QTableView" name="attributes_tblview_2"/>
+          <widget class="QTableView" name="attributes_tbl_2"/>
          </item>
          <item row="1" column="3">
           <spacer name="horizontalSpacer_5">

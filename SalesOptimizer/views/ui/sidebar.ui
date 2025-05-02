@@ -58,7 +58,7 @@ QPushButton:hover {
      <item>
       <widget class="Line" name="line">
        <property name="frameShadow">
-        <enum>QFrame::Sunken</enum>
+        <enum>QFrame::Shadow::Sunken</enum>
        </property>
        <property name="lineWidth">
         <number>10</number>
@@ -67,7 +67,7 @@ QPushButton:hover {
         <number>0</number>
        </property>
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -163,7 +163,7 @@ QPushButton:pressed {
         <number>10</number>
        </property>
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -197,7 +197,7 @@ QPushButton:pressed {
 </string>
        </property>
        <property name="text">
-        <string>Settings</string>
+        <string>ICP Setup</string>
        </property>
       </widget>
      </item>
@@ -206,7 +206,7 @@ QPushButton:pressed {
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
