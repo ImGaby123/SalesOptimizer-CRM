@@ -1,0 +1,21 @@
+{
+    "files": [
+        "DB/__init__.py",
+        "DB/db_connection.py",
+        "DB/db_functions.py",
+        "main.py",
+        "models/LeadScoring.py",
+        "models/mathplots.py",
+        "models/models_icp_setup.py",
+        "models/models_mainwindow.py",
+        "models/models_market_dashboard.py",
+        "models/models_sales_dashboard.py",
+        "models/models_sidebar.py",
+        "views/py/ui_icp_setup.py",
+        "views/ui/engagement_scoring.ui",
+        "views/ui/icp_setup.ui",
+        "views/ui/market_dashboard.ui",
+        "views/ui/sales_dashboard.ui",
+        "views/ui/sidebar.ui"
+    ]
+}

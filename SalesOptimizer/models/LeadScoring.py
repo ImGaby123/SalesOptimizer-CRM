@@ -1,5 +1,71 @@
 from Data.ICP_Data import ICP_Data
 
+
+
+
+
+
+"""
+# This File contains a Lead Scoring algorithm based on the Weighted Sum Model.
+
+
+# Weighted Sum Model:
+# The sum of each value of Xn multiplied by its corresponding weight Wn.
+
+#      m
+# LS = E  (Xn * Wn)
+#      n=1
+
+# Where:
+# LS = Lead Score
+# E = Summation Symbol
+# Xn = Lead Feature/Attribute
+# Wn = Weight Assigned
+# n  = n-th value
+# m  = total number of attribute considered
+
+
+# Special Conditions for Wn:
+# The sum of all weights assigned to each lead attribute must be equal to 1
+
+#  m
+#  E (Wn) = 1
+#  n=1
+
+"""
+
+
+"""
+How To use the Methods
+
+# 1. Create an Object for the Class
+Dog = LeadScoring()
+
+# 2. Assign Lead Instance to a variable
+Lead_Instance = {1:'QC', 2: 'IT', 3: 'TECH', 4: 25}
+
+# 3. Convert Each Attribute to its corresponding score
+Converted_AttributeValue = Dog.lead_Score_Assignment(Lead_Instance)
+
+# 4. Compute the Converted Value into a lead score
+Lead_Score = Dog.lead_Score_Computation(Converted_AttributeValue)
+
+
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class LeadScoring:
     def __init__(self):
 
