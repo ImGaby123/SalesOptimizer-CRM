@@ -7,6 +7,8 @@ from PySide6.QtCore import Qt
 from views.py.ui_icp_setup import Ui_icp_setup
 from DB.db_connection import db_connection
 from DB.db_functions import db_functions
+from models.LoadLeadScore import LoadLeadScore
+
 
 class icpsetup(QWidget):
     def __init__(self):
@@ -20,6 +22,8 @@ class icpsetup(QWidget):
         self.setWindowFlag(Qt.Window)
         self.setWindowTitle("ICP Setup")
         self.resize(800, 600)
+
+        self.ruleChange = False
 
         # Initialize DB connection and functions
         self.db = db_functions(db_connection())
@@ -111,15 +115,20 @@ class icpsetup(QWidget):
         if row_count == 0:
             return
 
+        
+
         equal_weight = round(1.0 / row_count, 4)
         for row in range(row_count):
             item = QTableWidgetItem(f"{equal_weight:.4f}")
             item.setFlags(Qt.ItemIsSelectable | Qt.ItemIsEnabled)
             table.setItem(row, 2, item)
-
-        if state == Qt.Checked:
+        
+        print("State: ",state)
+        if state == 2:
+            print("Checked")
             table.setEditTriggers(QAbstractItemView.NoEditTriggers)
         else:
+            print("Not Checked")
             table.setEditTriggers(QAbstractItemView.DoubleClicked | QAbstractItemView.EditKeyPressed)
 
         self.validate_weights()
@@ -145,6 +154,14 @@ class icpsetup(QWidget):
         self.ui.define_btn.setEnabled(define_enabled)
 
     def save_weights(self):
+
+        #dog = db_functions()
+
+        # Reset Data First
+        print("RESETTING DATA")
+        self.db.update_clear_weight()
+
+        
         table = self.ui.attribute_tbl
         updates = []
         is_weight_correct = True
@@ -156,10 +173,15 @@ class icpsetup(QWidget):
             if attr_id not in self.original_weights or round(new_weight, 4) != round(self.original_weights[attr_id], 4):
                 updates.append((new_weight, attr_id))
             else:
-                self.cursor.execute("SELECT weight FROM icp WHERE attribute_id = %s", (attr_id,))
-                db_weight = self.cursor.fetchone()
-                if db_weight and round(new_weight, 4) != round(db_weight["weight"], 4):
-                    is_weight_correct = False
+                try: 
+                    self.cursor.execute("SELECT weight FROM icp WHERE attribute_id = %s", (attr_id,))
+                    db_weight = self.cursor.fetchone()
+                    if db_weight and round(new_weight, 4) != round(db_weight["weight"], 4):
+                        is_weight_correct = False
+
+                    
+                except Exception as err:
+                    QMessageBox.critical(self, "Database Dog Error", f"This is the Dog Bug, please ignore: {err}")
 
         if not updates and is_weight_correct:
             QMessageBox.information(self, "No Changes", "Weights are already correct. Moving to the next page.")
@@ -173,9 +195,10 @@ class icpsetup(QWidget):
         try:
             self.db.update_weight(updates)
             QMessageBox.information(self, "Success", "Weights saved successfully.")
+            self.ruleChange = True
             self.ui.stackedWidget.setCurrentIndex(1)
         except Exception as err:
-            QMessageBox.critical(self, "Database Error", f"Failed to update weights: {err}")
+            QMessageBox.critical(self, "Database Cat Error", f"Failed to update weights: {err}")
 
     def setup_second_page(self):
         self.active_attribute_id = None
@@ -278,9 +301,34 @@ class icpsetup(QWidget):
         if inserts:
             try:
                 self.db.insert_rules(inserts)
-                QMessageBox.information(self, "Saved", "Rules saved successfully.")
+
+                #QMessageBox.information(self, "Update?", "Pressing OK will load the lead scores.")
+
+                # Show the progress bar window
+                QMessageBox.information(self, "Success", "Rules Successfully Saved to Database")
+                
+                self.ruleChange = True
+                # If successful run a progress bar that will load all Lead Scores according to latest Setup.
+                #self.close()
             except Exception as err:
                 QMessageBox.critical(self, "Database Error", f"An error occurred: {err}")
         else:
             QMessageBox.information(self, "No Changes", "No new rules to save.")
 
+
+        
+    def closeEvent(self, event):
+        
+        if self.ruleChange:
+            response = QMessageBox.information(
+                self,
+                "ICP Rule Change Detected",
+                "System detected a Change in ICP rules\nClosing this form will reload Lead Score Data"
+            )
+
+            if response == QMessageBox.Ok:
+                self.lead_loader = LoadLeadScore()
+                self.lead_loader.show()
+
+
+        super().closeEvent(event)  # call the base class method

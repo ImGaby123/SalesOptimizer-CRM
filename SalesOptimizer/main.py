@@ -10,11 +10,6 @@ app = QApplication(sys.argv)
 qss_file = "views/qss/style.qss"
 
 
-#self.main_window = MainWindow()
-#self.main_window.show()
-#self.accept()
-
-
 if not os.path.exists(qss_file):
     error_msg = f"QSS file '{qss_file}' not found. The application will run without styles."
     QMessageBox.warning(None, "Missing Stylesheet", error_msg)  # Visible alert for the user

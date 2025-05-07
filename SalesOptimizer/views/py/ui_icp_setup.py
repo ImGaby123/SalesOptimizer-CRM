@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'icp_setup.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+## Created by: Qt User Interface Compiler version 6.9.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -161,8 +161,31 @@ class Ui_icp_setup(object):
         sizePolicy2.setHeightForWidth(self.define_btn.sizePolicy().hasHeightForWidth())
         self.define_btn.setSizePolicy(sizePolicy2)
         self.define_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.define_btn.setStyleSheet(u"background-color: blue;\n"
-"color: rgb(255, 255, 255);")
+        self.define_btn.setStyleSheet(u"QPushButton {\n"
+"        background-color: #007BFF;\n"
+"        color: white;\n"
+"        border-radius: 8px;\n"
+"        padding: 8px 16px;\n"
+"        font-size: 14px;\n"
+"    }\n"
+"\n"
+"    QPushButton:enabled {\n"
+"        background-color: #007BFF;\n"
+"        color: white;\n"
+"    }\n"
+"\n"
+"    QPushButton:hover:enabled {\n"
+"        background-color: #005FCC;\n"
+"    }\n"
+"\n"
+"    QPushButton:pressed:enabled {\n"
+"        background-color: #004B99;\n"
+"    }\n"
+"\n"
+"    QPushButton:disabled {\n"
+"        background-color: #cccccc;\n"
+"        color: #666666;\n"
+"    }")
 
         self.horizontalLayout.addWidget(self.define_btn)
 
@@ -254,7 +277,7 @@ class Ui_icp_setup(object):
         self.scroll_area.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 444, 114))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 448, 170))
         self.horizontalLayout_5 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.scroll_area.setWidget(self.scrollAreaWidgetContents)
@@ -311,8 +334,8 @@ class Ui_icp_setup(object):
         self.add_combo.setItemText(4, QCoreApplication.translate("icp_setup", u"Years in Industry", None))
 
         self.add_combo.setPlaceholderText(QCoreApplication.translate("icp_setup", u"-- Add Lead Attribute --", None))
-        self.total_attributes_lbl.setText(QCoreApplication.translate("icp_setup", u"5 Attributes", None))
-        self.total_lbl.setText(QCoreApplication.translate("icp_setup", u"100", None))
+        self.total_attributes_lbl.setText("")
+        self.total_lbl.setText(QCoreApplication.translate("icp_setup", u"Total Weights must be equal to 1.00", None))
         self.assign_checkbox.setText(QCoreApplication.translate("icp_setup", u"Assign weightage equally across the attributes", None))
         self.define_btn.setText(QCoreApplication.translate("icp_setup", u"Define Attribute Score>", None))
         self.define_lbl_2.setText(QCoreApplication.translate("icp_setup", u"Define Lead Attribute Rules", None))

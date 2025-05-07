@@ -83,24 +83,29 @@ class LeadScoring:
         attributes = dog.get_attributes()
 
         self.ICP_Attributes = attributes
+        
 
         # Rule Assignment
         for i in rules:
             if i[0] not in self.ICP_Rules:
                 self.ICP_Rules[i[0]] = {}
-            self.ICP_Rules[i[0]][i[1]] = i[2]
+            self.ICP_Rules[i[0]][i[1].upper()] = i[2]
 
         # Weights Assignment
         for i in attributes:
             if i[0] not in self.ICP_Weights:
                 self.ICP_Weights[i[0]] = {}
             self.ICP_Weights[i[0]] = float(i[2])
+
+        print("Attributes: ", self.ICP_Attributes)
+        print("Weights: ", self.ICP_Weights)
+        print("Rules: ", self.ICP_Rules)
     
     def lead_Score_Assignment(self, value = {}):
         #print("Lead Scoring Called")
 
         # Method's Input must be in Dict form. e.g
-        # value = {1: 'QC', 2: 'IT', 3:'TECH', 4: 20}
+        # value = {1:Country, 2: City, 3: JobTitle, 4:Industry , 5:yrsInIndustry}
         Lead_Instance = value
 
         # Compare Values

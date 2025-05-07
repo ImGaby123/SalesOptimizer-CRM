@@ -29,7 +29,7 @@ class salesdashboard(QWidget, Ui_Form):
         
 
         dog = Lead_Data()
-        self.saleWonRevenue = dog.getSaleCost()
+        self.saleWonRevenue = dog.getSalesWonCost()
         print(self.saleWonRevenue)
         self.SG_pushButton.clicked.connect(self.loadFigureSalesWon)
         self.SG_pushButton_2.clicked.connect(self.loadFigureSalesLoss)
@@ -37,25 +37,31 @@ class salesdashboard(QWidget, Ui_Form):
 
     def loadFigureSalesWon(self):
         QApplication.setOverrideCursor(Qt.WaitCursor)
+        dog = Lead_Data()
+        self.saleWonRevenue = dog.getSalesWonCost()
 
         data = self.saleWonRevenue
         date = [d[0].strftime('%Y-%m-%d') for d in data]
         cost = [float(d[1]) for d in data]
-
+        
         print(data)
         print("DATE: ", date)
-        print("COST: ", cost)
+        print("COST WON: ", cost)
+        
         # 1. Example: Replace this with your actual data
         df = pd.DataFrame({'ds': date, 'y': cost})
-
+        
+        # Convert to datetime
+        df['ds'] = pd.to_datetime(df['ds'])
 
         # 2. Create and fit the Prophet model
-        model = Prophet(interval_width=0.95).fit(df)
+        model = Prophet(interval_width=0.95)
+        model.fit(df)
 
         # 3. Forecast future data
         future = model.make_future_dataframe(periods=3, freq='M')
         forecast = model.predict(future)
-
+        
         # 4. Create figure and plot manually
         fig = Figure(figsize=(6, 4))
         ax = fig.add_subplot()
@@ -69,31 +75,37 @@ class salesdashboard(QWidget, Ui_Form):
 
         # 7. Set labels and title
         ax.set_xlabel('Date')
-        ax.set_ylabel('Sales Revenue ₱')
+        ax.set_ylabel('₱ Sales Revenue Won ')
         ax.set_title('Sales Won Forecast')
         ax.grid(True)
 
-        # 8. Clear old widgets
+        # 8. Add a vertical line for the current date
+        current_date = datetime.datetime.today()  # Ensure it's a datetime object
+        ax.axvline(x=current_date, color='red', linestyle='--', label='Current Date')
+
+
+        # 9. Clear old widgets
         for i in reversed(range(self.SalesWonForecast_gridLayout.count())):
             widget = self.SalesWonForecast_gridLayout.itemAt(i).widget()
             if widget is not None:
                 widget.deleteLater()
 
-        # 9. Create and add canvas
+        # 10. Create and add canvas
         canvas = FigureCanvas(fig)
         self.SalesWonForecast_gridLayout.addWidget(canvas)
         canvas.draw()
 
-        # 10. Create and add toolbar
+        # 11. Create and add toolbar
         toolbar = NavigationToolbar(canvas, self)
         self.SalesWonForecast_gridLayout.addWidget(toolbar)
 
-        # 11. Custom legend
+        # 12. Custom legend (including the current date line)
         custom_lines = [
             Line2D([0], [0], color='blue', lw=2),
-            Line2D([0], [0], color='lightcoral', lw=10)
+            Line2D([0], [0], color='lightcoral', lw=10),
+            Line2D([0], [0], color='red', linestyle='--', lw=2)  # For the current date line
         ]
-        fig.legend(custom_lines, ['Predicted Sales (Y-hat)', 'Uncertainty Interval'], loc='upper left')
+        fig.legend(custom_lines, ['Predicted Sales (Y-hat)', 'Uncertainty Interval', 'Current Date'], loc='upper left')
         fig.tight_layout()
 
         # Restore the normal cursor
@@ -101,9 +113,22 @@ class salesdashboard(QWidget, Ui_Form):
 
     def loadFigureSalesLoss(self):
             QApplication.setOverrideCursor(Qt.WaitCursor)
-            # 1. Example: Replace this with your actual data
-            df = pd.DataFrame({'ds': ['2025-01-01', '2025-02-01', '2025-03-01'], 'y': [1000, 1200, 1300]})
+            dog = Lead_Data()
+            self.saleLossRevenue = dog.getSalesLossCost()
+
+            data = self.saleLossRevenue
+            date = [d[0].strftime('%Y-%m-%d') for d in data]
+            cost = [float(d[1]) for d in data]
             
+            print(data)
+            print("DATE: ", date)
+            print("COST LOSS: ", cost)
+
+
+            # 1. Example: Replace this with your actual data
+            df = pd.DataFrame({'ds': date, 'y': cost})
+            
+
             # Convert to datetime
             df['ds'] = pd.to_datetime(df['ds'])
 
@@ -128,9 +153,12 @@ class salesdashboard(QWidget, Ui_Form):
 
             # 7. Set labels and title
             ax.set_xlabel('Date')
-            ax.set_ylabel('Sales Revenue ₱')
+            ax.set_ylabel('₱ Sales Revenue Loss ')
             ax.set_title('Sales Loss Forecast')
             ax.grid(True)
+
+            current_date = datetime.datetime.today()  # Ensure it's a datetime object
+            ax.axvline(x=current_date, color='red', linestyle='--', label='Current Date')
 
             # 8. Clear old widgets
             for i in reversed(range(self.SalesLossForecast_gridLayout.count())):
@@ -150,10 +178,13 @@ class salesdashboard(QWidget, Ui_Form):
             # 11. Custom legend
             custom_lines = [
                 Line2D([0], [0], color='blue', lw=2),
-                Line2D([0], [0], color='lightcoral', lw=10)
+                Line2D([0], [0], color='lightcoral', lw=10),
+                Line2D([0], [0], color='red', linestyle='--', lw=2)
             ]
-            fig.legend(custom_lines, ['Predicted Sales (Y-hat)', 'Uncertainty Interval'], loc='upper left')
+            fig.legend(custom_lines, ['Predicted Sales (Y-hat)', 'Uncertainty Interval', 'Current Date'], loc='upper left')
             fig.tight_layout()
 
             # Restore the normal cursor
             QApplication.restoreOverrideCursor()
+
+    

@@ -5,7 +5,7 @@ class db_connection:
         self.conn = mysql.connector.connect(
             host="127.0.0.1", 
             user="root", 
-            password="",
+            password="BORRIS",
             database="crm", 
             port=3306
             )

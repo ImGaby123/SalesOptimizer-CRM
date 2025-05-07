@@ -9,6 +9,7 @@ class SidebarForm(QWidget):
         super().__init__()
         self.ui = Ui_sidebar()
         self.ui.setupUi(self)
+        self.ui.home_btn.hide()
 
         # Sizing and Layout
         self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
