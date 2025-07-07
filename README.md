@@ -16,7 +16,7 @@ This project was collaboratively developed by a team of university classmates as
 - **Frameworks/Libraries:** PySide6, PyQt, Matplotlib  
 - **Architecture:** MV (Model–View)  
 - **Database:** MySQL  
-- **Tools:** PowerPoint, Visual Studio, Qt Creator
+- **Tools:** Visual Studio, Qt Creator
 
 ---
 
